@@ -1,0 +1,6 @@
+<h1>Editando <%= @bemvindo.Name %> <%= @bemvindo.lastname %></h1>
+
+<%= render 'form', bemvindo: @bemvindo %>
+
+<%= link_to 'Mostrar', @bemvindo %> |
+<%= link_to 'Voltar', bemvindos_path %>

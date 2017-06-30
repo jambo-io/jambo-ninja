@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bem Vindos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Sobrenome</th>
+      <th>E-mail</th>
+      <th>Comentários</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bemvindos.each do |bemvindo| %>
+      <tr>
+        <td><%= bemvindo.Name %></td>
+        <td><%= bemvindo.lastname %></td>
+        <td><%= bemvindo.email %></td>
+        <td><%= bemvindo.comentarios %></td>
+        <td><%= link_to 'Show', bemvindo %></td>
+        <td><%= link_to 'Edit', edit_bemvindo_path(bemvindo) %></td>
+        <td><%= link_to 'Destroy', bemvindo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Bemvindo', new_bemvindo_path %>
