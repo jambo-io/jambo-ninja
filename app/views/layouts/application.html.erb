@@ -4,13 +4,37 @@
     <title>Jovensamigos</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= render "layouts/header" %>
-	<%=yield %>
-	<%= render "layouts/footer" %>
+
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+           <div id="header" class="col-xs-6">
+              <%= render "layouts/header" %>
+           </div>
+      </div>
+    </div>
+  
+     <div class="container">
+        
+        <div class="page-header">
+              <p class="lead">
+                <%=yield %>
+              </p>
+          </div>
+      </div>
+  
+      <footer class="footer">
+        <div class="container">
+          <p class="footer-block"><%= render "layouts/footer" %></p>
+        </div>
+     </footer>
+    
+   
+
   </body>
 </html>

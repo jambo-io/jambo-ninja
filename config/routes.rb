@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/page/:page" => "pages#show"
   get ':permalink', :controller => 'pages', :action => 'about', :as => 'my_about'
   get ':permalink', :controller => 'pages', :action => 'themes', :as => 'my_themes'
+  get '/bemvindos' => "bemvindos#index"
   get "/form" => "pages#form"
   root "pages#index", page: "index", :as => 'root'
 
