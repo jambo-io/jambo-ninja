@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Lista de amigos</h1>
-<h3>Amigos que serão convidados para a próxima Conferência de Juventude em Campo Grande - MS</h3>
+<p>Amigos que serão convidados para a próxima Conferência de Juventude em Campo Grande - MS</p>
 
 <table>
   <thead>
@@ -21,9 +21,9 @@
         <td><%= bemvindo.lastname %></td>
         <td><%= bemvindo.email %></td>
         <td><%= bemvindo.comentarios %></td>
-        <td><%= link_to 'Show', bemvindo %></td>
-        <td><%= link_to 'Edit', edit_bemvindo_path(bemvindo) %></td>
-        <td><%= link_to 'Destroy', bemvindo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', bemvindo %></td>
+        <td><%= link_to 'Editar', edit_bemvindo_path(bemvindo) %></td>
+        <td><%= link_to 'Deletar', bemvindo, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>

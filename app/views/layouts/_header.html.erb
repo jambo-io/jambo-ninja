@@ -1,6 +1,4 @@
-
-
-      
+    
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -8,15 +6,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Jovens Amigos</a>
+          <%= link_to 'Jovens Amigos', root_path, class: "navbar-brand" %>
+          
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><%= link_to 'Principal', root_path %></li>
-			<li><%= link_to 'Inscrição', new_bemvindo_path %></li>
-			<li><%= link_to 'Temas', my_themes_path('themes') %></li>
-			<li><%= link_to 'Sobre', my_about_path('about') %></li>
+            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Principal', root_path %></li>
+			<li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', new_bemvindo_path %></li>
+			<li class="<%= 'active' if current_page?(my_themes_path('themes')) %>"><%= link_to 'Temas', my_themes_path('themes') %></li>
+			<li class="<%= 'active' if current_page?(my_about_path('about')) %>"><%= link_to 'Sobre', my_about_path('about') %></li>
 
              <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

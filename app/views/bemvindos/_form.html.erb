@@ -1,4 +1,4 @@
-<form class="form-horizontal center" role="form">
+<form class="form-horizontal pagination-centered" role="form">
 <%= form_for(bemvindo) do |f| %>
   <% if bemvindo.errors.any? %>
     <div id="error_explanation">
@@ -12,28 +12,40 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= f.label :Name, class:"control-label" %>
-    <%= f.text_field :Name, class:"form-control" %>
+  <div class="row">
+    <div class="col-lg-offset-3 col-lg-3">
+        <%= f.label "Nome", class:"control-label" %>
+        <%= f.text_field :Name, class:"form-control" %>
+    </div>
+    <div class="col-lg-2">
+     
+        <%= f.label "Sobrenome", class:"control-label" %>
+        <%= f.text_field :lastname, class:"form-control" %>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-lg-offset-3 col-lg-5">
+   
+        <%= f.label "E-mail", class:"control-label" %>
+        <%= f.text_field :email, class:"form-control" %>
 
-  <div class="field form-group">
-    <%= f.label :lastname, class:"control-label" %>
-    <%= f.text_field :lastname, class:"form-control" %>
+    </div>
   </div>
-
-  <div class="field form-group">
-    <%= f.label :email, class:"control-label" %>
-    <%= f.text_field :email, class:"form-control" %>
+  <div class="row">
+    <div class="col-lg-offset-3 col-lg-5">
+     
+        <%= f.label "Comentários", class:"control-label" %>
+        <%= f.text_area :comentarios, class:"form-control" %>
+   
+    </div>
   </div>
-
-  <div class="field form-group">
-    <%= f.label :comentarios, class:"control-label" %>
-    <%= f.text_area :comentarios, class:"form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Enviar", class: "btn btn-default btn-primary" %>
+</br>
+  <div class="row">
+    <div class="col-xs-offset-3 col-lg-4 text-center">
+      <div class="actions">
+        <%= f.submit "Enviar", class: "btn btn-default btn-primary" %>
+      </div>
+    </div>
   </div>
 <% end %>
 </form>
