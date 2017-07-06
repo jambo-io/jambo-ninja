@@ -11,28 +11,18 @@
   <body>
 
 
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-           <div id="header" class="col-xs-12">
-              <%= render "layouts/header" %>
-           </div>
-      </div>
-    </div>
+          
+     <%= render "layouts/header" %>
+          
+ 
   
      <div class="container">
-        
-        <div class="page-header">
-              <p class="lead">
-                <%=yield %>
-              </p>
-          </div>
+          <p class="lead">
+            <%=yield %>
+          </p>
       </div>
   
-      <footer class="footer">
-        <div class="container">
-          <p class="footer-block"><%= render "layouts/footer" %></p>
-        </div>
-     </footer>
+    
     
    
 

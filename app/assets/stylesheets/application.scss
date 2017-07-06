@@ -2,6 +2,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 $height-footer: 60px;
 $dark: #000;
 html {
@@ -9,14 +10,11 @@ html {
 	position: relative;
 
 	body {
-		
-		
-		padding: 100px 0 0 0;
+		width: 100%;
+		padding: 0px;
 		background: #ffffff;
-		background-repeat: repeat-x;
 		height:100%;
-		margin-bottom: $height-footer;
-
+		
 	}
 
 
@@ -30,41 +28,10 @@ html {
 			margin: 20px 0;
 		}
 	}
-	nav {
-		position:relative;
-		display: block;
-		float:right;
-		padding: 5px;
-	}
-
 	.container {
-
-		top:500px;
-	}
-	.dropdown-menu {
-		position:absolute;
-		
-		padding:10px;
-		right:10px;
-	}
-	.login {
-		background: fade-out($dark,0.25);
+		margin-top:100px;
 	}
 
-	@media screen and (min-width: 601px) {
-		.login {
-			width: 250px;
-		}
-	}
-	@media screen and (max-width: 600px) {
-		.login {
-			position: absolute;
-			left: 0px;
-			z-index: 2;
-			left:0px;
-			width: 200px;
-		}
-	}
 	#login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
