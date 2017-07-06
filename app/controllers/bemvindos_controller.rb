@@ -28,7 +28,7 @@ class BemvindosController < ApplicationController
 
     respond_to do |format|
       if @bemvindo.save
-        format.html { redirect_to @bemvindo, notice: 'Bemvindo was successfully created.' }
+        format.html { redirect_to @bemvindo, notice: 'Obrigado por se inscrever!' }
         format.json { render :show, status: :created, location: @bemvindo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BemvindosController < ApplicationController
   def update
     respond_to do |format|
       if @bemvindo.update(bemvindo_params)
-        format.html { redirect_to @bemvindo, notice: 'Bemvindo was successfully updated.' }
+        format.html { redirect_to @bemvindo, notice: 'Seus dados foram modificados, obrigado.' }
         format.json { render :show, status: :ok, location: @bemvindo }
       else
         format.html { render :edit }
