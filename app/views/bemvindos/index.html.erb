@@ -17,10 +17,10 @@
   <tbody>
     <% @bemvindos.each do |bemvindo| %>
       <tr>
-        <td><%= bemvindo.Name %></td>
+        <td><%= bemvindo.name %></td>
         <td><%= bemvindo.lastname %></td>
         <td><%= bemvindo.email %></td>
-        <td><%= bemvindo.comentarios %></td>
+        <td><%= bemvindo.comments %></td>
         <td><%= link_to 'Mostrar', bemvindo %></td>
         <td><%= link_to 'Editar', edit_bemvindo_path(bemvindo) %></td>
         <td><%= link_to 'Deletar', bemvindo, method: :delete, data: { confirm: 'Tem certeza?' } %></td>

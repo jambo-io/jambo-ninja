@@ -69,6 +69,6 @@ class BemvindosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bemvindo_params
-      params.require(:bemvindo).permit(:Name, :lastname, :email, :comentarios)
+      params.require(:bemvindo).permit(:name, :lastname, :email, :comments)
     end
 end

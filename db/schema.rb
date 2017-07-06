@@ -10,15 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627021041) do
+ActiveRecord::Schema.define(version: 20170706011310) do
 
   create_table "bemvindos", force: :cascade do |t|
-    t.string   "Name"
+    t.string   "name"
     t.string   "lastname"
     t.string   "email"
-    t.text     "comentarios"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text     "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scaff_temps", force: :cascade do |t|
+    t.string   "stname"
+    t.string   "string"
+    t.string   "stcomment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
