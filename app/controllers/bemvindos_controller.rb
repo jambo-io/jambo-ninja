@@ -25,6 +25,10 @@ class BemvindosController < ApplicationController
   # POST /bemvindos.json
   def create
     @bemvindo = Bemvindo.new(bemvindo_params)
+    @user = Bemvindo.new(bemvindo_params)
+
+    #Envia email ao usuário ao confirmar formulário
+    FormConferenceMailer.conf_contact(@user).deliver
 
     respond_to do |format|
       if @bemvindo.save
