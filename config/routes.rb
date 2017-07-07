@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'themes/contributing'
+
+  get 'themes/twofold'
+
+  get 'themes/early_adolescence'
+
+  get 'themes/selfless'
+
+  get 'themes/friendship'
+
+  get 'themes/coherence'
+
+  get 'themes/youth'
+
+  get 'themes/qualities'
+
+  get 'themes/building'
+
   resources :bemvindos
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
