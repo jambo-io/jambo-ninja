@@ -3,16 +3,13 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">Expandir</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">Jovens Amigos</a>
     </div>
-   
-  =
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul id="primary-content" class="nav navbar-nav">
@@ -23,18 +20,40 @@
 
            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Temas<span class="caret"></span></a>
-              <ul class="dropdown-menu" style="width:300px;">
-                <li><a href="#">Período da Juventude</a></li>
-                <li><a href="#">Primórdios da Adolescência</a></li>
-                <li><a href="#">Apoio Mútuo</a></li>
-                <li><a href="#">Construção de Comunidade</a></li>
-                <li><a href="#">Contribuindo para o Avanço da Civilização</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+              <ul class="dropdown-menu">
+                
+                <li>
+                 <%= link_to "Contribuindo para a Melhora da Sociedade", themes_contributing_path %>
+                </li>
+                <li>
+                 <%= link_to "Duplo Propósito", themes_twofold_path %>
+                </li>
+                <li>
+                 <%= link_to "Primórdios da Adolescência", themes_early_adolescence_path %>
+                </li>
+                <li>
+                 <%= link_to "Serviço Abnegado", themes_selfless_path %>
+                </li>
+                <li>
+                 <%= link_to "Amizade e Apoio Mútuo", themes_friendship_path %>
+                </li>
+                <li>
+                 <%= link_to "Coerência", themes_coherence_path %>
+                </li>
+                <li>
+                 <%= link_to "Construção de Comunidade", themes_youth_path %>
+                </li>
+                
+                <li>
+                 <%= link_to "Qualidades para Ação Coletiva", themes_qualities_path %>
+                </li>
+                <li>
+                 <%= link_to "Construindo uma Nova Civilização", themes_building_path %>
+                </li>
+
+              </li> 
+            </ul>
+         </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
