@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Jovens Amigos</a>
+      <%= link_to "Jovens Amigos", root_path, class:'navbar-brand' %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -16,7 +16,7 @@
          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Principal', root_path %></li>
            <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', new_bemvindo_path %></li>
           
-           <li class="<%= 'active' if current_page?(my_about_path('about')) %>"><%= link_to 'Sobre', my_about_path('about') %></li>
+           
 
            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Temas<span class="caret"></span></a>
@@ -25,39 +25,28 @@
                 <li>
                  <%= link_to "Contribuindo para a Melhora da Sociedade", themes_contributing_path %>
                 </li>
-                <li>
-                 <%= link_to "Duplo Propósito", themes_twofold_path %>
-                </li>
+                
                 <li>
                  <%= link_to "Primórdios da Adolescência", themes_early_adolescence_path %>
                 </li>
-                <li>
-                 <%= link_to "Serviço Abnegado", themes_selfless_path %>
-                </li>
+              
                 <li>
                  <%= link_to "Amizade e Apoio Mútuo", themes_friendship_path %>
                 </li>
-                <li>
-                 <%= link_to "Coerência", themes_coherence_path %>
-                </li>
+               
                 <li>
                  <%= link_to "Construção de Comunidade", themes_youth_path %>
                 </li>
-                
-                <li>
-                 <%= link_to "Qualidades para Ação Coletiva", themes_qualities_path %>
-                </li>
-                <li>
-                 <%= link_to "Construindo uma Nova Civilização", themes_building_path %>
-                </li>
+               
 
               </li> 
             </ul>
          </li>
+         <li class="<%= 'active' if current_page?(my_about_path('about')) %>"><%= link_to 'Sobre', my_about_path('about') %></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">Ja tem uma conta?</p></li>
+        <li><span class="navbar-text">Ja tem uma conta?</span></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
       <ul id="login-dp" class="dropdown-menu">

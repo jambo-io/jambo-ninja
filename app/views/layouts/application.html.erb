@@ -9,16 +9,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
+  
 
           
      <%= render "layouts/header" %>
           
- 
+  <div class="page-bg <%='main-page' if current_page?(root_path) %>">
   
      <div class="container">
       <div class="row">
-         <div class="col-md-6">
+         <div class="col-12 col-md-9 pull-md-3">
             <%=yield %>
          </div>
       </div>
@@ -27,6 +27,6 @@
     
     
    
-
+  </div>
   </body>
 </html>

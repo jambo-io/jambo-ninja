@@ -1,22 +1,17 @@
-<h1>Obrigado por se inscrever</h1>
-<p>Um E-mail para confirmação será enviado alguns dias antes da próxima conferência.</p>
-<p>
-  <strong>Nome:</strong>
-  <%= @bemvindo.name %>
-</p>
+<h1><%= @bemvindo.name %> <%= @bemvindo.lastname %></h1>
+<p>Obrigado por se inscrever. Você receberá um E-mail de confirmação alguns dias antecedendo a próxima Conferência de Juventude.</br>
 
-<p>
-  <strong>Sobrenome:</strong>
-  <%= @bemvindo.lastname %>
-</p>
-
-<p>
+<p>Seus dados:<br>
+  <strong>Cidade:</strong>
+  <%= @bemvindo.city %>
+  <br>
   <strong>Email:</strong>
   <%= @bemvindo.email %>
-</p>
-
-<p>
+  <br>
   <strong>Comentários:</strong>
   <%= @bemvindo.comments %>
 </p>
 
+<p>
+Você também pode se cadastrar nesse Site para obter informações de atividades e eventos. Se você ainda não tem uma conta, <a href="#">clique aqui</a> para se cadastrar.
+</p>
