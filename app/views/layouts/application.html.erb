@@ -4,29 +4,27 @@
     <title>Jovens Amigos</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="turbolinks-cache-control" content="no-cache">
   </head>
   <body>
-  
 
-          
      <%= render "layouts/header" %>
           
   <div class="page-bg <%='main-page' if current_page?(root_path) %>">
-  
+
      <div class="container">
       <div class="row">
          <div class="col-12 col-md-9 pull-md-3">
             <%=yield %>
          </div>
       </div>
-    </div>
-  
-    
-    
-   
-  </div>
+    </div><!--Container -->
+
+  </div><!--Background -->
+
   </body>
 </html>

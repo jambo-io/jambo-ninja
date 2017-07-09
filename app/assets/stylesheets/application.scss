@@ -15,10 +15,6 @@ html {
 		padding: 0px;
 		background: #ffffff;
 		height:100%;
-
-		
-
-
 	}
 	.page-bg {
 		position:absolute;
@@ -53,9 +49,51 @@ html {
 		text-indent:30px;
 		 letter-spacing:1px; 
 
-
-
 	}
+
+	
+	.nav-animation {
+		animation: hop .5s ease-out;
+		@keyframes hop {
+			0% {
+				transform: translateX(-10%);
+				opacity:0;
+			   }
+		   100%{ 
+		   		transform: translate(0);
+		   		opacity:1;
+				}
+		}
+	}
+	h1 {
+		
+		animation: content .5s ease-out;
+		@keyframes content {
+			0% {
+				transform: translateX(-10%);
+				opacity:0;
+				}
+		   100%{ 
+		   		transform: translate(0);
+		   		opacity:1;
+			}
+		}
+	}
+	
+	p {
+		animation: container .5s ease-out;
+		animation-delay:.3s;
+		opacity: 0;
+		animation-fill-mode: forwards;
+		@keyframes container {
+			0% {
+				opacity:0;
+				}
+		   	100% { opacity:1;
+		   		}
+		}
+	}
+
 	kbd {
 		padding:2px 25px 2px 25px;
 	}
@@ -72,10 +110,10 @@ html {
 		}
 	}
 
-
 	.container {
 		margin-top:100px;
 	}
+	
 	.dropdown-menu {
 		width:310px;
 	}
