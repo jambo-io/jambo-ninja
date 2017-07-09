@@ -4,10 +4,14 @@
 		<meta control = 'text/html; charset=UTF-8' http-equiv='Content-Type'/>
 	</head>
 	<body>
-		<h1>Hi <%= @user.name %></h1>
-		<p>
-			Sample mail sent using smtp.
-			
+		<h1 style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';">Jovens Amigos</h1>
+		<p style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:14px;font-weight:normal;line-height:1.5;margin:0;margin-bottom:15px;">
+			Olá <%= @user.name %> <%= @user.lastname %>,<br><br>
+			Agora você está entre os amigos que se esforçam dia e noite para transformar este mundo em um lugar melhor. Este formulário que você preencheu é uma pré-inscrição para a próxima Conferência de Juventude na sua região. Alguns dias antes te enviaremos um E-mail para confirmar sua participação.<br><br>
+
+			Se você gostaria de estar por dentro de todas as atividades e eventos, <a href="#">clique aqui</a> para se cadastrar no Site.
+			<br><br>Qualquer dúvidas estaremos a disposição,<br><br>
+			Jovensamigos.org
 		</p>
 	</body>
 </html>
