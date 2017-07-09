@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'users/new'
+
   get 'themes/contributing'
 
   get 'themes/twofold'
@@ -17,6 +21,13 @@ Rails.application.routes.draw do
 
   get 'themes/building'
 
+  #Login
+  resources :users
+  get 'signin' => 'sessions#new'
+  post 'signin' => 'sessions#create'
+  delete 'signout' => 'sessions#destroy'
+
+  #Cadastro Conferências
   resources :bemvindos
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -25,7 +36,7 @@ Rails.application.routes.draw do
   get ':permalink', :controller => 'pages', :action => 'themes', :as => 'my_themes'
   #get '/bemvindos' => "bemvindos#index"
   get "/form" => "pages#form"
-  root "pages#index", page: "index", :as => 'root'
+  root "sessions#new"
 
 
 

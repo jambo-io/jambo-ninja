@@ -47,49 +47,68 @@
            </li>
            <li class="<%= 'active' if current_page?(my_about_path('about')) %>"><%= link_to 'Sobre', my_about_path('about') %></li>
         </ul>
-        
-        <ul class="nav navbar-nav navbar-right">
-          <li><span class="navbar-text">Ja tem uma conta?</span></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-        <ul id="login-dp" class="dropdown-menu">
+
+         <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li><%= link_to "Users", users_path %></li>
           <li>
-             <div class="row">
-                <div class="col-md-12">
-                  Login via
-                  <div class="social-buttons">
-                    <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                    <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-                  </div>
-                                  ou
-                   <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                      <div class="form-group">
-                         <label class="sr-only" for="exampleInputEmail2">Email</label>
-                         <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email" required>
+            <ul>
+              <li><%= link_to "Perfil", current_user %></li>
+              <li><%= link_to "Conta", '#' %></li>
+              <li>
+                <%= link_to "Sair", signout_path, method: "delete" %>
+              </li>
+            </ul>
+
+        <% else %>
+
+         
+            <li><span class="navbar-text">Ja tem uma conta?</span></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+              <ul id="login-dp" class="dropdown-menu">
+                <li>
+                   <div class="row">
+                      <div class="col-md-12">
+                        Login via
+                        <div class="social-buttons">
+                          <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                          <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                        </div>
+                                        ou
+                         <%= form_for :session, url: signin_path do |f| %>
+                            <div class="form-group">
+                               <div class="field">
+                              <%= f.email_field :email, autofocus: true, placeholder:"Email", class:"form-control" %>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="field">
+                              <%= f.password_field :password, autocomplete: "off", placeholder:"Senha", class:"form-control" %>
+                              </div>
+                              <div class="help-block text-right"><a href="">Esqueceu a senha ?</a></div>
+                            </div>
+                            <div class="form-group">
+                               <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            </div>
+                            <div class="checkbox">
+                               <label>
+                               <input type="checkbox"> Manter logado
+                               </label>
+                            </div>
+                         <% end %>
                       </div>
-                      <div class="form-group">
-                         <label class="sr-only" for="exampleInputPassword2">Password</label>
-                         <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Senha" required>
-                        <div class="help-block text-right"><a href="">Esqueceu a senha ?</a></div>
+                      <div class="bottom text-center">
+                        Novo aqui ? <a href="#"><b>Junte-se a nós</b></a>
                       </div>
-                      <div class="form-group">
-                         <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                      </div>
-                      <div class="checkbox">
-                         <label>
-                         <input type="checkbox"> Manter logado
-                         </label>
-                      </div>
-                   </form>
-                </div>
-                <div class="bottom text-center">
-                  Novo aqui ? <a href="#"><b>Junte-se a nós</b></a>
-                </div>
-             </div>
-          </li>
-        </ul>
-          </li>
-        </ul>
+                   </div>
+                </li>
+              </ul>
+            </li>
+          </ul><!-- /.Login -->
+        <% end %>
+
+
       </div><!-- /.navbar-collapse -->
     </div><!-- animation -->
   </div><!-- /.container-fluid -->

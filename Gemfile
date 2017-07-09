@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 #Enviroment Variables Management
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'bcrypt'
+
 
 
 group :development, :test do
