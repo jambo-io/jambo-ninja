@@ -1,6 +1,6 @@
 class BemvindosController < ApplicationController
   before_action :set_bemvindo, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:new, :create]
+  before_action :authorize, except: [:new, :create, :show]
 
   # GET /bemvindos
   # GET /bemvindos.json
@@ -26,6 +26,7 @@ class BemvindosController < ApplicationController
   # POST /bemvindos.json
   def create
     @bemvindo = Bemvindo.new(bemvindo_params)
+    @user = Bemvindo.new(bemvindo_params)
 
     #Envia email ao usuário ao confirmar formulário
     FormConferenceMailer.conf_contact(@user).deliver

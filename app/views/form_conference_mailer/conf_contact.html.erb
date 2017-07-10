@@ -9,9 +9,11 @@
 			Olá <%= @user.name %> <%= @user.lastname %>,<br><br>
 			Agora você está entre os amigos que se esforçam dia e noite para transformar este mundo em um lugar melhor. Este formulário que você preencheu é uma pré-inscrição para a próxima Conferência de Juventude na sua região. Alguns dias antes te enviaremos um E-mail para confirmar sua participação.<br><br>
 
-			Se você gostaria de estar por dentro de todas as atividades e eventos, <a href="#">clique aqui</a> para se cadastrar no Site.
+			Se você gostaria de estar por dentro de todas as atividades e eventos, <%= link_to 'clique aqui', :controller =>"users", :action =>"new", :only_path => false %> para se cadastrar no Site.
 			<br><br>Qualquer dúvidas estaremos a disposição,<br><br>
 			Jovensamigos.org
 		</p>
 	</body>
 </html>
+			
+			
