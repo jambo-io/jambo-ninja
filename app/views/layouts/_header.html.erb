@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-custom" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="animation <%= 'nav-animation' if current_page?(root_path) %>">
@@ -15,50 +15,50 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul id="primary-content" class="nav navbar-nav">
 
-           <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Principal', root_path %></li>
+           <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Principal', root_path, class:"nav-link" %></li>
             
-             <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', new_bemvindo_path %></li>
+             <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', new_bemvindo_path, class:"nav-link" %></li>
             
              
 
              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Temas<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Temas<span class="caret"></span></a>
                 <ul class="dropdown-menu themes-dropdown">
                   
                   <li class="li-tt">
-                   <%= link_to "Contribuindo para a Melhora da Sociedade", themes_contributing_path %>
+                   <%= link_to "Contribuindo para a Melhora da Sociedade", themes_contributing_path, class:"nav-link" %>
                   </li>
                   
                   <li class="li-tt">
-                   <%= link_to "Primórdios da Adolescência", themes_early_adolescence_path %>
+                   <%= link_to "Primórdios da Adolescência", themes_early_adolescence_path, class:"nav-link" %>
                   </li>
                 
                   <li class="li-tt">
-                   <%= link_to "Amizade e Apoio Mútuo", themes_friendship_path %>
+                   <%= link_to "Amizade e Apoio Mútuo", themes_friendship_path, class:"nav-link" %>
                   </li>
                  
                   <li class="li-tt">
-                   <%= link_to "Construção de Comunidade", themes_youth_path %>
+                   <%= link_to "Construção de Comunidade", themes_youth_path, class:"nav-link" %>
                   </li>
                  
 
                 </li> 
               </ul>
            </li>
-           <li class="<%= 'active' if current_page?(my_about_path('about')) %>"><%= link_to 'Sobre', my_about_path('about') %></li>
+           <li class="<%= 'active' if current_page?(my_about_path('about')) %>"><%= link_to 'Sobre', my_about_path('about'), class:"nav-link" %></li>
         </ul>
 
          <ul class="nav navbar-nav navbar-right">
 
         <% if logged_in? %>
         <li class="dropdown">
-          <%= link_to "Conta <span class='caret'></span>".html_safe, users_path, { :class => "dropdown-toggle", 'data-toggle' => "dropdown", 'role'=>"button", 'aria-haspopup'=>"true", 'aria-expanded'=>"false" } %>
+          <%= link_to "#{user_name}<span class='caret'></span>".html_safe, users_path, { :class => "dropdown-toggle nav-link", 'data-toggle' => "dropdown", 'role'=>"button", 'aria-haspopup'=>"true", 'aria-expanded'=>"false" } %>
           
             <ul class="dropdown-menu account-dropdown">
-              <li class="li-acc"><%= link_to "Perfil", current_user %></li>
-              <li class="li-acc"><%= link_to "Conta", '#' %></li>
+              <li class="li-acc"><%= link_to "Perfil", user_path(current_user), class:"nav-link" %></li>
+              <li class="li-acc"><%= link_to "Conta", '#', class:"nav-link" %></li>
               <li class="li-acc">
-                <%= link_to "Sair", signout_path, method: "delete" %>
+                <%= link_to "Sair", signout_path, method: "delete", class:"nav-link" %>
               </li>
             </ul>
           </li>

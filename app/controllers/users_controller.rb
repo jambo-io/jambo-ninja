@@ -24,7 +24,9 @@ class UsersController < ApplicationController
   	
   end
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    @user_name = @user.name
+    @user_email = @user.email
   end
 
   def edit

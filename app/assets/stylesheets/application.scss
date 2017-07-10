@@ -13,7 +13,7 @@ html {
 	body {
 		width: 100%;
 		padding: 0px;
-		background: #ffffff;
+		background: #f2f2f2;
 		height:100%;
 	}
 	.page-bg {
@@ -46,11 +46,28 @@ html {
 		font-size: 15px;
 		 margin-top: 3em; color: #000;
 		 margin-bottom: 3em;
-		text-indent:30px;
-		 letter-spacing:1px; 
+		
+		 
 
+		
+	}	
+
+	.btn:hover{
+		animation: bounceIn .3s;
+		animation-fill-mode: forwards;
 	}
 
+	@keyframes bounceIn {
+		0% {
+			transform: scale(1);
+		}
+		60% {
+			transform: scale(1.1);
+		}
+		100% {
+			transform:scale(1.08);
+		}
+	}
 	
 	.nav-animation {
 		animation: hop .5s ease-out;
@@ -70,7 +87,7 @@ html {
 		animation: content .5s ease-out;
 		@keyframes content {
 			0% {
-				transform: translateX(-10%);
+				transform: translateX(-5%);
 				opacity:0;
 				}
 		   100%{ 
@@ -79,6 +96,58 @@ html {
 			}
 		}
 	}
+	.navbar-custom {
+		background-color: #fff;
+		box-shadow: 1px -1px 3px #888888;
+
+
+	}
+
+	.navbar-custom .navbar-brand,
+	.navbar-custom .navbar-text {
+		color: #a9a9a9;
+	}
+
+	.navbar-custom .navbar-nav .nav-link {
+		color: #696969;
+	}
+
+	.navbar-custom .nav-item.active .nav-link,
+	.navbar-custom .nav-item:hover .nav-link {
+		color:#000;
+	}
+
+	li .dropdown-menu {
+		min-width:100px;
+		pointer-events:fill;
+	}
+	
+	.li-acc {
+		display: inline-block;
+		word-break:break-all;
+		min-width:100%;
+		max-width:100%;
+	}
+
+	.li-tt {
+		display: inline-block;
+		word-break:break-all;
+		min-width:100%;
+		max-width:100%;
+	}
+
+	.container {
+		margin: auto;
+		margin-top:100px;
+		background-color: #fff;
+		width:800px;
+		max-width: 95%;
+		padding: 5px 10px 30px 30px;
+		border: 1px #eaeaea solid;
+		border-radius: 5px;
+	}
+
+
 	
 	p {
 		animation: container .5s ease-out;
@@ -110,27 +179,9 @@ html {
 		}
 	}
 
-	.container {
-		margin-top:100px;
-	}
-
-	li .dropdown-menu {
-		min-width:100px;
-	}
-	.li-acc {
-		display: inline-block;
-		word-break:break-all;
-		min-width:100%;
-		max-width:100%;
-		
-	}
-
-	.li-tt {
-		display: inline-block;
-		word-break:break-all;
-		min-width:100%;
-		max-width:100%;
-	}
+	
+	
+	
 
 	#login-dp{
     	min-width: 250px;
