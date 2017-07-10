@@ -113,20 +113,36 @@ html {
 	.container {
 		margin-top:100px;
 	}
-	
-	.dropdown-menu {
-		width:310px;
+
+	li .dropdown-menu {
+		min-width:100px;
+	}
+	.li-acc {
+		display: inline-block;
+		word-break:break-all;
+		min-width:100%;
+		max-width:100%;
+		
+	}
+
+	.li-tt {
+		display: inline-block;
+		word-break:break-all;
+		min-width:100%;
+		max-width:100%;
 	}
 
 	#login-dp{
-    min-width: 250px;
-    padding: 14px 14px 0;
-    overflow:hidden;
-    background-color:rgba(255,255,255,.8);
+    	min-width: 250px;
+    	padding: 14px 14px 0;
+    	overflow:hidden;
+    	background-color:rgba(255,255,255,.8);
 	}
+
 	#login-dp .help-block{
 	    font-size:12px    
 	}
+
 	#login-dp .bottom{
 	    background-color:rgba(255,255,255,.8);
 	    border-top:1px solid #ddd;

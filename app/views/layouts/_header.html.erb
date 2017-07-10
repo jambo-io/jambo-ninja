@@ -23,21 +23,21 @@
 
              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Temas<span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu themes-dropdown">
                   
-                  <li>
+                  <li class="li-tt">
                    <%= link_to "Contribuindo para a Melhora da Sociedade", themes_contributing_path %>
                   </li>
                   
-                  <li>
+                  <li class="li-tt">
                    <%= link_to "Primórdios da Adolescência", themes_early_adolescence_path %>
                   </li>
                 
-                  <li>
+                  <li class="li-tt">
                    <%= link_to "Amizade e Apoio Mútuo", themes_friendship_path %>
                   </li>
                  
-                  <li>
+                  <li class="li-tt">
                    <%= link_to "Construção de Comunidade", themes_youth_path %>
                   </li>
                  
@@ -49,17 +49,20 @@
         </ul>
 
          <ul class="nav navbar-nav navbar-right">
+
         <% if logged_in? %>
-          <li><%= link_to "Users", users_path %></li>
-          <li>
-            <ul>
-              <li><%= link_to "Perfil", current_user %></li>
-              <li><%= link_to "Conta", '#' %></li>
-              <li>
+        <li class="dropdown">
+          <%= link_to "Conta <span class='caret'></span>".html_safe, users_path, { :class => "dropdown-toggle", 'data-toggle' => "dropdown", 'role'=>"button", 'aria-haspopup'=>"true", 'aria-expanded'=>"false" } %>
+          
+            <ul class="dropdown-menu account-dropdown">
+              <li class="li-acc"><%= link_to "Perfil", current_user %></li>
+              <li class="li-acc"><%= link_to "Conta", '#' %></li>
+              <li class="li-acc">
                 <%= link_to "Sair", signout_path, method: "delete" %>
               </li>
             </ul>
-
+          </li>
+          
         <% else %>
 
          
