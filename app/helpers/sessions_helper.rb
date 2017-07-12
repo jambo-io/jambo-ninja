@@ -20,4 +20,7 @@ module SessionsHelper
 	def user_name
 		self.current_user.name
 	end
+	def privilege
+		@privilege = self.current_user.privilege
+	end
 end

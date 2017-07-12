@@ -96,12 +96,16 @@ html {
 			}
 		}
 	}
+	.icon-bar{
+		background-color: #888;
+	}
 	.navbar-custom {
 		background-color: #fff;
 		box-shadow: 1px -1px 3px #888888;
 
 
 	}
+
 
 	.navbar-custom .navbar-brand,
 	.navbar-custom .navbar-text {
@@ -142,7 +146,7 @@ html {
 		background-color: #fff;
 		width:800px;
 		max-width: 95%;
-		padding: 5px 10px 30px 30px;
+		padding: 3px 15px 30px 15px;
 		border: 1px #eaeaea solid;
 		border-radius: 5px;
 	}
@@ -150,17 +154,7 @@ html {
 
 	
 	p {
-		animation: container .5s ease-out;
-		animation-delay:.3s;
-		opacity: 0;
-		animation-fill-mode: forwards;
-		@keyframes container {
-			0% {
-				opacity:0;
-				}
-		   	100% { opacity:1;
-		   		}
-		}
+		
 	}
 
 	kbd {
