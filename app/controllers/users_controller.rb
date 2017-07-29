@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
 
+    #Envia email ao usuário ao confirmar formulário
+    SignupMailer.signup(@user).deliver
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: "Você está registrado!" }
@@ -24,7 +27,7 @@ class UsersController < ApplicationController
   	
   end
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @user_name = @user.name
     @user_email = @user.email
   end

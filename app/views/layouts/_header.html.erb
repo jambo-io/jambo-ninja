@@ -50,18 +50,23 @@
 
          <ul class="nav navbar-nav navbar-right">
 
+
         <% if logged_in? %>
-        <li class="dropdown">
-          <%= link_to "#{user_name}<span class='caret'></span>".html_safe, users_path, { :class => "dropdown-toggle nav-link", 'data-toggle' => "dropdown", 'role'=>"button", 'aria-haspopup'=>"true", 'aria-expanded'=>"false" } %>
-          
-            <ul class="dropdown-menu account-dropdown">
-              <li class="li-acc"><%= link_to "Perfil", user_path(current_user), class:"nav-link" %></li>
-              <li class="li-acc"><%= link_to "Conta", '#', class:"nav-link" %></li>
-              <li class="li-acc">
-                <%= link_to "Sair", signout_path, method: "delete", class:"nav-link" %>
-              </li>
-            </ul>
+          <li>
+            <%= link_to 'Usuários', users_path, class:"nav-link" %>
           </li>
+
+          <li class="dropdown">
+            <%= link_to "#{user_name}<span class='caret'></span>".html_safe, users_path, { :class => "dropdown-toggle nav-link", 'data-toggle' => "dropdown", 'role'=>"button", 'aria-haspopup'=>"true", 'aria-expanded'=>"false" } %>
+            
+              <ul class="dropdown-menu account-dropdown">
+                <li class="li-acc"><%= link_to "Perfil", user_path(current_user), class:"nav-link" %></li>
+                <li class="li-acc"><%= link_to "Conta", '#', class:"nav-link" %></li>
+                <li class="li-acc">
+                  <%= link_to "Sair", signout_path, method: "delete", class:"nav-link" %>
+                </li>
+              </ul>
+            </li>
           
         <% else %>
 

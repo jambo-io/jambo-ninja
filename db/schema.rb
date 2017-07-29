@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170710143513) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bemvindos", force: :cascade do |t|
     t.string   "name"
     t.string   "lastname"
@@ -20,14 +23,6 @@ ActiveRecord::Schema.define(version: 20170710143513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "city"
-  end
-
-  create_table "scaff_temps", force: :cascade do |t|
-    t.string   "stname"
-    t.string   "string"
-    t.string   "stcomment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
