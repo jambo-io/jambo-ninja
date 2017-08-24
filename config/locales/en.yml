@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+ activerecord:
+  errors:
+   format: "%{message}"
+   models:
+     bemvindo:
+      attributes:
+       name:
+        blank: 'Ficou em branco.'
+       email:
+        blank: 'Precisamos do seu E-mail, não mandaremos Spams.'
+       city:
+        blank: 'Escolha uma cidade.'

@@ -11,11 +11,23 @@ class BemvindosController < ApplicationController
   # GET /bemvindos/1
   # GET /bemvindos/1.json
   def show
+    
+    if(@bemvindo.birth?)
+     @birth = @bemvindo.birth.to_time.strftime('%d/%m/%Y')
+    else
+      @birth = nil 
+    end
+
+    @city = { 'campogrande-ms' => 'Campo Grande - MS','corumba-ms' => 'Corumbá - MS','dourados-ms' => 'Dourados - MS','jardim-ms' => 'Jardim - MS','riobrilhante-ms' => 'Rio Brilhante - MS', 'saogabrieldooeste-ms' => 'São Gabriel do Oeste - MS' }
+
+    
   end
 
   # GET /bemvindos/new
   def new
     @bemvindo = Bemvindo.new
+    
+
   end
 
   # GET /bemvindos/1/edit
@@ -27,6 +39,7 @@ class BemvindosController < ApplicationController
   def create
     @bemvindo = Bemvindo.new(bemvindo_params)
     @user = Bemvindo.new(bemvindo_params)
+ 
 
     #Envia email ao usuário ao confirmar formulário
     FormConferenceMailer.conf_contact(@user).deliver
@@ -74,6 +87,6 @@ class BemvindosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bemvindo_params
-      params.require(:bemvindo).permit(:name, :lastname, :city, :email, :phone, :comments)
+      params.require(:bemvindo).permit(:name, :lastname, :city, :email, :phone, :comments, :birth)
     end
 end

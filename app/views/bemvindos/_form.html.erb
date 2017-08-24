@@ -1,36 +1,33 @@
 
-<%= bootstrap_form_for(bemvindo) do |f| %>
+<%= bootstrap_form_for(bemvindo, inline_errors:true) do |f| %>
 
- 
   
     <div class="row">
       <div class="col-lg-6">
-        <div class="form-group">
-          <%= f.label "Nome", class:"control-label" %> 
-          <%= f.text_field_without_bootstrap :name, class:"form-control", style:'display:block;'  %>
-        </div>
+          <%= f.text_field :name, label: 'Nome'  %>
+        
      </div>
     <div class="col-lg-6">
       <div class="form-group">
-        <%= f.label "Sobrenome", class:"control-label" %>
-        <%= f.text_field_without_bootstrap :lastname, class:"form-control"  %>
+
+        <%= f.text_field :lastname, label: 'Sobrenome'   %>
       </div>
     </div>
     </div>
 
 
-  <%= f.email_field :email, icon: "envelope", layout: :default %>
+  <%= f.email_field :email, icon: "envelope" %>
   <%= f.text_field :phone, label: "Celular", prepend: "(67)", icon: "phone" %>
   <div class="form-inline">
     <%= f.date_select :birth, {:use_month_names => ['janeiro', 'fevereiro', 'março', 'abril', 'maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'], :start_year=>Date.today.year-35, :end_year=>Date.today.year - 10,  :order => [:day,:month,:year], :label => "Data de Nascimento", :prompt => {:day => 'Dia', :month => 'Mês', :year=> 'Ano'} }  %>
   </div>
 
-   <%= f.select :city, [["Escolha sua cidade"],["Campo Grande-MS", "campogrande-ms"], ["Dourados-MS", "dourados-ms"], ["Jardim-MS", "jardim-ms"],["São Gabriel do Oeste", "saogabrieldooeste-ms"]], {label:"Cidade"} %>
+   <%= f.select :city, [["De onde você é?",nil],["Campo Grande", "campogrande-ms"],["Corumbá", "corumba-ms"], ["Dourados", "dourados-ms"], ["Jardim", "jardim-ms"],["Rio Brilhante", "riobrilhante-ms"],["São Gabriel do Oeste" , "saogabrieldooeste-ms"]], {label:"Cidade"} %>
 
 
-  <%= f.text_area :lastname, label: "Comentários" %>
+  <%= f.text_area :comments, label: "Informações Adicionais", help: 'Ex: Você tem alguma alergia, ou toma algum remédio controlado? Adicione informações juntamente com seus requisitos necessários em caso de emergência como telefone ou celular de terceiros.' %>
   <div class="text-center">
-    <%= f.submit "Enviar", class: "btn btn-default btn-primary" %>
+    <%= f.submit "Enviar",  class: "btn btn-default btn-primary" %>
   </div>
 
 <% end %>

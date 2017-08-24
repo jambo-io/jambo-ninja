@@ -1,3 +1,5 @@
 class Bemvindo < ApplicationRecord
-	validates_presence_of :name, :email => " - Deve ser preenchido"
+	#validates :name, :email, :city, :presence => true
+	validates :name, :email, :city, :presence => true
+	#validates :name, presence: {message: "Mensagem"}
 end

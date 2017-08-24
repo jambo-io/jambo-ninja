@@ -3,14 +3,31 @@
 
 <p>Seus dados:<br>
   <strong>Cidade:</strong>
-  <%= @bemvindo.city %>
+  <%= @city[@bemvindo.city].inspect %>
   <br>
   <strong>Email:</strong>
   <%= @bemvindo.email %>
   <br>
-  <strong>Comentários:</strong>
-  <%= @bemvindo.comments %>
+
+   <% if(@bemvindo.phone?) %>
+  <strong>Celular:</strong>
+  <%= @bemvindo.phone %>
+  <br>
+  <% end %>
+
+  <% if(@bemvindo.birth?) %>
+	  <strong>Niver:</strong>
+	  <%= @birth %>
+	  <br>
+  <% end %>
+
+  <% if(@bemvindo.comments?) %>
+	  <strong>Comentários:</strong>
+	  <%= @bemvindo.comments %>
+  <% end %>
 </p>
+
+
 
 <p>
 Você também pode se cadastrar nesse Site para obter informações de atividades e eventos. Se você ainda não tem uma conta, <%= link_to "clique aqui", users_new_path %> para se cadastrar.
