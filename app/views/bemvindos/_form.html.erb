@@ -25,7 +25,7 @@
    <%= f.select :city, [["De onde você é?",nil],["Campo Grande", "campogrande-ms"],["Corumbá", "corumba-ms"], ["Dourados", "dourados-ms"], ["Jardim", "jardim-ms"],["Rio Brilhante", "riobrilhante-ms"],["São Gabriel do Oeste" , "saogabrieldooeste-ms"]], {label:"Cidade"} %>
 
 
-  <%= f.text_area :comments, label: "Informações Adicionais" %>
+  <%= f.text_area :comments, label: "Comentários", placeholder: "(opcional)" %>
   <div class="text-center">
     <%= f.submit "Enviar",  class: "btn btn-default btn-primary" %>
   </div>
