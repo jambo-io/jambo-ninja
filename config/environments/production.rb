@@ -57,6 +57,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "jovensamigos_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+
+
   config.action_mailer.delivery_method = :smtp
   #SMTP settings for gmail
   config.action_mailer.smtp_settings = {

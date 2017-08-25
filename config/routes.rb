@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   #Cadastro Conferências
   resources :bemvindos, :path => 'conferencias'
 
+  default_url_options :host => "jambo.ninja"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/page/:page" => "pages#show"
