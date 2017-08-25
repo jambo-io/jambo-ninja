@@ -3,23 +3,23 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
-  get 'themes/contributing'
+  get 'temas/contribuindo', :to => 'themes#contributing', :as => :themes_contributing
 
-  get 'themes/twofold'
+  get 'temas/duploproposito', :to => 'themes#twofold', :as => :themes_twofold
 
-  get 'themes/early_adolescence'
+  get 'temas/iniciodaadolescencia', :to => 'themes#early_adolescence', :as => :themes_early_adolescence
 
   get 'themes/selfless'
 
-  get 'themes/friendship'
+  get 'temas/amizade', :to => 'themes#friendship', :as => :themes_friendship
 
   get 'themes/coherence'
 
-  get 'themes/youth'
+  get 'temas/construcaodecomunidades', :to => 'themes#youth', :as => :themes_youth
 
   get 'themes/qualities'
 
-  get 'themes/building'
+  get 'temas/construcaodecomunidades', :to => 'themes#building', :as => :themes_building
 
   #Login
   resources :users
@@ -28,14 +28,21 @@ Rails.application.routes.draw do
   delete 'signout' => 'sessions#destroy'
 
   #Cadastro Conferências
-  resources :bemvindos, :path => 'conferencias'
+  
+  get '/conf/:id' => 'bemvindos#show', :as => :bemvindo
+  get 'bemvindos' => 'bemvindos#index'
+  post 'bemvindos' => 'bemvindos#create'
+  get 'conferencias/inscricao', :to => 'bemvindos#new', :as => :new_bemvindo
 
   default_url_options :host => "jambo.ninja"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/page/:page" => "pages#show"
-  get ':permalink', :controller => 'pages', :action => 'about', :as => 'my_about'
+  get 'sobre', :to => 'pages#about', :as => 'my_about'
+
+ 
+
   get ':permalink', :controller => 'pages', :action => 'themes', :as => 'my_themes'
   #get '/bemvindos' => "bemvindos#index"
   get "/form" => "pages#form"
