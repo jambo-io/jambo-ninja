@@ -84,15 +84,24 @@ html {
 	}
 	@media (max-width: 978px) {
 		.insc {
+
+
+			background: rgb(255,255,255) !important;
+			background: rgba(255,255,255,.8) !important;
+			float: none !important;
+			margin-right: auto !important;
 			
+			
+	
+
 			margin: auto !important;
-			margin-top:100px;
-			background-color: #fff;
-			width:800px;
-			max-width: 95%;
-			padding: 3px 15px 30px 15px;
-			border: 1px #eaeaea solid;
-			border-radius: 5px;
+			margin-top:100px !important;
+			background-color: #fff !important;
+			width:800px !important;
+			max-width: 95% !important;
+			padding: 3px 15px 30px 15px !important;
+			border: 1px #eaeaea solid !important;
+			border-radius: 5px !important;
 		}
 		
 	}

@@ -21,11 +21,9 @@
   <div class="page-bg <%='main-page' if current_page?(root_path) %>">
 
      <div class="<%='container' unless current_page?(root_path) %> <%='insc' if current_page?(new_bemvindo_path) %>">
-      <div class="row">
-         <div class="col-12 col-md-12">
+      
             <%=yield %>
-         </div>
-      </div>
+    
     </div><!--Container -->
 
   </div><!--Background -->
