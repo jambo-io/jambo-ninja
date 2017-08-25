@@ -2,11 +2,11 @@
 <%= bootstrap_form_for(bemvindo, inline_errors:true) do |f| %>
 
   
-    <div class="row">
-      <div class="col-lg-6">
-          <%= f.text_field :name, label: 'Nome'  %>
-        
-     </div>
+  <div class="row">
+    <div class="col-lg-6">
+        <%= f.text_field :name, label: 'Nome'  %>
+      
+   </div>
     <div class="col-lg-6">
       <div class="form-group">
 
@@ -25,7 +25,7 @@
    <%= f.select :city, [["De onde você é?",nil],["Campo Grande", "campogrande-ms"],["Corumbá", "corumba-ms"], ["Dourados", "dourados-ms"], ["Jardim", "jardim-ms"],["Rio Brilhante", "riobrilhante-ms"],["São Gabriel do Oeste" , "saogabrieldooeste-ms"]], {label:"Cidade"} %>
 
 
-  <%= f.text_area :comments, label: "Informações Adicionais", help: 'Ex: Você tem alguma alergia, ou toma algum remédio controlado? Adicione informações juntamente com seus requisitos necessários em caso de emergência como telefone ou celular de terceiros.' %>
+  <%= f.text_area :comments, label: "Informações Adicionais" %>
   <div class="text-center">
     <%= f.submit "Enviar",  class: "btn btn-default btn-primary" %>
   </div>

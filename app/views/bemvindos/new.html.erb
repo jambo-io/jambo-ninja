@@ -1,13 +1,21 @@
-<h1>Bem Vindos</h1>
 
-<p style="text-indent:0em;">Preencha o formulário se deseja participar da próxima Conferência de Juventude da sua cidade.</p>
+	<h1><kbd>Inscrição</kbd></h1>
 
-</br>
+	<p style="text-indent:0em;">Preencha o formulário para participar da próxima Conferência de Juventude da sua cidade.</p>
 
-<div class="row">
-	<div class="col-lg-6" >
-		<%= render 'form', bemvindo: @bemvindo %>
+
+
+	<div class="row">
+		<div class="col-lg-12" >
+			<%= render 'form', bemvindo: @bemvindo %>
+		</div>
 	</div>
+
+<div class="video-container">
+	<video autoplay loop id="video-background" muted plays-inline>
+	  <source src="/assets/asdf1.mp4" type="video/mp4">
+	</video>
 </div>
+
 
 
