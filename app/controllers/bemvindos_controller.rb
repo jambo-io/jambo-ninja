@@ -2,6 +2,7 @@ class BemvindosController < ApplicationController
 
   before_action :set_bemvindo, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: [:new, :create, :show]
+  before_action :permission, only: [:index, :destroy]
 
   # GET /bemvindos
   # GET /bemvindos.json
@@ -15,8 +16,11 @@ class BemvindosController < ApplicationController
   
     city = { 'caceres-mt'=>'Cáceres-MT','campogrande-ms' => 'Campo Grande - MS','corumba-ms' => 'Corumbá - MS','dourados-ms' => 'Dourados - MS','jardim-ms' => 'Jardim - MS','riobrilhante-ms' => 'Rio Brilhante - MS', 'saogabrieldooeste-ms' => 'São Gabriel do Oeste - MS' }
 
-    @test.each do |c|
-      @new.push(c)
+    unless @test.blank?
+      @test.each do |c|
+        @new.push(c)
+      end
+
     end
 
     @cities = @new.to_sentence(:last_word_connector => ' e ')
@@ -109,5 +113,11 @@ class BemvindosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bemvindo_params
       params.require(:bemvindo).permit(:name, :lastname, :city, :email, :phone, :comments, :birth)
+    end
+
+    def permission
+      if current_user.privileges.nil?
+        redirect_to root_path
+      end
     end
 end
