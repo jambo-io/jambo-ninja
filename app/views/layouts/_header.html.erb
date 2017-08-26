@@ -38,6 +38,9 @@
                   </ul>
               </li>
 
+             <% else  %>
+              <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', new_bemvindo_path, class:"nav-link" %></li>
+
              <% end %>
 
            <% else %>
