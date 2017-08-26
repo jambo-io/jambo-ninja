@@ -1,11 +1,32 @@
 class BemvindosController < ApplicationController
+
   before_action :set_bemvindo, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: [:new, :create, :show]
 
   # GET /bemvindos
   # GET /bemvindos.json
   def index
-    @bemvindos = Bemvindo.all
+   
+    @test = privileges
+
+    @bemvindos = Bemvindo.where(city: @test)
+
+    @new = []
+  
+    city = { 'caceres-mt'=>'Cáceres-MT','campogrande-ms' => 'Campo Grande - MS','corumba-ms' => 'Corumbá - MS','dourados-ms' => 'Dourados - MS','jardim-ms' => 'Jardim - MS','riobrilhante-ms' => 'Rio Brilhante - MS', 'saogabrieldooeste-ms' => 'São Gabriel do Oeste - MS' }
+
+    @test.each do |c|
+      @new.push(c)
+    end
+
+    @cities = @new.to_sentence(:last_word_connector => ' e ')
+
+
+
+
+
+
+
   end
 
   # GET /bemvindos/1
@@ -18,7 +39,7 @@ class BemvindosController < ApplicationController
       @birth = nil 
     end
 
-    @city = { 'campogrande-ms' => 'Campo Grande - MS','corumba-ms' => 'Corumbá - MS','dourados-ms' => 'Dourados - MS','jardim-ms' => 'Jardim - MS','riobrilhante-ms' => 'Rio Brilhante - MS', 'saogabrieldooeste-ms' => 'São Gabriel do Oeste - MS' }
+    @city = { 'caceres-mt'=>'Cáceres-MT','campogrande-ms' => 'Campo Grande - MS','corumba-ms' => 'Corumbá - MS','dourados-ms' => 'Dourados - MS','jardim-ms' => 'Jardim - MS','riobrilhante-ms' => 'Rio Brilhante - MS', 'saogabrieldooeste-ms' => 'São Gabriel do Oeste - MS' }
 
     
   end

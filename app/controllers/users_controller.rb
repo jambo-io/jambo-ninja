@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    
   end
   def new
   	@user = User.new
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "Você está registrado!" }
+        format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render action: :new }

@@ -20,7 +20,29 @@ module SessionsHelper
 	def user_name
 		self.current_user.name
 	end
-	def privilege
-		@privilege = self.current_user.privilege
+	def privileges
+		@privileges ||= self.current_user['privileges']
+
+		if(self.current_user['privileges']=='campogrande-ms')
+
+			@privileges = ['campogrande-ms','corumba-ms','saogabrieldooeste-ms']
+
+		elsif(self.current_user['privileges']=='dourados-ms')
+
+			@privileges = ['dourados-ms','jardim-ms','riobrilhante-ms']
+
+		elsif(self.current_user['privileges']=='tangara-mt')
+
+			@privileges = ['tangara-mt','caceres-mt']
+
+		elsif(self.current_user['privileges']=='all')
+			@privileges = ['campogrande-ms','corumba-ms','saogabrieldooeste-ms','dourados-ms','jardim-ms','riobrilhante-ms','tangara-mt','caceres-mt'];
+
+		end
+			
+
+
+
+
 	end
 end

@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lista de amigos</h1>
-<p>Amigos que serão convidados para a próxima Conferência de Juventude em Campo Grande - MS</p>
+<h1><kbd>Inscrições</kbd></h1>
 
-<table>
+<p><%= current_user['name'] %>, apenas você pode ver os inscritos para a próxima Conferência de Juventude em: <%= @cities %></p>
+
+<% unless @bemvindos.blank? %>
+
+
+<table class="table">
   <thead>
     <tr>
       <th>Nome</th>
       <th>Sobrenome</th>
       <th>E-mail</th>
       <th>Comentários</th>
-      <th colspan="3"></th>
+      <th>Cidade</th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -21,14 +26,24 @@
         <td><%= bemvindo.lastname %></td>
         <td><%= bemvindo.email %></td>
         <td><%= bemvindo.comments %></td>
+        <td><%= bemvindo.city %></td>
         <td><%= link_to 'Mostrar', bemvindo %></td>
-        <td><%= link_to 'Editar', edit_bemvindo_path(bemvindo) %></td>
-        <td><%= link_to 'Deletar', bemvindo, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        <td><%= link_to 'Editar' %></td>
+        <td><%= link_to 'Deletar', bemvindo, :method => :delete, data: { confirm: "Tem certeza que quer deletar #{bemvindo.name}?" } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<% else %>
+
+<p>Ainda ninguém se cadastrou, estamos esperando ansiosamente.</p>
+
+<p>Aqui está o <%= link_to 'link', new_bemvindo_path %> para inscrição. (jambo.ninja/conferencias/inscricao)</p>
+
+
+<% end %>
 <br>
 
-<%= link_to 'Inscrever-se', new_bemvindo_path %>
+
+

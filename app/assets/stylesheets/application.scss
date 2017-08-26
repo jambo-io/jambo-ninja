@@ -6,6 +6,10 @@
 $height-footer: 60px;
 $dark: #000;
 $blur: 2px;
+
+
+
+
 html {
 	min-height:100%;
 	position: relative;
@@ -41,6 +45,10 @@ html {
 		
 	}
 
+	li{
+		list-style-type:none;
+	}
+
 	.insc {
 
 
@@ -65,6 +73,10 @@ html {
 	}
 	label{
 		font-size: 12px !important;
+	}
+
+	table {
+		padding: 15px;
 	}
 
 	#video-background {
@@ -189,6 +201,11 @@ html {
 	li .dropdown-menu {
 		min-width:100px;
 		pointer-events:fill;
+
+	}
+
+	.dropdown {
+		display: inline-block;
 	}
 	
 	.li-acc {

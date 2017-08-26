@@ -16,10 +16,35 @@
         <ul id="primary-content" class="nav navbar-nav">
 
            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Principal', root_path, class:"nav-link" %></li>
+
+
+           <% if logged_in? %>
+
+            <% unless privileges.nil? || privileges ==0 %>
+
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inscrição<span class="caret"></span></a>
+                  <ul class="dropdown-menu themes-dropdown">
+                    
+                    <li class="li-tt">
+                     <%= link_to "Nova", new_bemvindo_path, class:"nav-link" %>
+                    </li>
+                    
+                    <li class="li-tt">
+                     <%= link_to "Inscritos", bemvindos_url, class:"nav-link" %>
+                    </li>
+                  
+                  
+                  </ul>
+              </li>
+
+             <% end %>
+
+           <% else %>
             
              <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', new_bemvindo_path, class:"nav-link" %></li>
             
-             
+           <% end %>
 
              <li class="dropdown">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Temas<span class="caret"></span></a>
@@ -40,15 +65,13 @@
                   <li class="li-tt">
                    <%= link_to "Construção de Comunidade", themes_youth_path, class:"nav-link" %>
                   </li>
-                 
 
-                </li> 
               </ul>
            </li>
            <li class="<%= 'active' if current_page?(my_about_path('sobre')) %>"><%= link_to 'Sobre', my_about_path(), class:"nav-link" %></li>
         </ul>
 
-         <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
 
 
         <% if logged_in? %>

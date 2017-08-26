@@ -32,3 +32,36 @@ en:
         blank: 'Precisamos do seu E-mail, não mandaremos Spams.'
        city:
         blank: 'Escolha uma cidade.'
+
+en:
+
+en:
+ errors:
+  messages:
+    blank: "está em branco."
+
+en:
+ support:
+  array:
+   words_connector: ", "
+   two_words_connector: " e "
+   last_word_connector: " e "
+
+ activerecord:
+  errors:
+   format: "%{message}"
+   models:
+    user:
+     attributes:
+      password:
+       blank: "está em branco."
+       confirmation: "não combina"
+       too_short: "muito curta (mínimo %{count} caracteres)"
+    bemvindo:
+      attributes:
+       name:
+        blank: 'Ficou em branco.'
+       email:
+        blank: 'Precisamos do seu E-mail, não mandaremos Spams.'
+       city:
+        blank: 'Escolha uma cidade.'
