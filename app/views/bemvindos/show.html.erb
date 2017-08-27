@@ -1,39 +1,28 @@
 
 
-<h1><%= @bemvindo.name %> <%= @bemvindo.lastname %></h1>
-<p>Obrigado por se inscrever. Você receberá um E-mail de confirmação alguns dias antecedendo a próxima Conferência de Juventude.</br>
-
-  <%= social_share_button_tag("Conferências de Juventude",:url => "www.jambo.ninja/conferencias/inscricao", :popup => "true", desc: "Summary") %> Compartilhe com seus amigos
+<h1><kbd><%= @bemvindo.name %> <%= @bemvindo.lastname %></kbd></h1>
+<p><b>Obrigado por se inscrever!</b> <br>Você receberá um E-mail com informações detalhadas a respeito da Conferência na sua cidade.<p>
 
 
-<p>Seus dados:<br>
-  <strong>Cidade:</strong>
-  <%= @city[@bemvindo.city] %>
-  <br>
-  <strong>Email:</strong>
-  <%= @bemvindo.email %>
-  <br>
+ <div class="row">
 
-   <% if(@bemvindo.phone?) %>
-  <strong>Celular:</strong>
-  <%= @bemvindo.phone %>
-  <br>
-  <% end %>
+ 
+  <div class="col-lg-6">
+      <div class="panel panel-default" style="padding:20px; padding-top:10px; border-radius:15px 50px 30px 5px; text-align:center;">
 
-  <% if(@bemvindo.birth?) %>
-	  <strong>Niver:</strong>
-	  <%= @birth %>
-	  <br>
-  <% end %>
+        <p class="highlight">Talvez alguns de seus amigos queiram participar, compartilhe.</p>
 
-  <% if(@bemvindo.comments?) %>
-	  <strong>Comentários:</strong>
-	  <%= @bemvindo.comments %>
-  <% end %>
-</p>
+       
+      <div class="fb-share-button" data-href="http://www.jambo.ninja/" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.jambo.ninja%2F&amp;src=sdkpreparse">Compartilhar</a></div>
+     
+
+      </div>
+   </div>   
+
+</div>
 
 
 
-<p>
+<p class="details">
 Você também pode se cadastrar nesse Site para obter informações de atividades e eventos. Se você ainda não tem uma conta, <%= link_to "clique aqui", users_new_path %> para se cadastrar.
 </p>
