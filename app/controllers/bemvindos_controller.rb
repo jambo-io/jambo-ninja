@@ -99,7 +99,7 @@ class BemvindosController < ApplicationController
   def destroy
     @bemvindo.destroy
     respond_to do |format|
-      format.html { redirect_to bemvindos_url, notice: 'Bemvindo was successfully destroyed.' }
+      format.html { redirect_to bemvindos_url }
       format.json { head :no_content }
     end
   end

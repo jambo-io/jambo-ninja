@@ -54,6 +54,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_12factor', group: :production
 
+gem 'social-share-button', ref: '1f95d81', github: 'vrybas/social-share-button'
+
 
 
 
