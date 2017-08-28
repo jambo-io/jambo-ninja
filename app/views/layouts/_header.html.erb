@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-custom" role="navigation">
+<nav class="navbar navbar-custom" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="animation <%= 'nav-animation' if current_page?(root_path) %>">
@@ -15,7 +15,7 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul id="primary-content" class="nav navbar-nav">
 
-           <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Principal', root_path, class:"nav-link" %></li>
+           <li><%= link_to 'Principal', root_path, class:"nav-link" %></li>
 
 
            <% if logged_in? %>
@@ -39,7 +39,7 @@
               </li>
 
              <% else  %>
-              <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', new_bemvindo_path, class:"nav-link" %></li>
+              <li><%= link_to 'Inscrição', new_bemvindo_path, class:"nav-link" %></li>
 
              <% end %>
 

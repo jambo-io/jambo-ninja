@@ -42,3 +42,5 @@ window.fbAsyncInit = function() {
   js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.10&appId=311791599293108";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+
