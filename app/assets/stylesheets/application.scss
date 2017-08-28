@@ -223,7 +223,7 @@ html {
 	}
 
 	ul .dropdown-menu {
-
+		pointer-events:visibleStroke;
 		animation: dropdown .19s ease-out;
 		@keyframes dropdown {
 			0% {
@@ -240,8 +240,9 @@ html {
 
 	li .dropdown {
 		min-width:100px;
-		pointer-events:fill;
-		z-index: -1000 !important;
+		
+
+		
 		
 
 	}

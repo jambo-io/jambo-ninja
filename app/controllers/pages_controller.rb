@@ -6,5 +6,7 @@
     end
     def about
     end
+    def local
+    end
 
   end  

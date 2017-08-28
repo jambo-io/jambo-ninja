@@ -1,19 +1,21 @@
-<h1> Usuários </h1>
-<table>
-	<thead>
-		<tr>
-			<th>Nome</th>
-			
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @users.each do |user| %>
-		<tr>
-			<td><%= user.name %></td>
-			
-			<td><%= link_to "Ver", user %></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="container">
+	<h1><kbd>Usuários<kbd></h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+			<tr>
+				<td><%= user.name %></td>
+				
+				<td><%= link_to "Ver", user %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

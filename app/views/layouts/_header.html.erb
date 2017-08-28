@@ -49,6 +49,8 @@
             
            <% end %>
 
+            <li class="<%= 'active' if current_page?(my_local_path('local')) %>"><%= link_to 'Local', my_local_path(), class:"nav-link" %></li>
+
              <li class="dropdown">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Temas<span class="caret"></span></a>
                 <ul class="dropdown-menu themes-dropdown">
@@ -71,6 +73,7 @@
 
               </ul>
            </li>
+
            <li class="<%= 'active' if current_page?(my_about_path('sobre')) %>"><%= link_to 'Sobre', my_about_path(), class:"nav-link" %></li>
         </ul>
 

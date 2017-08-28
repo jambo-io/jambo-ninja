@@ -42,6 +42,7 @@ Rails.application.routes.draw do
 
   get "/page/:page" => "pages#show"
   get 'sobre', :to => 'pages#about', :as => 'my_about'
+   get 'local', :to => 'pages#local', :as => 'my_local'
 
  
 

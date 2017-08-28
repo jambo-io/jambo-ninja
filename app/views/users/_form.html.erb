@@ -16,7 +16,7 @@
 		<%= f.text_field :name, class:"form-control" %>
 	</div>
 	<div class="field form-group">
-		<%= f.label :email, "Email ou Celular", class:"control-label" %>
+		<%= f.label :email, "Email", class:"control-label" %>
 		<%= f.email_field :email, class:"form-control" %>
 	</div>
 	<div class="field form-group">
@@ -27,7 +27,10 @@
 		<%= f.label :password_confirmation, "Confirmação da Senha", class:"control-label" %>
 		<%= f.password_field :password_confirmation, class:"form-control" %>
 	</div>
-	<div class="actions">
-		<%= f.submit "Cadastrar", class:'btn btn-info' %>
+	<div style="text-align:center">
+		<%= f.submit "Cadastrar", class:"btn btn-info", style:"margin:0 auto" %>
 	</div>
+		
+	
+
 <% end %>

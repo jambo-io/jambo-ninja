@@ -43,4 +43,24 @@ window.fbAsyncInit = function() {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+function myMap(){
+  var myLatLng = {lat:-22.2154901, lng: -54.8228215};
+ 
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center:myLatLng,
+      zoom: 16,
+    
+    });
+
+    
+
+    var marker = new google.maps.Marker({
+      map: map,
+      position: myLatLng,
+      title: 'Casa do Vito'
+    });
+  
+  
+}
+
 
