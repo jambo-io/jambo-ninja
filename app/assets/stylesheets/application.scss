@@ -168,23 +168,62 @@ html {
 	.icon-bar{
 		background-color: #888;
 	}
-	.navbar-custom {
-		
-		$dropshadow : -0 5px 6px -6px #000;
-		-webkit-box-shadow: $dropshadow;
-		-moz-box-shadow: $dropshadow;
-		box-shadow: $dropshadow;
-		
+	.brand {
+		position: relative;
+
+		height:50px; width:auto;
+		z-index: 4 !important;
 	}
+	
+	.shadow {
+		position:absolute;
+		width: 100%;
+		height: 100%;
+		left:0;
+		top:0;
+		right: 0;
+		bottom: 0;
+	
+
+		
+	
+	}
+
+
 
 	.navbar-custom .navbar-brand,
 	.navbar-custom .navbar-text {
 		color: #fff;
+
 	}
+	.navindex {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: -1px;
+		
+		background-color: $darkblue;
+		z-index: 0;
+		$dropshadow : -0 5px 6px -6px #000;
+		-webkit-box-shadow: $dropshadow;
+		-moz-box-shadow: $dropshadow;
+		box-shadow: $dropshadow;
+	
+		pointer-events:none;
+	}
+	
+
 
 	.navbar-custom, .navbar-nav, .nav-link {
 		color: #a7aeba !important;
+		z-index: 1;
+
+
 	}
+	
+
 	.navbar-nav a:hover {
 		color: #fff !important;
 	}
@@ -193,27 +232,19 @@ html {
 		background-color: $darkblue;
 		color: #fff;
 		
-		
 	}
 
 
 
-
-
-	.dropdown-menu {
-		background-color: $darkblue;
-		z-index: -1;
-
-		
-
-	}
 
 
 	.nav > li > a:hover, .nav > li > a:focus {
 		background-color: $darkblue;
 		
+		
 	}
 
+	
 
 	.navbar-custom .navbar-custom.active .nav-item.active .nav-link,
 	.navbar-custom .navbar-custom.active .nav-item:hover .nav-link {
@@ -222,8 +253,12 @@ html {
 
 	}
 
+	
+
 	ul .dropdown-menu {
-		pointer-events:visibleStroke;
+		
+		z-index: -1 !important;
+		background-color: $darkblue;
 		animation: dropdown .19s ease-out;
 		@keyframes dropdown {
 			0% {
@@ -240,20 +275,11 @@ html {
 
 	li .dropdown {
 		min-width:100px;
-		
-
-		
-		
+	
 
 	}
 
 	
-
-	.dropdown {
-	
-		display: inline-block;
-
-	}
 	
 	.li-acc {
 
@@ -264,13 +290,18 @@ html {
 	}
 
 	.li-tt {
-		background-color:  $darkblue;
-
+		background-color: $darkblue;
+	
 		display: inline-block;
 		word-break:break-all;
 		min-width:100%;
 		max-width:100%;
+		list-style:none;
+		z-index: -1 !important;
+		
 	}
+
+	
 	.li-tt > a:focus, .li-tt > a:hover,
 	.li-acc > a:focus, .li-acc > a:hover
 	{
