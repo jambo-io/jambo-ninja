@@ -51,7 +51,11 @@ class BemvindosController < ApplicationController
   # GET /bemvindos/new
   def new
     @bemvindo = Bemvindo.new
-    
+    city = ['dourados-ms','riobrilhante-ms','jardim-ms'];
+    @bemvindos = Bemvindo.where(:city => city)
+    count = Bemvindo.where(:city => city).group('bemvindos.id').count.length
+    @remaining = 35 - count
+    @phrase = "restante".pluralize(@remaining)
 
   end
 

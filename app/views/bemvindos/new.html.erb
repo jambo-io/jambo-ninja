@@ -1,12 +1,25 @@
 
  <div class="row">
  	<div class="col-lg-5 col-lg-offset-1 ">
- 		 <div class="container ">
+ 		 <div class="container" style="margin-bottom:-90px;">
  		 			<p>
 			<b>Conferência de Juventude de Dourados - MS</b>
 			<br>7 a 9 de setembro de 2017, início às 8 da manhã
 			<br>Rua Iguassu, 1105 - Jardim Girassol
 			</p>
+
+		</div>
+
+		<div class="container ">
+ 		 			
+			<h4><b>Inscritos</b> <span class="alert-success" style="padding:5px;"><%= @remaining %> vagas <%= @phrase %></span></h4><br><br>
+			
+			<ul>
+			<% @bemvindos.each do |f| %>
+				<li><%= f.name %> <%= f.lastname %></li>
+			<% end %>
+			</ul>
+			
 
 		</div>
  		
