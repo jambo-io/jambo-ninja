@@ -66,8 +66,13 @@ class BemvindosController < ApplicationController
     @user = Bemvindo.new(bemvindo_params)
  
 
-    #Envia email ao usuário ao confirmar formulário
-    FormConferenceMailer.conf_contact(@user).deliver
+    if(@user.city == "dourados-ms")
+      FormConferenceMailer.dourados_contact(@user).deliver
+    else 
+      #Envia email ao usuário ao confirmar formulário
+      FormConferenceMailer.conf_contact(@user).deliver
+
+   end
 
     respond_to do |format|
       if @bemvindo.save
