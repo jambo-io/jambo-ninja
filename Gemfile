@@ -56,6 +56,8 @@ gem 'rails_12factor', group: :production
 
 gem 'social-share-button'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 
 
 

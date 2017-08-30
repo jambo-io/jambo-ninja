@@ -11,7 +11,15 @@ module Jovensamigos
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.action_mailer.asset_host = "http://www.jambo.ninja/"
-    config.action_controller.asset_host = "http://www.jambo.ninja/"
+
+
+    config.middleware.use Rack::Cors do
+    	allow do
+    		origins 'http://localhost:3000'
+    		resource '/conferencias/inscricao', :headers => :any, :methods => [:get, :post, :options]
+    	end
+    end
+    	
+    
   end
 end

@@ -45,6 +45,7 @@ window.fbAsyncInit = function() {
 
 function myMap(){
   var myLatLng = {lat:-22.2154901, lng: -54.8228215};
+  console.log("teste");
  
     var map = new google.maps.Map(document.getElementById('map'), {
       center:myLatLng,
@@ -64,6 +65,7 @@ function myMap(){
 }
 
 $(document).ready(function(){
+
 
 
   $(".hoverm").hover( function(e) {
