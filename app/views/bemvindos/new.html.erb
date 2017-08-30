@@ -28,7 +28,9 @@
  	 	<div class="container">
  			
 			<h1><kbd>Inscrição</kbd></h1>
-
+					<% if flash[:notice] %><br>
+						<div class="notice alert-danger"><%= flash[:notice] %> </div>
+					<% end %>
 					<p style="text-indent:0em;">Preencha o formulário para participar da próxima Conferência de Juventude da sua cidade.</p>
 
 					<div class="row">

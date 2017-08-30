@@ -65,23 +65,22 @@ class BemvindosController < ApplicationController
     @user = Bemvindo.new(bemvindo_params)
     
 
-    if(@user.city == "dourados-ms")
-      FormConferenceMailer.dourados_contact(@user).deliver
-    else 
-      #Envia email ao usuário ao confirmar formulário
-      FormConferenceMailer.conf_contact(@user).deliver
-
-   end
-
-    respond_to do |format|
-      if @bemvindo.save
-        format.html { redirect_to @bemvindo }
-        format.json { render :show, status: :created, location: @bemvindo }
-      else
-        format.html { render :new }
-        format.json { render json: @bemvindo.errors, status: :unprocessable_entity }
+      if(@user.city == "dourados-ms")
+        FormConferenceMailer.dourados_contact(@user).deliver
+      else 
+        #Envia email ao usuário ao confirmar formulário
+        FormConferenceMailer.conf_contact(@user).deliver
       end
-    end
+      respond_to do |format|
+        if @bemvindo.save
+          format.html { redirect_to @bemvindo }
+          format.json { render :show, status: :created, location: @bemvindo }
+        else
+          format.html { render :new }
+          format.json { render json: @bemvindo.errors, status: :unprocessable_entity }
+        end
+      end
+
   end
 
   # PATCH/PUT /bemvindos/1
