@@ -4,6 +4,7 @@ class BemvindosController < ApplicationController
   before_action :authorize, except: [:new, :create, :show]
   before_action :permission, only: [:index, :destroy]
 
+
   # GET /bemvindos
   # GET /bemvindos.json
   def index
@@ -11,6 +12,8 @@ class BemvindosController < ApplicationController
     @test = privileges
 
     @bemvindos = Bemvindo.where(city: @test)
+
+
 
     @new = []
   
@@ -24,12 +27,6 @@ class BemvindosController < ApplicationController
     end
 
     @cities = @new.to_sentence(:last_word_connector => ' e ')
-
-
-
-
-
-
 
   end
 
@@ -51,11 +48,9 @@ class BemvindosController < ApplicationController
   # GET /bemvindos/new
   def new
     @bemvindo = Bemvindo.new
-    city = ['dourados-ms','riobrilhante-ms','jardim-ms'];
-    @bemvindos = Bemvindo.where(:city => city)
-    count = Bemvindo.where(:city => city).group('bemvindos.id').count.length
-    @remaining = 35 - count
-    @phrase = "restante".pluralize(@remaining)
+    
+
+
 
   end
 
@@ -68,7 +63,7 @@ class BemvindosController < ApplicationController
   def create
     @bemvindo = Bemvindo.new(bemvindo_params)
     @user = Bemvindo.new(bemvindo_params)
- 
+    
 
     if(@user.city == "dourados-ms")
       FormConferenceMailer.dourados_contact(@user).deliver
@@ -80,7 +75,7 @@ class BemvindosController < ApplicationController
 
     respond_to do |format|
       if @bemvindo.save
-        format.html { redirect_to @bemvindo, notice: 'Obrigado por se inscrever!' }
+        format.html { redirect_to @bemvindo }
         format.json { render :show, status: :created, location: @bemvindo }
       else
         format.html { render :new }
@@ -121,7 +116,7 @@ class BemvindosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bemvindo_params
-      params.require(:bemvindo).permit(:name, :lastname, :city, :email, :phone, :comments, :birth)
+      params.require(:bemvindo).permit(:name, :lastname, :city, :email, :comments, :birth)
     end
 
     def permission

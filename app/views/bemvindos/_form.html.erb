@@ -16,8 +16,8 @@
     </div>
 
 
-  <%= f.email_field :email, icon: "envelope" %>
-  <%= f.text_field :phone, label: "Celular", icon: "phone" %>
+  <%= f.text_field :email, label: 'E-mail ou Celular', icon: "envelope" %>
+
   <div class="form-inline">
     <%= f.date_select :birth, {:use_month_names => ['janeiro', 'fevereiro', 'março', 'abril', 'maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'], :start_year=>Date.today.year-35, :end_year=>Date.today.year - 10,  :order => [:day,:month,:year], :label => "Data de Nascimento", :prompt => {:day => 'Dia', :month => 'Mês', :year=> 'Ano'} }  %>
   </div>

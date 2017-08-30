@@ -13,7 +13,7 @@
       <tr>
         <th>Nome</th>
         <th>Sobrenome</th>
-        <th>E-mail</th>
+        <th>Contato</th>
         <th>Comentários</th>
         <th>Cidade</th>
         <th colspan="5"></th>
@@ -28,7 +28,7 @@
           <td><%= bemvindo.email %></td>
           <td><%= bemvindo.comments %></td>
           <td><%= bemvindo.city %></td>
-          <td><%= link_to 'Mostrar', bemvindo %></td>
+          
           <td><%= link_to 'Editar' %></td>
           <td><%= link_to 'Deletar', bemvindo, :method => :delete, data: { confirm: "Tem certeza que quer deletar #{bemvindo.name}?" } %></td>
         </tr>

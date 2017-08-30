@@ -12,11 +12,11 @@
 
 		<div class="container ">
  		 			
-			<h4><b>Inscritos</b> <span class="alert-success" style="padding:5px;"><%= @remaining %> vagas <%= @phrase %></span></h4><br><br>
+			<h4><b>Inscritos</b> <span class="alert-success" style="padding:5px;"><%= available_sits %></span></h4><br><br>
 			
 			<ul>
-			<% @bemvindos.each do |f| %>
-				<li><%= f.name %> <%= f.lastname %></li>
+			<% registered_users.each do |f| %>
+				<li><%= f.name %> <%= f.lastname%></li>
 			<% end %>
 			</ul>
 			
