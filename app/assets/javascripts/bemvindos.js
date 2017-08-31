@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 	  // Display the result in the element with id="demo"
 	  document.getElementById("demo").innerHTML = "Faltam " + days + "d, " + hours + "h, " 
-	  + minutes + "m e " + seconds + "s " + " para a Conferência, mas quem está contando?";
+	  + minutes + "m e " + seconds + "s" + ", mas quem está contando?";
 
 	  // If the count down is finished, write some text
 	  if (distance < 0) {
