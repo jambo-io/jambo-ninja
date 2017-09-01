@@ -2,7 +2,7 @@ module BemvindosHelper
 
 	private 
 	def registered_users
-	    bemvindos = Bemvindo.where(:city => city)
+	    bemvindos = Bemvindo.where(:city => city).order(:name)
 		return bemvindos
 	end
 
