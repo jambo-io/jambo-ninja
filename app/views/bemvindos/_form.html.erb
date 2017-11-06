@@ -22,7 +22,7 @@
     <%= f.date_select :birth, {:use_month_names => ['janeiro', 'fevereiro', 'março', 'abril', 'maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'], :start_year=>Date.today.year-35, :end_year=>Date.today.year - 10,  :order => [:day,:month,:year], :label => "Data de Nascimento", :prompt => {:day => 'Dia', :month => 'Mês', :year=> 'Ano'} }  %>
   </div>
 
-   <%= f.select :city, [["De onde você é?",nil],["Cáceres - MT", "caceres-mt"],["Campo Grande - MS", "campogrande-ms"],["Corumbá - MS", "corumba-ms"], ["Dourados - MS", "dourados-ms"], ["Jardim - MS", "jardim-ms"],["Rio Brilhante - MS", "riobrilhante-ms"],["São Gabriel do Oeste - MS" , "saogabrieldooeste-ms"]], {label:"Cidade"} %>
+   <%= f.select :city, [["De onde você é?",nil],["Cáceres - MT", "caceres-mt"],["Cuiabá - MT", "cuiaba-mt"],["Tangará da Serra - MT", "tangara-mt"],["Campo Grande - MS", "campogrande-ms"],["Corumbá - MS", "corumba-ms"], ["Dourados - MS", "dourados-ms"], ["Jardim - MS", "jardim-ms"],["Rio Brilhante - MS", "riobrilhante-ms"],["São Gabriel do Oeste - MS" , "saogabrieldooeste-ms"]], {label:"Cidade"} %>
 
 
   <%= f.text_area :comments, label: "Comentários", placeholder: "(opcional)" %>

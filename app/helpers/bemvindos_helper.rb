@@ -17,6 +17,6 @@ module BemvindosHelper
 
 	private
 	def city
-		city = ['dourados-ms','riobrilhante-ms','jardim-ms','campogrande-ms'];
+		city = ['caceres-mt','cuiaba-mt','tangara-mt'];
 	end
 end

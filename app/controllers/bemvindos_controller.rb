@@ -17,7 +17,7 @@ class BemvindosController < ApplicationController
 
     @new = []
   
-    city = { 'caceres-mt'=>'Cáceres-MT','campogrande-ms' => 'Campo Grande - MS','corumba-ms' => 'Corumbá - MS','dourados-ms' => 'Dourados - MS','jardim-ms' => 'Jardim - MS','riobrilhante-ms' => 'Rio Brilhante - MS', 'saogabrieldooeste-ms' => 'São Gabriel do Oeste - MS' }
+    city = { 'caceres-mt'=>'Cáceres-MT','cuiaba-mt'=>'Cuiabá-MT','tangara-mt'=>'Tangará da Serra-MT','campogrande-ms' => 'Campo Grande - MS','corumba-ms' => 'Corumbá - MS','dourados-ms' => 'Dourados - MS','jardim-ms' => 'Jardim - MS','riobrilhante-ms' => 'Rio Brilhante - MS', 'saogabrieldooeste-ms' => 'São Gabriel do Oeste - MS' }
 
     unless @test.blank?
       @test.each do |c|
@@ -40,7 +40,7 @@ class BemvindosController < ApplicationController
       @birth = nil 
     end
 
-    @city = { 'caceres-mt'=>'Cáceres-MT','campogrande-ms' => 'Campo Grande - MS','corumba-ms' => 'Corumbá - MS','dourados-ms' => 'Dourados - MS','jardim-ms' => 'Jardim - MS','riobrilhante-ms' => 'Rio Brilhante - MS', 'saogabrieldooeste-ms' => 'São Gabriel do Oeste - MS' }
+    @city = { 'caceres-mt'=>'Cáceres-MT','cuiaba-mt'=>'Cuiabá-MT','tangara-mt'=>'Tangará da Serra-MT','campogrande-ms' => 'Campo Grande - MS','corumba-ms' => 'Corumbá - MS','dourados-ms' => 'Dourados - MS','jardim-ms' => 'Jardim - MS','riobrilhante-ms' => 'Rio Brilhante - MS', 'saogabrieldooeste-ms' => 'São Gabriel do Oeste - MS' }
 
     
   end
@@ -69,7 +69,9 @@ class BemvindosController < ApplicationController
         
           if(@user.city == "dourados-ms")
             FormConferenceMailer.dourados_contact(@user).deliver
-          else 
+          elsif(@user.city == "tangara-mt")
+            FormConferenceMailer.tangara_contact(@user).deliver
+          else
             #Envia email ao usuário ao confirmar formulário
             FormConferenceMailer.conf_contact(@user).deliver
           end
