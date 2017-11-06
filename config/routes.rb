@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   get ':permalink', :controller => 'pages', :action => 'themes', :as => 'my_themes'
   #get '/bemvindos' => "bemvindos#index"
   get "/form" => "pages#form"
-  root "pages#index"
+  root "bemvindos#new"
 
 
 
