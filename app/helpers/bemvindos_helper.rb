@@ -2,13 +2,17 @@ module BemvindosHelper
 
 	private 
 	def registered_users
-	    bemvindos = Bemvindo.where(:city => city).order(:name)
+	    bemvindos = Bemvindo.where(:city => city, created_at: DateTime.now.beginning_of_month).order(:name)
+
+
 		return bemvindos
 	end
 
 	def available_sits
 		
 		count = Bemvindo.where(:city => city).group('bemvindos.id').count.length
+
+		
 	    remaining = 35 - count
 	    word1 = "vaga".pluralize(@remaining)
 	    word2 = "restante".pluralize(@remaining)
@@ -17,6 +21,6 @@ module BemvindosHelper
 
 	private
 	def city
-		city = ['caceres-mt','cuiaba-mt','tangara-mt'];
+		city = ['riobrilhante-ms','dourados-ms','campogrande-ms'];
 	end
 end
