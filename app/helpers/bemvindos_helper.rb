@@ -10,7 +10,7 @@ module BemvindosHelper
 
 	def available_sits
 		
-		count = Bemvindo.where(:city => city).group('bemvindos.id').count.length
+		count = Bemvindo.where(:city => city,  created_at: DateTime.now.beginning_of_month).group('bemvindos.id').count.length
 
 		
 	    remaining = 35 - count
