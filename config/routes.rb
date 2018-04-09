@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :eventosbahais
+  resources :participants
   get 'sessions/new'
 
   get 'users/new'
