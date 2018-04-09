@@ -1,0 +1,67 @@
+<%= form_for(eventosbahai) do |f| %>
+  <% if eventosbahai.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(eventosbahai.errors.count, "error") %> prohibited this eventosbahai from being saved:</h2>
+
+      <ul>
+      <% eventosbahai.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_at %>
+    <%= f.date_select :start_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_at %>
+    <%= f.date_select :end_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :theme %>
+    <%= f.text_field :theme %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vacancies %>
+    <%= f.number_field :vacancies %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

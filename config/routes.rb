@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :conferenciasdeunidades
+  resources :eventosbahais
   get 'sessions/new'
 
   get 'users/new'

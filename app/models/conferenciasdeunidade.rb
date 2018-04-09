@@ -1,2 +1,0 @@
-class Conferenciasdeunidade < ApplicationRecord
-end
