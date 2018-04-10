@@ -3,7 +3,7 @@ class ParticipantsController < ApplicationController
 		@participants = Participant.all
 	end
 	def new
-		@participant = Eventosbahai.new
+		@participant = Participant.new
 		@participant.eventosbahais.build 
 	end
 	def show

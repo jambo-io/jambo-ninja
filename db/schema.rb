@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124164104) do
+ActiveRecord::Schema.define(version: 20180409212447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,35 @@ ActiveRecord::Schema.define(version: 20180124164104) do
     t.string   "address"
   end
 
+  create_table "eventosbahais", force: :cascade do |t|
+    t.string   "name"
+    t.date     "start_at"
+    t.date     "end_at"
+    t.string   "city"
+    t.string   "state"
+    t.string   "location"
+    t.string   "theme"
+    t.string   "description"
+    t.float    "price"
+    t.integer  "vacancies"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lastname"
+    t.string   "contact"
+    t.date     "birthday"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "eventosbahais_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["eventosbahais_id"], name: "index_participants_on_eventosbahais_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -36,4 +65,5 @@ ActiveRecord::Schema.define(version: 20180124164104) do
     t.string   "privileges"
   end
 
+  add_foreign_key "participants", "eventosbahais", column: "eventosbahais_id"
 end
