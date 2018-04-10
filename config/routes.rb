@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :eventosbahais
   resources :participants
+
+  get 'participants/new/:id' => 'participants#new', :as => 'partnew'
+
   get 'sessions/new'
 
   get 'users/new'
@@ -51,7 +54,7 @@ Rails.application.routes.draw do
   get ':permalink', :controller => 'pages', :action => 'themes', :as => 'my_themes'
   #get '/bemvindos' => "bemvindos#index"
   get "/form" => "pages#form"
-  root "bemvindos#new"
+  root "eventosbahais#index"
 
 
 

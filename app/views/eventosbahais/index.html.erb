@@ -3,38 +3,11 @@
 <h1>Eventosbahais</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start at</th>
-      <th>End at</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Location</th>
-      <th>Theme</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Vacancies</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
   <tbody>
     <% @eventosbahais.each do |eventosbahai| %>
       <tr>
-        <td><%= eventosbahai.name %></td>
-        <td><%= eventosbahai.start_at %></td>
-        <td><%= eventosbahai.end_at %></td>
-        <td><%= eventosbahai.city %></td>
-        <td><%= eventosbahai.state %></td>
-        <td><%= eventosbahai.location %></td>
-        <td><%= eventosbahai.theme %></td>
-        <td><%= eventosbahai.description %></td>
-        <td><%= eventosbahai.price %></td>
-        <td><%= eventosbahai.vacancies %></td>
-        <td><%= link_to 'Show', eventosbahai %></td>
-        <td><%= link_to 'Edit', edit_eventosbahai_path(eventosbahai) %></td>
-        <td><%= link_to 'Destroy', eventosbahai, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to eventosbahai.name, partnew_path(eventosbahai) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +15,4 @@
 
 <br>
 
-<%= link_to 'New Eventosbahai', new_eventosbahai_path %>
+<%= link_to 'Adicionar Evento', new_eventosbahai_path %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Eventosbahais</h1>
+
+<table>
+
+  <tbody>
+    <% @eventosbahais.each do |eventosbahai| %>
+      <tr>
+        <td><%= link_to eventosbahai.name, partnew_path(eventosbahai) %></td>
+        <td><%= eventosbahai.start_at %></td>
+        <td><%= eventosbahai.end_at %></td>
+        <td><%= eventosbahai.city %></td>
+        <td><%= eventosbahai.state %></td>
+        <td><%= eventosbahai.location %></td>
+        <td><%= eventosbahai.theme %></td>
+        <td><%= eventosbahai.description %></td>
+        <td><%= eventosbahai.price %></td>
+        <td><%= eventosbahai.vacancies %></td>
+        <td><%= link_to 'Show', eventosbahai %></td>
+        <td><%= link_to 'Edit', edit_eventosbahai_path(eventosbahai) %></td>
+        <td><%= link_to 'Destroy', eventosbahai, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Eventosbahai', new_eventosbahai_path %>

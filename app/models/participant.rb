@@ -1,3 +1,3 @@
 class Participant < ApplicationRecord
-  belongs_to :eventosbahais
+  belongs_to :eventosbahai
 end

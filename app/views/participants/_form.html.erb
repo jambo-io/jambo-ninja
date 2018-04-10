@@ -1,39 +1,42 @@
 <%= form_for(participant) do |f| %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form form-group">
+    <%= f.label 'Nome' %>
+    <%= f.text_field :name, :class=>'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :lastname %>
-    <%= f.text_field :lastname %>
+  <div class="form form-group">
+    <%= f.label 'Sobrenome' %>
+    <%= f.text_field :lastname, :class=>'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :contact %>
-    <%= f.text_field :contact %>
+  <div class="form form-group">
+    <%= f.label 'E-mail ou Celular' %>
+    <%= f.text_field :contact, :class=>'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :birthday %>
-    <%= f.date_select :birthday %>
+  <div class="form form-group">
+    <%= f.label 'Aniversário' %>
+    <%= f.date_select :birthday, {:order => [:day, :month, :year], :prompt => {:day => "Dia", :month => "Mês", :year => "Ano"}, 
+      :start_year => Time.now.year - 90, :end_year => Time.now.year - 1}, {:class=>'form-control'} %>
   </div>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+  <div class="form form-group">
+    <%= f.label 'Endereço' %>
+    <%= f.text_field :address, :class=>'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+  <div class="form form-group">
+    <%= f.label 'Cidade' %>
+    <%= f.text_field :city, :class=>'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :state %>
-    <%= f.text_field :state %>
+  <div class="form form-group">
+    <%= f.label 'Estado' %>
+    <%= f.text_field :state, :class=>'form-control' %>
   </div>
+
+  <%= f.hidden_field :eventosbahai_id, :value => params[:id] %>
 
   <div class="actions">
     <%= f.submit %>

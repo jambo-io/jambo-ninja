@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409212447) do
+ActiveRecord::Schema.define(version: 20180410131128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 20180409212447) do
     t.string   "address"
     t.string   "city"
     t.string   "state"
-    t.integer  "eventosbahais_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["eventosbahais_id"], name: "index_participants_on_eventosbahais_id", using: :btree
+    t.integer  "eventosbahai_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["eventosbahai_id"], name: "index_participants_on_eventosbahai_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,5 +65,5 @@ ActiveRecord::Schema.define(version: 20180409212447) do
     t.string   "privileges"
   end
 
-  add_foreign_key "participants", "eventosbahais", column: "eventosbahais_id"
+  add_foreign_key "participants", "eventosbahais"
 end
