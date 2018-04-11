@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :eventosbahais
+  get 'participants/confirmation' => 'participants#confirmation', :as => :confirm
   resources :participants
+
 
   get 'participants/new/:id' => 'participants#new', :as => 'partnew'
 

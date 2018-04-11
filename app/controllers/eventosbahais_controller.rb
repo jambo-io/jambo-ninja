@@ -15,6 +15,8 @@ class EventosbahaisController < ApplicationController
   # GET /eventosbahais/new
   def new
     @eventosbahai = Eventosbahai.new
+
+    
   end
 
   # GET /eventosbahais/1/edit
@@ -69,6 +71,6 @@ class EventosbahaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def eventosbahai_params
-      params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies)
+      params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies, :sendemail)
     end
 end

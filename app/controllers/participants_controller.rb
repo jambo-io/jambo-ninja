@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-
+	layout "eventosbahais"
 
 	def index
 		@participants = Participant.all
@@ -9,9 +9,14 @@ class ParticipantsController < ApplicationController
 		@evento_id = params[:id]
 		
 		@evento = Eventosbahai.find(@evento_id)
+
+		@vacancies = @evento.vacancies.to_i - Participant.where(eventosbahai_id: @evento_id).count.to_i
 		
 		
 		
+	end
+	def confirmation
+		@participant = Participant.find(params[:id])
 	end
 	def show
 	end
@@ -20,26 +25,25 @@ class ParticipantsController < ApplicationController
 		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
 		@participant = @evento.participants.new(participant_params)
 
-		puts @participant.inspect
-
-    	respond_to do |format|
       if @participant.save
-        format.html { redirect_to root_path notice: 'Participant was successfully created.' }
-        format.json { render :show, status: :created, location: @participant }
+      	EventoMailer.confirmation_email(@participant).deliver
+        redirect_to :action => "confirmation", :id => @participant.id
       else
-        format.html { render :new }
-        format.json { render json: @participant.errors, status: :unprocessable_entity }
+        render :new 
       end
-    end
+    
 	end
 	def update
 	end
 	def destroy
 	end
 
+	
+
 	private
 		def participant_params
 			params.require( :participant ).permit(:name, :lastname, :contact, :birthday, :address, :city, :state, :eventosbahai_id)
 		end
+
 		
 end

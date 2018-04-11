@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Eventosbahais</h1>
+<h1>Eventos Bahá'ís</h1>
 
 <table>
 
@@ -15,4 +14,7 @@
 
 <br>
 
-<%= link_to 'Adicionar Evento', new_eventosbahai_path %>
+
+<% if admin? %>
+  <%= link_to 'Adicionar Evento', new_eventosbahai_path %>
+<%end %>

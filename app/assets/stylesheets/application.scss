@@ -21,6 +21,7 @@ html {
 		padding: 0px;
 		background: #f2f2f2;
 		height:100%;
+		font-family: 'Open Sans', sans-serif;
 	}
 	.page-bg {
 		position:absolute;
@@ -30,6 +31,7 @@ html {
 		height:100%;
 		z-index:-10;
 	}
+
 
 	.page-bg.main-page {
 
@@ -203,6 +205,7 @@ html {
 		right: 0;
 		bottom: 0;
 		margin: -1px;
+		margin-bottom:100px;
 		
 		background-color: $darkblue;
 		z-index: 0;
@@ -310,7 +313,7 @@ html {
 
 	.container {
 		margin: auto;
-		margin-top:100px;
+		margin-top:10px;
 		background-color: #fff;
 		width:800px;
 		max-width: 95%;

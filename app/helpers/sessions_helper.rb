@@ -20,6 +20,14 @@ module SessionsHelper
 	def user_name
 		self.current_user.name
 	end
+
+	def admin?
+		if logged_in?
+			@privileges ||= self.current_user['privileges']
+			return true if self.current_user['privileges']=='admin'
+		end
+	end
+
 	def privileges
 		@privileges ||= self.current_user['privileges']
 
@@ -39,10 +47,5 @@ module SessionsHelper
 			@privileges = ['campogrande-ms','corumba-ms','saogabrieldooeste-ms','dourados-ms','jardim-ms','riobrilhante-ms','tangara-mt','caceres-mt'];
 
 		end
-			
-
-
-
-
 	end
 end

@@ -1,0 +1,130 @@
+<nav class="navbar navbar-custom" role="navigation">
+  
+ 
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="animation <%= 'nav-animation' if current_page?(root_path) %>">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Expandir</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to image_tag("logodarkalpha-01.png", class:'brand'), root_path %>
+        
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul id="primary-content" class="nav navbar-nav">
+
+           <li><%= link_to 'Principal', root_path, class:"nav-link" %></li>
+
+
+           <% if logged_in? %>
+
+            <% unless privileges.nil? || privileges ==0 %>
+
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inscrição<span class="caret"></span></a>
+                  <ul class="dropdown-menu themes-dropdown">
+                    
+                    <li class="li-tt">
+                     <%= link_to "Nova", new_bemvindo_path, class:"nav-link" %>
+                    </li>
+                    
+                    <li class="li-tt">
+                     <%= link_to "Inscritos", bemvindos_url, class:"nav-link" %>
+                    </li>
+                  
+                  
+                  </ul>
+              </li>
+
+             <% else  %>
+              <li><%= link_to 'Inscrição', partnew_path(1), class:"nav-link" %></li>
+
+             <% end %>
+
+           <% else %>
+            
+             <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', new_bemvindo_path, class:"nav-link" %></li>
+            
+           <% end %>
+          
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+
+        <% if logged_in? %>
+          <li>
+            <%= link_to 'Usuários', users_path, class:"nav-link" %>
+          </li>
+
+          <li class="dropdown">
+            <%= link_to "#{user_name}<span class='caret'></span>".html_safe, users_path, { :class => "dropdown-toggle nav-link", 'data-toggle' => "dropdown", 'role'=>"button", 'aria-haspopup'=>"true", 'aria-expanded'=>"false" } %>
+            
+              <ul class="dropdown-menu account-dropdown">
+                <li class="li-acc"><%= link_to "Perfil", user_path(current_user), class:"nav-link" %></li>
+                <li class="li-acc"><%= link_to "Conta", '#', class:"nav-link" %></li>
+                <li class="li-acc">
+                  <%= link_to "Sair", signout_path, method: "delete", class:"nav-link" %>
+                </li>
+              </ul>
+            </li>
+          
+        <% else %>
+
+         
+            <li><span class="navbar-text">Ja tem uma conta?</span></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+              <ul id="login-dp" class="dropdown-menu">
+                <li>
+                   <div class="row">
+                      <div class="col-md-12">
+                        Login via
+                        <div class="social-buttons">
+                          <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                          <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                        </div>
+                                        ou
+                         <%= form_for :session, url: signin_path do |f| %>
+                            <div class="form-group">
+                               <div class="field">
+                              <%= f.email_field :email, autofocus: true, placeholder:"Email", class:"form-control" %>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="field">
+                              <%= f.password_field :password, autocomplete: "off", placeholder:"Senha", class:"form-control" %>
+                              </div>
+                              <div class="help-block text-right"><a href="">Esqueceu a senha ?</a></div>
+                            </div>
+                            <div class="form-group">
+                               <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            </div>
+                            <div class="checkbox" style="color:#000;">
+                               <label>
+                               <input type="checkbox" > Manter logado
+                               </label>
+                            </div>
+                         <% end %>
+                      </div>
+                      <div class="bottom text-center">
+                        <span style="color:#bbb;">Novo aqui? </span><%= link_to "Junte-se a nós", new_user_path %>
+                      </div>
+                   </div>
+                </li>
+              </ul>
+            </li>
+          </ul><!-- /.Login -->
+        <% end %>
+
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- animation -->
+  </div><!-- /.container-fluid -->
+</nav>
+
