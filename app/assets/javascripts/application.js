@@ -70,7 +70,6 @@ $(document).ready(function(){
 
   $(".hoverm").hover( function(e) {
 
-    console.log("funciona");
   });
 
 
