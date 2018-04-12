@@ -39,16 +39,17 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => ENV["gmail_username"],
-    :password             => ENV["gmail_password"],
+    :user_name            => "jamboninja1736@gmail.com",
+    :password             => "ogherrtbqtpulmte",
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
 
-  config.action_mailer.default_url_options = {:host => "127.0.0.1:3000"}
+  config.action_mailer.default_url_options = {:host => "http://localhost:3000"}
 
   config.action_mailer.asset_host = "http://localhost:3000"
   config.action_controller.asset_host = "http://localhost:3000"
+  config.assets.precompile += %w(eventosbahais.js)
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

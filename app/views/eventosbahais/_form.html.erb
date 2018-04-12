@@ -11,62 +11,104 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label "Nome" %>
+    <%= f.text_field :name, class: 'form-control', placeholder:'ex: Conferência de Unidade do Centro-Oeste' %>
   </div>
 
-  <div class="field">
-    <%= f.label :start_at %>
-    <%= f.date_select :start_at %>
+  <div class="form-group">
+    <%= f.label "Data de Início" %><br>
+    <%= f.date_select :start_at, {:order => 
+      [:day, :month, :year]}, 
+      {:class=>'form-control', :style=>'display:inline-block; width:30%'} %>
   </div>
 
-  <div class="field">
-    <%= f.label :end_at %>
-    <%= f.date_select :end_at %>
+ 
+    <div class="form-group">
+      <%= f.label "Data de término" %><br>
+      <%= f.date_select :end_at, {:order => 
+        [:day, :month, :year]}, 
+        {:class=>'form-control date-select', :style=>'display:inline-block; width:30%'} %>
+    </div>
+  
+
+  <div class="form-group">
+    <%= f.label "Cidade" %>
+    <%= f.text_field :city, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+  <div class="form-group">
+    <%= f.label "Estado" %>
+    <%= f.select :state, 
+      [['Acre','AC'],
+       ['Alagoas','AL'],
+       ['Amapá','AP'],
+       ['Amazonas','AM'],
+       ['Bahia','BA'],
+       ['Ceará','CE'],
+       ['Distrito Federal','DF'],
+       ['Espírito Santo','ES'],
+       ['Goiás','GO'],
+       ['Maranhão','MA'],
+       ['Mato Grosso','MT'],
+       ['Mato Grosso do Sul','MS'],
+       ['Minas Gerais','MG'],
+       ['Pará','PA'],
+       ['Paraíba','PB'],
+       ['Paraná','PR'],
+       ['Pernambuco','PE'],
+       ['Piauí','PI'],
+       ['Rio de Janeiro','RJ'],
+       ['Rio Grande do Norte','RN'],
+       ['Rio Grande do Sul','RS'],
+       ['Rondônia','RO'],
+       ['Roraima','RR'],
+       ['Santa Catarina','SC'],
+       ['São Paulo','SP'],
+       ['Sergipe','SE'],
+       ['Tocantins','TO']],
+       { prompt: "Selecione um Estado" }, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :state %>
-    <%= f.text_field :state %>
+  <div class="form-group">
+    <%= f.label "Endereço do Evento" %>
+    <%= f.text_field :location, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+  <div class="form-group">
+    <%= f.label "Tema" %>
+    <%= f.text_field :theme, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :theme %>
-    <%= f.text_field :theme %>
+  <div class="form-group">
+    <%= f.label "Descrição" %>
+    <%= f.text_area :description, :col => 20, :rols => 40, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+  <div class="form-group">
+    <%= f.label "Valor da Inscrição" %>
+    <%= f.text_field :price, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
+  <div class="form-group">
+    <%= f.label "Número de Vagas" %>
+    <%= f.number_field :vacancies, min:0, max:5000, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :vacancies %>
-    <%= f.number_field :vacancies %>
+   <div class="form-group">
+    <%= f.label "Imagem de Anúncio" %>
+    <%= f.file_field :image, accept: "image/jpeg, image/jpg, image/gif, image/png", :class=> "form-control" %>
+   </div>
+
+  
+  <div class="form-group">
+    <p><%= f.check_box :sendemail, :checked=>true %> Ativar E-mail automático com todas as informações para os participantes inscritos? 
+    </p>
   </div>
 
-  <div class="field">
-    <%= f.label :sendemail %>
-    <%= f.text_area :sendemail, :size => 35 %>
-  </div>
+
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Salvar", class: 'btn btn-info' %>
   </div>
 <% end %>

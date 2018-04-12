@@ -5,18 +5,18 @@ class ParticipantsController < ApplicationController
 		@participants = Participant.all
 	end
 	def new
+		
 		@participant = Participant.new
 		@evento_id = params[:id]
-		
 		@evento = Eventosbahai.find(@evento_id)
-
 		@vacancies = @evento.vacancies.to_i - Participant.where(eventosbahai_id: @evento_id).count.to_i
-		
-		
-		
+		@registered = @evento.participants.where(:publist => 1)
+		@images = @evento.image.url(:big)
+
 	end
 	def confirmation
 		@participant = Participant.find(params[:id])
+		@sendemail = @participant.eventosbahai.sendemail
 	end
 	def show
 	end
@@ -26,7 +26,10 @@ class ParticipantsController < ApplicationController
 		@participant = @evento.participants.new(participant_params)
 
       if @participant.save
-      	EventoMailer.confirmation_email(@participant).deliver
+      	puts @evento.sendemail.inspect
+      	if @evento.sendemail == "1"
+      		EventoMailer.confirmation_email(@participant).deliver
+      	end
         redirect_to :action => "confirmation", :id => @participant.id
       else
         render :new 
@@ -42,7 +45,7 @@ class ParticipantsController < ApplicationController
 
 	private
 		def participant_params
-			params.require( :participant ).permit(:name, :lastname, :contact, :birthday, :address, :city, :state, :eventosbahai_id)
+			params.require( :participant ).permit(:name, :lastname, :contact, :birthday, :address, :city, :state, :eventosbahai_id, :publist)
 		end
 
 		

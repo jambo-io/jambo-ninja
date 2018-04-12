@@ -1,20 +1,24 @@
+<div class="container">
 
-<h1>Eventos Bahá'ís</h1>
+  <h1>Eventos Bahá'ís</h1>
 
-<table>
+  <table>
+    <tbody>
+      <% @eventosbahais.each do |eventosbahai| %>
+        <tr>
+          <td><%= link_to eventosbahai.name, partnew_path(eventosbahai) %>
+          <% if admin? %>  - - 
+            <%= link_to 'Editar', edit_eventosbahai_path(eventosbahai) %> |
+            <%= link_to 'Destruir', eventosbahai_path(eventosbahai), method: :delete, data:{confirm: 'Deletar um evento irá deletar todos os participantes inscritos também. Deseja deletar mesmo assim?'} %> 
+          <%end %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
 
-  <tbody>
-    <% @eventosbahais.each do |eventosbahai| %>
-      <tr>
-        <td><%= link_to eventosbahai.name, partnew_path(eventosbahai) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% if admin? %>
+    <%= link_to 'Adicionar Evento', new_eventosbahai_path, :class => "btn btn-info" %>
+  <%end %>
 
-<br>
-
-
-<% if admin? %>
-  <%= link_to 'Adicionar Evento', new_eventosbahai_path %>
-<%end %>
+</div>

@@ -1,0 +1,46 @@
+  
+
+
+<h3>E-mail que será enviado aos participantes<h3>
+
+
+	<div class="col-sm-6">
+		<div id="preview" class="container">
+		<%= @htmlcontent.html_safe %>
+	</div>
+</div>
+
+	<div class="col-sm-6">
+		<div class="container">
+		<%= form_for(Eventosbahai.new, :url => {:action => "updateemail"}) do |f| %>
+		  <div class="field">
+		    <%= f.label :sendemail %>
+
+		    <%= text_area_tag :sendemail, @htmlcontent, { :rows=>20, :cols => 40} %>
+		    
+		  </div>
+		  <div class="actions">
+		    <%= f.submit %>
+		  </div>
+		<% end %>
+	</div>
+</div>
+
+<script>
+	
+	$(document).ready(function(){
+
+		textArea_content = $("#sendemail").val();
+		console.log($("#preview").html(textArea_content));
+
+	});
+
+  	$("#sendemail").on('input',function(){
+
+  		textArea_content = $("#sendemail").val();
+		console.log($("#preview").html(textArea_content));
+
+  	});
+
+</script>
+

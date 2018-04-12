@@ -4,7 +4,7 @@ class EventosbahaisController < ApplicationController
   # GET /eventosbahais
   # GET /eventosbahais.json
   def index
-    @eventosbahais = Eventosbahai.all
+    @eventosbahais = Eventosbahai.order('id DESC').all
   end
 
   # GET /eventosbahais/1
@@ -28,15 +28,19 @@ class EventosbahaisController < ApplicationController
   def create
     @eventosbahai = Eventosbahai.new(eventosbahai_params)
 
-    respond_to do |format|
-      if @eventosbahai.save
-        format.html { redirect_to @eventosbahai, notice: 'Eventosbahai was successfully created.' }
-        format.json { render :show, status: :created, location: @eventosbahai }
-      else
-        format.html { render :new }
-        format.json { render json: @eventosbahai.errors, status: :unprocessable_entity }
-      end
+    if @eventosbahai.save
+      redirect_to @eventosbahai
     end
+  end
+
+  def sendemail
+    @eventosbahai = Eventosbahai.find(params[:id])
+    @participant = Participant.last
+    html = render_to_string "evento_mailer/confirmation_email", :layout=>false, formats: [:html]
+    @htmlcontent = html.html_safe
+  
+  end
+  def updateemail
   end
 
   # PATCH/PUT /eventosbahais/1
@@ -71,6 +75,6 @@ class EventosbahaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def eventosbahai_params
-      params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies, :sendemail)
+      params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies, :sendemail, :image)
     end
 end

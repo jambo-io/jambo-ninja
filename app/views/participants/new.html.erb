@@ -1,8 +1,21 @@
 
 <div class="container">
 
-	<h1><%= @evento.name %></h1>
-	<h3><%= @evento.theme %></h3>
+	<h1 style="text-align:center;"><%= @evento.name %></h1>
+	<h3 style="text-align:center; margin-top:-10px;"><%= @evento.theme %></h3>
+	<br>
+	<% if admin? %>
+  		<%= link_to 'Editar Evento', edit_eventosbahai_path(params[:id]), :class => 'btn btn-inverse' %>
+	<% end %>
+
+	<% if @evento.image.exists? %>
+		<figure class="figure">
+			<%= image_tag(@images, class: "img-responsive figure-img img-fluid rounded mx-auto d-block", style: "margin: 0 auto; margin-bottom:10px;") %>
+		</figure>
+	<% end %>
+		
+
+
 	<ul>
 	  <li>De <strong><%= @evento.start_at.strftime('%d-%m-%Y') %>
 	  </strong> à <strong><%= @evento.end_at.strftime('%d-%m-%Y') %></strong></li>
@@ -18,10 +31,26 @@
 	</ul>
 </div>
 
+<% if @registered.count > 0 %>
+	<div class="container">
+		<h1 style="text-align:center; margin-bottom:40px;"><%= pluralize(@registered.count,"Amigo") %>
+			<%= "Inscrito".pluralize(@registered.count) %></h1>
+		<div class="form-row">
+			<ul>
+				<% @registered.each do |r| %>
+
+					<li><%= r.name %><li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+<% end %>
+
 <div class="container">
 
-	<h1 style="text-align:center;">Inscrição</h1>
-
-	<%= render 'form', participant: @participant %>
+	<h1 style="text-align:center; margin-bottom:40px;">Inscrição</h1>
+	<div class="form-row">
+		<%= render 'form', participant: @participant %>
+	</div>
 
 </div>

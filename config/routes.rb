@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :eventosbahais
+  get 'eventosbahais/email' => 'eventosbahais#sendemail'
+  get 'eventosbahais/updateemail' => 'eventosbahais#updateemail'
   get 'participants/confirmation' => 'participants#confirmation', :as => :confirm
+  resources :eventosbahais
   resources :participants
 
 
