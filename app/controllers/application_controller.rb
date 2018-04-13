@@ -53,6 +53,11 @@ class ApplicationController < ActionController::Base
         random_number = rand(8)
         @quote = phrases[random_number]
         @author = author[random_number]
+
+        random_number_image = rand(12) + 1
+        random_number_image2 = rand(12) + 1
+        @image = "bg" + random_number_image.to_s + ".jpg"
+        @image2 = "bg" + random_number_image2.to_s + ".jpg"
   end
 
 
