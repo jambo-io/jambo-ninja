@@ -6,7 +6,7 @@
     <tbody>
       <% @eventosbahais.each do |eventosbahai| %>
         <tr>
-          <td><%= link_to eventosbahai.name, partnew_path(eventosbahai) %>
+          <td><%= link_to eventosbahai.name, partnew_path(eventosbahai), anchor: "section1" %>
           <% if admin? %>  - - 
             <%= link_to 'Editar', edit_eventosbahai_path(eventosbahai) %> |
             <%= link_to 'Destruir', eventosbahai_path(eventosbahai), method: :delete, data:{confirm: 'Deletar um evento irá deletar todos os participantes inscritos também. Deseja deletar mesmo assim?'} %> 

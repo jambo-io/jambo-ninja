@@ -1,13 +1,52 @@
 
+<div id="confirmation"></div>
+<div class="container" style="margin-bottom:200px;">
 
-<% if @sendemail == "1" %>
+	<% if params[:error] %>
 
-	<h1>Obrigado <%= @participant.name %></h1>
-	<p>Ficamos felizes com sua participação, por favor, verifique seu E-mail ( <%= @participant.contact %> ) para confirmar sua inscrição.</p>
+		<h1>Ops!</h1>
+		<p>Desculpe, algo deu errado, você poderia voltar e tentar preencher novamente? Verifique se todos os campos foram preenchidos.
+			Caso continue tendo problemas, entre em contato conosco.</p>
 
-<% else %>
+			<%= link_to "Voltar", partnew_path(params[:evid]) %>
+
+	<% else %>
+
+		<% if @sendemail == "1" && @emailveracity %>
+
+			<h1>Obrigado <%= @participant.name %></h1>
+			<p>Ficamos felizes com sua participação, enviamos um E-mail para <%= @participant.contact %> com as principais informações.</p>
+
+		<% else %>
+		
+			<h1>Obrigado <%= @participant.name %></h1>
+			<p>Ficamos felizes com sua participação!</p>
+
+		<% end %>
+
+	<% end %>
+
+</div>
+
+
+
+<script>
 	
-	<h1>Obrigado <%= @participant.name %></h1>
-	<p>Ficamos felizes com sua participação!</p>
 
-<% end %>
+	var page = $("html, body");
+
+	$(document).ready(function(e) {
+
+		page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+			page.stop();
+		});
+
+		page.animate({scrollTop: $("#confirmation").position().top }, 2000, function(){
+			page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+		});
+		return false;
+	});
+
+
+
+</script>

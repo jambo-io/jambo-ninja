@@ -15,8 +15,18 @@ class ParticipantsController < ApplicationController
 
 	end
 	def confirmation
-		@participant = Participant.find(params[:id])
-		@sendemail = @participant.eventosbahai.sendemail
+
+		unless (params[:id].nil?)
+			@participant = Participant.find(params[:id])
+			@sendemail = @participant.eventosbahai.sendemail
+
+			if @participant.contact =~ /\A[^@]+@[^@]+\Z/
+				@emailveracity = true
+			else
+				@emailveracity = false
+			end
+		end
+
 	end
 	def show
 	end
@@ -27,12 +37,15 @@ class ParticipantsController < ApplicationController
 
       if @participant.save
       	puts @evento.sendemail.inspect
+
       	if @evento.sendemail == "1"
-      		EventoMailer.confirmation_email(@participant).deliver
+      		if @participant.contact =~ /\A[^@]+@[^@]+\Z/
+				EventoMailer.confirmation_email(@participant).deliver
+			end
       	end
         redirect_to :action => "confirmation", :id => @participant.id
       else
-        render :new 
+        redirect_to :action => "confirmation", :evid => participant_params[:eventosbahai_id], :error => true
       end
     
 	end
