@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authorize, except: [:new, :create]
   before_action :correct_user?, only: [:edit, :update, :destroy]
+  layout "eventosbahais"
 
   def index
     @users = User.all

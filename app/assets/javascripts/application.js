@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require parallax
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require social-share-button
@@ -60,19 +61,8 @@ function myMap(){
       position: myLatLng,
       title: 'Casa do Vito'
     });
-  
-  
 }
 
-$(document).ready(function(){
 
-
-
-  $(".hoverm").hover( function(e) {
-
-  });
-
-
-});
 
 

@@ -7,7 +7,7 @@
 $height-footer: 60px;
 $dark: #000;
 $blur: 2px;
-$darkblue: #223c66 !important;
+$darkblue: #fff !important;
 
 
 
@@ -37,6 +37,36 @@ html {
 
 		background-color: #000;
 		
+	}
+
+
+	.blockquote-reverse, blockquote.pull-right {
+	
+		font-family: Cambria, Georgia, serif;
+		
+		font-style: italic;
+		
+		
+		
+		margin: 0 0 20px 0;
+		text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+		
+	}
+	
+
+	.parallax-window{
+		min-height: 400px;
+	}
+	.parallax-mirror{
+		z-index: 1 !important;
+	}
+
+
+
+	@media only screen and (max-device-width: 768px) {
+		.front-background {
+			background-attachment: scroll;
+		}
 	}
 
 	li{
@@ -220,7 +250,7 @@ html {
 
 
 	.navbar-custom, .navbar-nav, .nav-link {
-		color: #a7aeba !important;
+		color: #118725 !important;
 		z-index: 1;
 
 
@@ -228,7 +258,7 @@ html {
 	
 
 	.navbar-nav a:hover {
-		color: #fff !important;
+		color: #096318 !important;
 	}
 	.navbar, .navbar-nav > li.open > a {
 		border-radius: 0px !important;
@@ -333,22 +363,6 @@ html {
 		padding:2px 25px 2px 25px;
 	}
 	
-
-	footer {
-		bottom:0;
-		width:100%;
-		position: absolute;
-		height: $height-footer;
-		background-color: #fff5f5;
-		.footer-block {
-			margin: 20px 0;
-		}
-	}
-
-	
-	
-	
-
 	#login-dp{
     	min-width: 250px;
     	padding: 14px 14px 0;
