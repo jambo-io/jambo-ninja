@@ -1,5 +1,7 @@
 class EventosbahaisController < ApplicationController
   before_action :set_eventosbahai, only: [:show, :edit, :update, :destroy]
+  before_action :permission, only: [:new]
+  before_action :correct_user_eventosbahais?, only: [:edit, :update, :destroy]
 
   # GET /eventosbahais
   # GET /eventosbahais.json
@@ -14,6 +16,7 @@ class EventosbahaisController < ApplicationController
 
   # GET /eventosbahais/new
   def new
+
     @eventosbahai = Eventosbahai.new
 
     
@@ -26,7 +29,9 @@ class EventosbahaisController < ApplicationController
   # POST /eventosbahais
   # POST /eventosbahais.json
   def create
-    @eventosbahai = Eventosbahai.new(eventosbahai_params)
+
+    user = current_user
+    @eventosbahai = user.eventosbahais.new(eventosbahai_params)
 
     if @eventosbahai.save
       redirect_to @eventosbahai
@@ -77,4 +82,22 @@ class EventosbahaisController < ApplicationController
     def eventosbahai_params
       params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies, :sendemail, :image)
     end
+
+    def permission
+      unless admin?
+        redirect_to root_path
+      end
+    end
+
+  def correct_user_eventosbahais?
+    eventobahai = Eventosbahai.find(params[:id])
+    puts "aqui" + eventobahai.user_id.to_s
+    puts current_user.id
+    unless eventobahai.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+    
+
+
 end

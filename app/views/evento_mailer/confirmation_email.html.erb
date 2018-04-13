@@ -15,19 +15,19 @@
 				
 				<li><b>Início:</b> <%= @eventosbahai.start_at %></li>
 				<li><b>Término:</b> <%= @eventosbahai.end_at %></li>
-				<li><b>Endereço:</b> <%= @eventosbahai.location %></i>
+				<% unless @eventosbahai.location.nil? %>
+					<li><b>Endereço:</b> <%= @eventosbahai.location %></i>
+				<% end %>
 				
 			</ul><br>
-
-			<p><b>Telefones para contato:</b> 67 9860-2245 (Vito), 67 998698660 (Guilherme)</p> <br>
-
-			
-			<p>A conferência será um período descontraído de estudos, apresentações e trabalhos em grupo, começando de manhã e terminando a noite. Você pode optar por dormir no local durante a conferência.</p> 
+			<% unless @eventosbahai.description.nil? %>
+				<p><b> <%= @eventosbahai.description %></p> <br>
+			<% end %>
 
 			Para ficar por dentro de futuras atividades e eventos <%= link_to 'clique aqui', :controller =>"users", :action =>"new", :only_path => false %> para se cadastrar no Site.
 			<br><br>Qualquer dúvidas entre em contato conosco,<br>
 			
-			Equipe da <%= @eventosbahai.name %>
+			Equipe <%= @eventosbahai.name %>
 		</p>
 	</body>
 </html>

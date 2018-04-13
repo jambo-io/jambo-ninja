@@ -13,28 +13,25 @@
 
   <div class="form-group">
     <%= f.label "Nome" %>
-    <%= f.text_field :name, class: 'form-control', placeholder:'ex: Conferência de Unidade do Centro-Oeste' %>
+    <%= f.text_field :name, class: 'form-control', placeholder:'ex: Conferência de Unidade do Centro-Oeste', required: true %>
   </div>
 
   <div class="form-group">
     <%= f.label "Data de Início" %><br>
-    <%= f.date_select :start_at, {:order => 
-      [:day, :month, :year]}, 
+    <%= f.date_select :start_at, { :order => [:day, :month, :year]},
       {:class=>'form-control', :style=>'display:inline-block; width:30%'} %>
   </div>
 
  
     <div class="form-group">
       <%= f.label "Data de término" %><br>
-      <%= f.date_select :end_at, {:order => 
-        [:day, :month, :year]}, 
-        {:class=>'form-control date-select', :style=>'display:inline-block; width:30%'} %>
+      <%= f.date_select :end_at, {:order => [:day, :month, :year]}, {:class=>'form-control date-select', :style=>'display:inline-block; width:30%'} %>
     </div>
   
 
   <div class="form-group">
     <%= f.label "Cidade" %>
-    <%= f.text_field :city, class: 'form-control' %>
+    <%= f.text_field :city, class: 'form-control', required: true %>
   </div>
 
   <div class="form-group">
@@ -67,7 +64,7 @@
        ['São Paulo','SP'],
        ['Sergipe','SE'],
        ['Tocantins','TO']],
-       { prompt: "Selecione um Estado" }, class: 'form-control' %>
+       { prompt: "Selecione um Estado" }, class: 'form-control', required: true %>
   </div>
 
   <div class="form-group">
@@ -109,6 +106,6 @@
 
 
   <div class="actions">
-    <%= f.submit "Salvar", class: 'btn btn-info' %>
+    <%= f.submit "Salvar", class: 'btn btn-info center-block' %>
   </div>
 <% end %>

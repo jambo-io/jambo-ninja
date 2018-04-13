@@ -18,13 +18,18 @@ class ParticipantsController < ApplicationController
 
 		unless (params[:id].nil?)
 			@participant = Participant.find(params[:id])
-			@sendemail = @participant.eventosbahai.sendemail
-
-			if @participant.contact =~ /\A[^@]+@[^@]+\Z/
-				@emailveracity = true
+			if @participant.firstaccess == false
+				@participant.update(firstaccess: true)
+				@sendemail = @participant.eventosbahai.sendemail
+				if @participant.contact =~ /\A[^@]+@[^@]+\Z/
+					@emailveracity = true
+				else
+					@emailveracity = false
+				end
 			else
-				@emailveracity = false
+				redirect_to root_path
 			end
+
 		end
 
 	end
@@ -35,18 +40,20 @@ class ParticipantsController < ApplicationController
 		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
 		@participant = @evento.participants.new(participant_params)
 
-      if @participant.save
-      	puts @evento.sendemail.inspect
+      	if @participant.save
+      		puts @evento.sendemail.inspect
+      		
 
-      	if @evento.sendemail == "1"
-      		if @participant.contact =~ /\A[^@]+@[^@]+\Z/
-				EventoMailer.confirmation_email(@participant).deliver
-			end
+      		if @evento.sendemail == "1"
+      			if @participant.contact =~ /\A[^@]+@[^@]+\Z/
+					EventoMailer.confirmation_email(@participant).deliver
+				end
+      		end
+
+        	redirect_to :action => "confirmation", :id => @participant.id
+      	else
+        	redirect_to :action => "confirmation", :evid => participant_params[:eventosbahai_id], :error => true
       	end
-        redirect_to :action => "confirmation", :id => @participant.id
-      else
-        redirect_to :action => "confirmation", :evid => participant_params[:eventosbahai_id], :error => true
-      end
     
 	end
 	def update

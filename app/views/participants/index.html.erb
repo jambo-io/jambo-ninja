@@ -1,0 +1,41 @@
+<div class="container table-responsive">
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Contato</th>
+				<th scope="col">Idade</th>
+				<th scope="col">Endereço</th>
+				<th scope="col">Cidade</th>
+				<th scope="col">Registrado em</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+
+
+			<% @participants.each do |p| %>
+			<tr>
+				<th></th>
+				<td><%= p.name %> <%= p.lastname %></td>
+				<td><%= p.contact %></td>
+
+				<td>
+					<% unless p.birthday.nil? %>
+					<%= Date.today.year - p.birthday.year %>
+					<% end %>
+				</td>
+
+				<td><%= p.address %></td>
+				<td><%= p.city %> - <%= p.state %></td>
+				<td><%= p.created_at.strftime("%d/%m/%Y") %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	
+
+</div>

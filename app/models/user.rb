@@ -2,6 +2,7 @@ require 'bcrypt'
 class User < ApplicationRecord
 	include BCrypt
 	has_secure_password
+	has_many :eventosbahais
 	validates :name, presence:true, length: {maximum:60}
 	validates :password, presence:true, length: {minimum:6}
 	#VALID_EMAIL_FORMAT=/\w+@\w+\.{1}[a-zA-Z]{2,}/

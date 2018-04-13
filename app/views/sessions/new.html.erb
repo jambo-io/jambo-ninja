@@ -1,14 +1,16 @@
-<div class="container">
+<div class="container" style="margin-bottom:20px;">
+	<div id="section1">
 	<h1><kbd>Login</kbd></h1><br>
 	<div class="col-lg-4 col-lg-offset-4">
 		<%= bootstrap_form_for :session, url: signin_path do |f| %>
-			<%= f.email_field :email, autofocus:true, icon: "user" %>
-			<%= f.password_field :password, autocomplete: "off", icon: "lock" %>
+			<%= f.email_field :email, autofocus:true %>
+			<%= f.password_field :password, autocomplete: "off"%>
 			<div style="text-align:center">
 				<%= f.submit "Entrar", class:"btn btn-info", style:"margin:0 auto" %>
 				<p>Novo aqui? <%= link_to "Junte-se a nós.", new_user_path %></p>
 			</div>
 
 		<% end %>
+	</div>
 	</div>
 </div>
