@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   get 'eventosbahais/email' => 'eventosbahais#sendemail'
-  get 'eventosbahais/updateemail' => 'eventosbahais#updateemail'
-  get 'participants/confirmation' => 'participants#confirmation', :as => :confirm
+  get 'eventosbahais/atemail' => 'eventosbahais#updateemail'
+  get 'participantes/conf' => 'participants#confirmation', :as => :confirm
   resources :eventosbahais
   resources :participants
 
 
-  get 'participants/new/:id' => 'participants#new', :as => 'partnew'
+  get 'ev/n/:id' => 'participants#new', :as => 'partnew'
 
-  get 'sessions/new'
+  get 'sessions/n'
 
-  get 'users/new'
+  get 'usuario/n'
 
   get 'temas/contribuindo', :to => 'themes#contributing', :as => :themes_contributing
 
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   #Login
   resources :users
-  get 'signin' => 'sessions#new'
+  get 'login' => 'sessions#new'
   post 'signin' => 'sessions#create'
   delete 'signout' => 'sessions#destroy'
 
