@@ -67,10 +67,10 @@ class EventosbahaisController < ApplicationController
   # DELETE /eventosbahais/1
   # DELETE /eventosbahais/1.json
   def destroy
-    @eventosbahai.destroy
+    
     respond_to do |format|
-      format.html { redirect_to eventosbahais_url, notice: 'Eventosbahai was successfully destroyed.' }
-      format.json { head :no_content }
+      redirect_to root_path 
+      
     end
   end
 
