@@ -1,8 +1,17 @@
 class ParticipantsController < ApplicationController
+	before_action :permission, only: [:index, :destroy]
 	layout "eventosbahais"
 
 	def index
 		@participants = Participant.all
+
+		@user = User.find(current_user.id)
+		@eventosbahais = @user.eventosbahais.order("id DESC")
+
+		@size = @user.participants.size
+
+
+
 	end
 	def new
 		
@@ -46,7 +55,7 @@ class ParticipantsController < ApplicationController
 
       		if @evento.sendemail == "1"
       			if @participant.contact =~ /\A[^@]+@[^@]+\Z/
-					EventoMailer.confirmation_email(@participant).deliver
+					EventoMailer.confirmation_email(@participant).deliver_later
 				end
       		end
 
@@ -67,6 +76,11 @@ class ParticipantsController < ApplicationController
 		def participant_params
 			params.require( :participant ).permit(:name, :lastname, :contact, :birthday, :address, :city, :state, :eventosbahai_id, :publist)
 		end
+		def permission
+	      unless admin?
+	        redirect_to root_path
+	      end
+    	end
 
 		
 end

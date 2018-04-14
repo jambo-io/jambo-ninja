@@ -44,7 +44,7 @@
               </li>
 
              <% else  %>
-              <li><%= link_to 'Inscrição', partnew_path(2), class:"nav-link" %></li>
+              <li><%= link_to 'Inscrição', partnew_path( Eventosbahai.last.id ), class:"nav-link" %></li>
 
              <% end %>
 
@@ -53,16 +53,22 @@
              <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', partnew_path(2), class:"nav-link" %></li>
             
            <% end %>
+
+           <% if admin? %>
+            <li><%= link_to 'Administrador', participants_path, class:"nav-link" %></li>
+           <% end %>
           
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right">
 
 
         <% if logged_in? %>
+          <% if admin? %>
           <li>
             <%= link_to 'Usuários', users_path, class:"nav-link" %>
           </li>
+          <% end %>
 
           <li class="dropdown">
             <%= link_to "#{user_name}<span class='caret'></span>".html_safe, users_path, { :class => "dropdown-toggle nav-link", 'data-toggle' => "dropdown", 'role'=>"button", 'aria-haspopup'=>"true", 'aria-expanded'=>"false" } %>
@@ -76,6 +82,46 @@
               </ul>
             </li>
           
+        <% else %>
+
+         
+           
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+              <ul id="login-dp" class="dropdown-menu">
+                <li>
+                   <div class="row">
+                      <div class="col-md-12">
+                         <%= form_for :session, url: signin_path do |f| %>
+                            <div class="form-group">
+                               <div class="field">
+                              <%= f.email_field :email, autofocus: true, placeholder:"Email", class:"form-control" %>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="field">
+                              <%= f.password_field :password, autocomplete: "off", placeholder:"Senha", class:"form-control" %>
+                              </div>
+                              <div class="help-block text-right"><a href="">Esqueceu a senha ?</a></div>
+                            </div>
+                            <div class="form-group">
+                               <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            </div>
+                            <div class="checkbox" style="color:#000;">
+                               <label>
+                               <input type="checkbox" > Manter logado
+                               </label>
+                            </div>
+                         <% end %>
+                      </div>
+                      <div class="bottom text-center">
+                        <span style="color:#bbb;">Novo aqui? </span><%= link_to "Junte-se a nós", new_user_path %>
+                      </div>
+                   </div>
+                </li>
+              </ul>
+            </li>
+          </ul><!-- /.Login -->
         <% end %>
 
 
@@ -93,7 +139,7 @@
     <aside class="col-sm-4 col-sm-push-7" style="margin-top:90px; z-index:2;">
 
       <% unless @quote.nil? || @author.nil? %>
-        <blockquote id="scene" class="blockquote-reverse">
+        <blockquote id="scene" class="blockquote-reverse" style="color:#fff;">
           <div data-depth="0.2"><%= @quote %>
           <footer style="color:#fff;"><%= @author %></footer></div>
         </blockquote>

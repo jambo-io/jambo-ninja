@@ -7,6 +7,8 @@ class EventosbahaisController < ApplicationController
   # GET /eventosbahais.json
   def index
     @eventosbahais = Eventosbahai.order('id DESC').all
+
+
   end
 
   # GET /eventosbahais/1

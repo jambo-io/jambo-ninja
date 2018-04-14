@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authorize, except: [:new, :create]
   before_action :correct_user?, only: [:edit, :update, :destroy]
+  before_action :permission, only: [:index]
   layout "eventosbahais"
 
   def index
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
 
     #Envia email ao usuário ao confirmar formulário
-    SignupMailer.signup(@user).deliver
+    SignupMailer.signup(@user).deliver_later
 
     respond_to do |format|
       if @user.save
@@ -56,8 +57,12 @@ class UsersController < ApplicationController
 
   private
   	def user_params
-  		params.require(:user).permit(:name,:email,:password,:password_confirmation, :privileges)
-  	  
+  		params.require(:user).permit(:name,:email,:password,:password_confirmation, :privileges)  
+    end
+    def permission
+      unless admin?
+        redirect_to root_path
+      end
     end
   
 end

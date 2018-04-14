@@ -1,6 +1,29 @@
-<h1><kbd>Editando</kbd></h1>
-<%= render 'form' %>
+<div id="section1" class="container">
+	<h1>Editando <%= current_user.name %></h1>
+	<%= render 'form' %>
 
-<%= link_to "Opções de Conta",  edit_user_path(current_user) %>
+	
+</div>
 
+
+<script>
+	
+
+	var page = $("html, body");
+
+	$(document).ready(function(e) {
+
+		page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+			page.stop();
+		});
+
+		page.animate({scrollTop: $("#section1").position().top }, 2000, function(){
+			page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+		});
+		return false;
+	});
+
+
+
+</script>
 

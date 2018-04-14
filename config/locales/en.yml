@@ -56,7 +56,7 @@ en:
       password:
        blank: "está em branco."
        confirmation: "não combina"
-       too_short: "muito curta (mínimo %{count} caracteres)"
+       too_short: "muito curto (mínimo %{count} caracteres)"
     bemvindo:
       attributes:
        name:

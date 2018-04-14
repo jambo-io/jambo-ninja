@@ -1,9 +1,31 @@
-<div class="container-fluid table-responsive">
+<div id="section1" class="container">
+	<h1> Bem vindo <%= current_user.name %>! </h1>
+	
 
+	<ul class="list-inline">
+		<li><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-success' %></li>
+		<li><%= link_to "Ver todos os Eventos", eventosbahais_path, class:'btn btn-info' %></li>
+	</ul>
+
+	
+</div>
+
+<% if @size > 0 %>
+
+	<div class="container">
+		<p>Atualmente temos <%= @size %> <%= "participante".pluralize(@size) %> <%= "inscrito".pluralize(@size) %></p>
+	</div>
+
+<% end %>
+
+<div class="container table-responsive" style="width:99%;">
+
+<% @eventosbahais.each do |p| %>
+	<h2><%= p.name %></h2>		
 	<table class="table">
 		<thead>
 			<tr>
-				<th scope="col">#</th>
+				<th scope="col"></th>
 				<th scope="col">Nome</th>
 				<th scope="col">Contato</th>
 				<th scope="col">Idade</th>
@@ -13,29 +35,48 @@
 			</tr>
 		</thead>
 		<tbody>
+				<% p.participants.each do |f| %>
+					<tr>
+						<th></th>
+						<td><%= f.name %> <%= f.lastname %></td>
+						<td><%= f.contact %></td>
+
+						<td>
+							<% unless f.birthday.nil? %>
+							<%= Date.today.year - f.birthday.year %>
+							<% end %>
+						</td>
+
+						<td><%= f.address %></td>
+						<td><%= f.city %> - <%= p.state %></td>
+						<td><%= f.created_at.strftime("%d/%m/%Y") %></td>
+					</tr>
+				<% end %>
 			
-
-
-			<% @participants.each do |p| %>
-			<tr>
-				<th></th>
-				<td><%= p.name %> <%= p.lastname %></td>
-				<td><%= p.contact %></td>
-
-				<td>
-					<% unless p.birthday.nil? %>
-					<%= Date.today.year - p.birthday.year %>
-					<% end %>
-				</td>
-
-				<td><%= p.address %></td>
-				<td><%= p.city %> - <%= p.state %></td>
-				<td><%= p.created_at.strftime("%d/%m/%Y") %></td>
-			</tr>
-			<% end %>
 		</tbody>
 	</table>
-
+<% end %>
 	
 
 </div>
+
+<script>
+	
+
+	var page = $("html, body");
+
+	$(document).ready(function(e) {
+
+		page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+			page.stop();
+		});
+
+		page.animate({scrollTop: $("#section1").position().top }, 2000, function(){
+			page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+		});
+		return false;
+	});
+
+
+
+</script>

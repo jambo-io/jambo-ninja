@@ -1,4 +1,4 @@
-<div class="container">
+<div id="section1" class="container">
   <h1>Eventos Bahá'ís</h1>
 
   <table>
@@ -21,7 +21,31 @@
   <br>
 
   <% if admin? %>
-    <%= link_to 'Adicionar Evento', new_eventosbahai_path, :class => "btn btn-info" %>
+    <ul class="list-inline">
+     <li><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-success' %></li>
+     <li><%= link_to "Ver todos os participantes", participants_path, class:'btn btn-warning' %></li>
+    </ul>
   <%end %>
 
 </div>
+
+<script>
+  
+
+  var page = $("html, body");
+
+  $(document).ready(function(e) {
+
+    page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+      page.stop();
+    });
+
+    page.animate({scrollTop: $("#section1").position().top }, 2000, function(){
+      page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+    });
+    return false;
+  });
+
+
+
+</script>
