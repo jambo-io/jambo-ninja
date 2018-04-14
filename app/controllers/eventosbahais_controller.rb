@@ -67,11 +67,11 @@ class EventosbahaisController < ApplicationController
   # DELETE /eventosbahais/1
   # DELETE /eventosbahais/1.json
   def destroy
+    @eventosbahai.destroy
     
-    respond_to do |format|
-      redirect_to root_path 
-      
-    end
+    redirect_to root
+     
+  
   end
 
   private
