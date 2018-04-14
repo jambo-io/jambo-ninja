@@ -1,6 +1,6 @@
 
 <div id="confirmation"></div>
-<div class="container-fluid" style="margin-bottom:200px;">
+<div id="section1" class="container" style="margin-bottom:200px;">
 
 	<% if params[:error] %>
 
@@ -33,20 +33,7 @@
 <script>
 	
 
-	var page = $("html, body");
-
-	$(document).ready(function(e) {
-
-		page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
-			page.stop();
-		});
-
-		page.animate({scrollTop: $("#confirmation").position().top }, 2000, function(){
-			page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
-		});
-		return false;
-	});
-
+	slide("#section1");
 
 
 </script>

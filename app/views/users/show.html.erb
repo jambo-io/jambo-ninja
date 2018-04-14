@@ -1,11 +1,11 @@
-<div class="container" style="margin-bottom:250px;">
+<div id="section1" class="container">
 	<div id="section1">
-		<h1><kbd><%= @user_name %><kbd></h1>
+		<h1><%= @user_name %></h1>
 		<%= @user_email %>
 		<% if current_user == @user %>
 			
 				<%= link_to "Editar", edit_user_path(current_user), class:'btn btn-success' %> 
-				<%= link_to "Deletar Conta", @user, method: :delete, class:'btn btn-danger' %>
+				
 			
 		<% end %>
 	</div>
@@ -15,19 +15,7 @@
 <script>
 	
 
-	var page = $("html, body");
-
-	$(document).ready(function(e) {
-
-		page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
-			page.stop();
-		});
-
-		page.animate({scrollTop: $("#section1").position().top }, 2000, function(){
-			page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
-		});
-		return false;
-	});
+	slide("#section1");
 
 
 

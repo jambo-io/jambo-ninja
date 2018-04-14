@@ -63,20 +63,7 @@
 <script>
 	
 
-	var page = $("html, body");
-
-	$(document).ready(function(e) {
-
-		page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
-			page.stop();
-		});
-
-		page.animate({scrollTop: $("#section1").position().top }, 2000, function(){
-			page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
-		});
-		return false;
-	});
-
+	slide("#section1");
 
 
 </script>

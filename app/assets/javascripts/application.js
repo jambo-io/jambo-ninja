@@ -16,51 +16,22 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require social-share-button
+//= require gmaps
 //= require_tree .
 
-window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '311791599293108',
-      xfbml      : true,
-      version    : 'v2.10'
-    });
-    FB.AppEvents.logPageView();
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/pt_BR/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+var page = $("html, body");
 
 
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.10&appId=311791599293108";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+  function slide(section){
 
-function myMap(){
-  var myLatLng = {lat:-22.2154901, lng: -54.8228215};
-  console.log("teste");
- 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center:myLatLng,
-      zoom: 16,
-    
+    page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+      page.stop();
     });
 
-    
-
-    var marker = new google.maps.Marker({
-      map: map,
-      position: myLatLng,
-      title: 'Casa do Vito'
+    page.animate({scrollTop: $(section).position().top }, 2000, function(){
+      page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
     });
-}
+    return false;
+  }
 
 
