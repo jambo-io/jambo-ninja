@@ -50,7 +50,7 @@
 
            <% else %>
             
-             <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', partnew_path(2), class:"nav-link" %></li>
+             <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', partnew_path(Eventosbahai.last.id), class:"nav-link" %></li>
             
            <% end %>
 

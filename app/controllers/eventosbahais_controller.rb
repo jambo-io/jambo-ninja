@@ -69,7 +69,7 @@ class EventosbahaisController < ApplicationController
   def destroy
     @eventosbahai.destroy
     
-    redirect_to root
+    redirect_to root_path
      
   
   end
