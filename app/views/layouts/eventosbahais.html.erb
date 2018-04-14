@@ -31,13 +31,19 @@
 
 
 
-    <div class="container-fluid" style="margin-top:70px;">
+    
         <%=yield %>
-    </div>
+    
  
 
   
-
+     <footer class="page-footer font-small blue pt-4 mt-4">
+        <div class="footer-copyright py-3 text-center">
+            <div class="container-fluid" style="background-color:#fff">
+               <span class="text-muted" style="font-size:80% !important;"> © 2018 Copyright <%= link_to "Jambo Network", my_about_path %></span>
+            </div>
+        </div>
+     </footer>
   </body>
 </html>
 

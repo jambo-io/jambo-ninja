@@ -1,4 +1,6 @@
  class PagesController < ApplicationController
+    layout "eventosbahais"
+    
     def show
     	#render template: "pages/#{params[:page]}"
     end

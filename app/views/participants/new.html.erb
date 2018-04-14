@@ -4,7 +4,7 @@
 <div  class="container">
 
 	<h1 style="text-align:center;"><%= @evento.name %></h1>
-	<h3 style="text-align:center; margin-top:-10px;"><%= @evento.theme %></h3>
+	<h3 style="text-align:center;"><%= @evento.theme %></h3>
 	<br>
 	<% if admin? %>
   		<%= link_to 'Editar Evento', edit_eventosbahai_path(params[:id]), :class => 'btn btn-inverse' %>
@@ -48,25 +48,29 @@
 	</div>
 <% end %>
 
-<nav class="navbar navbar-home" style="margin-top:30px;">
-	
-	  <div style="background:white;  opacity:0.3;" class="parallax-window" data-parallax="scroll" data-image-src='<%= asset_path @image2 %>'>
 
-	     <div class="container-fluid">
-	    <div class="row">
-	   
-	    <aside class="col-sm-4 col-sm-push-4" style="margin-top:90px; top:50px; z-index:2;">
 
-	     
-	    	
 
-	    </aside>
-	 
+<nav class="navbar navbar-home" >
+ 
+  <div style="background:white;o pacity:0.3;" class="parallax-window" data-parallax="scroll" data-image-src='<%= asset_path @image2 %>'>
+     <div class="container-fluid">
+    <div class="row">
+      <div style="margin-top:300px;">
+    <aside class="col-sm-4 col-sm-push-7" style="margin-top:90px; z-index:2;">
 
-	  </div>
-	</div>
-	
+     
+
+
+    </aside>
+      </div>
+
+  </div>
+</div>
 </nav>
+
+
+
 
 <div class="container">
 
