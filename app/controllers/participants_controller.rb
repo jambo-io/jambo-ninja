@@ -11,6 +11,7 @@ class ParticipantsController < ApplicationController
 
 		@size = @user.participants.size
 
+
 	end
 	def new
 		
@@ -79,6 +80,16 @@ class ParticipantsController < ApplicationController
 	def update
 	end
 	def destroy
+
+		@participant = Participant.find(params[:id])
+		@participant.destroy
+
+		respond_to do |format|
+			format.js { head :ok }
+		end
+		
+
+			
 	end
 
 	

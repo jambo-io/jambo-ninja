@@ -18,13 +18,19 @@
 
 <% end %>
 
-<div class="container table-responsive" style="width:99%;">
+<div id="section2" class="container table-responsive" style="width:99%;">
 
 <% @eventosbahais.each do |p| %>
 	<h2><%= p.name %></h2>		
+	<h3 class="text-danger">
+		<% if p.end_at - Date.today < 0 %>
+			Evento encerrado
+		<% end %>
+	</h3>
 	<table class="table">
 		<thead>
 			<tr>
+				<% if p.participants.size > 0 %>
 				<th scope="col"></th>
 				<th scope="col">Nome</th>
 				<th scope="col">Contato</th>
@@ -32,11 +38,15 @@
 				<th scope="col">Endereço</th>
 				<th scope="col">Cidade</th>
 				<th scope="col">Registrado em</th>
+				<th scope="col">#</th>
+				<% else %>
+					Nenhum participante inscrito.
+				<% end %>
 			</tr>
 		</thead>
 		<tbody>
 				<% p.participants.each do |f| %>
-					<tr>
+					<tr id="participant_<%= f.id %>">
 						<th></th>
 						<td><%= f.name %> <%= f.lastname %></td>
 						<td><%= f.contact %></td>
@@ -50,6 +60,17 @@
 						<td><%= f.address %></td>
 						<td><%= f.city %> - <%= p.state %></td>
 						<td><%= f.created_at.strftime("%d/%m/%Y") %></td>
+						<td><%= link_to "X", participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}" %></td>
+
+						<script>
+
+							$('#remove_participant_<%= f.id %>').bind('ajax:success', function(){
+								$("#participant_<%= f.id %>").remove();						
+							});
+
+						</script>
+
+
 					</tr>
 				<% end %>
 			
@@ -61,9 +82,7 @@
 </div>
 
 <script>
-	
 
 	slide("#section1");
-
 
 </script>
