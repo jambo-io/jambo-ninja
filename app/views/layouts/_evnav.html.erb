@@ -22,38 +22,8 @@
 
            <li><%= link_to 'Principal', root_path, class:"nav-link" %></li>
 
-
-           <% if logged_in? %>
-
-            <% unless privileges.nil? || privileges ==0 %>
-
-               <li class="dropdown">
-                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inscrição<span class="caret"></span></a>
-                  <ul class="dropdown-menu themes-dropdown">
-                    
-                    <li class="li-tt">
-                     <%= link_to "Nova", new_bemvindo_path, class:"nav-link" %>
-                    </li>
-                    
-                    <li class="li-tt">
-                     <%= link_to "Inscritos", bemvindos_url, class:"nav-link" %>
-                    </li>
-                  
-                  
-                  </ul>
-              </li>
-
-             <% else  %>
-              <li><%= link_to 'Inscrição', root_path, class:"nav-link" %></li>
-
-             <% end %>
-
-           <% else %>
-            
-             <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', partnew_path(Eventosbahai.last.id), class:"nav-link" %></li>
-            
-           <% end %>
-
+          <li class="<%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', partnew_path(Eventosbahai.last.id), class:"nav-link" %></li>
+          
            <% if admin? %>
             <li><%= link_to 'Administrador', participants_path, class:"nav-link" %></li>
            <% end %>
