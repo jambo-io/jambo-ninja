@@ -1,4 +1,3 @@
-
 <div id="confirmation"></div>
 <div id="section1" class="container" style="margin-bottom:200px;">
 
@@ -12,34 +11,35 @@
 
 	<% else %>
 
-		<div class="fb-share-button" data-href="http://www.jambo.ninja/" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.jambo.ninja%2F&amp;src=sdkpreparse">Compartilhar</a></div>
-
-		<p class="details">
-		Você também pode se cadastrar nesse Site para obter informações de atividades e eventos. Se você ainda não tem uma conta, <%= link_to "clique aqui", new_user_path %> para se cadastrar.
-		</p>
-
 		<% if @sendemail == "1" && @emailveracity %>
 
-			<h1>Obrigado <%= @participant.name %></h1>
+			<h1>Obrigado <%= @participant.name %>!</h1>
 			<p>Ficamos felizes com sua participação, enviamos um E-mail para <%= @participant.contact %> com as principais informações.</p>
 
 		<% else %>
-		
-			<h1>Obrigado <%= @participant.name %></h1>
+
+			<h1>Obrigado <%= @participant.name %>!</h1>
 			<p>Ficamos felizes com sua participação!</p>
 
 		<% end %>
+	        <div style="text-align:center;" class="center-text">
+	        	<p style="margin-bottom: 10px;">Compartilhe com seus amigos</p>
+				<!-- Go to www.addthis.com/dashboard to customize your tools -->
+				<div class="addthis_inline_share_toolbox"></div>
+				<!-- Go to www.addthis.com/dashboard to customize your tools -->
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ad31109692e4b43"></script>
+
+			</div>
+		<p class="details">
+		Você também pode se cadastrar nesse Site para obter informações de atividades e eventos. Se você ainda não tem uma conta, <%= link_to "clique aqui", new_user_path %> para se cadastrar.
+		</p>
 
 	<% end %>
 
 </div>
 
-
-
 <script>
-	
 
 	slide("#section1");
-
 
 </script>

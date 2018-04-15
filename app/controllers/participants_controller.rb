@@ -33,9 +33,10 @@ class ParticipantsController < ApplicationController
 	def confirmation
 
 		unless (params[:id].nil?)
+
 			@participant = Participant.find(params[:id])
 			if @participant.firstaccess == false
-				@participant.update(firstaccess: true)
+				#@participant.update(firstaccess: true)
 				@sendemail = @participant.eventosbahai.sendemail
 				if @participant.contact =~ /\A[^@]+@[^@]+\Z/
 					@emailveracity = true
@@ -46,10 +47,13 @@ class ParticipantsController < ApplicationController
 				redirect_to root_path
 			end
 
+
+
 		end
 
 	end
 	def show
+
 	end
 	def create
 
