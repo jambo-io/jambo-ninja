@@ -91,12 +91,12 @@ class EventosbahaisController < ApplicationController
       end
     end
 
-  def correct_user_eventosbahais?
-    eventobahai = Eventosbahai.find(params[:id])
-    unless eventobahai.user_id == current_user.id
-      redirect_to root_path
+    def correct_user_eventosbahais?
+      eventobahai = Eventosbahai.find(params[:id])
+      unless eventobahai.user_id == current_user.id
+        redirect_to root_path
+      end
     end
-  end
     
 
 

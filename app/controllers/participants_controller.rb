@@ -1,5 +1,6 @@
 class ParticipantsController < ApplicationController
 	before_action :permission, only: [:index, :destroy]
+
 	layout "eventosbahais"
 
 	def index
@@ -10,8 +11,6 @@ class ParticipantsController < ApplicationController
 
 		@size = @user.participants.size
 
-
-
 	end
 	def new
 		
@@ -21,6 +20,19 @@ class ParticipantsController < ApplicationController
 		@vacancies = @evento.vacancies.to_i - Participant.where(eventosbahai_id: @evento_id).count.to_i
 		@registered = @evento.participants.where(:publist => 1)
 		@images = @evento.image.url(:big)
+		
+		#Check if the Event is still available based on vacancies and Date
+		@event_available = true
+		 if Date.today - @evento.start_at < 0 || @vacancies <= 0 
+		 	@event_available = false
+		 end
+
+		 def correct_user_eventosbahais?
+	      eventobahai = Eventosbahai.find(params[:id])
+	      unless eventobahai.user_id == current_user.id
+	        redirect_to root_path
+	      end
+    	end
 
 	end
 	def confirmation
@@ -81,6 +93,7 @@ class ParticipantsController < ApplicationController
 	        redirect_to root_path
 	      end
     	end
+    	
 
 		
 end

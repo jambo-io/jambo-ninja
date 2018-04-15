@@ -21,12 +21,19 @@
 	  </strong> à <strong><%= @evento.end_at.strftime('%d-%m-%Y') %></strong></li>
 	  <li>Cidade: <strong><%= @evento.city %> - <%= @evento.state %></strong></li>
 	  <p><%= @evento.description %></p>
-	  <li>Número de vagas disponíveis: <span class="badge badge-success"><%= @vacancies %></span></li>
-	  <li>Taxa de Inscrição: <span class="badge badge-success"><%= number_to_currency(@evento.price, unit: "R$", separator: ",", delimiter: "", format:"%u %n") %></span></li>
-	</ul>
 
+	  <% if @event_available %>
+	  	   <li>Número de vagas disponíveis: <span class="badge badge-success"><%= @vacancies %></span></li>
+		  <li>Taxa de Inscrição: <span class="badge badge-success"><%= number_to_currency(@evento.price, unit: "R$", separator: ",", delimiter: "", format:"%u %n") %></span></li>
+		  </ul>
+	  <% else %>
+	  	<div class="text-center">
+	  		<h2><span class="text-danger">Inscrições Encerradas</span><h2>
+	  	</div>
+	  		
+	  <% end %>
 
-		<% unless @evento.longitude.nil? || @evento.latitude.nil? %>
+		<% if @event_available %>
 			<div class="card text-center">
 		      <div class="card-header">
 		        <h2>Onde fica?</h2>
@@ -42,11 +49,17 @@
 		    </div>
 	    <% end %>
 	 
-	 
+	  
  		<div class="actions text-center">
  			<ul class="list-inline">
-	    		<li><%= link_to 'Inscrição', 'javascript:;', class: 'btn btn-lg btn-info', id:'subscribe' %></li>
-	    		<% if admin? %>
+ 				<% if @event_available %>
+	    			<li><%= link_to 'Inscrição', 'javascript:;', class: 'btn btn-lg btn-info', id:'subscribe' %></li>
+	    		<% end %>
+	    		<% if admin? && correct_user_eventosbahais? %>
+	    			<% unless @event_available %>
+	    				<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
+	    			<% end %>
+
 				    <li><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-warning' %></li>
 				    <li><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-warning' %></li>
 	    		<% end %>
@@ -101,48 +114,40 @@
 <% end %>
 
 
+<% if @event_available %>
 
+	<nav class="navbar navbar-home" >
+	  <div style="background:white;o pacity:0.3;" class="parallax-window" data-parallax="scroll" data-image-src='<%= asset_path @image2 %>'>
+	     <div class="container-fluid">
+	    <div class="row">
+	      <div style="margin-top:300px;">
+	    <aside class="col-sm-4 col-sm-push-7" style="margin-top:90px; z-index:2;">
+	    </aside>
+	      </div>
 
-<nav class="navbar navbar-home" >
- 
-  <div style="background:white;o pacity:0.3;" class="parallax-window" data-parallax="scroll" data-image-src='<%= asset_path @image2 %>'>
-     <div class="container-fluid">
-    <div class="row">
-      <div style="margin-top:300px;">
-    <aside class="col-sm-4 col-sm-push-7" style="margin-top:90px; z-index:2;">
+	  </div>
+	</div>
+	</nav>
 
-     
-
-
-    </aside>
-      </div>
-
-  </div>
-</div>
-</nav>
-
-
-
-
-<div id="section2" class="container">
-
-	<h1 style="text-align:center; text-size:100px; margin-bottom: 40px;">Inscrição</h1>
-	<div class="form-row">
-		<%= render 'form', participant: @participant %>
+	<div id="section2" class="container">
+		<h1 style="text-align:center; text-size:100px; margin-bottom: 40px;">Inscrição</h1>
+		<div class="form-row">
+			<%= render 'form', participant: @participant %>
+		</div>
 	</div>
 
-</div>
+	<script>
 
-<script>
+		$(document).ready(function(e) {
 
-	$(document).ready(function(e) {
+			slide("#section1");
+			
+		});
 
-		slide("#section1");
-		
-	});
+		$("#subscribe").click(function(){
+			slide("#section2");
+		})
 
-	$("#subscribe").click(function(){
-		slide("#section2");
-	})
+	</script>
 
-</script>
+<% end %>
