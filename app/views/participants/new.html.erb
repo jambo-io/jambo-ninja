@@ -34,6 +34,7 @@
 	  <% end %>
 
 		<% if @event_available %>
+		<% unless @evento.longitude.nil? || @evento.latitude.nil? %>
 			<div class="card text-center">
 		      <div class="card-header">
 		        <h2>Onde fica?</h2>
@@ -47,6 +48,34 @@
 		        <%= @evento.location %>, <%= @evento.city %> - <%= @evento.state %>
 		      </div>
 		    </div>
+			<script>
+			  $(document).ready(function(){
+			     var map = new GMaps({
+			        el: '#map',
+			        center: {lat: <%= @evento.latitude %>, lng:<%= @evento.longitude %> },
+			        width:'100%',
+			        height: '300px',
+			        zoomControl: true,
+			      });
+
+			     map.addMarker({
+			      lat:<%= @evento.latitude %>,
+			      lng:<%= @evento.longitude %>,
+			      title: "<%= @evento.location %>",
+			      infoWindow: {
+			        content: "<h4><%= @evento.name %></h4><%= @evento.location %><br>"
+			      },
+			      click: function(e) {
+			        map.map.panTo(e.position);
+			      }
+			     })
+			  });
+			</script>
+	 <% end %>
+
+
+
+
 	    <% end %>
 	 
 	  
@@ -67,34 +96,6 @@
 	    	
 	    </div>
 		
-	
-	
-	<script>
-	  <% unless @evento.longitude.nil? || @evento.latitude.nil? %>
-		  $(document).ready(function(){
-		     var map = new GMaps({
-		        el: '#map',
-		        center: {lat: <%= @evento.latitude %>, lng:<%= @evento.longitude %> },
-		        width:'100%',
-		        height: '300px',
-		        zoomControl: true,
-		      });
-
-		     map.addMarker({
-		      lat:<%= @evento.latitude %>,
-		      lng:<%= @evento.longitude %>,
-		      title: "<%= @evento.location %>",
-		      infoWindow: {
-		        content: "<h4><%= @evento.name %></h4><%= @evento.location %><br>"
-		      },
-		      click: function(e) {
-		        map.map.panTo(e.position);
-		      }
-		     })
-		  });
-	  <% end %>
-
-	</script>
 
 </div>
 
@@ -135,8 +136,11 @@
 			<%= render 'form', participant: @participant %>
 		</div>
 	</div>
+	
 
-	<script>
+<% end %>
+
+<script>
 
 		$(document).ready(function(e) {
 
@@ -149,5 +153,3 @@
 		})
 
 	</script>
-
-<% end %>
