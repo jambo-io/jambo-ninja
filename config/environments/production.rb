@@ -81,6 +81,7 @@ Rails.application.configure do
 
   config.action_mailer.asset_host = "http://www.jambo.ninja/"
   config.action_controller.asset_host = "http://www.jambo.ninja/"
+  config.assets.precompile += %w(eventosbahais.js)
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
