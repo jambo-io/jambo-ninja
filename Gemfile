@@ -42,6 +42,7 @@ gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 
 gem 'geocoder'
 
+gem 'rails_12factor', group: :production
 
 
 group :development, :test do
