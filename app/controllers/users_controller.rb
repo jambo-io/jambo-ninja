@@ -14,11 +14,12 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
 
-    #Envia email ao usuário ao confirmar formulário
-    SignupMailer.signup(@user).deliver_later
+
 
     respond_to do |format|
       if @user.save
+        #Envia email ao usuário ao confirmar formulário
+        SignupMailer.signup(@user).deliver_later
         format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
       else

@@ -83,6 +83,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label "Detalhes de pagamento" %>
+    <%= f.text_area :payment, :col => 20, :rols => 40, class:'form-control', as: :wysihtml5 %>
+  </div>
+
+  <div class="form-group">
     <%= f.label "Valor da Inscrição" %>
     <%= f.text_field :price, class: 'form-control' %>
   </div>

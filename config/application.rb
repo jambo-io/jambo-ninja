@@ -16,7 +16,7 @@ module Jovensamigos
 
     config.middleware.use Rack::Cors do
     	allow do
-    		origins 'http://localhost:3000'
+    		origins 'http://localhost:10549'
     		resource '/conferencias/inscricao', :headers => :any, :methods => [:get, :post, :options]
     	end
     end

@@ -45,10 +45,10 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-  config.action_mailer.default_url_options = {:host => "http://localhost:3000"}
+  config.action_mailer.default_url_options = {:host => "http://localhost:10549"}
 
-  config.action_mailer.asset_host = "http://localhost:3000"
-  config.action_controller.asset_host = "http://localhost:3000"
+  config.action_mailer.asset_host = "http://localhost:10549"
+  config.action_controller.asset_host = "http://localhost:10549"
   config.assets.precompile += %w(eventosbahais.js)
 
   # Print deprecation notices to the Rails logger.
