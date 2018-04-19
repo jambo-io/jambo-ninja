@@ -14,6 +14,26 @@ class ParticipantsController < ApplicationController
 
 	end
 	def new
+
+
+
+		require 'twilio-ruby'
+
+		account_sid = "ACa1d3f5008401dc2b6d1d62045f43efbe" # Your Account SID from www.twilio.com/console
+		auth_token = "db4f98a2e7319836a485cd08fc31499f"   # Your Auth Token from www.twilio.com/console
+
+=begin
+		begin
+			@client = Twilio::REST::Client.new account_sid, auth_token
+			message = @client.messages.create(
+					body: "Hello from Ruby",
+					to: "+5567998",    # Replace with your phone number
+					from: "+13136494087")  # Replace with your Twilio number
+		rescue Twilio::REST::TwilioError => e
+				puts e.message
+		end
+=end
+
 		
 		@participant = Participant.new
 		@evento_id = params[:id]

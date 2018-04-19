@@ -67,6 +67,9 @@
               <% if f.autolyse == "2" %>
                 <%= "À vista" %>
               <% end %>
+              <% if f.autolyse == "3" %>
+                <%= "Menor de 12" %>
+              <% end %>
             </td>
             <td><%= f.city %> - <%= p.state %></td>
 
