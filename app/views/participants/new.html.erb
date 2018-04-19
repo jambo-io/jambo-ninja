@@ -83,42 +83,6 @@
 
                 });
 
-                function googleMapsCustomError() {
-                    console.log('Google Maps custom error triggered');
-                }
-
-                // if you want to respond to a specific error, you may hack the
-                // console to intercept messages.
-                // check if a message is a Google Map's error message and respond
-                // accordingly
-                (function takeOverConsole() { // taken from http://tobyho.com/2012/07/27/taking-over-console-log/
-                    var console = window.console
-                    if (!console) return
-
-                    function intercept(method) {
-                        var original = console[method]
-                        console[method] = function () {
-                            // check message
-                            if (arguments[0] && arguments[0].indexOf('OverQuotaMapError') !== -1) {
-                                googleMapsCustomError();
-                            }
-
-                            if (original.apply) {
-                                // Do this for normal browsers
-                                original.apply(console, arguments)
-                            } else {
-                                // Do this for IE
-                                var message = Array.prototype.slice.apply(arguments).join(' ')
-                                original(message)
-                            }
-                        }
-                    }
-
-                    var methods = ['error']; // only interested in the console.error method
-                    for (var i = 0; i < methods.length; i++)
-                        intercept(methods[i])
-                }())
-
 
             	</script>
 
