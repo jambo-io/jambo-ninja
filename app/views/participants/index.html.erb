@@ -37,6 +37,7 @@
 				<th scope="col">Idade</th>
 				<th scope="col">Endereço</th>
 				<th scope="col">Cidade</th>
+          <th scope="col">Pagamento</th>
 				<th scope="col">Registrado em</th>
 				<th scope="col">#</th>
 				<% else %>
@@ -59,6 +60,16 @@
 
 						<td><%= f.address %></td>
 						<td><%= f.city %> - <%= p.state %></td>
+            <td>
+              <% if f.autolyse == "1" %>
+                <%= "Parcelado" %>
+              <% end %>
+              <% if f.autolyse == "2" %>
+                <%= "À vista" %>
+              <% end %>
+            </td>
+            <td><%= f.city %> - <%= p.state %></td>
+
 						<td><%= f.created_at.strftime("%d/%m/%Y") %></td>
 						<td><%= link_to "X", participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}" %></td>
 
