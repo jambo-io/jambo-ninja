@@ -96,7 +96,7 @@ class ParticipantsController < ApplicationController
 
 	private
 		def participant_params
-			params.require( :participant ).permit(:name, :lastname, :contact, :birthday, :address, :city, :state, :eventosbahai_id, :publist)
+			params.require( :participant ).permit(:name, :lastname, :contact, :birthday, :address, :city, :state, :eventosbahai_id, :publist, :autolyse)
 		end
 		def permission
 	      unless admin?
