@@ -17,24 +17,7 @@ class ParticipantsController < ApplicationController
 
 
 
-		require 'twilio-ruby'
 
-		account_sid = "ACa1d3f5008401dc2b6d1d62045f43efbe" # Your Account SID from www.twilio.com/console
-		auth_token = "db4f98a2e7319836a485cd08fc31499f"   # Your Auth Token from www.twilio.com/console
-
-=begin
-		begin
-			@client = Twilio::REST::Client.new account_sid, auth_token
-			message = @client.messages.create(
-					body: "Hello from Ruby",
-					to: "+5567998",    # Replace with your phone number
-					from: "+13136494087")  # Replace with your Twilio number
-		rescue Twilio::REST::TwilioError => e
-				puts e.message
-		end
-=end
-
-		
 		@participant = Participant.new
 		@evento_id = params[:id]
 		@evento = Eventosbahai.find(@evento_id)
@@ -57,7 +40,7 @@ class ParticipantsController < ApplicationController
 
 			@participant = Participant.find(params[:id])
 			if @participant.firstaccess == false
-				#@participant.update(firstaccess: true)
+				@participant.update(firstaccess: true)
 				@sendemail = @participant.eventosbahai.sendemail
 				if @participant.contact =~ /\A[^@]+@[^@]+\Z/
 					@emailveracity = true
@@ -87,11 +70,37 @@ class ParticipantsController < ApplicationController
 
       		if @evento.sendemail == "1"
       			if @participant.contact =~ /\A[^@]+@[^@]+\Z/
-					EventoMailer.confirmation_email(@participant).deliver_later
-				end
-      		end
+								EventoMailer.confirmation_email(@participant).deliver_later
+						else
+							require 'twilio-ruby'
 
-        	redirect_to :action => "confirmation", :id => @participant.id
+							account_sid = "ACa1d3f5008401dc2b6d1d62045f43efbe" # Your Account SID from www.twilio.com/console
+							auth_token = "db4f98a2e7319836a485cd08fc31499f"   # Your Auth Token from www.twilio.com/console
+
+							mail_text = EventoMailer.confirmation_email(@participant).text_part.body
+
+							begin
+								@client = Twilio::REST::Client.new account_sid, auth_token
+								message = @client.messages.create(
+										body: mail_text,
+										to: '+55' + @participant.contact,    # Replace with your phone number
+										from: "+13136494087")  # Replace with your Twilio number
+							rescue Twilio::REST::TwilioError => e
+								puts e.message
+							end
+
+
+						end
+					end
+
+
+
+
+
+
+
+
+					redirect_to :action => "confirmation", :id => @participant.id
       	else
         	redirect_to :action => "confirmation", :evid => participant_params[:eventosbahai_id], :error => true
       	end

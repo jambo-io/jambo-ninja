@@ -1,0 +1,24 @@
+
+
+## Mensagem Automática ##
+
+Olá <%= @participant.name %> <%= @participant.lastname %>,
+Ficamos felizes com sua participação. Abaixo estão as informações sobre a data e o local da <%= @eventosbahai.name %> que ocorrerá em <%= @eventosbahai.city %> - <%= @eventosbahai.state %>
+
+
+Início: <%= @eventosbahai.start_at.strftime("%d/%m/%Y") %>
+Término: <%= @eventosbahai.end_at.strftime("%d/%m/%Y") %>
+<% unless @eventosbahai.location.nil? %>
+Endereço: <%= @eventosbahai.location %>
+<% end %>
+
+
+<% unless @eventosbahai.description.nil? %>
+<%= @eventosbahai.description %>
+<% end %>
+
+Equipe <%= @eventosbahai.name %>
+
+
+# Para mais detalhes acesse www.jambo.ninja ou
+envie um E-mail para conselhoco@bahai.org.br #
