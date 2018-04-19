@@ -41,11 +41,12 @@
               </div>
               <div class="card-body">
                 <div class="popin" style="padding:5px; box-shadow: 0 0 5px #999; border-radius:2px; border-ratio:9;">
-                  <div id="map"></div>
+                  <div id="map"> </div>
+                  <%= @evento.location %>, <%= @evento.city %> - <%= @evento.state %>
                 </div>
               </div>
               <div class="card-footer" style="text-muted font-size:15px; padding:10px;">
-                <%= @evento.location %>, <%= @evento.city %> - <%= @evento.state %>
+
               </div>
             </div>
             <script>
@@ -83,7 +84,7 @@
                 });
 
                 function googleMapsCustomError() {
-                    alert('Google Maps custom error triggered');
+                    console.log('Google Maps custom error triggered');
                 }
 
                 // if you want to respond to a specific error, you may hack the
