@@ -27,39 +27,11 @@ page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", func
   page.stop();
 });
 
-page.animate({scrollTop: $(section).position().top }, 2000, function(){
+page.animate({scrollTop: $(section).position().top }, "slow", function(){
   page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
 });
 return false;
 }
-
-var ready;
-ready = function () {
-
-    var map = new GMaps({
-        el: '#map',
-        center: {lat: <%= @evento.latitude %>, lng:<%= @evento.longitude %>},
-    width: '100%',
-        height: '300px',
-        zoomControl: true,
-});
-
-    map.addMarker({
-            lat:<%= @evento.latitude %>,
-        lng:<%= @evento.longitude %>,
-        title: "<%= @evento.location %>",
-        infoWindow: {
-        content: "<h4><%= @evento.name %></h4><%= @evento.location %><br>"
-    },
-    click: function (e) {
-        map.map.panTo(e.position);
-    }
-})
-
-};
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
 
 
 

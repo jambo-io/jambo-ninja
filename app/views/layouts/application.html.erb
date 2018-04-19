@@ -5,8 +5,10 @@
     <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <%= javascript_include_tag 'application' %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-D_cXYmmH0D2DTELXbkloBnNieR6HeSo&callback=showMap" async defer></script>
 
 
 
