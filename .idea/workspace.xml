@@ -2,60 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a36e261-17cd-4b54-8d1e-6d053c92a91e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/participants/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/participants/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-563f7ac9f03d9eea49e4f201f728b7ec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-1dfef558bdb77d750ae0c1ee92aea4897940d95c97d351a49da198356daf3f12.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-1dfef558bdb77d750ae0c1ee92aea4897940d95c97d351a49da198356daf3f12.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-566c751d8e6814e0cd0c4ab280d0a5e76b591c74b458af1ad1c70e3148fad77c.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-566c751d8e6814e0cd0c4ab280d0a5e76b591c74b458af1ad1c70e3148fad77c.css.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-5b7f97660c00119fa3f4b50e3ea63b328ba889edcaedade1f964abe2d6433244.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-5b7f97660c00119fa3f4b50e3ea63b328ba889edcaedade1f964abe2d6433244.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-5d7abbba9ff720ce3cd79c465cb8065067d5c40f19830088f2fdfa733805278f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-5d7abbba9ff720ce3cd79c465cb8065067d5c40f19830088f2fdfa733805278f.css.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-8a750374da98fb43c477c06ee5605725e1f65d72063d8d5a8171c8ce29988f0d.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-8a750374da98fb43c477c06ee5605725e1f65d72063d8d5a8171c8ce29988f0d.css.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-a15cb1658b5a1065ddaf05ea5f786e5381e5c85e43b3c47f1f76a4ab300b9223.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-a15cb1658b5a1065ddaf05ea5f786e5381e5c85e43b3c47f1f76a4ab300b9223.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-b1df549fd865fefcb5a4d275aac8ef37b5b7551ae09da128d0bb7ea6134a9a2a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-b1df549fd865fefcb5a4d275aac8ef37b5b7551ae09da128d0bb7ea6134a9a2a.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-bffb59a5e2bf3e63e2b9942eb2bde9397421a8b09b7fa70bb8586f68599a7eb6.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-bffb59a5e2bf3e63e2b9942eb2bde9397421a8b09b7fa70bb8586f68599a7eb6.css.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-dc0de253fe6e2714d28924be8f032dba65e11446b8d0347974441fd34015ddad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-dc0de253fe6e2714d28924be8f032dba65e11446b8d0347974441fd34015ddad.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-e2c060fb3dfdc94727b6b62ac117ba4a4cd416d2a3912d4119f58832ab3b01b8.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/application-e2c060fb3dfdc94727b6b62ac117ba4a4cd416d2a3912d4119f58832ab3b01b8.css.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-42f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-42f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-a26394f7ede100ca118eff2eda08596275a9839b959c226e15439557a5a80742.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-e395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-e395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456.ttf.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/bower-d572b0fbdba69c7081f9215c0dd07779a5fcdfb091885a23b212b110fc2b7635.json.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/bower-d572b0fbdba69c7081f9215c0dd07779a5fcdfb091885a23b212b110fc2b7635.json.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-4b60ceb787ee1a4b7fd7701d5aa2563f7b55f4c4ab5aac31079679b734123780.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-4b60ceb787ee1a4b7fd7701d5aa2563f7b55f4c4ab5aac31079679b734123780.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-b5472266153b0a9c90c3de91d207938187ca597c6b7fc14678f4493fa0f62e73.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/eventosbahais-b5472266153b0a9c90c3de91d207938187ca597c6b7fc14678f4493fa0f62e73.js.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/fb-icon-12624c6692e4d25b6b1d21157f39fa7e2e4ee13714f991dd125cea4e8ea074da.svg.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/fb-icon-12624c6692e4d25b6b1d21157f39fa7e2e4ee13714f991dd125cea4e8ea074da.svg.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/package-a1ac54d3f4ab07a5f840fd896c19b87164fd5f2e436b0b2fe0433a6cc31ed7c3.json.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/package-a1ac54d3f4ab07a5f840fd896c19b87164fd5f2e436b0b2fe0433a6cc31ed7c3.json.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/parallax-050a53a4c659657cded6abbf91843d3264e16e7734552ad0b174c468d40b80e3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/parallax-050a53a4c659657cded6abbf91843d3264e16e7734552ad0b174c468d40b80e3.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/parallax-cc844bbcf4ba372680e283c81527ffe2835fd5362ea2ff5a727426725463b88d.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/parallax-cc844bbcf4ba372680e283c81527ffe2835fd5362ea2ff5a727426725463b88d.js.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/participants-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/participants-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/participants-f78f0f583e152fa235ca51f99bab70d1aeb59675de57c78bcef18b5a2e8a5a5f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/participants-f78f0f583e152fa235ca51f99bab70d1aeb59675de57c78bcef18b5a2e8a5a5f.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/sprites/social-share-button-01bd4e9a7782620aab986c55abc6ecb9ee88d50bb51f28c2f00fe36d87a0944c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/sprites/social-share-button@2x-a597120b30fe6ae4ac5b4f0f45f307c0f5519851529b3010a7c584eb3ed186be.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -75,8 +22,8 @@
       <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/participants/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="156" column="45" lean-forward="true" selection-start-line="156" selection-start-column="45" selection-end-line="156" selection-end-column="45" />
+            <state relative-caret-position="209">
+              <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -512,7 +459,7 @@
       <option name="presentableId" value="Default" />
       <updated>1524013107519</updated>
       <workItem from="1524013108892" duration="13074000" />
-      <workItem from="1524155578270" duration="3036000" />
+      <workItem from="1524155578270" duration="3196000" />
     </task>
     <task id="LOCAL-00001" summary="Paymentfield Added">
       <created>1524029976893</created>
@@ -525,7 +472,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16110000" />
+    <option name="totallyTimeSpent" value="16270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -818,8 +765,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/participants/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="156" column="45" lean-forward="true" selection-start-line="156" selection-start-column="45" selection-end-line="156" selection-end-column="45" />
+        <state relative-caret-position="209">
+          <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
         </state>
       </provider>
     </entry>
