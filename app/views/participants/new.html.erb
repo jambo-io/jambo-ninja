@@ -140,7 +140,9 @@
 			slide("#section3");
 		})
 
-    $(document).ready(function () {
+
+    $(window).load(function(){
+
         var map = new GMaps({
             el: '#map',
             center: {lat: <%= @evento.latitude %>, lng:<%= @evento.longitude %>},
@@ -160,7 +162,13 @@
                 map.map.panTo(e.position);
             }
         })
-    });
+
+    };
+
+
+
+
+
 
 	</script>
 

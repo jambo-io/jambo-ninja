@@ -3,9 +3,59 @@
   <component name="ChangeListManager">
     <list default="true" id="0a36e261-17cd-4b54-8d1e-6d053c92a91e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/participants_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/participants_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/participants/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/participants/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/participants/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/participants/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-563f7ac9f03d9eea49e4f201f728b7ec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-1dfef558bdb77d750ae0c1ee92aea4897940d95c97d351a49da198356daf3f12.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-1dfef558bdb77d750ae0c1ee92aea4897940d95c97d351a49da198356daf3f12.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-566c751d8e6814e0cd0c4ab280d0a5e76b591c74b458af1ad1c70e3148fad77c.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-566c751d8e6814e0cd0c4ab280d0a5e76b591c74b458af1ad1c70e3148fad77c.css.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-5b7f97660c00119fa3f4b50e3ea63b328ba889edcaedade1f964abe2d6433244.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-5b7f97660c00119fa3f4b50e3ea63b328ba889edcaedade1f964abe2d6433244.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-5d7abbba9ff720ce3cd79c465cb8065067d5c40f19830088f2fdfa733805278f.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-5d7abbba9ff720ce3cd79c465cb8065067d5c40f19830088f2fdfa733805278f.css.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-8a750374da98fb43c477c06ee5605725e1f65d72063d8d5a8171c8ce29988f0d.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-8a750374da98fb43c477c06ee5605725e1f65d72063d8d5a8171c8ce29988f0d.css.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-a15cb1658b5a1065ddaf05ea5f786e5381e5c85e43b3c47f1f76a4ab300b9223.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-a15cb1658b5a1065ddaf05ea5f786e5381e5c85e43b3c47f1f76a4ab300b9223.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-b1df549fd865fefcb5a4d275aac8ef37b5b7551ae09da128d0bb7ea6134a9a2a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-b1df549fd865fefcb5a4d275aac8ef37b5b7551ae09da128d0bb7ea6134a9a2a.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-bffb59a5e2bf3e63e2b9942eb2bde9397421a8b09b7fa70bb8586f68599a7eb6.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-bffb59a5e2bf3e63e2b9942eb2bde9397421a8b09b7fa70bb8586f68599a7eb6.css.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-dc0de253fe6e2714d28924be8f032dba65e11446b8d0347974441fd34015ddad.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-dc0de253fe6e2714d28924be8f032dba65e11446b8d0347974441fd34015ddad.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-e2c060fb3dfdc94727b6b62ac117ba4a4cd416d2a3912d4119f58832ab3b01b8.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-e2c060fb3dfdc94727b6b62ac117ba4a4cd416d2a3912d4119f58832ab3b01b8.css.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-42f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-42f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-a26394f7ede100ca118eff2eda08596275a9839b959c226e15439557a5a80742.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-e395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-e395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456.ttf.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bower-d572b0fbdba69c7081f9215c0dd07779a5fcdfb091885a23b212b110fc2b7635.json.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/bower-d572b0fbdba69c7081f9215c0dd07779a5fcdfb091885a23b212b110fc2b7635.json.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-4b60ceb787ee1a4b7fd7701d5aa2563f7b55f4c4ab5aac31079679b734123780.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-4b60ceb787ee1a4b7fd7701d5aa2563f7b55f4c4ab5aac31079679b734123780.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/eventosbahais-b5472266153b0a9c90c3de91d207938187ca597c6b7fc14678f4493fa0f62e73.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/eventosbahais-b5472266153b0a9c90c3de91d207938187ca597c6b7fc14678f4493fa0f62e73.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/fb-icon-12624c6692e4d25b6b1d21157f39fa7e2e4ee13714f991dd125cea4e8ea074da.svg.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/fb-icon-12624c6692e4d25b6b1d21157f39fa7e2e4ee13714f991dd125cea4e8ea074da.svg.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/package-a1ac54d3f4ab07a5f840fd896c19b87164fd5f2e436b0b2fe0433a6cc31ed7c3.json.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/package-a1ac54d3f4ab07a5f840fd896c19b87164fd5f2e436b0b2fe0433a6cc31ed7c3.json.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/parallax-050a53a4c659657cded6abbf91843d3264e16e7734552ad0b174c468d40b80e3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/parallax-050a53a4c659657cded6abbf91843d3264e16e7734552ad0b174c468d40b80e3.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/parallax-cc844bbcf4ba372680e283c81527ffe2835fd5362ea2ff5a727426725463b88d.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/parallax-cc844bbcf4ba372680e283c81527ffe2835fd5362ea2ff5a727426725463b88d.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/participants-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/participants-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/participants-f78f0f583e152fa235ca51f99bab70d1aeb59675de57c78bcef18b5a2e8a5a5f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/participants-f78f0f583e152fa235ca51f99bab70d1aeb59675de57c78bcef18b5a2e8a5a5f.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/sprites/social-share-button-01bd4e9a7782620aab986c55abc6ecb9ee88d50bb51f28c2f00fe36d87a0944c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/sprites/social-share-button@2x-a597120b30fe6ae4ac5b4f0f45f307c0f5519851529b3010a7c584eb3ed186be.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -22,34 +72,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="application.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/application.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/participants/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2113">
-              <caret line="157" column="14" lean-forward="true" selection-start-line="157" selection-start-column="14" selection-end-line="157" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/eventosbahais/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/eventosbahais/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="102" column="9" lean-forward="true" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
+            <state relative-caret-position="179">
+              <caret line="156" column="45" lean-forward="true" selection-start-line="156" selection-start-column="45" selection-end-line="156" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -63,20 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/schema.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="20180418035932_add_column_payments_to_eventosbahais.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20180418035932_add_column_payments_to_eventosbahais.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -94,16 +112,55 @@
         <entry file="file://$PROJECT_DIR$/db/migrate/20180419164035_add_column_autolyse_to_participants.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="37" />
+              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/participants/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+            <state relative-caret-position="141">
+              <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="71">
+              <caret line="35" selection-start-line="35" selection-end-line="62" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="82" selection-start-line="7" selection-start-column="82" selection-end-line="7" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eventosbahais.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="52" column="48" lean-forward="true" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -122,6 +179,7 @@
       <find>Inscr</find>
       <find>turbo</find>
       <find>precom</find>
+      <find>tu</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,17 +200,17 @@
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/participants.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js.erb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_evnav.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/config/locales/pt-BR.yml" />
         <option value="$PROJECT_DIR$/config/application.rb" />
-        <option value="$PROJECT_DIR$/app/views/participants/new.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/participants_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/participants/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/participants/new.html.erb" />
       </list>
     </option>
   </component>
@@ -196,6 +254,13 @@
               <item name="jambo-ninja" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jambo-ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jambo-ninja" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jambo-ninja" type="b2602c69:ProjectViewProjectNode" />
@@ -447,7 +512,7 @@
       <option name="presentableId" value="Default" />
       <updated>1524013107519</updated>
       <workItem from="1524013108892" duration="13074000" />
-      <workItem from="1524155578270" duration="1148000" />
+      <workItem from="1524155578270" duration="3036000" />
     </task>
     <task id="LOCAL-00001" summary="Paymentfield Added">
       <created>1524029976893</created>
@@ -460,7 +525,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14222000" />
+    <option name="totallyTimeSpent" value="16110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -469,13 +534,13 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15439956" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.32595462" side_tool="true" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.123962365" side_tool="true" visible="true" weight="0.521692" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" weight="0.329718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.6740454" visible="true" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.87603766" visible="true" weight="0.521692" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -605,31 +670,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_evnav.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
           <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -658,16 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="51" column="2" lean-forward="true" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -709,13 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/participants/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2113">
-          <caret line="157" column="14" lean-forward="true" selection-start-line="157" selection-start-column="14" selection-end-line="157" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -733,7 +760,7 @@
     <entry file="file://$PROJECT_DIR$/db/migrate/20180419164035_add_column_autolyse_to_participants.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="37" />
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -744,17 +771,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180418035932_add_column_payments_to_eventosbahais.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/participants/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        <state relative-caret-position="141">
+          <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/participants/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+        <state relative-caret-position="71">
+          <caret line="35" selection-start-line="35" selection-end-line="62" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180418035932_add_column_payments_to_eventosbahais.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="82" selection-start-line="7" selection-start-column="82" selection-end-line="7" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="52" column="48" lean-forward="true" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/participants/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="156" column="45" lean-forward="true" selection-start-line="156" selection-start-column="45" selection-end-line="156" selection-end-column="45" />
         </state>
       </provider>
     </entry>
