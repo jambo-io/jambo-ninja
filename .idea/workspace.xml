@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a36e261-17cd-4b54-8d1e-6d053c92a91e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/participants/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/participants/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -19,7 +19,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/participants/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
@@ -97,17 +97,17 @@
       <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="-75">
               <caret line="7" column="82" selection-start-line="7" selection-start-column="82" selection-end-line="7" selection-end-column="82" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eventosbahais.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="eventosbahais.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="52" column="48" lean-forward="true" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
+            <state relative-caret-position="120">
+              <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -156,8 +156,8 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" />
         <option value="$PROJECT_DIR$/app/views/participants/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" />
       </list>
     </option>
   </component>
@@ -459,7 +459,7 @@
       <option name="presentableId" value="Default" />
       <updated>1524013107519</updated>
       <workItem from="1524013108892" duration="13074000" />
-      <workItem from="1524155578270" duration="3196000" />
+      <workItem from="1524155578270" duration="3313000" />
     </task>
     <task id="LOCAL-00001" summary="Paymentfield Added">
       <created>1524029976893</created>
@@ -472,13 +472,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16270000" />
+    <option name="totallyTimeSpent" value="16387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15439956" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15439956" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.123962365" side_tool="true" visible="true" weight="0.521692" />
@@ -487,7 +487,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" weight="0.329718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.87603766" visible="true" weight="0.521692" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.87603766" visible="true" weight="0.521692" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -749,24 +749,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/participants/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="-75">
           <caret line="7" column="82" selection-start-line="7" selection-start-column="82" selection-end-line="7" selection-end-column="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="52" column="48" lean-forward="true" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/participants/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+        <state relative-caret-position="120">
+          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
         </state>
       </provider>
     </entry>
