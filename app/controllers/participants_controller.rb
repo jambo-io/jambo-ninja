@@ -78,7 +78,7 @@ class ParticipantsController < ApplicationController
 							auth_token = "db4f98a2e7319836a485cd08fc31499f"   # Your Auth Token from www.twilio.com/console
 
 							mail_text = EventoMailer.confirmation_email(@participant).text_part.body
-
+              phone_number = @participant.contact.gsub(/\s+/, "")
 							begin
 								@client = Twilio::REST::Client.new account_sid, auth_token
 								message = @client.messages.create(

@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a36e261-17cd-4b54-8d1e-6d053c92a91e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/evento_mailer/confirmation_email.text.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/participants_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/participants_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/evento_mailer/confirmation_email.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/evento_mailer/confirmation_email.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/participants/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/participants/_form.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -71,8 +67,8 @@
       <file leaf-file-name="participants_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/participants_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+            <state relative-caret-position="306">
+              <caret line="80" column="65" lean-forward="true" selection-start-line="80" selection-start-column="65" selection-end-line="80" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -445,7 +441,7 @@
       <updated>1524013107519</updated>
       <workItem from="1524013108892" duration="13074000" />
       <workItem from="1524155578270" duration="8106000" />
-      <workItem from="1524164535542" duration="5572000" />
+      <workItem from="1524164535542" duration="6030000" />
     </task>
     <task id="LOCAL-00001" summary="Paymentfield Added">
       <created>1524029976893</created>
@@ -458,7 +454,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26752000" />
+    <option name="totallyTimeSpent" value="27210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -469,8 +465,8 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.8749308" visible="true" weight="0.28633407" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15605977" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.8749308" visible="true" weight="0.28633407" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15605977" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4997233" weight="0.329718" />
@@ -816,8 +812,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/participants_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+        <state relative-caret-position="306">
+          <caret line="80" column="65" lean-forward="true" selection-start-line="80" selection-start-column="65" selection-end-line="80" selection-end-column="65" />
         </state>
       </provider>
     </entry>
