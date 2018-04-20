@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a36e261-17cd-4b54-8d1e-6d053c92a91e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/participants_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/participants_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/participants/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/participants/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/participants/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/participants/new.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -30,20 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/eventosbahais/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-240">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/participants/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+            <state relative-caret-position="173">
+              <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -57,16 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="participants_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="participants_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/participants_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
@@ -75,14 +55,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application_mailer.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/mailers/application_mailer.rb">
+      <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js.coffee" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js.coffee">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="evento_mailer.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/mailers/evento_mailer.rb">
+      <file leaf-file-name="bemvindos.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/bemvindos.js">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="eventosbahais.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/eventosbahais.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="confirmation_email.html.erb" pinned="false" current-in-tab="false">
@@ -119,8 +120,8 @@
       <find>precom</find>
       <find>tu</find>
       <find>onde</find>
-      <find>message</find>
       <find>Amigo</find>
+      <find>message</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -154,8 +155,8 @@
         <option value="$PROJECT_DIR$/app/views/evento_mailer/confirmation_email.html.erb" />
         <option value="$PROJECT_DIR$/app/views/evento_mailer/confirmation_email.text.erb" />
         <option value="$PROJECT_DIR$/app/views/participants/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/participants/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/participants_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/participants/index.html.erb" />
       </list>
     </option>
   </component>
@@ -193,6 +194,19 @@
               <item name="jambo-ninja" type="b2602c69:ProjectViewProjectNode" />
               <item name="jambo-ninja" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jambo-ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jambo-ninja" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jambo-ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jambo-ninja" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jambo-ninja" type="b2602c69:ProjectViewProjectNode" />
@@ -444,7 +458,7 @@
       <updated>1524013107519</updated>
       <workItem from="1524013108892" duration="13074000" />
       <workItem from="1524155578270" duration="8106000" />
-      <workItem from="1524164535542" duration="9720000" />
+      <workItem from="1524164535542" duration="10031000" />
     </task>
     <task id="LOCAL-00001" summary="Paymentfield Added">
       <created>1524029976893</created>
@@ -457,7 +471,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30900000" />
+    <option name="totallyTimeSpent" value="31211000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -717,13 +731,6 @@
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/cable.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/eventosbahais.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="11" column="40" lean-forward="true" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/parallax.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -738,16 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -806,17 +803,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/participants/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/participants_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js.coffee">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/bemvindos.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/eventosbahais.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/participants/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
         </state>
       </provider>
     </entry>
