@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a36e261-17cd-4b54-8d1e-6d053c92a91e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/pins/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/participants_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/participants_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/participant.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/participant.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/evento_mailer/confirmation_email.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/evento_mailer/confirmation_email.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/evento_mailer/confirmation_email.text.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/evento_mailer/confirmation_email.text.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/eventosbahais/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/eventosbahais/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_evnav.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_evnav.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/participants/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/participants/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/participants/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/participants/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/eventosbahais_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/eventosbahais_controller.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -41,11 +28,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/participants/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+            <state relative-caret-position="270">
+              <caret line="78" column="29" lean-forward="true" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eventosbahais_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/eventosbahais_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -115,22 +111,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eventosbahais.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/eventosbahais.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="34" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#aside#0;n#div#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#blockquote#0;n#aside#0;n#div#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#footer#0;n#div#0;n#blockquote#0;n#aside#0;n#div#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_evnav.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_evnav.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -166,8 +146,8 @@
       <find>aniver</find>
       <find>sair</find>
       <find>paid</find>
-      <find>Pago</find>
       <find>order</find>
+      <find>Pago</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -182,7 +162,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20180418035932_add_column_payments_to_eventosbahais.rb" />
         <option value="$PROJECT_DIR$/app/views/eventosbahais/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/eventosbahais/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/eventosbahais_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/gmaps.js" />
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
@@ -214,6 +193,7 @@
         <option value="$PROJECT_DIR$/app/controllers/pins_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/participants_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/participants/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/eventosbahais_controller.rb" />
       </list>
     </option>
   </component>
@@ -422,7 +402,7 @@
       <workItem from="1524013108892" duration="13074000" />
       <workItem from="1524155578270" duration="8106000" />
       <workItem from="1524164535542" duration="23744000" />
-      <workItem from="1524218454605" duration="9970000" />
+      <workItem from="1524218454605" duration="10367000" />
     </task>
     <task id="LOCAL-00001" summary="Paymentfield Added">
       <created>1524029976893</created>
@@ -435,7 +415,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54894000" />
+    <option name="totallyTimeSpent" value="55291000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -447,7 +427,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.9120089" visible="true" weight="0.30260304" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15771998" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23574986" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4991699" weight="0.329718" />
@@ -538,13 +518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/eventosbahais_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -835,8 +808,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/participants/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+        <state relative-caret-position="270">
+          <caret line="78" column="29" lean-forward="true" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/eventosbahais_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
         </state>
       </provider>
     </entry>

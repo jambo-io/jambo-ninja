@@ -55,7 +55,7 @@ class EventosbahaisController < ApplicationController
   def update
     respond_to do |format|
       if @eventosbahai.update(eventosbahai_params)
-        format.html { redirect_to @eventosbahai, notice: 'Eventosbahai was successfully updated.' }
+        format.html { redirect_to @eventosbahai }
         format.json { render :show, status: :ok, location: @eventosbahai }
       else
         format.html { render :edit }
