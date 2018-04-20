@@ -112,7 +112,7 @@
 
 <% if @registered.count > 0 %>
 	<div class="container">
-		<h1 style="text-align:center; margin-bottom:40px;"><%= pluralize(@registered.count,"Amigo") %>
+		<h1 style="text-align:center; margin-bottom:40px;"><%= "Amigo".pluralize(@registered.count) %>
 			<%= "Inscrito".pluralize(@registered.count) %></h1>
 		<div class="form-row">
 			<ul>

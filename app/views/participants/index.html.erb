@@ -54,7 +54,12 @@
 
 						<td>
 							<% unless f.birthday.nil? %>
-							<%= Date.today.year - f.birthday.year %>
+							<% age =  Date.today.year - f.birthday.year %>
+                <% if age > 30 %>
+                  Maior de 30
+                <% else %>
+                  <%= age %>
+                <%end %>
 							<% end %>
 						</td>
 
@@ -71,7 +76,6 @@
                 <%= "Menor de 12" %>
               <% end %>
             </td>
-            <td><%= f.city %> - <%= p.state %></td>
 
 						<td><%= f.created_at.strftime("%d/%m/%Y") %></td>
 						<td><%= link_to "X", participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}" %></td>
