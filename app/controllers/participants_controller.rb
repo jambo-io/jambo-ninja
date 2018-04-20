@@ -14,10 +14,6 @@ class ParticipantsController < ApplicationController
 
 	end
 	def new
-
-
-
-
 		@participant = Participant.new
 		@evento_id = params[:id]
 		@evento = Eventosbahai.find(@evento_id)
@@ -30,9 +26,6 @@ class ParticipantsController < ApplicationController
 		 if @evento.start_at - Date.today  < 0 || @vacancies <= 0 
 		 	@event_available = false
 		 end
-
-		 
-
 	end
 	def confirmation
 
@@ -56,6 +49,32 @@ class ParticipantsController < ApplicationController
 		end
 
 	end
+
+	def sms (participant)
+
+		mail_text = EventoMailer.confirmation_email(participant).text_part.body
+
+		if Rails.env.production? #Verify if it's in production in order to send SMS
+			require 'twilio-ruby'
+
+			account_sid = "ACa1d3f5008401dc2b6d1d62045f43efbe" # Your Account SID from www.twilio.com/console
+			auth_token = "db4f98a2e7319836a485cd08fc31499f"   # Your Auth Token from www.twilio.com/console
+
+			mail_text = EventoMailer.confirmation_email(participant).text_part.body
+
+			phone_number = participant.contact.gsub(/\s+/, "")
+			begin
+				@client = Twilio::REST::Client.new account_sid, auth_token
+				message = @client.messages.create(
+						body: mail_text,
+						to: '+55' + participant.contact,    # Replace with your phone number
+						from: "+13136494087")  # Replace with your Twilio number
+			rescue Twilio::REST::TwilioError => e
+				puts e.message
+			end
+		end
+	end
+
 	def show
 
 	end
@@ -65,41 +84,15 @@ class ParticipantsController < ApplicationController
 		@participant = @evento.participants.new(participant_params)
 
       	if @participant.save
-      		puts @evento.sendemail.inspect
-      		
 
       		if @evento.sendemail == "1"
       			if @participant.contact =~ /\A[^@]+@[^@]+\Z/
 								EventoMailer.confirmation_email(@participant).deliver_later
 						else
-							if Rails.env.production? #Verify if it's in production in order to send SMS
-								require 'twilio-ruby'
-
-								account_sid = "ACa1d3f5008401dc2b6d1d62045f43efbe" # Your Account SID from www.twilio.com/console
-								auth_token = "db4f98a2e7319836a485cd08fc31499f"   # Your Auth Token from www.twilio.com/console
-
-								mail_text = EventoMailer.confirmation_email(@participant).text_part.body
-								phone_number = @participant.contact.gsub(/\s+/, "")
-								begin
-									@client = Twilio::REST::Client.new account_sid, auth_token
-									message = @client.messages.create(
-											body: mail_text,
-											to: '+55' + @participant.contact,    # Replace with your phone number
-											from: "+13136494087")  # Replace with your Twilio number
-								rescue Twilio::REST::TwilioError => e
-									puts e.message
-								end
-							end
-
+								sms(@participant) ##fire sms method
 
 						end
 					end
-
-
-
-
-
-
 
 
 					redirect_to :action => "confirmation", :id => @participant.id
@@ -108,6 +101,8 @@ class ParticipantsController < ApplicationController
       	end
     
 	end
+
+
 	def update
 	end
 	def destroy
