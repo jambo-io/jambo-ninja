@@ -1,19 +1,23 @@
 class ParticipantsController < ApplicationController
 	before_action :permission, only: [:index, :destroy]
+	before_action :pin, only: [:show]
 
 	layout "eventosbahais"
 
 	def index
-		@participants = Participant.all
+
+
+		@participants = Participant.order(:id).all
 
 		@user = User.find(current_user.id)
-		@eventosbahais = @user.eventosbahais.order("id DESC")
+		@eventosbahais = @user.eventosbahais
 
 		@size = @user.participants.size
 
 
 	end
 	def new
+
 		@participant = Participant.new
 		@evento_id = params[:id]
 		@evento = Eventosbahai.find(@evento_id)
@@ -53,35 +57,29 @@ class ParticipantsController < ApplicationController
 	def sms (participant)
 
 		mail_text = EventoMailer.confirmation_email(participant).text_part.body
+		endpoint = 'https://api.totalvoice.com.br/sms'
+		require "uri"
+		require "net/http"
+		params = {'Access-Token': '4df9606fcb0aef3f6a89b61439eeccb3', numero_destino: "#{participant.contact}", mensagem: "#{mail_text}"}
+		x = Net::HTTP.post_form(URI.parse("#{endpoint}"), params)
+		puts x.body
+		#puts JSON.parse(request_body)
 
-		if Rails.env.production? #Verify if it's in production in order to send SMS
-			require 'twilio-ruby'
-
-			account_sid = "ACa1d3f5008401dc2b6d1d62045f43efbe" # Your Account SID from www.twilio.com/console
-			auth_token = "db4f98a2e7319836a485cd08fc31499f"   # Your Auth Token from www.twilio.com/console
-
-			mail_text = EventoMailer.confirmation_email(participant).text_part.body
-
-			phone_number = participant.contact.gsub(/\s+/, "")
-			begin
-				@client = Twilio::REST::Client.new account_sid, auth_token
-				message = @client.messages.create(
-						body: mail_text,
-						to: '+55' + participant.contact,    # Replace with your phone number
-						from: "+13136494087")  # Replace with your Twilio number
-			rescue Twilio::REST::TwilioError => e
-				puts e.message
-			end
-		end
 	end
 
 	def show
+
+		@participant = Participant.find(params[:id])
+		@event = @participant.eventosbahai
+    render layout: 'participant'
 
 	end
 	def create
 
 		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
 		@participant = @evento.participants.new(participant_params)
+		pin = rand(1000..9999)
+		@participant.pin = pin
 
       	if @participant.save
 
@@ -128,8 +126,13 @@ class ParticipantsController < ApplicationController
 	      unless admin?
 	        redirect_to root_path
 	      end
-    	end
-    	
-
-		
-end
+		end
+		def pin
+			@participant = Participant.find(params[:id])
+			if session[:pin] == @participant.pin
+				true
+			else
+				redirect_to pin_path
+			end
+		end
+ end

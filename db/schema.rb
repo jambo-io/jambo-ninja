@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419164035) do
+ActiveRecord::Schema.define(version: 20180420103145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20180419164035) do
     t.boolean  "publist"
     t.boolean  "firstaccess",     default: false
     t.string   "autolyse"
+    t.integer  "pin"
+    t.boolean  "paid",            default: false
     t.index ["eventosbahai_id"], name: "index_participants_on_eventosbahai_id", using: :btree
   end
 

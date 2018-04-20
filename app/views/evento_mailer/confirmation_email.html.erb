@@ -24,9 +24,18 @@
 				<p><b> <%= @eventosbahai.description %></p> <br>
 			<% end %>
 
-			Para ficar por dentro de futuras atividades e eventos <%= link_to 'clique aqui', :controller =>"users", :action =>"new", :only_path => false %> para se cadastrar no Site.
-			<br><br>Qualquer dúvidas envie um email para conselhoco@bahai.org.br<br>
-			
+      <hr>
+      <h2><%= @participant.pin %></h2>
+
+      Utilize esse código para acessar seu  <%= link_to "comprovante de inscrição", :controller =>"pins", :action =>"new", :only_path => false %>.
+
+
+      <br><br>
+
+
+			<br><br>Qualquer dúvidas envie um email para conselhoco@bahai.org.br<br><br>
+
+      Atenciosamente,<br>
 			Equipe <%= @eventosbahai.name %>
 		</p>
 	</body>

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :eventosbahais
   resources :participants
 
+  get 'pin/' => 'pins#new'
+  post 'pin/' => 'pins#create'
+  delete 'sair' => 'pins#destroy'
+  post 'pay' => 'pins#pay', as: :pay
 
   get 'ev/n/:id' => 'participants#new', :as => 'partnew'
 

@@ -1,0 +1,18 @@
+<div class="container" style="margin-bottom:20px;">
+  <div id="section1">
+    <h1>Código de Inscrição</h1><br>
+    <div class="col-lg-4 col-lg-offset-4">
+
+      <%= bootstrap_form_for :pin do |f| %>
+        <%= f.text_field :contact, autofocus: true, label: "Email ou celular" %>
+        <%= f.text_field :pin, autocomplete: "off", label: "Código",:maxlength => 4, :size => 4, placeholder:"9999" %>
+        <div style="text-align:center">
+          <%= f.submit "Entrar", class: "btn btn-info", style: "margin:0 auto" %>
+          <p></p><span class="text-danger"> <%= flash_message %></span></p>
+          <p>Se você não se inscreveu ainda <%= link_to "clique aqui.", eventosbahais_path  %></p>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

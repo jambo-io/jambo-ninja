@@ -33,7 +33,31 @@
   </head>
   <body>
 
-     <%= render "layouts/evnav" %>   
+     <%= render "layouts/evnav" %>
+
+     <nav class="navbar navbar-home" style="margin-top:-30px;">
+
+       <div style="background:white" class="parallax-window" data-parallax="scroll" data-image-src='<%= asset_path @image %>'>
+         <div class="container-fluid">
+           <div class="row">
+             <div style="margin-top:300px;">
+               <aside class="col-sm-4 col-sm-push-7" style="margin-top:90px; z-index:2;">
+
+                 <% unless @quote.nil? || @author.nil? %>
+                   <blockquote id="scene" class="blockquote-reverse" style="color:#fff;">
+                     <div data-depth="0.2"><%= @quote %>
+                       <footer style="color:#fff;"><%= @author %></footer>
+                     </div>
+                   </blockquote>
+                 <% end %>
+
+
+               </aside>
+             </div>
+
+           </div>
+         </div>
+     </nav>
 
 
 

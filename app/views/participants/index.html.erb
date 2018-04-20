@@ -32,13 +32,15 @@
 			<tr>
 				<% if p.participants.size > 0 %>
 				<th scope="col"></th>
+        <th scope="col">Pago</th>
 				<th scope="col">Nome</th>
 				<th scope="col">Contato</th>
 				<th scope="col">Idade</th>
 				<th scope="col">Endereço</th>
 				<th scope="col">Cidade</th>
           <th scope="col">Pagamento</th>
-				<th scope="col">Registrado em</th>
+
+				<th scope="col">Reg. em</th>
 				<th scope="col">#</th>
 				<% else %>
 					Nenhum participante inscrito.
@@ -46,9 +48,27 @@
 			</tr>
 		</thead>
 		<tbody>
-				<% p.participants.each do |f| %>
+				<% p.participants.order("created_at desc").each do |f| %>
 					<tr id="participant_<%= f.id %>">
 						<th></th>
+
+            <% if f.paid == false %>
+
+              <%= form_tag pay_path, method: :post do %>
+                <%= hidden_field_tag :participant_id, f.id %>
+                <td><%= submit_tag "X", class: 'btn' %></td>
+              <% end %>
+
+            <% elsif f.paid == true %>
+
+              <%= form_tag pay_path, method: :post do %>
+                <%= hidden_field_tag :participant_id, f.id %>
+                <td><%= submit_tag "✓", class: 'btn btn-success' %></td>
+              <% end %>
+
+            <% end %>
+
+
 						<td><%= f.name %> <%= f.lastname %></td>
 						<td><%= f.contact %></td>
 
@@ -77,7 +97,11 @@
               <% end %>
             </td>
 
+
+
+
 						<td><%= f.created_at.strftime("%d/%m/%Y") %></td>
+
 						<td><%= link_to "X", participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}" %></td>
 
 						<script>
