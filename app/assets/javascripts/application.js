@@ -36,4 +36,9 @@ function slide(section){
     */
 }
 
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
+
+
 

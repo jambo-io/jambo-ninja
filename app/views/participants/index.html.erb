@@ -71,7 +71,22 @@
 
 
 						<td><%= f.name %> <%= f.lastname %></td>
-						<td><%= f.contact %></td>
+
+
+
+						<td>
+
+              <% if f.phoneconfirmed == true %>
+
+                <a id="popover" class="text-success" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="Email/Celular confirmado."><%= f.contact %></a>
+
+              <% else %>
+                <%= f.contact %>
+              <% end %>
+
+
+
+            </td>
 
 						<td>
 							<% unless f.birthday.nil? %>
