@@ -96,7 +96,7 @@
       body, page {
         position: absolute;
         top:0;
-        left:.5cm;
+        left:.3cm;
         zoom:130%;
         background-color: #fff;
       }
@@ -109,7 +109,7 @@
 </style>
 
 <div class="container clearfix">
-  <p>Os crachás estão configurados para folhas A4. Com uma margem esquerda de 5mm.
+  <p>Os crachás estão configurados para folhas A4. Com uma margem esquerda de 3mm.
     Cada impressora tem margens padrões específicas, ao imprimir você poderá
     visualizar se as margens estão corretas (Google Chrome), e existem algumas opções
     para ajustá-las, se necessário.</p>
@@ -119,11 +119,26 @@
   <ul class="list-inline">
     <li class="list-inline-item">
       <%= label_tag "Largura" %>
-      <%= number_field_tag :name, 9.7 , max: 29, min:0, id:'width' %> cm
+
+      <% if params[:w]
+          wvalue = params[:w]
+        else
+          wvalue = 9.7
+        end
+
+         if params[:h]
+           hvalue = params[:h]
+         else
+           hvalue = 5
+         end
+
+      %>
+
+      <%= number_field_tag :name, wvalue , max: 29, min:3, id:'width' %> cm
     </li>
     <li class="list-inline-item">
       <%= label_tag "Altura" %>
-      <%= number_field_tag :name, 5, max: 29, min:0, id:'height' %> cm
+      <%= number_field_tag :name, hvalue, max: 29, min:3, id:'height' %> cm
     </li>
       <a id = "btn" class="btn btn-info" style="color: #fff;">Visualizar</a>
     <li class="list-inline-item">
@@ -137,6 +152,11 @@
 <script>
 
   $(document).ready(function(){
+
+      widthe = $("#width").val();
+      heighte = $("#height").val();
+      $(".card").css({'height': heighte + "cm"});
+      $(".card").css({'width': widthe + "cm"});
 
       $("#btn").on('click', function () {
 
@@ -153,7 +173,7 @@
           console.log(heighte);
           console.log(widthe);
 
-          window.location.href = "http://www.jambo.ninja/badges?locale=pt-BR" + "?sz=1&h=" + parseFloat(heighte) + "&w=" + parseFloat(widthe);
+          window.location.href = "http://localhost:10549/badges?locale=pt-BR" + "?sz=1&h=" + parseFloat(heighte) + "&w=" + parseFloat(widthe);
 
 
       })
