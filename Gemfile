@@ -7,8 +7,8 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~>0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-# Bootstrap for Sass
-gem 'bootstrap-sass', '~>3.3.7'
+
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,6 +46,8 @@ gem 'rails_12factor', group: :production
 
 gem 'twilio-ruby'
 
+gem 'popper_js', '~> 1.9', '>= 1.9.9'
+
 
 
 group :development, :test do
@@ -56,6 +58,10 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>=1.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

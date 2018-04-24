@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post 'pin/' => 'pins#create'
   delete 'sair' => 'pins#destroy'
   post 'pay' => 'pins#pay', as: :pay
+  get 'badges' => 'badges#index'
+  get 'teste' => 'pages#test'
 
   get 'ev/n/:id' => 'participants#new', :as => 'partnew'
 

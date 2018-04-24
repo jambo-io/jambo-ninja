@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  def default_url_options
+    { locale: I18n.locale }
+  end
   protect_from_forgery with: :exception
   #Prevent CSRF attacks by raising exception.
   #For APIs, you may want to use :null_session instead.

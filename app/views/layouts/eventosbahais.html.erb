@@ -35,29 +35,26 @@
 
      <%= render "layouts/evnav" %>
 
-     <nav class="navbar navbar-home" style="margin-top:-30px;">
 
-       <div style="background:white" class="parallax-window" data-parallax="scroll" data-image-src='<%= asset_path @image %>'>
-         <div class="container-fluid">
-           <div class="row">
-             <div style="margin-top:300px;">
-               <aside class="col-sm-4 col-sm-push-7" style="margin-top:90px; z-index:2;">
+
+       <div  style="background:white" class="parallax-window d-flex align-items-end" data-parallax="scroll" data-naturalWidth="900" data-zIndex = "-20" data-image-src='<%= asset_path @image %>'>
+            <div class="container-fluid h-100" style="z-index: 5">
+
+             <div class="mb-auto p-2 bd-highlight">
 
                  <% unless @quote.nil? || @author.nil? %>
-                   <blockquote id="scene" class="blockquote-reverse" style="color:#fff;">
-                     <div data-depth="0.2"><%= @quote %>
-                       <footer style="color:#fff;"><%= @author %></footer>
-                     </div>
+                   <blockquote class="blockquote text-right ml-auto">
+                     <span class="mb-0"><%= @quote %></span>
+                       <footer class="blockquote-footer"><%= @author %></footer>
+
                    </blockquote>
                  <% end %>
 
-
-               </aside>
+               </div>
              </div>
+       </div>
 
-           </div>
-         </div>
-     </nav>
+
 
 
 
@@ -68,15 +65,14 @@
  
 
   
-     <footer class="page-footer font-small blue pt-4 mt-4">
+     <footer class="mainfooter font-small blue pt-4 mt-4">
+       <div class="container-fluid" style="background-color:#fff">
         <div class="footer-copyright py-3 text-center">
-            <div class="container-fluid" style="background-color:#fff">
+
                <span class="text-muted" style="font-size:80% !important;"> © 2018 Copyright <%= link_to "Jambo Network", my_about_path %></span>
             </div>
         </div>
      </footer>
-
-
 
   </body>
 </html>

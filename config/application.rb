@@ -13,7 +13,7 @@ module Jovensamigos
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += %W(#{config.root}/lib)
 
-    config.i18n.default_locale = :'pt-BR'
+    config.i18n.default_locale = 'pt-BR'
 
 
     config.middleware.use Rack::Cors do

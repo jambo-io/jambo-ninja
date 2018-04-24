@@ -1,5 +1,5 @@
  class PagesController < ApplicationController
-    layout "eventosbahais"
+    layout "test"
     
     def show
     	#render template: "pages/#{params[:page]}"
@@ -10,5 +10,8 @@
     end
     def local
     end
+     def test
+
+     end
 
   end  

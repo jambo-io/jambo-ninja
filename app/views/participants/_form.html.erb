@@ -1,4 +1,5 @@
-<%= form_for(participant) do |f| %>
+
+<%= form_for(participant, :html => {:class => "form-horizontal center"}) do |f| %>
   <% if participant.errors.any? %>
     <% participant.errors.full_messages.each do |message| %>
       <li><%= message %>
@@ -7,12 +8,12 @@
   
    <div class="row">
       
-      <div class="form-group col-md-6">
+      <div class="form-group col">
         
           <%= f.label 'Nome' %>
           <%= f.text_field :name, :class=>'form-control', required: true %>
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col">
           
           <%= f.label 'Sobrenome' %>
           <%= f.text_field :lastname, :class=>'form-control', required: true %>
@@ -106,8 +107,8 @@
 
     <%= f.hidden_field :eventosbahai_id, :value => params[:id] %>
     <br>
-    <div class="actions">
-      <%= f.submit "Inscrever", class:'btn btn-lg btn-success center-block' %>
+    <div style="text-align: center;">
+      <%= f.submit "Inscrever", class:'btn btn-lg btn-success' %>
     </div>
 
   </div>

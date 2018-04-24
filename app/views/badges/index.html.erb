@@ -1,0 +1,261 @@
+<style>
+
+  @import url('https://fonts.googleapis.com/css?family=Crafty+Girls');
+  body {
+    background: rgb(214, 222, 234);
+    page-break-before: avoid;
+
+
+  }
+  h5 {
+    color:#0d3109;
+  }
+  p{
+    color:#000 !important;
+  }
+
+  table, th, td {
+    border: 0px;
+    border-collapse: collapse;
+    padding: 2px;
+  }
+
+  page {
+
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    padding-top: .2cm;
+    padding-left: .5cm;
+
+  }
+
+  page[size="A4"] {
+    width: 21cm;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  page[size="A4"][layout="portrait"] {
+    width: 29.7cm;
+    height: 21cm;
+  }
+  .card-deck {
+    margin-left: -.15cm;
+    margin-top: .2cm;
+    font-family: 'Crafty Girls', cursive;
+
+
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  .clearfix:after {
+    clear: both;
+  }
+
+  .clearfix {
+    zoom: 1;
+  }
+
+
+  .card{
+    color: #0d3109 !important;
+  }
+
+  @page :first {
+    color: green;
+
+    @top-left {
+      content: "foo";
+      color: blue;
+    }
+    @top-right {
+      content: "bar";
+    }
+  }
+
+  @page {
+    color: red;
+    @top-center {
+      content: "Page " counter(page);
+    }
+  }
+
+  @media print {
+      body, page {
+        position: absolute;
+        top:0;
+        left:.5cm;
+        zoom:130%;
+        background-color: #fff;
+      }
+
+  }
+
+
+
+
+</style>
+
+<div class="container clearfix">
+  <p>Os crachás estão configurados para folhas A4. Com uma margem esquerda de 5mm.
+    Cada impressora tem margens padrões específicas, ao imprimir você poderá
+    visualizar se as margens estão corretas (Google Chrome), e existem algumas opções
+    para ajustá-las, se necessário.</p>
+
+  <p>Aperte Ctrl+P para imprimir, ou <a href="#" id="print">clique aqui</a>. </p>
+
+  <ul class="list-inline">
+    <li class="list-inline-item">
+      <%= label_tag "Largura" %>
+      <%= number_field_tag :name, 9.7 , max: 29, min:0, id:'width' %> cm
+    </li>
+    <li class="list-inline-item">
+      <%= label_tag "Altura" %>
+      <%= number_field_tag :name, 5, max: 29, min:0, id:'height' %> cm
+    </li>
+      <a id = "btn" class="btn btn-info" style="color: #fff;">Visualizar</a>
+    <li class="list-inline-item">
+    </li>
+  </ul>
+
+
+
+</div>
+
+<script>
+
+  $(document).ready(function(){
+
+      $("#btn").on('click', function () {
+
+          widthe = $("#width").val();
+
+          heighte = $("#height").val();
+
+
+
+          $(".card").css({ 'height': heighte + "cm" });
+          $(".card").css({ 'width': widthe + "cm" });
+
+
+          console.log(heighte);
+          console.log(widthe);
+
+          window.location.href = "http://www.jambo.ninja/badges?locale=pt-BR" + "?sz=1&h=" + parseFloat(heighte) + "&w=" + parseFloat(widthe);
+
+
+      })
+
+      $("#print").on('click', function () {
+
+          window.print();
+      })
+
+
+
+
+  });
+
+</script>
+
+
+
+
+
+<page size="A4">
+
+
+  <table>
+
+    <% @eventosbahais.each do |p| %>
+
+        <tr>
+
+          <script>
+            math = 0;
+            contentheight = 0;
+            contentwidth = 0;
+            count = 1;
+          </script>
+
+        <% p.participants.order("created_at desc").each do |f| %>
+
+
+
+          <td>
+
+          <div id="card" class="card text-white" style="background-color: transparent !important;  flex: none !important; width: <%= params[:w] %>cm; height: <%= params[:h] %>cm; margin-bottom: 0px;  border: 2px solid #000; margin-right: 0px; border-radius: 0; -webkit-print-color-adjust: exact; text-align:center; background-image: url('<%= asset_path "badgebg1.png" %>'); background-repeat: no-repeat; background-size:50px; background-position: left center;">
+
+            <div class="card-img-overlay">
+              <h5 class="card-title" style="margin-bottom: -.3cm;"><%= p.name %></h5>
+
+              <div style="position: absolute; width: 100%;  bottom:43.5%; text-align: center; left: 0px;">
+              <p class="card-text" style="margin-bottom: -.4cm; "><span style="font-weight: bold;"><%= f.name %> <%= f.lastname %></span><br><span style="font-size: small"><%= f.city %> <%= f.state %></span></p>
+              </div>
+
+              <div class="card-text" style="width: 100%; color: #0d3109; position: absolute; bottom: .3cm; text-align: center; left:0;"><span style="font-size: small; "><%= l(p.start_at, :format => "%b") %>/<%= l(p.start_at, :format => "%Y") %></span></div>
+            </div>
+          </div>
+          </td>
+
+            <p id="breakhere"></p>
+            <script>
+
+              if (count % 2 === 0) {
+                  document.write("</tr><tr>");
+                  //contentwidth = 0;
+              }
+
+
+              width = $("#card").last().css("width");
+              widthp = parseInt(width, 10);
+              widthe = (Math.round((widthp * 2.54 / 96) * 10) / 10).toFixed(1);
+
+              contentwidth += parseFloat(widthe);
+              console.log(contentwidth);
+
+              if(contentwidth+parseFloat(widthe) > 20) {
+                  contentwidth = 0;
+                  document.write("</tr><tr>");
+                  console.log("disparou!");
+              }
+
+              count += 1;
+
+              //contentwidth = 0;
+              //document.write("</tr><tr>");
+              //newpagevalue = 29.7 - contentheight;
+              //console.log(newpagevalue);
+              //$(".card").last().css({ 'margin-top': newpagevalue + "cm" });
+
+              //$("#breakhere").last.html("<p style=\"page-break-after: always;\"><---------------quebra de página1----------------></p>");
+              //document.write("<p style=\"page-break-after: always;\"><---------------quebra de página1----------------></p>");
+              //document.write("<p style=\"page-break-before: always;\"><---------------quebra de página1----------------></p>");
+
+
+            </script>
+
+        <% end %>
+
+        </tr>
+
+
+  <% end %>
+
+  </table>
+</page>
+
+
+

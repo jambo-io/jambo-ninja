@@ -1,0 +1,218 @@
+<style>
+
+  @import url('https://fonts.googleapis.com/css?family=Crafty+Girls');
+
+  body {
+    background: rgb(214, 222, 234);
+    page-break-before: avoid;
+
+  }
+
+  h5 {
+    color: #0d3109;
+  }
+
+  p {
+    color: #000 !important;
+  }
+
+  page {
+
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+    padding-top: .2cm;
+
+  }
+
+  page[size="A4"] {
+    width: 21cm;
+    height: 29.7cm;
+  }
+
+  page[size="A4"][layout="portrait"] {
+    width: 29.7cm;
+    height: 21cm;
+  }
+
+  .card-deck {
+    margin-left: -.15cm;
+    margin-top: .2cm;
+    font-family: 'Crafty Girls', cursive;
+
+  }
+
+  .card {
+    color: #0d3109 !important;
+  }
+
+  @page :first {
+    color: green;
+
+    @top-left {
+      content: "foo";
+      color: blue;
+    }
+    @top-right {
+      content: "bar";
+    }
+  }
+
+  @page {
+    color: red;
+    @top-center {
+      content: "Page " counter(page);
+    }
+  }
+
+  @media print {
+
+  }
+
+
+</style>
+
+<div class="container">
+  <p>Aperte Ctrl+P para imprimir, ou clique aqui. Os crachás estão configurados para folhas A4.</p>
+
+  <ul class="list-inline">
+    <li class="list-inline-item">
+      <%= label_tag "Largura" %>
+      <%= number_field_tag :name, 9.7, max: 29, min: 0, id: 'width' %> cm
+    </li>
+    <li class="list-inline-item">
+      <%= label_tag "Altura" %>
+      <%= number_field_tag :name, 5, max: 29, min: 0, id: 'height' %> cm
+    </li>
+    <a id="btn" class="btn btn-info" style="color: #fff;">Visualizar</a>
+    <li class="list-inline-item">
+    </li>
+  </ul>
+
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#btn").on('click', function () {
+
+            widthe = $("#width").val();
+            console.log(widthe);
+
+            heighte = $("#height").val();
+            console.log(heighte);
+
+            $(".card").css({'height': heighte + "cm"});
+            $(".card").css({'width': widthe + "cm"});
+
+
+        })
+
+
+    });
+
+</script>
+
+
+
+Esse é um teste
+
+<p style="page-break-before: always;">&nbsp;</p>
+
+Esse é um teste
+
+
+<page size="A4">
+
+
+  <% @eventosbahais.each do |p| %>
+
+    <div class="card-deck">
+      <script>
+          math = 0;
+          contentheight = 0;
+          count = 1;
+      </script>
+
+      <% p.participants.order("created_at desc").each do |f| %>
+
+        <div id="card" class="card text-white" style="background-color: transparent !important;  flex: none !important; width: 9.7cm; height: 5cm; margin-bottom: .1cm;  border: 2px solid #000; margin-right: -13px; border-radius: 0; -webkit-print-color-adjust: exact; text-align:center; background-image: url('<%= asset_path "badgebg1.png" %>'); background-repeat: no-repeat; background-size:50px; background-position: left center;">
+
+          <div class="card-img-overlay">
+            <h5 class="card-title" style="margin-bottom: -.3cm;"><%= p.name %></h5>
+
+            <div style="position: absolute; width: 100%;  bottom:43.5%; text-align: center; left: 0px;">
+              <p class="card-text" style="margin-bottom: -.4cm; ">
+                <span style="font-weight: bold;"><%= f.name %> <%= f.lastname %></span><br><span style="font-size: small"><%= f.city %> <%= f.state %></span>
+              </p>
+            </div>
+
+            <div class="card-text" style="width: 100%; color: #0d3109; position: absolute; bottom: .3cm; text-align: center; left:0;">
+              <span style="font-size: small; "><%= l(p.start_at, :format => "%b") %>
+                /<%= l(p.start_at, :format => "%Y") %></span></div>
+          </div>
+        </div>
+
+
+        <script>
+
+            count += 1;
+            math = math + 1;
+
+            if (count % 2 === 0) {
+
+                height = $("#card").last().css("height");
+                heightp = parseInt(height, 10);
+                heighte = (Math.round((heightp * 2.54 / 96) * 10) / 10).toFixed(1);
+
+                console.log(contentheight + parseFloat(heighte));
+
+                if (contentheight + parseFloat(heighte) > 25) {
+
+                    newpagevalue = 29.7 - contentheight;
+                    console.log(newpagevalue);
+                    //$(".card").last().css({ 'margin-top': newpagevalue + "cm" });
+
+
+                    document.write("<p style=\"page-break-after: always;\"><---------------quebra de página----------------></p>");
+                    document.write("<p style=\"page-break-before: always;\"><---------------quebra de página----------------></p>");
+
+
+                } else {
+
+                    height = $("#card").last().css("height");
+                    heightp = parseInt(height, 10);
+                    heighte = (Math.round((heightp * 2.54 / 96) * 10) / 10).toFixed(1);
+
+                    width = $("#card").last().css("width");
+                    widthp = parseInt(width, 10);
+                    widthte = (Math.round((widthp * 2.54 / 96) * 10) / 10).toFixed(1);
+
+                    contentheight += parseFloat(heighte);
+                    console.log(contentheight);
+                }
+
+            }
+
+
+        </script>
+
+      <% end %>
+
+
+    </div>
+
+  <% end %>
+
+</page>
+
+Esse é um teste 1
+
+<p style="page-break-after: always;"><---------------quebra de página3----------------></p>
+<p style="page-break-before: always;"><---------------quebra de página3----------------></p>
+
+Esse é um teste 2
