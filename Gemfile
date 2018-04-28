@@ -50,6 +50,8 @@ gem 'popper_js', '~> 1.9', '>= 1.9.9'
 
 
 
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
