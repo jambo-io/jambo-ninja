@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     if @ruhi.nil?
       @ruhibook = Ruhibook.new
     else
-      @ruhibook = Ruhibook.find_by(:user_id => current_user.id)
+      @ruhibook = Ruhibook.find_by(:user_id => params[:id])
     end
 
     #Cluster profile FORM
