@@ -13,27 +13,25 @@
 
     <% if @ruhi.nil? %>
       <% if current_user == @user %>
-      <%= render :partial => "ruhibooks/new"  %>
-        <% end %>
+        <%= render :partial => "ruhibooks/new"  %>
+      <% end %>
     <% else %>
-
       Livros completados
-
       <%  @ruhibook.name.each do |r| %>
         <span class="badge badge-pill badge-primary"><%= r %></span>
+      <% end %>
     <% end %>
+    <% if current_user == @user %>
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Editar
+      </a>
 
-      <% if current_user == @user %>
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Editar
-    </a>
-      <% if current_user == @user %>
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
             <%= render :partial => "ruhibooks/new" %>
           </div>
         </div>
-      <% end %>
+
     <% end %>
 
 
