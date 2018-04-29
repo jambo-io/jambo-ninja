@@ -1,13 +1,43 @@
 <div id="section1" class="container">
 	<div id="section1">
 		<h1><%= @user_name %></h1>
-		<%= @user_email %>
-		<% if current_user == @user %>
+
+    <% if current_user == @user %>
+      <%= @user_email %> - <span class="text-muted">Apenas você pode ver</span>
+    <% end %>
 			
-				<%= link_to "Editar", edit_user_path(current_user), class:'btn btn-success' %> 
-				
-			
-		<% end %>
+
+
+    <hr>
+
+
+    <% if @ruhi.nil? %>
+
+      <%= render :partial => "ruhibooks/new"  %>
+
+    <% else %>
+
+      Livros completados
+
+      <%  @ruhibook.name.each do |r| %>
+        <span class="badge badge-pill badge-primary"><%= r %></span>
+    <% end %>
+
+
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Editar
+    </a>
+      <% if current_user == @user %>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <%= render :partial => "ruhibooks/new" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+
+
 	</div>
 </div>
 

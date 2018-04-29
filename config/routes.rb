@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'participantes/conf' => 'participants#confirmation', :as => :confirm
   resources :eventosbahais
   resources :participants
+  resources :ruhibooks
+
+  patch '/ruhibooks' => 'ruhibooks#update'
 
   get 'pin/' => 'pins#new'
   post 'pin/' => 'pins#create'

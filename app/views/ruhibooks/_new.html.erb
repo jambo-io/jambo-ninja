@@ -1,0 +1,27 @@
+<div class="container" style="margin-bottom:20px;">
+  <h1>Livros Ruhi</h1><br>
+
+
+
+  <h5>Qual desses livros você já completou?</h5>
+  <%= bootstrap_form_for @ruhibook, url:{controller: "ruhibooks" } do |f| %>
+
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 1" }, '1', nil %>
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 2" }, '2', nil %>
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 3" }, '3', nil %>
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 4" }, '4', nil %>
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 5" }, '5', nil %>
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 6" }, '6', nil %>
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 7" }, '7', nil %>
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 8" }, '8', nil %>
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 9" }, '9', nil %>
+    <%= f.check_box :name, { :multiple => true, :label=>"Livro 10"}, '10', nil %>
+
+
+    <div style="text-align:center">
+      <%= f.submit "Salvar", class:"btn btn-info", style:"margin:0 auto" %>
+
+    </div>
+
+  <% end %>
+</div>

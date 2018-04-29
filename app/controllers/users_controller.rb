@@ -34,6 +34,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_name = @user.name
     @user_email = @user.email
+
+
+    @ruhi = @user.ruhibook
+
+
+
+    if @ruhi.nil?
+      @ruhibook = Ruhibook.new
+      puts "new Ruhibook"
+    else
+      @ruhibook = Ruhibook.find_by(:user_id => current_user.id)
+
+    end
+
+
   end
 
   def edit
