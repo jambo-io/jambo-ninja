@@ -44,13 +44,15 @@
       <% end %>
     <% end %>
 
-    <hr>
+
 
     <% if @ruhi.nil? %>
       <% if current_user == @user %>
+        <hr>
         <%= render :partial => "ruhibooks/new"  %>
       <% end %>
     <% else %>
+      <hr>
       Livros completados
       <%  @ruhibook.name.each do |r| %>
         <span class="badge badge-pill badge-primary"><%= r %></span>

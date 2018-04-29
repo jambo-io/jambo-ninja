@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     if @ruhi.nil?
       @ruhibook = Ruhibook.new
     else
-      @ruhibook = Ruhibook.find_by(:user_id => params[:id])
+      @ruhibook = Ruhibook.find_by(:user_id => @user.id)
     end
 
     #Cluster profile FORM
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       puts "cluster é vazio"
       @cluster = Cluster.new
     else
-      @cluster = Cluster.find_by(:user_id => current_user.id)
+      @cluster = Cluster.find_by(:user_id => @user.id)
     end
 
   end

@@ -6,7 +6,7 @@
   <h5>Qual é seu agrupamento?</h5>
   <%= bootstrap_form_for @cluster, url:{controller: "clusters" } do |f| %>
 
-    <%= f.text_field :name, :label => "Nome" %>
+    <%= f.text_field :name, :label => "Agrupamento" %>
     <div class="form-group">
       <%= f.text_field :city, class: 'form-control', :label => "Cidade" %>
     </div>
