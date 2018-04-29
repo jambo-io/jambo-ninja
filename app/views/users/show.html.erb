@@ -12,9 +12,9 @@
 
 
     <% if @ruhi.nil? %>
-
+      <% if current_user == @user %>
       <%= render :partial => "ruhibooks/new"  %>
-
+        <% end %>
     <% else %>
 
       Livros completados
@@ -23,7 +23,7 @@
         <span class="badge badge-pill badge-primary"><%= r %></span>
     <% end %>
 
-
+      <% if current_user == @user %>
     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
       Editar
     </a>
