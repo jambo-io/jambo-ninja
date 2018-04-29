@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :eventosbahais
   resources :participants
   resources :ruhibooks
+  resources :clusters
 
   patch '/ruhibooks' => 'ruhibooks#update'
+  patch '/clusters' => 'clusters#update'
 
   get 'pin/' => 'pins#new'
   post 'pin/' => 'pins#create'

@@ -35,19 +35,22 @@ class UsersController < ApplicationController
     @user_name = @user.name
     @user_email = @user.email
 
-
+    #Ruhibook profile FORM
     @ruhi = @user.ruhibook
-
-
-
     if @ruhi.nil?
       @ruhibook = Ruhibook.new
-      puts "new Ruhibook"
     else
       @ruhibook = Ruhibook.find_by(:user_id => current_user.id)
-
     end
 
+    #Cluster profile FORM
+    @clus = @user.cluster
+    if @clus.nil?
+      puts "cluster é vazio"
+      @cluster = Cluster.new
+    else
+      @cluster = Cluster.find_by(:user_id => current_user.id)
+    end
 
   end
 

@@ -5,11 +5,46 @@
     <% if current_user == @user %>
       <%= @user_email %> - <span class="text-muted">Apenas você pode ver</span>
     <% end %>
-			
+    <br>
+
+
 
 
     <hr>
+    <% if current_user == @user %>
+      <h2>Complete seu perfil</h2>
+    <% end %>
 
+
+    <% if @clus.nil? %>
+      <% if current_user == @user %>
+        <%= render :partial => "clusters/new" %>
+      <% end %>
+    <% else %>
+
+      <% unless @cluster.name.blank? %>
+        Agrupamento: <span class="badge badge-pill badge-primary"> <%= @cluster.name %></span>
+      <% else %>
+        <% if current_user == @user %>
+          Agrupamento: <%= @cluster.city %>
+          <% unless @cluster.state.blank? %> - <%= @cluster.state %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% if current_user == @user %>
+        <a data-toggle="collapse" href="#cluster" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Editar
+        </a> - <span class="text-muted">Para esconder, edite e apage os campos</span>
+        <div class="collapse" id="cluster">
+          <div class="card card-body">
+            <%= render :partial => "clusters/new" %>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+
+    <hr>
 
     <% if @ruhi.nil? %>
       <% if current_user == @user %>
@@ -21,9 +56,9 @@
         <span class="badge badge-pill badge-primary"><%= r %></span>
       <% end %>
       <% if current_user == @user %>
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
           Editar
-        </a>
+        </a>  - <span class="text-muted">Para esconder, edite e apage os campos</span>
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
               <%= render :partial => "ruhibooks/new" %>
@@ -32,6 +67,12 @@
 
       <% end %>
     <% end %>
+
+
+
+
+
+
 
 
 

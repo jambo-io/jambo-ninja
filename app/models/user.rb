@@ -3,6 +3,7 @@ class User < ApplicationRecord
 	include BCrypt
 	has_secure_password
 	has_one :ruhibook, :dependent => :destroy
+	has_one :cluster, :dependent => :destroy
 	has_many :eventosbahais
 	has_many :participants, :through => :eventosbahais
 	validates :name, presence:true, length: {maximum:60}
