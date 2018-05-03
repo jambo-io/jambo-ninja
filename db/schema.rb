@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429225830) do
+ActiveRecord::Schema.define(version: 20180503010209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,47 @@ ActiveRecord::Schema.define(version: 20180429225830) do
     t.index ["user_id"], name: "index_eventosbahais_on_user_id", using: :btree
   end
 
+  create_table "jambodocs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "learnindesk_reports", force: :cascade do |t|
+    t.string   "title"
+    t.text     "report"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_learnindesk_reports_on_user_id", using: :btree
+  end
+
+  create_table "learningdesk_contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "learningdesk_recipients", force: :cascade do |t|
+    t.integer  "learningdesk_report_id"
+    t.string   "mode"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "contact_id"
+    t.index ["learningdesk_report_id"], name: "index_learningdesk_recipients_on_learningdesk_report_id", using: :btree
+  end
+
+  create_table "learningdesk_reports", force: :cascade do |t|
+    t.string   "title"
+    t.text     "report"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_learningdesk_reports_on_user_id", using: :btree
+  end
+
   create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.string   "lastname"
@@ -101,6 +142,9 @@ ActiveRecord::Schema.define(version: 20180429225830) do
 
   add_foreign_key "clusters", "users"
   add_foreign_key "eventosbahais", "users"
+  add_foreign_key "learnindesk_reports", "users"
+  add_foreign_key "learningdesk_recipients", "learningdesk_reports"
+  add_foreign_key "learningdesk_reports", "users"
   add_foreign_key "participants", "eventosbahais"
   add_foreign_key "ruhibooks", "users"
 end

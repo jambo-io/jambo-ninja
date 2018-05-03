@@ -48,6 +48,11 @@ gem 'twilio-ruby'
 
 gem 'popper_js', '~> 1.9', '>= 1.9.9'
 
+#JamboDrive
+gem 'google-api-client', '~> 0.9'
+gem 'googleauth'
+
+
 
 
 

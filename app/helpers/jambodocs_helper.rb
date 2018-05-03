@@ -1,0 +1,2 @@
+module JambodocsHelper
+end

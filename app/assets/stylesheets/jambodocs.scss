@@ -1,0 +1,185 @@
+// Place all the styles related to the jambodocs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@font-face {
+  font-family: "Gotham Bold";
+  src: asset-url('fonts/GothamRoundedBook_21018.ttf') format("ttf");
+}
+
+body {
+
+  background-color: #edeff0 !important;
+  text-rendering: optimizeLegibility;
+  font-family: 'Comfortaa', cursive;
+}
+
+
+.container {
+  background-color: #fff;
+  width:800px;
+
+  z-index: 1;
+  margin-top:10px;
+
+  width:800px;
+  max-width: 99%;
+  padding: 20px 50px 30px 50px;
+
+  border: 1px #eaeaea solid;
+  border-radius: 3px;
+  margin-bottom: 30px !important;
+}
+
+
+.container-main {
+   border-top: 4px solid;
+   border-top-color: #3079AB;
+   min-width: 90%;
+   min-height: 400px;
+
+    a {
+      color: #6c757d;
+    }
+
+    a:hover {
+      color: #3079AB !important;
+      text-decoration: none;
+    }
+
+
+  .title-box {
+    color: #3079AB;
+    background-color: #f9fafa;
+    margin: -20px -50px 30px -50px;
+    padding: 10px 50px 10px 50px;
+    border-bottom: .5px solid #efefef !important;
+  }
+  .list-group-item {
+    border: 0px;
+
+  }
+  .list-group-item-action:hover, .list-group-item-action:focus {
+    background-color:inherit;
+    color: #4d76d3;
+  }
+}
+
+.container-show {
+
+  border-top: 4px solid;
+  border-top-color: #5cb860;
+  min-width: 70%;
+  min-height: 400px;
+
+  a {
+    color: #6c757d;
+  }
+
+  a:hover {
+    color: #3079AB !important;
+    text-decoration: none;
+  }
+
+
+  .title-box {
+    color: #5cb860;
+    background-color: #f9fafa;
+    margin: -20px -50px 30px -50px;
+    padding: 10px 50px 10px 50px;
+    border-bottom: .5px solid #efefef !important;
+  }
+  .list-group-item {
+    border: 0px;
+
+  }
+  .list-group-item-action:hover, .list-group-item-action:focus {
+    background-color:inherit;
+    color: #4d76d3;
+  }
+
+
+}
+
+.container-new {
+
+  border-top: 4px solid;
+  border-top-color: #eb7728;
+
+  min-width: 70%;
+  min-height: 400px;
+
+  a {
+    color: #6c757d;
+  }
+
+  a:hover {
+    color: #3079AB !important;
+    text-decoration: none;
+  }
+
+
+  .title-box {
+    color: #eb7728;
+    background-color: #f9fafa;
+    margin: -20px -50px 30px -50px;
+    padding: 10px 50px 10px 50px;
+    border-bottom: .5px solid #efefef !important;
+  }
+  .list-group-item {
+    border: 0px;
+
+  }
+  .list-group-item-action:hover, .list-group-item-action:focus {
+    background-color:inherit;
+    color: #4d76d3;
+  }
+
+  .btn-new {
+    display: inline-block;
+    border: 2px solid rgba(48,73,97,0.1);
+    border-radius: 10px;
+    text-align: center;
+
+    color: #eb7728;
+    font-weight: 500;
+    background: transparent;
+    padding: 0 12px;
+    white-space: nowrap;
+    line-height: 32px;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-new:hover {
+    color: #eb7728 !important;
+    border-color: #eb7728;
+  }
+
+
+}
+.jambodoc-input-new {
+  min-height: 400px;
+  margin-top: 5px;
+}
+
+
+
+.form-control {
+  border-radius: 0.15rem;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.05rem rgba(0, 123, 255, 0.25);
+}
+
+
+.card {
+  background-color: #576366 !important;
+  min-width: 90%;
+  min-height: 500px;
+}

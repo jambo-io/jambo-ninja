@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  # Documentos Baháiś - - Jambodocs
+  get '/jambodocs' => "jambodocs#index"
+  get '/jambodocs/new' => "jambodocs#new"
+  get '/jambodocs/:id' => "jambodocs#show"
+
+
+
+  # Eventos Bahá'ís
   get 'eventosbahais/email' => 'eventosbahais#sendemail'
   get 'eventosbahais/atemail' => 'eventosbahais#updateemail'
   get 'participantes/conf' => 'participants#confirmation', :as => :confirm
@@ -6,6 +15,10 @@ Rails.application.routes.draw do
   resources :participants
   resources :ruhibooks
   resources :clusters
+  resources :drives
+
+  get '/initialize' => 'drives#initialize'
+
 
   patch '/ruhibooks' => 'ruhibooks#update'
   patch '/clusters' => 'clusters#update'

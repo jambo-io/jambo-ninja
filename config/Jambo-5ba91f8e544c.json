@@ -1,0 +1,16 @@
+{
+  "type": "service_account",
+  "project_id": "jambo-201110",
+  "private_key_id": "5ba91f8e544c498f8da541004661a7c727829a8d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCniWtElS2MXr3d\ne+4wlMctp/IW/rOjOn7GoJIfvExOSLAwUUdixxNHTk3+DnK8vOmb4Uxr8IwRvprt\nmEJ8jlVAhdzQdzDvscRL5JZhowxCdwebJ0MT7JwpQYpCulXJ9NtOINK+HLRcbZGn\ndOMZqPwCHznRV0EnDoBueFDMbNWr/K7vv2A/ijah1/BYt1CCFIXZg7h4XkKj4LNT\nFlikh0Ks7FSIK5uMBrNUVaZGllhnVA7m7k256hkcuX8vPpjvUbmwmsO427wiXb3V\ngr/96AREkO921RI4SfkI6jqaIn6djFoTabnovPzlQIjDpai3eyBcga2c8/AVJ+Vv\npC3TGVDBAgMBAAECggEAJGEJ1pzZBOG+syUZwdlQjcip4BXi/nbxd+J+kF8UJ6yP\ne5JuoJOPS1zEwT20aujPhj5sGIUleSXtINn+1+qVNvtKSUcUbHvqnrsub1mXDCiq\nEWX7YgxvFWNKqTYqcj3V0Bd/A3KatHZDWjweoyAHRtOue5dJibhTqYk9LEKWvC86\nVVgDTQndLJv7AbeqIUxrHH2hdHAbCQSaqxxhhrY7DQctAmFAYDkL5/B5Mm2OuQqc\n9Cmu10kDfyjoesb5gB2sXc0zpq7eMnOUBRHVZTMGCHMl4YUMYAsdeVrwAmJ5dptZ\nICgiuXwpEy5F7t3OrDt1I7wOfpWDOdZLUHLWfKXW5QKBgQDcWa7PPWwGpO/V8+P7\nunJdCbLwbFUuwti5izYSrum4r8YD+feNC/xoAvW/lY94JeXlulhfwPNcxkM4GyNd\nSzbfcvdQbR7IwfQlX8nCcYLOidZ62Ab083oCH9quxFyv78t+n6wKsrfQ+YcBtlHW\n+w/n2K7Vdk7zrH/xQtAmVL3UlQKBgQDCpFeIAhxG2knCjIibUhh1Rs0EpsTCdSbe\na3gWFqXgdVcsNjaiLJAKrIO/Jyqb3ijoLb0vvLYoiQW9NwGbWdw7fIXmQgvKYw5y\n/8iR2K4ZFijmHHvJ4M5WDk3y4WYEe6XVUC46IWuNNZYviVmHt/tt2XiiIHcNzp0z\n2RqMU4F0fQKBgADjO5kKHk1IjM7H1LtG3P8S8u2VAiLWFhlpPiaFHdvomVuaviyL\nR9EDcgn7iEBrpqluPrzkAhb1lX+8XEAb9XSg+e4RAna8kUc1Q5LM8kHyvDJyfFSw\nRmWLy0247MaoqKEx83d3kNX+q1SOb3X2PPIqJUom19qTb1CBfGUrIjihAoGBAJhF\nx7DAreyEQ6YvGYQhsr61GBlmepIC4tiozPbC2xyB0CPnedBf+oRPOHaoJn5wTCJv\n/gzFnuCRaesAiIJHx7LGFV7xFpZL7nbrQrdPA8zeeDql1/Y0qFfMsxCrY4toTHFY\nXAHgOWrsnEUuN9ukhNAIjYaQzXMAzB1O4KUdgy5lAoGBAMOZHJ2hi6vn1psCdMNc\nr+nbKfCzJhK3KQJU3K+NaGAuFf3WSBZP7tuOWohNuH5Ooly2RIUf0QRmdqTcT1Jx\nYnK+8LEBIvWz00iyEZcP/CqFtrKIjOSH1vT/a2p4zDpGEGTct4DQyctBsWzScstf\n65xOMhSOvzUSLF82JLWkeEwP\n-----END PRIVATE KEY-----\n",
+  "client_email": "jambodrive@jambo-201110.iam.gserviceaccount.com",
+  "client_id": "101397377950977256246",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jambodrive%40jambo-201110.iam.gserviceaccount.com"
+}
+
+
+// 995492372788-f5r3pocfovtjppv1v15moekme3k7mqu0.apps.googleusercontent.com
+// secret: dPmTmBy9G-wZ8qqRZzAIlPsM

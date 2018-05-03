@@ -35,6 +35,7 @@ class EventosbahaisController < ApplicationController
     user = current_user
     @eventosbahai = user.eventosbahais.new(eventosbahai_params)
 
+
     if @eventosbahai.save
       redirect_to @eventosbahai
     end

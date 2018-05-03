@@ -1,0 +1,49 @@
+
+
+<%= form_for @jambodoc do |form| %>
+  <% if @jambodoc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% @jambodoc.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :title, class: "form-control", placeholder:"Título" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :text, class: "form-control jambodoc-input-new" %>
+  </div>
+
+
+<% end %>
+
+
+
+<script>
+    $(function(){
+        /* Hide form input values on focus*/
+        $('input[type=text]').each(function(){
+            var txtval = $(this).val();
+            $(this).focus(function(){
+                if($(this).val() == txtval){
+                    $(this).animate({"color":"#3c444e"},500, function(){
+                        $(this).val('');
+                    });
+                }
+            });
+            /*Restoring value if blur*/
+            $(this).blur(function(){
+                if($(this).val() == ""){
+                    $(this).val(txtval).animate({"color":"#ffffff"}, 500);
+                }
+            });
+        });
+    });
+</script>
