@@ -14,36 +14,24 @@
   <% end %>
 
   <div class="field">
-    <%= form.text_field :title, class: "form-control", placeholder:"Título" %>
+
+    <%= form.text_field :title, class: "form-control form-title", placeholder:"Título", required:true %>
   </div>
 
   <div class="field">
-    <%= form.text_area :text, class: "form-control jambodoc-input-new" %>
+    <%= form.text_area :text, class: "form-control jambodoc-input-new form-text" %>
   </div>
+
+
+  <%= hidden_field_tag 'recipient', ''  %>
+  <%= hidden_field_tag 'subject', 'subject'  %>
+  <%= hidden_field_tag 'message', ''  %>
+  <%= hidden_field_tag 'check1', '' %>
+  <%= hidden_field_tag 'check2', '' %>
+
 
 
 <% end %>
 
 
 
-<script>
-    $(function(){
-        /* Hide form input values on focus*/
-        $('input[type=text]').each(function(){
-            var txtval = $(this).val();
-            $(this).focus(function(){
-                if($(this).val() == txtval){
-                    $(this).animate({"color":"#3c444e"},500, function(){
-                        $(this).val('');
-                    });
-                }
-            });
-            /*Restoring value if blur*/
-            $(this).blur(function(){
-                if($(this).val() == ""){
-                    $(this).val(txtval).animate({"color":"#ffffff"}, 500);
-                }
-            });
-        });
-    });
-</script>

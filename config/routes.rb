@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   # Documentos Baháiś - - Jambodocs
-  get '/jambodocs' => "jambodocs#index"
-  get '/jambodocs/new' => "jambodocs#new"
-  get '/jambodocs/:id' => "jambodocs#show"
+  resources :jambodocs
 
 
 

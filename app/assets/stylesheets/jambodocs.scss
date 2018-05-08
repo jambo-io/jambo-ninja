@@ -15,6 +15,45 @@ body {
   text-rendering: optimizeLegibility;
   font-family: 'Comfortaa', cursive;
 }
+a {
+  transition: color 300ms 0s ease;
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: none !important;
+}
+.navbar {
+  font-weight: bold;
+  background-color: #3e474f;
+  height: 71px;
+  margin-bottom: -20px;
+}
+.navbar-nav .dropdown-menu {
+  background-color: #3e474f;
+  color: #b2bbbd;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #3e474f;
+}
+.nav-link {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: block;
+  color: #b2bbbd;
+  transition: opacity 600ms 0s ease;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+}
+
+.nav-link:focus {
+  color: #fff !important;
+}
+
 
 
 .container {
@@ -32,6 +71,20 @@ body {
   border-radius: 3px;
   margin-bottom: 30px !important;
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    .title-box {
+      margin: -5px !important;
+      margin-bottom: 30px !important;
+      padding-left:3px !important;
+    }
+    margin-left:0px;
+    margin-right: 0px;
+    padding: 5px;
+  }
+}
+
 
 
 .container-main {
@@ -65,48 +118,31 @@ body {
     background-color:inherit;
     color: #4d76d3;
   }
+
+  .btn-new {
+    display: inline-block;
+    border: 2px solid rgba(48,73,97,0.1);
+    border-radius: 10px;
+    text-align: center;
+
+    color: #3079AB;
+    font-weight: 500;
+    background: transparent;
+    padding: 0 12px;
+    white-space: nowrap;
+    line-height: 32px;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-new:hover {
+    color: #3079AB !important;
+    border-color: #3079AB;
+  }
 }
 
 .container-show {
 
   border-top: 4px solid;
-  border-top-color: #5cb860;
-  min-width: 70%;
-  min-height: 400px;
-
-  a {
-    color: #6c757d;
-  }
-
-  a:hover {
-    color: #3079AB !important;
-    text-decoration: none;
-  }
-
-
-  .title-box {
-    color: #5cb860;
-    background-color: #f9fafa;
-    margin: -20px -50px 30px -50px;
-    padding: 10px 50px 10px 50px;
-    border-bottom: .5px solid #efefef !important;
-  }
-  .list-group-item {
-    border: 0px;
-
-  }
-  .list-group-item-action:hover, .list-group-item-action:focus {
-    background-color:inherit;
-    color: #4d76d3;
-  }
-
-
-}
-
-.container-new {
-
-  border-top: 4px solid;
-  border-top-color: #eb7728;
+  border-top-color: #7ceb31;
 
   min-width: 70%;
   min-height: 400px;
@@ -122,7 +158,7 @@ body {
 
 
   .title-box {
-    color: #eb7728;
+    color: #7ceb31;
     background-color: #f9fafa;
     margin: -20px -50px 30px -50px;
     padding: 10px 50px 10px 50px;
@@ -143,7 +179,7 @@ body {
     border-radius: 10px;
     text-align: center;
 
-    color: #eb7728;
+    color: #7ceb31;
     font-weight: 500;
     background: transparent;
     padding: 0 12px;
@@ -152,14 +188,169 @@ body {
     transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
   }
   .btn-new:hover {
-    color: #eb7728 !important;
-    border-color: #eb7728;
+    color: #7ceb31 !important;
+    border-color: #7ceb31;
+  }
+}
+
+.container-new {
+
+  border-top: 4px solid;
+  border-top-color: #00eb7f;
+
+  min-width: 70%;
+  min-height: 100px;
+
+  a {
+    color: #6c757d;
+  }
+
+  a:hover {
+    color: #3079AB !important;
+    text-decoration: none;
   }
 
 
+  .title-box {
+    color: #7ceb31;
+    background-color: #f9fafa;
+    margin: -20px -50px 30px -50px;
+    padding: 10px 50px 10px 50px;
+    border-bottom: .5px solid #efefef !important;
+  }
+  .list-group-item {
+    border: 0px;
+
+  }
+  .list-group-item-action:hover, .list-group-item-action:focus {
+    background-color:inherit;
+    color: #4d76d3;
+  }
+
+  .btn-new {
+    display: inline-block;
+    border: 2px solid rgba(48,73,97,0.1);
+    border-radius: 10px;
+    text-align: center;
+
+    color: #00eb7f;
+    font-weight: 500;
+    background: transparent;
+    padding: 0 12px;
+    white-space: nowrap;
+    line-height: 32px;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-new:hover {
+    color: #00eb7f !important;
+    border-color: #00eb7f;
+  }
+  .btn-send {
+    display: inline-block;
+    border: 2px solid rgba(48,73,97,0.1);
+    border-radius: 10px;
+    text-align: center;
+
+    color: #23558e;
+    font-weight: 500;
+    background: transparent;
+    padding: 0 12px;
+    white-space: nowrap;
+    line-height: 32px;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-send:hover {
+    color: #23558e!important;
+    border-color: #23558e;
+  }
 }
-.jambodoc-input-new {
+
+.container-edit {
+
+  border-top: 4px solid;
+  border-top-color: #ebba26;
+
+  min-width: 70%;
   min-height: 400px;
+
+  a {
+    color: #6c757d;
+  }
+
+  a:hover {
+    color: #3079AB !important;
+    text-decoration: none;
+  }
+
+
+  .title-box {
+    color: #EBBA26;
+    background-color: #f9fafa;
+    margin: -20px -50px 30px -50px;
+    padding: 10px 50px 10px 50px;
+    border-bottom: .5px solid #efefef !important;
+  }
+  .list-group-item {
+    border: 0px;
+
+  }
+  .list-group-item-action:hover, .list-group-item-action:focus {
+    background-color:inherit;
+    color: #4d76d3;
+  }
+
+  .btn-new {
+    display: inline-block;
+    border: 2px solid rgba(48,73,97,0.1);
+    border-radius: 10px;
+    text-align: center;
+
+    color: #EBBA26;
+    font-weight: 500;
+    background: transparent;
+    padding: 0 12px;
+    white-space: nowrap;
+    line-height: 32px;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-new:hover {
+    color: #EBBA26 !important;
+    border-color: #EBBA26;
+  }
+}
+
+.bottom-nav {
+
+  background-color: #f9fafa;
+  border-top: .05rem #e4e4e4 solid;
+  border-bottom: .05rem #e4e4e4 solid;
+  font-size: 90%;
+  margin-bottom:20px;
+  margin-top: -30px;
+  margin-left: -50px;
+  margin-right: -50px;
+  padding: 3px;
+
+}
+
+.tool-dropdown {
+    background-color: #f9fafa !important;
+    left: -50px !important;
+    padding: inherit;
+    min-width: 30px;
+  font-size: 90%;
+
+}
+.tool-dropdown-item {
+  margin-left:-10px;
+}
+.tool-dropdown-item:hover {
+  background-color: transparent !important;
+  color:#000;
+}
+
+.jambodoc-input-new {
+  min-height: 300px;
   margin-top: 5px;
 }
 

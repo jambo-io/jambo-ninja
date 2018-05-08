@@ -1,18 +1,34 @@
 
 
+<div class="container mt-5">
+
+  <strong>Ei Guilherme!</strong> Quando tiver um tempinho, dê uma olhada nas <%= link_to "configurações" %> de envio. É fácil e rápido!
+
+</div>
 
 <div class="container container-main rounded-top mt-5">
   <div class="title-box">
 
-    Documentos
+
+    <div class="row">
+      <div class="col-2" style="text-align: left;">
+        <span id="title" >⚞ Documentos</span>
+      </div>
+      <div class="col-6" style="text-align: center;">
+
+      </div>
+      <div class="col-4" style="text-align: right;">
+        <li class="list-inline-item"><%= link_to "Novo", new_jambodoc_path, class: "btn btn-new float-right" %></li>
+      </div>
+    </div>
 
   </div>
 
   <ul class="list-group">
-    <li class="list-group-item list-group-item-action"><a href="#">Construindo Comunidades</a></li>
-    <li class="list-group-item list-group-item-action"><a href="#">Desenvolvendo Capacidade de Servir</a></li>
-    <li class="list-group-item list-group-item-action"><a href="#">O Poder da Juventude</a></li>
-    <li class="list-group-item list-group-item-action"><a href="#">Documento de 50 a 100</a></li>
+
+    <% @jambodocs.each do |jambodoc| %>
+      <li class="list-group-item list-group-item-action"><%= link_to jambodoc.title, jambodoc_path(jambodoc) %></li>
+    <% end %>
 
   </ul>
 

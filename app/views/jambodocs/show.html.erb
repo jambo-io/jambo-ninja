@@ -4,34 +4,48 @@
 <div class="container container-show rounded-top mt-5">
   <div class="title-box">
 
-    Item
+
+
+    <div class="row">
+      <div class="col-2" style="text-align: left;">
+        <%= link_to "◄", jambodocs_path, class: "btn btn-new" %>
+      </div>
+      <div class="col-6" style="text-align:center;">
+        <span id="title"><%= @jambodoc.title %></span>
+      </div>
+      <div class="col-4" style="text-align: right;">
+        <li class="list-inline-item"><%= link_to "Editar", edit_jambodoc_path(@jambodoc), class: "btn btn-new" %></li>
+        <li class="list-inline-item">
+          <ul class="nav navbar-nav ml-auto" style="z-index: 1;">
+            <li class="dropdown  account-dropdown">
+              <%= link_to "▼".html_safe, users_path, {:class => "btn btn-new", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'aria-expanded' => "false", 'role' => "button"} %>
+              <ul class="dropdown-menu tool-dropdown" style="z-index: 0;">
+                <li class="dropdown-item tool-dropdown-item"><%= link_to "Imprimir", user_path(current_user), class: "nav-link" %></li>
+                <li class="dropdown-item tool-dropdown-item"><%= link_to "Baixar", user_path(current_user), class: "nav-link" %></li>
+              </ul>
+            </li>
+          </ul>
+
+        </li>
+
+
+
+
+      </div>
+    </div>
+
 
   </div>
 
+
+
   <div class="doc-title">
-    <h2>O que é o tempo? É verdade que a gravidade desacelera o tempo?</h2>
+    <h2><%= @jambodoc.title %></h2>
   </div>
 
   <div class="doc-body">
 
-    Tempo é uma referência à definição a movimento e mudanças de estado. Assim quando um objeto vai do ponto A até o
-    ponto B, a variação do tempo é a medida que determina a velocidade do objeto ao percorrer a distância. Pode-se dizer
-    que o tempo está intimamente relacionado à mudança, nesse sentido. Neil Tyson, o astrofísico, filosoficamente define
-    o tempo como uma prisão, que nos prende ao presente. Por exemplo, temos a liberdade de nos movimentar X, Y e Z, mas
-    não podemos ir ao futuro ou ao passado livremente.
-
-    A gravidade desacelera o tempo, como a força gravitacional é maior conforme nos aproximamos do centro da terra, o
-    ritmo de tempo é menor. É por essa razão que o relógio de satélites (sejam eles para GPS ou não) são ajustados para
-    que o tempo esteja em conformidade com nossos relógios aqui na Terra. Um detalhe importante é que essa diferença é
-    apenas quando se compara, porque para o observador seu relógio sempre está no mesmo ritmo. Apenas quando você
-    compara um relógio na Terra, com um de Júpiter por exemplo, é que percebe-se a diferença na passagem de tempo nos
-    dois lugares. Em Júpiter o tempo é mais devagar, nesse sentido.
-
-    Tudo isso porque a força gravitacional distorce o tecido espaço-tempo, que é um efeito similar (para não dizer
-    idêntico) quando acelera-se um objeto. E desde que a velocidade da luz é constante (i.e. velocidade limite), se você
-    acelera um dado objeto, você precisa compensar essa alteração aumentando o tempo em que a luz percorre esse espaço.
-    Consequentemente a distância é maior, e nesse sentido, mesmo que você tenha acelerado um objeto próximo à velocidade
-    da luz, a velocidade da luz em si em relação ao objeto sempre será a mesma, o que muda é o tempo e o espaço.
+    <%= @jambodoc.text %>
 
   </div>
 
