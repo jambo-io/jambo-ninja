@@ -20,8 +20,8 @@
             <li class="dropdown  account-dropdown">
               <%= link_to "▼".html_safe, users_path, {:class => "btn btn-new", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'aria-expanded' => "false", 'role' => "button"} %>
               <ul class="dropdown-menu tool-dropdown" style="z-index: 0;">
-                <li class="dropdown-item tool-dropdown-item"><%= link_to "Imprimir", user_path(current_user), class: "nav-link" %></li>
-                <li class="dropdown-item tool-dropdown-item"><%= link_to "Baixar", user_path(current_user), class: "nav-link" %></li>
+                <li class="dropdown-item tool-dropdown-item"><%= link_to "Imprimir", root_path, class: "nav-link" %></li>
+                <li class="dropdown-item tool-dropdown-item"><%= link_to "Baixar", root_path, class: "nav-link" %></li>
               </ul>
             </li>
           </ul>

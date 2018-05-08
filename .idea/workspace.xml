@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a36e261-17cd-4b54-8d1e-6d053c92a91e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/jambodocs/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/jambodocs/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_evnav-workspace.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_evnav-workspace.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/jambodocs/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/jambodocs/show.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -76,11 +75,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/jambodocs/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+            <state relative-caret-position="300">
+              <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/jambodocs/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="22" column="94" selection-start-line="22" selection-start-column="94" selection-end-line="22" selection-end-column="94" />
             </state>
           </provider>
         </entry>
@@ -94,15 +102,6 @@
         <entry file="file://$PROJECT_DIR$/app/views/participants/confirmation.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-249" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ruhibooks_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ruhibooks_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="7" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="50" />
-            </state>
           </provider>
         </entry>
       </file>
@@ -192,13 +191,13 @@
         <option value="$PROJECT_DIR$/app/views/layouts/workspace.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_evnav.html.erb" />
         <option value="$PROJECT_DIR$/app/views/jambodocs/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/jambodocs/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/jambodocs.scss" />
         <option value="$PROJECT_DIR$/app/views/jambodocs/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/jambodocs/new.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/jambodocs_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_evnav-workspace.html.erb" />
         <option value="$PROJECT_DIR$/app/views/jambodocs/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/jambodocs/show.html.erb" />
       </list>
     </option>
   </component>
@@ -451,7 +450,7 @@
       <workItem from="1525294122213" duration="48568000" />
       <workItem from="1525450145968" duration="603000" />
       <workItem from="1525469570741" duration="598000" />
-      <workItem from="1525669201711" duration="2533000" />
+      <workItem from="1525669201711" duration="2771000" />
     </task>
     <task id="LOCAL-00001" summary="Paymentfield Added">
       <created>1524029976893</created>
@@ -464,7 +463,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232857000" />
+    <option name="totallyTimeSpent" value="233095000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -696,13 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/jambodocs/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="80" selection-start-line="23" selection-start-column="80" selection-end-line="23" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/jambodocs/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -806,8 +798,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/jambodocs/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        <state relative-caret-position="300">
+          <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/jambodocs/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="22" column="94" selection-start-line="22" selection-start-column="94" selection-end-line="22" selection-end-column="94" />
         </state>
       </provider>
     </entry>
