@@ -32,7 +32,9 @@
       <ul class="nav navbar-nav ml-auto" style="z-index: 1;">
 
         <li class="nav-item"><%= link_to "⚛", "", class: "nav-link", style:"font-size:200%;" %></li>
+        <% if logged_in? %>
         <li class="dropdown" style="line-height:50px;">
+
           <%= link_to "#{user_name}<span class='caret'></span>".html_safe, users_path, {:class => "nav-link dropdown-toggle", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'aria-expanded' => "false", 'role' => "button"} %>
 
           <ul class="dropdown-menu account-dropdown" style="z-index: 0;">
@@ -42,7 +44,9 @@
               <%= link_to "Sair", signout_path, method: "delete", class: "nav-link" %>
             </li>
           </ul>
+        <% end %>
         </li>
+
 
 
 
