@@ -128,13 +128,7 @@
 </script>
 
 
-
-
-
 <page size="A4">
-
-
-  <div id="section2" class="container table-responsive" style="width:99%; font-size:80%;">
 
     <% @eventosbahais.each do |p| %>
       <h2><%= p.name %></h2>
@@ -143,7 +137,7 @@
           Evento encerrado
         <% end %>
       </h3>
-      <table class="table">
+      <table class="table text-center">
       <thead>
       <tr>
         <% if p.participants.size > 0 %>
@@ -162,19 +156,18 @@
       <tbody>
         <% p.participants.order("name").each do |f| %>
           <tr>
-
             <td style="text-align: center;"><%= f.pin %>/<%= f.id %></td>
-            <td><%= f.name %> <%= f.lastname %></td>
-            <td style="max-width: 100px;">
 
-
+            <% @fullname = "#{f.name} #{f.lastname}" %>
+            <td><%= truncate @fullname, length:18, separator: /\w+/ %></td>
+            <td style="max-width: 72px;">
 
               <% unless f.contact =~ /\A[^@]+@[^@]+\Z/ %>
-                <%= f.contact %>
+                <%= truncate f.contact, length:12, separator: /\w+/  %>
               <% end %>
 
             </td>
-            <td>
+            <td style="text-align: center;">
               <% unless f.birthday.nil? %>
                 <% age = Date.today.year - f.birthday.year %>
                 <% if age < 12 %>
@@ -189,11 +182,9 @@
               <% end %>
             </td>
 
+            <td style="text-align: center;"><%= truncate f.city, length: 10 %> - <%= f.state %></td>
 
-
-            <td><%= f.city %>-<%= f.state %></td>
-
-            <td>
+            <td style="max-width: 20px !important;">
               <% if f.autolyse == "1" %>
                 <%= "Parc." %>
               <% end %>
