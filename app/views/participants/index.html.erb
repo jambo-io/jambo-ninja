@@ -29,7 +29,7 @@
 			Evento encerrado
 		<% end %>
 	</h3>
-	<table class="table">
+	<table class="table" style="text-align: center;">
 		<thead>
 			<tr>
 				<% if p.participants.size > 0 %>
@@ -74,18 +74,18 @@
 						<td><%= f.name %> <%= f.lastname %></td>
 
 
-
 						<td>
 
-              <% if f.phoneconfirmed == true %>
-
-                <a id="popover" class="text-success" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="Email/Celular confirmado."><%= f.contact %></a>
-
+              <% unless f.contact =~ /\A[^@]+@[^@]+\Z/ %>
+                <% if f.phoneconfirmed == true %>
+                  <a id="popover" class="text-success" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="Email/Celular confirmado."><%= link_to @contact, "https://api.whatsapp.com/send?phone=55"+@contact.to_s, target:"_blank" %></a>
+                <% else %>
+                  <% @contact = f.contact.delete("^0-9").gsub(/\s+/, '') %>
+                  <%= link_to @contact, "https://api.whatsapp.com/send?phone=55"+@contact.to_s, target:"_blank" %>
+                <% end %>
               <% else %>
                 <%= f.contact %>
               <% end %>
-
-
 
             </td>
 
