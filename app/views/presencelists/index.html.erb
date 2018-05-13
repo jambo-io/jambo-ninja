@@ -163,7 +163,9 @@
             <td style="max-width: 72px;">
 
               <% unless f.contact =~ /\A[^@]+@[^@]+\Z/ %>
-                <%= truncate f.contact, length:12, separator: /\w+/  %>
+
+                <%= f.contact.delete("^0-9") %>
+
               <% end %>
 
             </td>
@@ -182,7 +184,7 @@
               <% end %>
             </td>
 
-            <td style="text-align: center;"><%= truncate f.city, length: 10 %> - <%= f.state %></td>
+            <td style="text-align: center;"><%= truncate f.city.humanize, length: 10 %> - <%= f.state %></td>
 
             <td style="max-width: 20px !important;">
               <% if f.autolyse == "1" %>
