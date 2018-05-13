@@ -7,10 +7,10 @@ class ParticipantsController < ApplicationController
 	def index
 
 
-		@participants = Participant.order(:id).all
+		@participants = Participant.order('id desc').all
 
 		@user = User.find(current_user.id)
-		@eventosbahais = @user.eventosbahais
+		@eventosbahais = @user.eventosbahais.order('id desc')
 
 		@size = @user.participants.size
 

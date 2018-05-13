@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   delete 'sair' => 'pins#destroy'
   post 'pay' => 'pins#pay', as: :pay
   get 'badges' => 'badges#index'
+  get 'listas' => 'presencelists#index'
   get 'teste' => 'pages#test'
 
   get 'ev/n/:id' => 'participants#new', :as => 'partnew'

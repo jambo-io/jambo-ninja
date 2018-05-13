@@ -1,0 +1,226 @@
+<style>
+
+  @import url('https://fonts.googleapis.com/css?family=Crafty+Girls');
+
+  body {
+    background: rgb(214, 222, 234);
+    page-break-before: avoid;
+
+  }
+
+  h5 {
+    color: #0d3109;
+  }
+
+  p {
+    color: #000 !important;
+  }
+
+  table, th, td {
+    border: 0px;
+    border-collapse: collapse;
+    padding: 2px;
+  }
+
+  page {
+
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+    padding-top: .2cm;
+    padding-left: .3cm;
+
+  }
+
+  page[size="A4"] {
+    width: 21cm;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  page[size="A4"][layout="portrait"] {
+    width: 29.7cm;
+    height: 21cm;
+  }
+
+  .card-deck {
+    margin-left: -.15cm;
+    margin-top: .2cm;
+    font-family: 'Crafty Girls', cursive;
+
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  .clearfix:after {
+    clear: both;
+  }
+
+  .clearfix {
+    zoom: 1;
+  }
+
+  .card {
+    color: #0d3109 !important;
+  }
+
+  @page :first {
+    color: green;
+
+    @top-left {
+      content: "foo";
+      color: blue;
+    }
+    @top-right {
+      content: "bar";
+    }
+  }
+
+  @page {
+    color: red;
+    @top-center {
+      content: "Page " counter(page);
+    }
+  }
+
+  @media print {
+    body, page {
+      position: absolute;
+      top: 0;
+      left: 0;
+      zoom: 130%;
+      background-color: #fff;
+      box-shadow: 0;
+      overflow-y: hidden;
+    }
+
+  }
+
+
+</style>
+
+<div class="container clearfix">
+
+  <h1>Lista de Presença</h1>
+
+  <p>Aperte Ctrl+P para imprimir, ou <a href="#" id="print">clique aqui</a>. </p>
+
+
+</div>
+
+<script>
+
+        $("#print").on('click', function () {
+
+            window.print();
+        })
+
+</script>
+
+
+
+
+
+<page size="A4">
+
+
+  <div id="section2" class="container table-responsive" style="width:99%; font-size:80%;">
+
+    <% @eventosbahais.each do |p| %>
+      <h2><%= p.name %></h2>
+      <h3 class="text-danger">
+        <% if p.end_at - Date.today < 0 %>
+          Evento encerrado
+        <% end %>
+      </h3>
+      <table class="table">
+      <thead>
+      <tr>
+        <% if p.participants.size > 0 %>
+          <th scope="col">Código</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Celular</th>
+          <th scope="col">Idade</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Pagamento</th>
+          <th scope="col">Pago</th>
+        <% else %>
+          Nenhum participante inscrito.
+        <% end %>
+      </tr>
+      </thead>
+      <tbody>
+        <% p.participants.order("name").each do |f| %>
+          <tr>
+
+            <td style="text-align: center;"><%= f.pin %>/<%= f.id %></td>
+            <td><%= f.name %> <%= f.lastname %></td>
+            <td style="max-width: 100px;">
+
+
+
+              <% unless f.contact =~ /\A[^@]+@[^@]+\Z/ %>
+                <%= f.contact %>
+              <% end %>
+
+            </td>
+            <td>
+              <% unless f.birthday.nil? %>
+                <% age = Date.today.year - f.birthday.year %>
+                <% if age < 12 %>
+                  <%= "Criança" %>
+                <% elsif age >= 12 && age <=15 %>
+                  <%= "Pré-Jovem" %>
+                <% elsif age > 15 && age <=21 %>
+                  <%= "Jovem" %>
+                <% elsif age > 21 %>
+                  <%= "Adulto" %>
+                <% end %>
+              <% end %>
+            </td>
+
+
+
+            <td><%= f.city %>-<%= f.state %></td>
+
+            <td>
+              <% if f.autolyse == "1" %>
+                <%= "Parc." %>
+              <% end %>
+              <% if f.autolyse == "2" %>
+                <%= "À vista" %>
+              <% end %>
+              <% if f.autolyse == "3" %>
+                <%= " - " %>
+              <% end %>
+            </td>
+            <td style="text-align: center;">
+              <% if f.paid == false %>
+                <% if f.autolyse == "3" %>
+                  <%= "X" %>
+                <% else %>
+                  <%= "" %>
+                <% end %>
+              <% else %>
+                <%= "X" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+
+    <% end %>
+
+
+</page>

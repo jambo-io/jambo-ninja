@@ -9,6 +9,12 @@
   src: asset-url('fonts/GothamRoundedBook_21018.ttf') format("ttf");
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
 
   background-color: #edeff0 !important;
@@ -110,10 +116,13 @@ a:hover {
     padding: 10px 50px 10px 50px;
     border-bottom: .5px solid #efefef !important;
   }
+
+
   .list-group-item {
     border: 0px;
 
   }
+
   .list-group-item-action:hover, .list-group-item-action:focus {
     background-color:inherit;
     color: #4d76d3;
@@ -245,24 +254,7 @@ a:hover {
     color: #00eb7f !important;
     border-color: #00eb7f;
   }
-  .btn-send {
-    display: inline-block;
-    border: 2px solid rgba(48,73,97,0.1);
-    border-radius: 10px;
-    text-align: center;
 
-    color: #23558e;
-    font-weight: 500;
-    background: transparent;
-    padding: 0 12px;
-    white-space: nowrap;
-    line-height: 32px;
-    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
-  }
-  .btn-send:hover {
-    color: #23558e!important;
-    border-color: #23558e;
-  }
 }
 
 .container-edit {
@@ -317,6 +309,40 @@ a:hover {
     color: #EBBA26 !important;
     border-color: #EBBA26;
   }
+}
+
+.doc-footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  margin: 20px -50px -30px -50px;
+  background-color: #f9fafa;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .doc-footer {
+    margin: 20px -50px -30px -5px;
+  }
+}
+
+.btn-send {
+  display: inline-block;
+  border: 2px solid rgba(48,73,97,0.1);
+  border-radius: 10px;
+  text-align: center;
+
+  color: #23558e;
+  font-weight: 500;
+  background: transparent;
+  padding: 0 12px;
+  white-space: nowrap;
+  line-height: 32px;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.btn-send:hover {
+  color: #23558e!important;
+  border-color: #23558e;
 }
 
 .bottom-nav {
