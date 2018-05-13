@@ -24,7 +24,7 @@ var page = $("html, body");
 
 function slide(section){
 
-    /*
+
     page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
         page.stop();
     });
@@ -33,7 +33,7 @@ function slide(section){
         page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
     });
     return false;
-    */
+
 }
 
 $(function () {
