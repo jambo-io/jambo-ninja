@@ -165,7 +165,7 @@
             </td>
 
             <% @fullname = "#{f.name.humanize} #{f.lastname}" %>
-            <td><%= truncate @fullname, length:22, separator: /\w+/ %></td>
+            <td style="text-align:left;"><%= truncate @fullname, length:22, separator: /\w+/ %></td>
             <td style="max-width: 72px;">
 
               <% unless f.contact =~ /\A[^@]+@[^@]+\Z/ %>

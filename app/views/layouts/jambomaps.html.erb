@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jovens Amigos</title>
+    <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <%= javascript_include_tag 'application' %>
+
+    
+
+
+
+   
+  </head>
+  <body>
+
+     <%= render "layouts/header" %>   
+
+<div id="fb-root"></div>
+
+
+
+  <div class="page-bg">
+    <div class="container-fluid" style="margin-top:70px;">
+        <%=yield %>
+    </div>
+ 
+
+  </div><!--Background -->
+    
+  </body>
+</html>
+
+

@@ -16,6 +16,9 @@ module Jovensamigos
     config.i18n.default_locale = 'pt-BR'
 
 
+
+
+
     config.middleware.use Rack::Cors do
     	allow do
     		origins 'http://localhost:10549'

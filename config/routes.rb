@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  #M Mapa Agrupamentos - Jambomapa
+  get 'jambomapa' => 'jambomaps#index'
+
   # Documentos Baháiś - - Jambodocs
   resources :jambodocs
 
