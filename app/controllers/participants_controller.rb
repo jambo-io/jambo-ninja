@@ -112,8 +112,9 @@ class ParticipantsController < ApplicationController
 
 
 	def update
-		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
-		@participant = @evento.participants.update(participant_params)
+		#@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
+		@participant = Participant.find(params[:id])
+		@participant.update(participant_params)
 
 		redirect_to participants_path
 
