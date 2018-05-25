@@ -105,10 +105,19 @@
     </div>
   
 
-    <%= f.hidden_field :eventosbahai_id, :value => params[:id] %>
+    <%= f.hidden_field :eventosbahai_id, :value => @eventosbahai_id %>
     <br>
+
     <div style="text-align: center;">
-      <%= f.submit "Inscrever", class:'btn btn-lg btn-success' %>
+
+      <% if current_page? partnew_path %>
+        
+      <% elsif current_page? edit_participant_path %>
+     
+      <% end %>
+        
+       <%= f.submit @btname, class:'btn btn-lg btn-success' %>  
+        
     </div>
 
   </div>

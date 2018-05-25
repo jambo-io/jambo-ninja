@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503010209) do
+ActiveRecord::Schema.define(version: 20180524131816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(version: 20180503010209) do
     t.string   "city"
     t.date     "birth"
     t.string   "address"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "clusters", force: :cascade do |t|
@@ -60,6 +65,13 @@ ActiveRecord::Schema.define(version: 20180503010209) do
     t.float    "longitude"
     t.text     "payment"
     t.index ["user_id"], name: "index_eventosbahais_on_user_id", using: :btree
+  end
+
+  create_table "fish", force: :cascade do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "jambodocs", force: :cascade do |t|
@@ -103,6 +115,11 @@ ActiveRecord::Schema.define(version: 20180503010209) do
     t.index ["user_id"], name: "index_learningdesk_reports_on_user_id", using: :btree
   end
 
+  create_table "news", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.string   "lastname"
@@ -121,6 +138,18 @@ ActiveRecord::Schema.define(version: 20180503010209) do
     t.boolean  "paid",            default: false
     t.boolean  "phoneconfirmed"
     t.index ["eventosbahai_id"], name: "index_participants_on_eventosbahai_id", using: :btree
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "qualquernomes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ruhibooks", force: :cascade do |t|

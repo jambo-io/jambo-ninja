@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-	before_action :permission, only: [:index, :destroy]
+	before_action :permission, only: [:index, :destroy, :edit]
 	before_action :pin, only: [:show]
 
 	layout "eventosbahais"
@@ -11,19 +11,29 @@ class ParticipantsController < ApplicationController
 
 		@user = User.find(current_user.id)
 		@eventosbahais = @user.eventosbahais.order('id desc')
-
 		@size = @user.participants.size
 
 
 	end
+
+	def edit
+		@participant = Participant.find(params[:id])
+		@eventosbahai_id = @participant.eventosbahai_id
+		#Button Name
+		@btname = "Salvar"
+	end
+
 	def new
 
 		@participant = Participant.new
 		@evento_id = params[:id]
+		@eventosbahai_id = @evento_id
 		@evento = Eventosbahai.find(@evento_id)
 		@vacancies = @evento.vacancies.to_i - Participant.where(eventosbahai_id: @evento_id).count.to_i
 		@registered = @evento.participants.where(:publist => 1)
 		@images = @evento.image.url(:big)
+		#Button name
+		@btname = "Inscrever"
 		
 		#Check if the Event is still available based on vacancies and Date
 		@event_available = true
@@ -71,7 +81,7 @@ class ParticipantsController < ApplicationController
 
 		@participant = Participant.find(params[:id])
 		@event = @participant.eventosbahai
-    render layout: 'participant'
+    	render layout: 'participant'
 
 	end
 	def create
@@ -102,6 +112,11 @@ class ParticipantsController < ApplicationController
 
 
 	def update
+		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
+		@participant = @evento.participants.update(participant_params)
+
+		redirect_to participants_path
+
 	end
 	def destroy
 

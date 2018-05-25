@@ -71,7 +71,7 @@
             <% end %>
 
 
-						<td><%= f.name %> <%= f.lastname %></td>
+						<td><%= link_to "#{f.name} #{f.lastname}", edit_participant_path(f) %></td>
 
 
 						<td>

@@ -1,0 +1,2 @@
+class Qualquernome < ApplicationRecord
+end

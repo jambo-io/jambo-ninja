@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :phones
+  resources :fish
+  resources :news
+  resources :blogs
+  resources :qualquernomes
   #M Mapa Agrupamentos - Jambomapa
   get 'jambomapa' => 'jambomaps#index'
 
