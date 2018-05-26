@@ -1,0 +1,10 @@
+
+
+<% if @paid==true %>
+	$('#paidbtn<%= @participant_id %>').addClass('btn-success');
+
+<% else %>
+	$('#paidbtn<%= @participant_id %>').removeClass('btn-success');
+
+<% end %>
+

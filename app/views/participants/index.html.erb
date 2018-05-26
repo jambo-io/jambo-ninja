@@ -56,16 +56,16 @@
 
             <% if f.paid == false %>
 
-              <%= form_tag pay_path, method: :post do %>
+              <%= form_tag pay_path, method: :post, remote:true do %>
                 <%= hidden_field_tag :participant_id, f.id %>
-                <td><%= submit_tag "X", class: 'btn' %></td>
+                <td><%= submit_tag "✓", class: 'btn', id:"paidbtn#{f.id}" %></td>
               <% end %>
 
             <% elsif f.paid == true %>
 
-              <%= form_tag pay_path, method: :post do %>
+              <%= form_tag pay_path, method: :post, remote:true do %>
                 <%= hidden_field_tag :participant_id, f.id %>
-                <td><%= submit_tag "✓", class: 'btn btn-success' %></td>
+                <td><%= submit_tag "✓", class: 'btn btn-success', id:"paidbtn#{f.id}" %></td>
               <% end %>
 
             <% end %>
@@ -140,8 +140,3 @@
 
 </div>
 
-<script>
-
-	slide("#section1");
-
-</script>

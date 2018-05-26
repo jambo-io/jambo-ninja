@@ -40,20 +40,25 @@ class PinsController < ApplicationController
 
   def pay
 
-
+    puts "ola mundo"
     participant = Participant.find(pay_params)
+    @participant_id = participant.id
 
     if participant.paid == false
       participant.update(paid: true)
       participant.save
+      @paid = true
 
     elsif participant.paid == true
       participant.update(paid: false)
       participant.save
+      @paid = false
     end
 
-
-    redirect_to participants_path
+    respond_to do |format|
+      format.js 
+    end
+    
   end
 
   private
