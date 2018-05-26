@@ -3,7 +3,8 @@ class PresencelistsController < ApplicationController
   layout 'participant'
   before_action :redirect, only: [:index]
   def index
-    @participants = Participant.order(:id).all
+    @eventosbahai = Eventosbahai.find(params[:id])
+    @participants = @eventosbahai.participants
     @user = User.find(current_user.id)
     @eventosbahais = @user.eventosbahais
   end

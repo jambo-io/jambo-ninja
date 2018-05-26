@@ -4,8 +4,8 @@
 	<ul class="list-inline mx-auto text-center">
 		<li class="list-inline-item"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-success' %></li>
 		<li class="list-inline-item"><%= link_to "Ver todos os Eventos", eventosbahais_path, class:'btn btn-info' %></li>
-    	<li class="list-inline-item"><%= link_to "Crachás", badges_path, class:'btn btn-warning' %></li>
-    	<li class="list-inline-item"><%= link_to "Lista de presença", listas_path, class:'btn btn-warning' %></li>
+    	<li class="list-inline-item"><%= link_to "Crachás", badges_path, class:'btn btn-warning', id:'crachas' %></li>
+    	<li class="list-inline-item"><%= link_to "Lista de presença", listas_path, class:'btn btn-warning', id:'listapresenca' %></li>
 	</ul>
 
 	<%= form_tag partsev_path,  {id:'formcombo', remote:true } do |form| %>
@@ -15,9 +15,15 @@
 		$(function() {
 		   $("#eventosbahais_ids").change(function() {
 		     $("#formcombo").submit();
+		    	val = $('#eventosbahais_ids').val();
+		   		$("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
+		   		$("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
 		   });
 		   $(document).ready(function() {
-		   	$("#formcombo").submit();
+		   	 	$("#formcombo").submit();
+		   	 	val = $('#eventosbahais_ids').val();
+		   		$("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
+		   		$("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
 		   });
 		 });
 	</script>
