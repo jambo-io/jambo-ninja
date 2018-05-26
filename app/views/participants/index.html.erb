@@ -50,7 +50,7 @@
 			</tr>
 		</thead>
 		<tbody>
-				<% p.participants.order("created_at desc").each do |f| %>
+				<% p.participants.order("name desc").each do |f| %>
 					<tr id="participant_<%= f.id %>">
 						<th></th>
 
