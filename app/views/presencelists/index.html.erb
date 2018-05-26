@@ -130,7 +130,7 @@
 
 <page size="A4">
 
-    <% @eventosbahais.each do |p| %>
+    <% @eventosbahais.each_with_index do |p,index| %>
       <h2><%= p.name %></h2>
       <h3 class="text-danger">
         <% if p.end_at - Date.today < 0 %>
@@ -141,7 +141,7 @@
       <thead>
       <tr>
         <% if p.participants.size > 0 %>
-          <th scope="col">Código</th>
+          <th scope="col">#</th>
           <th scope="col">Nome</th>
           <th scope="col">Celular</th>
           <th scope="col">Idade</th>
@@ -159,7 +159,7 @@
             <td style="text-align: center;">
 
 
-              <% if f.pin == nil %><%= "0000" %><% else %><%= f.pin %><% end %>
+              <%= index %>
 
 
             </td>
