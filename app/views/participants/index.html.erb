@@ -8,7 +8,7 @@
     	<li class="list-inline-item" style="display: inline-block;"><%= link_to "Lista de presença", listas_path, class:'btn btn-warning m-1', id:'listapresenca' %></li>
 	</ul>
 
-	
+
 
 	<%= form_tag partsev_path,  {id:'formcombo', remote:true } do |form| %>
 	<%= collection_select :eventosbahais, :ids , current_user.eventosbahais.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
@@ -30,11 +30,7 @@
 		 });
 	</script>
 </div>
-<% if @size > 0 %>
-	<div class="container p-0">
-		<p id="participants_numberjs" class="text-center"></p>
-	</div>
-<% end %>
+
 <div id="section2" class="container table-responsive" style="width:99%;">
 		<h2 id="eventosbahaijs"></h2>		
 		<h3 id="eventoecerradojs" class="text-danger">
