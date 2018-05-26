@@ -124,31 +124,40 @@ class ParticipantsController < ApplicationController
 		@participant = Participant.find(params[:id])
 		@participant.destroy
 
+
 		respond_to do |format|
 			format.js { head :ok }
 		end
 		
-
-			
 	end
+
+   def eventosbahais
+      @eventosbahai = Eventosbahai.find(eventosbahais_params[:ids])
+      respond_to do |format|
+	     format.js
+	  end
+   end
 
 	
 
-	private
-		def participant_params
-			params.require( :participant ).permit(:name, :lastname, :contact, :birthday, :address, :city, :state, :eventosbahai_id, :publist, :autolyse)
-		end
-		def permission
-	      unless admin?
-	        redirect_to root_path
-	      end
-		end
-		def pin
-			@participant = Participant.find(params[:id])
-			if session[:pin] == @participant.pin
-				true
-			else
-				redirect_to pin_path
-			end
-		end
+   private
+      def participant_params
+         params.require( :participant ).permit(:name, :lastname, :contact, :birthday, :address, :city, :state, :eventosbahai_id, :publist, :autolyse)
+      end
+      def eventosbahais_params
+         params.require(:eventosbahais).permit(:ids)
+      end
+      def permission
+         unless admin?
+            redirect_to root_path
+         end
+      end
+      def pin
+         @participant = Participant.find(params[:id])
+         if session[:pin] == @participant.pin
+            true
+         else
+            redirect_to pin_path
+         end
+      end
  end

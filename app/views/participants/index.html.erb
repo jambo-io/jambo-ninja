@@ -1,142 +1,44 @@
 <div id="section1" class="container">
-	<h1 style="margin-top: 40px;"> Bem vindo <%= current_user.name %>! </h1>
-	
+	<h2 class="mb-4" style="margin-top: 40px;"> Oi <%= current_user.name %>! </h2>
 
-	<ul class="list-inline">
+	<ul class="list-inline mx-auto text-center">
 		<li class="list-inline-item"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-success' %></li>
 		<li class="list-inline-item"><%= link_to "Ver todos os Eventos", eventosbahais_path, class:'btn btn-info' %></li>
-    <li class="list-inline-item"><%= link_to "Crachás", badges_path, class:'btn btn-warning' %></li>
-    <li class="list-inline-item"><%= link_to "Lista de presença", listas_path, class:'btn btn-warning' %></li>
+    	<li class="list-inline-item"><%= link_to "Crachás", badges_path, class:'btn btn-warning' %></li>
+    	<li class="list-inline-item"><%= link_to "Lista de presença", listas_path, class:'btn btn-warning' %></li>
 	</ul>
 
-	
+	<%= form_tag partsev_path,  {id:'formcombo', remote:true } do |form| %>
+	<%= collection_select :eventosbahais, :ids , current_user.eventosbahais.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
+	<% end %>	    
+	<script>
+		$(function() {
+		   $("#eventosbahais_ids").change(function() {
+		     $("#formcombo").submit();
+		   });
+		   $(document).ready(function() {
+		   	$("#formcombo").submit();
+		   });
+		 });
+	</script>
 </div>
-
 <% if @size > 0 %>
-
-	<div class="container">
-		<p>Atualmente temos <%= @size %> <%= "participante".pluralize(@size) %> <%= "inscrito".pluralize(@size) %></p>
+	<div class="container p-0">
+		<p id="participants_numberjs" class="text-center"></p>
 	</div>
-
 <% end %>
-
 <div id="section2" class="container table-responsive" style="width:99%;">
+		<h2 id="eventosbahaijs"></h2>		
+		<h3 id="eventoecerradojs" class="text-danger">
+		</h3>
+		<table class="table" style="text-align: center;">
+			<thead id="participantsheadjs">
+				
+			</thead>
+			<tbody id="participantsjs">
+				
+			</tbody>
+		</table>
+</div> <!-- section 2 -->
 
-<% @eventosbahais.each do |p| %>
-	<h2><%= p.name %></h2>		
-	<h3 class="text-danger">
-		<% if p.end_at - Date.today < 0 %>
-			Evento encerrado
-		<% end %>
-	</h3>
-	<table class="table" style="text-align: center;">
-		<thead>
-			<tr>
-				<% if p.participants.size > 0 %>
-				<th scope="col"></th>
-        <th scope="col">Pago</th>
-				<th scope="col">Nome</th>
-				<th scope="col">Contato</th>
-				<th scope="col">Idade</th>
-				<th scope="col">Endereço</th>
-				<th scope="col">Cidade</th>
-          <th scope="col">Pagamento</th>
-
-				<th scope="col">Reg. em</th>
-				<th scope="col">#</th>
-				<% else %>
-					Nenhum participante inscrito.
-				<% end %>
-			</tr>
-		</thead>
-		<tbody>
-				<% p.participants.order("name").each do |f| %>
-					<tr id="participant_<%= f.id %>">
-						<th></th>
-
-            <% if f.paid == false %>
-
-              <%= form_tag pay_path, method: :post, remote:true do %>
-                <%= hidden_field_tag :participant_id, f.id %>
-                <td><%= submit_tag "✓", class: 'btn', id:"paidbtn#{f.id}" %></td>
-              <% end %>
-
-            <% elsif f.paid == true %>
-
-              <%= form_tag pay_path, method: :post, remote:true do %>
-                <%= hidden_field_tag :participant_id, f.id %>
-                <td><%= submit_tag "✓", class: 'btn btn-success', id:"paidbtn#{f.id}" %></td>
-              <% end %>
-
-            <% end %>
-
-
-						<td><%= link_to "#{f.name} #{f.lastname}", edit_participant_path(f) %></td>
-
-
-						<td>
-
-              <% unless f.contact =~ /\A[^@]+@[^@]+\Z/ %>
-                <% if f.phoneconfirmed == true %>
-                  <a id="popover" class="text-success" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="Email/Celular confirmado."><%= link_to @contact, "https://api.whatsapp.com/send?phone=55"+@contact.to_s, target:"_blank" %></a>
-                <% else %>
-                  <% @contact = f.contact.delete("^0-9").gsub(/\s+/, '') %>
-                  <%= link_to @contact, "https://api.whatsapp.com/send?phone=55"+@contact.to_s, target:"_blank" %>
-                <% end %>
-              <% else %>
-                <%= f.contact %>
-              <% end %>
-
-            </td>
-
-						<td>
-							<% unless f.birthday.nil? %>
-							<% age =  Date.today.year - f.birthday.year %>
-                <% if age > 30 %>
-                  Maior de 30
-                <% else %>
-                  <%= age %>
-                <%end %>
-							<% end %>
-						</td>
-
-						<td><%= f.address %></td>
-						<td><%= f.city %> - <%= f.state %></td>
-            <td>
-              <% if f.autolyse == "1" %>
-                <%= "Parcelado" %>
-              <% end %>
-              <% if f.autolyse == "2" %>
-                <%= "À vista" %>
-              <% end %>
-              <% if f.autolyse == "3" %>
-                <%= "Menor de 12" %>
-              <% end %>
-            </td>
-
-
-
-
-						<td><%= f.created_at.strftime("%d/%m/%Y") %></td>
-
-						<td><%= link_to "X", participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}" %></td>
-
-						<script>
-
-							$('#remove_participant_<%= f.id %>').bind('ajax:success', function(){
-								$("#participant_<%= f.id %>").remove();						
-							});
-
-						</script>
-
-
-					</tr>
-				<% end %>
-			
-		</tbody>
-	</table>
-<% end %>
-	
-
-</div>
 

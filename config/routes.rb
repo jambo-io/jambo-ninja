@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'eventosbahais/email' => 'eventosbahais#sendemail'
   get 'eventosbahais/atemail' => 'eventosbahais#updateemail'
   get 'participantes/conf' => 'participants#confirmation', :as => :confirm
+  post 'participantsev' => 'participants#eventosbahais', :as => :partsev
   resources :eventosbahais
   resources :participants
   resources :ruhibooks

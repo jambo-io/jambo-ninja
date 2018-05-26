@@ -19,22 +19,6 @@
 //= require gmaps
 //= require_tree .
 
-var page = $("html, body");
-
-
-function slide(section){
-
-
-    page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
-        page.stop();
-    });
-
-    page.animate({scrollTop: $(section).position().top }, 2000, function(){
-        page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
-    });
-    return false;
-
-}
 
 $(function () {
     $('[data-toggle="popover"]').popover()

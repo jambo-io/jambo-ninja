@@ -1,0 +1,65 @@
+
+console.log("passou aqui");
+
+
+var number_participants=0;
+$('#eventoecerradojs').text('');
+$('#eventosbahaijs').text('');
+$('#participantsjs').text('');
+$('#participantsheadjs').text('');
+$('#participants_numberjs').text('');
+
+$('#eventosbahaijs').text("<%= @eventosbahai.name %>");
+
+participantshead = `<tr>
+<th scope="col"></th>
+<th scope="col">Pago</th>
+<th scope="col">Nome</th>
+<th scope="col">Contato</th>
+<th scope="col">Idade</th>
+<th scope="col">Endereço</th>
+<th scope="col">Cidade</th>
+<th scope="col">Pagamento</th>
+<th scope="col">Reg. em</th>
+<th scope="col">#</th>
+</tr>`;
+
+<% if @eventosbahai.end_at - Date.today < 0 %>
+	$('#eventoecerradojs').text('Evento Encerrado');
+<% end %>
+
+participants_number = `<%= @eventosbahai.participants.size %> <%= "participante".pluralize(@size) %> <%= "inscrito".pluralize(@size) %>`;
+
+<% if @eventosbahai.participants.size > 0 %>
+	$('#participantsheadjs').html(participantshead);
+	number_participants =1;
+	$('#participants_numberjs').html(participants_number);
+<% else %>
+	$('#participantsheadjs').text('Nenhum partipante inscrito.');
+<% end %>
+
+
+if (number_participants > 0) {
+	<% @eventosbahai.participants.each do |f| %>
+		html=`<tr id="participant_<%= f.id %>">
+				<th></th>
+				<td>
+				<%= form_tag pay_path, {method: :post, remote:true} do  %>
+					<%= hidden_field_tag :participant_id, f.id %>
+					<%= submit_tag "✓", class: "btn #{paid(f.paid)}", id:"paidbtn#{f.id}" %>
+				<% end %>
+				</td>
+				<td><%= link_to "#{f.name} #{f.lastname}", edit_participant_path(f) %></td>
+				<td><%= contact(f.contact,f.phoneconfirmed) %></td>
+				<td><%= birthday(f.birthday) %></td>
+				<td><%= f.address %></td>
+				<td><%= f.city %> - <%= f.state %></td>
+				<td><%= autolyse(f.autolyse) %></td>
+				<td><%= f.created_at.strftime("%d/%m/%Y") %></td>
+				<td><%= link_to "X", participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}" %></td>`;
+
+		$('#participantsjs').append(html);
+	<% end %>
+} else {
+	console.log("false");
+}
