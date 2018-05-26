@@ -1,0 +1,23 @@
+<!--SNIPPETS -->
+
+
+<!-- Background parallax -->
+
+  <div  style="background:white" class="parallax-window d-flex align-items-end" data-parallax="scroll" data-naturalWidth="900" data-zIndex = "-20" data-image-src='<%= asset_path @image %>'>
+      <div class="container-fluid h-100" style="z-index: 5">
+
+       <div class="mb-auto p-2 bd-highlight">
+
+           <% unless @quote.nil? || @author.nil? %>
+             <blockquote class="blockquote text-right ml-auto">
+               <span class="mb-0"><%= @quote %></span>
+                 <footer class="blockquote-footer"><%= @author %></footer>
+
+             </blockquote>
+           <% end %>
+
+         </div>
+       </div>
+   </div>
+
+ <!-- -->

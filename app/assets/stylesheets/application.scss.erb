@@ -26,6 +26,9 @@ body {
 .card {
   border: 0;
 }
+.card-body {
+  padding: 9px;
+}
 .page-bg {
   position:absolute;
   top:0px;
@@ -234,6 +237,10 @@ h1 {
   bottom: 0;
 }
 
+.content {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 
 
 .navindex {
@@ -290,11 +297,44 @@ ul .dropdown-menu {
 
   width:800px;
   max-width: 99%;
-  padding: 3px 50px 30px 50px;
+  padding: 30px 50px 30px 50px;
+  padding-top:30px !important;
 
   border: 1px #eaeaea solid;
   border-radius: 3px;
   margin-bottom: 30px !important;
+}
+.container-custom {
+
+  background-color: #fff;
+  width:800px;
+  z-index: 1;
+
+  max-width:100% !important;
+  padding: 30px 50px 30px 50px;
+  padding-top:30px !important;
+  padding-bottom: 40px !important;
+
+  border: 1px #eaeaea solid;
+  border-radius: 3px;
+}
+
+@media (min-width:300px) {
+  .container-custom {
+    margin:0 auto;
+    padding: 9px 9px 9px 9px;
+    width: 100% !important;
+  }
+}
+.amigos-container {
+  border-left: 3px solid green;
+}
+
+.evento-container {
+  border-left: 3px solid red;
+}
+.inscricao-container {
+  border-left: 3px solid blue;
 }
 
 @media only screen and (max-device-width: 768px) {

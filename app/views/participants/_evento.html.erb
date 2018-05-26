@@ -1,0 +1,81 @@
+<h3 style="text-align:center;"><%= @evento.name %></h3>
+	<p style="text-align:center;"><%= @evento.theme %></p>
+	<br>
+	<% if @evento.image.exists? %>
+		<figure class="figure">
+			<%= image_tag(@images, class: "img-responsive figure-img img-fluid rounded mx-auto d-block", style: "margin: 0 auto; margin-bottom:10px;") %>
+		</figure>
+	<% end %>
+	<ul>
+	  <li>De <strong><%= @evento.start_at.strftime('%d-%m-%Y') %>
+	  </strong> à <strong><%= @evento.end_at.strftime('%d-%m-%Y') %></strong></li>
+	  <li>Cidade: <strong><%= @evento.city %> - <%= @evento.state %></strong></li>
+	  <p><%= @evento.description %></p>
+
+	<% if @event_available %>
+	  	<li>Número de vagas disponíveis: <span class="badge badge-success"><%= @vacancies %></span></li>
+		<li>Taxa de Inscrição: <span class="badge badge-success"><%= number_to_currency(@evento.price, unit: "R$", separator: ",", delimiter: "", format:"%u %n") %></span></li>
+		</ul>
+	<% else %>
+	  	<div class="text-center">
+	  		<h2><span class="text-danger">Inscrições Encerradas</span><h2>
+	  	</div>
+	<% end %>
+
+	<% if @event_available %>
+	    <% unless @evento.longitude.nil? || @evento.latitude.nil? %>
+	      <div id="cardmap'" class="card text-center">
+	          <div class="card-title">
+	            <h2 style="margin-top: 40px; margin-bottom: -20px;">Onde fica?</h2>
+	          </div>
+	          <div class="card-body">
+	            <div class="popin" style=" box-shadow: 0 0 5px #999; border-radius:2px; border-ratio:9;">
+	              <div id="map"> </div>
+	              <%= @evento.location %>, <%= @evento.city %> - <%= @evento.state %>
+	            </div>
+	          </div>
+
+	        </div>
+	        <script>
+	            $(document).ready(function(){
+	                var map = new GMaps({
+	                    el: '#map',
+	                    center: {lat: <%= @evento.latitude %>, lng:<%= @evento.longitude %>},
+	                    width: '100%',
+	                    height: '300px',
+	                    zoomControl: true,
+	                });
+	                map.addMarker({
+	                    lat:<%= @evento.latitude %>,
+	                    lng:<%= @evento.longitude %>,
+	                    title: "<%= @evento.location %>",
+	                    infoWindow: {
+	                        content: "<h4><%= @evento.name %></h4><%= @evento.location %><br>"
+	                    },
+	                    click: function (e) {
+	                        map.map.panTo(e.position);
+	                    }
+	                })
+
+	                if (typeof google === 'object' && typeof google.maps === 'object') {
+	                } else {
+	                    $("#cardmap").hide();
+	                }
+	            });
+	        </script>
+	    <% end %>
+    <% end %>
+	<div class="actions text-center">
+		<ul class="list-inline">
+			<% if @event_available %>
+				<li  class="list-inline-item"><%= link_to 'Inscrição', 'javascript:;', class: 'btn btn-lg btn-info', id:'subscribe' %></li>
+			<% end %>
+			<% if admin? && correct_user_eventosbahais? %>
+				<% unless @event_available %>
+					<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
+				<% end %>
+		    		<li class="list-inline-item"><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-warning' %></li>
+		   			<li class="list-inline-item"><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-warning' %></li>
+			<% end %>
+		</ul>
+	</div>
