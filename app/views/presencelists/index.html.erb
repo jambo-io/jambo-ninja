@@ -130,7 +130,7 @@
 
 <page size="A4">
 
-    <% @eventosbahais.each_with_index do |p,index| %>
+    <% @eventosbahais.each do |p| %>
       <h2><%= p.name %></h2>
       <h3 class="text-danger">
         <% if p.end_at - Date.today < 0 %>
@@ -154,7 +154,7 @@
       </tr>
       </thead>
       <tbody>
-        <% p.participants.order("name").each do |f| %>
+        <% p.participants.order("name").each_with_index do |f, index| %>
           <tr>
             <td style="text-align: center;">
 
