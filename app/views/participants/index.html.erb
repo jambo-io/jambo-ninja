@@ -1,12 +1,14 @@
 <div id="section1" class="container">
-	<h2 class="mb-4" style="margin-top: 40px;"> Oi <%= current_user.name %>! </h2>
+	<h2 class="mb-4 text-center" style="margin-top: 40px;"> Oi <%= current_user.name %>! </h2>
 
 	<ul class="list-inline mx-auto text-center">
-		<li class="list-inline-item"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-success' %></li>
-		<li class="list-inline-item"><%= link_to "Ver todos os Eventos", eventosbahais_path, class:'btn btn-info' %></li>
-    	<li class="list-inline-item"><%= link_to "Crachás", badges_path, class:'btn btn-warning', id:'crachas' %></li>
-    	<li class="list-inline-item"><%= link_to "Lista de presença", listas_path, class:'btn btn-warning', id:'listapresenca' %></li>
+		<li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-success m-1' %></li>
+		<li class="list-inline-item" style="display: inline-block;"><%= link_to "Ver todos os Eventos", eventosbahais_path, class:'btn btn-info m-1' %></li>
+    	<li class="list-inline-item" style="display: inline-block;"><%= link_to "Crachás", badges_path, class:'btn btn-warning m-1', id:'crachas' %></li>
+    	<li class="list-inline-item" style="display: inline-block;"><%= link_to "Lista de presença", listas_path, class:'btn btn-warning m-1', id:'listapresenca' %></li>
 	</ul>
+
+	
 
 	<%= form_tag partsev_path,  {id:'formcombo', remote:true } do |form| %>
 	<%= collection_select :eventosbahais, :ids , current_user.eventosbahais.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
