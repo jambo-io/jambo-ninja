@@ -5,15 +5,11 @@ class ParticipantsController < ApplicationController
 	layout "eventosbahais"
 
 	def index
-
-
 		@participants = Participant.order('name desc').all
 
 		@user = User.find(current_user.id)
 		@eventosbahais = @user.eventosbahais.order('id desc')
 		@size = @user.participants.size
-
-
 	end
 
 	def edit
@@ -124,9 +120,9 @@ class ParticipantsController < ApplicationController
 		@participant = Participant.find(params[:id])
 		@participant.destroy
 
-
-		respond_to do |format|
-			format.js { head :ok }
+		puts "passou qui"
+		respond_to do |destroy|
+			destroy.js
 		end
 		
 	end
