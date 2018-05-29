@@ -7,7 +7,7 @@ class ParticipantsController < ApplicationController
 	def index
 
 
-		@participants = Participant.order('id desc').all
+		@participants = Participant.order('name desc').all
 
 		@user = User.find(current_user.id)
 		@eventosbahais = @user.eventosbahais.order('id desc')

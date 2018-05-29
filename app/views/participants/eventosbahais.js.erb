@@ -40,7 +40,7 @@ participants_number = `<%= @eventosbahai.participants.size %> <%= "participante"
 
 
 if (number_participants > 0) {
-	<% @eventosbahai.participants.each do |f| %>
+	<% @eventosbahai.participants.order(:name).each do |f| %>
 		html=`<tr id="participant_<%= f.id %>">
 				<th></th>
 				<td>
