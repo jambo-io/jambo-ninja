@@ -19,7 +19,7 @@ body {
 
   background-color: #edeff0 !important;
   text-rendering: optimizeLegibility;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa', helvetica;
 }
 a {
   transition: color 300ms 0s ease;
@@ -97,7 +97,7 @@ a:hover {
    border-top: 4px solid;
    border-top-color: #3079AB;
    min-width: 90%;
-   min-height: 400px;
+   min-height: 70vh;
 
     a {
       color: #6c757d;
@@ -400,3 +400,21 @@ a:hover {
   min-width: 90%;
   min-height: 500px;
 }
+
+footer {
+
+  font-weight: bold;
+  background-color: #3e474f;
+  height: 71px;
+  margin-bottom: -20px;
+  color: #b2bbbd;
+
+  a {
+    color: white;
+  }
+  a:hover {
+    color: white;
+  }
+
+}
+

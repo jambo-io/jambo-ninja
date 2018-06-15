@@ -66,9 +66,9 @@
 
       <div class="actions text-center">
         <ul class="list-inline">
-            <li><%= link_to 'Inscrição',  partnew_path(params[:id]), class: 'btn btn-info' %></li>
-            <li><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-warning' %></li>
-            <li><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-warning' %></li>
+            <li class="list-inline-item"><%= link_to 'Inscrição',  partnew_path(params[:id]), class: 'btn btn-new' %></li>
+            <li class="list-inline-item"><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-new' %></li>
+            <li class="list-inline-item"><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-new' %></li>
         </ul>
         
     </div>

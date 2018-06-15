@@ -67,15 +67,13 @@
     <% end %>
 	<div class="actions text-center">
 		<ul class="list-inline">
-			<% if @event_available %>
-				<li  class="list-inline-item"><%= link_to 'Inscrição', 'javascript:;', class: 'btn btn-lg btn-info', id:'subscribe' %></li>
-			<% end %>
+			
 			<% if admin? && correct_user_eventosbahais? %>
 				<% unless @event_available %>
 					<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
 				<% end %>
-		    		<li class="list-inline-item"><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-warning' %></li>
-		   			<li class="list-inline-item"><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-warning' %></li>
+		    		<li class="list-inline-item"><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-new' %></li>
+		   			<li class="list-inline-item"><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-new' %></li>
 			<% end %>
 		</ul>
 	</div>

@@ -2,7 +2,7 @@ class EventosbahaisController < ApplicationController
    before_action :set_eventosbahai, only: [:show, :edit, :update, :destroy]
    before_action :permission, only: [:new]
    before_action :correct_user_eventosbahais?, only: [:edit, :update, :destroy]
-
+   
    def index
       @eventosbahais = Eventosbahai.order('id DESC').all
    end

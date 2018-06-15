@@ -86,18 +86,6 @@
        </div>
      </div>
 
-    <div class="field form-group">
-      <%= f.label "Escolha uma forma de pagamento:" %><br/>
-      <ul>
-        <li><%= f.radio_button :autolyse, 1, :required => true %>
-          <%= f.label :autolyse, "Pagamento em 2 parcelas (1º até 30 de abril, 2º até 20 de maio)", :value => "1", :style=>'font-weight: normal;' %></li>
-        <li> <%= f.radio_button :autolyse, 2 %>
-           <%= f.label :autolyse, "Parcela única (até 20 de maio)", :style=>'font-weight: normal;' %></li>
-
-        <li> <%= f.radio_button :autolyse, 3 %>
-          <%= f.label :autolyse, "Tenho menos de 12 anos", :style => 'font-weight: normal;' %></li>
-      </ul>
-    </div>
 
      <div class="field">
         <p><%= f.check_box :publist, :checked=>true %> Deseja aparecer na lista de inscritos nesta página?</p>
@@ -110,7 +98,7 @@
     <div style="text-align: center;">
 
               
-       <%= f.submit @btname, class:'btn btn-lg btn-success' %>  
+       <%= f.submit @btname, class:'btn btn-success' %>  
         
     </div>
 

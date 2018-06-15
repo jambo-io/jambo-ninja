@@ -1,5 +1,5 @@
 <div id="confirmation"></div>
-<div id="section1" class="container" style="margin-bottom:200px;">
+<div id="section1" class="container pt-5" style="margin-bottom:200px; border:0px;">
 
 	<% if params[:error] %>
 
@@ -13,8 +13,8 @@
 
 		<% if @sendemail == "1" && @emailveracity %>
 
-			<h1>Obrigado <%= @participant.name %>!</h1>
-			<p>Ficamos felizes com sua participação, enviamos um E-mail para <%= @participant.contact %> com as principais informações.</p>
+			<h1 class="text-center">Obrigado <%= @participant.name %>!</h1>
+			<p style="text-align: center;">Ficamos felizes com sua participação, enviamos um E-mail para <%= @participant.contact %> com as principais informações.</p>
 
 		<% else %>
 
@@ -30,9 +30,7 @@
 				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ad31109692e4b43"></script>
 
 			</div>
-		<p class="details">
-		Você também pode se cadastrar nesse Site para obter informações de atividades e eventos. Se você ainda não tem uma conta, <%= link_to "clique aqui", new_user_path %> para se cadastrar.
-		</p>
+		
 
 	<% end %>
 
