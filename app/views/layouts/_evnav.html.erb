@@ -1,7 +1,7 @@
 <%= javascript_include_tag('parallax.js') %>
 <%= javascript_include_tag('participants.js') %>
 
-<nav class="navbar navbar-expand-lg" >
+<nav class="navbar navbar-expand-lg navbar-dark" >
   <%= link_to image_tag("logo0brand-sm-01-01.png", :size => '40', class:'navbar-brand'), root_path %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -70,7 +70,7 @@
                               <div class="field">
                               <%= f.password_field :password, autocomplete: "off", placeholder:"Senha", class:"form-control" %>
                               </div>
-                              <div class="help-block text-right"><a href="">Esqueceu a senha ?</a></div>
+                              <div class="help-block text-center"><a href="">Esqueceu a senha ?</a></div>
                             </div>
                             <div class="form-group">
                                <button type="submit" class="btn btn-primary btn-block">Entrar</button>

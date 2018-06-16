@@ -38,11 +38,17 @@ a:hover {
   background-color: #3e474f;
   color: #b2bbbd;
 }
+.navbar-collapse {
+  background-color:  #3e474f; 
+}
 
 .dropdown-item:hover, .dropdown-item:focus {
   color: #fff;
   text-decoration: none;
   background-color: #3e474f;
+}
+.dropdown a {
+  color:white;
 }
 .nav-link {
   margin-left: 10px;
