@@ -3,7 +3,8 @@
 	<br>
 	<% if @evento.image.exists? %>
 		<figure class="figure">
-			<%= image_tag(@images, class: "img-responsive figure-img img-fluid rounded mx-auto d-block", style: "margin: 0 auto; margin-bottom:10px;") %>
+			 <%= image_tag image.image.url(:big), class: "img-responsive figure-img img-fluid rounded mx-auto d-block" %>
+	
 		</figure>
 	<% end %>
 	<ul>
