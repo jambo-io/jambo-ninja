@@ -1,5 +1,5 @@
  class PagesController < ApplicationController
-    layout "test"
+    layout 'workspace'
     
     def show
     	#render template: "pages/#{params[:page]}"

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @jambodoc_category.title %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @jambodoc_category.desc %>
+</p>
+
+<%= link_to 'Edit', edit_jambodoc_category_path(@jambodoc_category) %> |
+<%= link_to 'Back', jambodoc_categories_path %>

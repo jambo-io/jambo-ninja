@@ -1,0 +1,2 @@
+class JambodocCategory < ApplicationRecord
+end

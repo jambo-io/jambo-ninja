@@ -1,0 +1,2 @@
+class Socialuser < ApplicationRecord
+end

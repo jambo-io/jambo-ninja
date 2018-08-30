@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :media
+  resources :contacts
+  resources :jambodoc_categories
   resources :phones
-  resources :fish
   resources :news
   resources :blogs
   resources :qualquernomes

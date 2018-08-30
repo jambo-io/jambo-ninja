@@ -38,7 +38,10 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'bcrypt'
 
-gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
+# Paperclip
+gem "paperclip", "~> 5.0.0"
+# Store files on Amazon
+gem 'aws-sdk', '~> 2.3'
 
 gem 'geocoder'
 
@@ -51,11 +54,6 @@ gem 'popper_js', '~> 1.9', '>= 1.9.9'
 #JamboDrive
 gem 'google-api-client', '~> 0.9'
 gem 'googleauth'
-
-
-
-
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -81,9 +79,3 @@ gem 'social-share-button'
 gem 'rack-cors', :require => 'rack/cors'
 
 #+13136494087
-
-
-
-
-
-

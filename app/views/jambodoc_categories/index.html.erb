@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Jambodoc Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Desc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jambodoc_categories.each do |jambodoc_category| %>
+      <tr>
+        <td><%= jambodoc_category.title %></td>
+        <td><%= jambodoc_category.desc %></td>
+        <td><%= link_to 'Show', jambodoc_category %></td>
+        <td><%= link_to 'Edit', edit_jambodoc_category_path(jambodoc_category) %></td>
+        <td><%= link_to 'Destroy', jambodoc_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jambodoc Category', new_jambodoc_category_path %>

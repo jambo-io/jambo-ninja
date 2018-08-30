@@ -27,7 +27,7 @@
 
   <div class="footer text-right text-muted">
     <div class="row mt-2">
-      <div class="col" style="text-align: left;"><small>Salvo</small></div>
+      <div class="col" style="text-align: left;"><small id="saved"></small></div>
       <div class="col" style="text-align: right;">
         <li class="list-inline-item">
           <button id="send" type="button" class="btn btn-send float-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Enviar</button>
@@ -111,6 +111,12 @@
       } else {
           $('#title').html('Novo Documento');
       }
+
+  });
+
+  $("#jambodoc_text").keyup(function () {
+
+    $("#saved").text("Salvando...");
 
   });
 

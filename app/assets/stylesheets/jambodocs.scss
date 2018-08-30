@@ -21,6 +21,12 @@ body {
   text-rendering: optimizeLegibility;
   font-family: 'Comfortaa', helvetica;
 }
+
+td {
+  padding: 10px !important;
+}
+
+
 a {
   transition: color 300ms 0s ease;
   text-decoration: none !important;

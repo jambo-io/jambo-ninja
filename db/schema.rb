@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180524131816) do
+ActiveRecord::Schema.define(version: 20180808150007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,23 @@ ActiveRecord::Schema.define(version: 20180524131816) do
     t.index ["user_id"], name: "index_clusters_on_user_id", using: :btree
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lastname"
+    t.date     "birthday"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "state"
+    t.string   "city"
+    t.string   "address"
+    t.string   "number"
+    t.string   "pc"
+    t.string   "activities"
+    t.boolean  "video"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "eventosbahais", force: :cascade do |t|
     t.string   "name"
     t.date     "start_at"
@@ -67,9 +84,9 @@ ActiveRecord::Schema.define(version: 20180524131816) do
     t.index ["user_id"], name: "index_eventosbahais_on_user_id", using: :btree
   end
 
-  create_table "fish", force: :cascade do |t|
-    t.string   "name"
-    t.string   "color"
+  create_table "jambodoc_categories", force: :cascade do |t|
+    t.string   "title"
+    t.string   "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -115,6 +132,13 @@ ActiveRecord::Schema.define(version: 20180524131816) do
     t.index ["user_id"], name: "index_learningdesk_reports_on_user_id", using: :btree
   end
 
+  create_table "media", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "news", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -158,6 +182,14 @@ ActiveRecord::Schema.define(version: 20180524131816) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_ruhibooks_on_user_id", using: :btree
+  end
+
+  create_table "socialusers", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,21 @@
+<div class="container container-edit rounded-top mt-5">
+  <div class="title-box">
+
+
+    <div class="row">
+      <div class="col-2" style="text-align: left;">
+        <span id="title">Editando Contato</span>
+      </div>
+      <div class="col-6" style="text-align: center;">
+
+      </div>
+      <div class="col-4" style="text-align: right;">
+        <li class="list-inline-item"><%= button_tag "Concluir", id: "save", class: "btn btn-new float-right", form: "edit_contact_#{params[:id]}" %></li>
+      </div>
+    </div>
+
+  </div>
+
+<%= render 'form', contact: @contact %>
+
+</div>

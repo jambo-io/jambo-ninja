@@ -1,0 +1,27 @@
+<%= form_for(jambodoc_category) do |f| %>
+  <% if jambodoc_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jambodoc_category.errors.count, "error") %> prohibited this jambodoc_category from being saved:</h2>
+
+      <ul>
+      <% jambodoc_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :desc %>
+    <%= f.text_field :desc %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
