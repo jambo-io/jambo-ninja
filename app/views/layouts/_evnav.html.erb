@@ -7,7 +7,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="container-fluid">
+  <div class="container-fluid" style="z-index: 5">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="animation <%= 'nav-animation' if current_page?(root_path) %>">
 
@@ -41,9 +41,9 @@
             <li class="dropdown">
               <%= link_to "#{user_name}<span class='caret'></span>".html_safe, users_path, { :class => "nav-link dropdown-toggle", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'aria-expanded'=>"false", 'role'=>"button"} %>
 
-                <ul class="dropdown-menu account-dropdown" style="z-index: 0;">
+                <ul class="dropdown-menu account-dropdown" style="z-index: 5;">
                   <li class="dropdown-item"><%= link_to "Perfil", user_path(current_user), class:"nav-link" %></li>
-                  <li class="dropdown-item"><%= link_to "Conta", '#', class:"nav-link" %></li>
+                  
                   <li class="dropdown-item">
                     <%= link_to "Sair", signout_path, method: "delete", class:"nav-link" %>
                   </li>

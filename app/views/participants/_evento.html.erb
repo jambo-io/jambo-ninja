@@ -1,17 +1,20 @@
 <h3 style="text-align:center;"><%= @evento.name %></h3>
-	<p style="text-align:center;"><%= @evento.theme %></p>
-	<br>
-	<% if @evento.image.exists? %>
-		<figure class="figure">
-			 <%= image_tag @evento.image(:big), class:"card-img-top", alt:"Card image cap" %>
-	
-		</figure>
-	<% end %>
-	<ul>
-	  <li>De <strong><%= @evento.start_at.strftime('%d-%m-%Y') %>
-	  </strong> à <strong><%= @evento.end_at.strftime('%d-%m-%Y') %></strong></li>
-	  <li>Cidade: <strong><%= @evento.city %> - <%= @evento.state %></strong></li>
-	  <p><%= @evento.description %></p>
+<p style="text-align:center;"><%= @evento.theme %></p>
+<br>
+<% if @evento.image.exists? %>
+<div class="text-center p-2">
+	<figure class="figure">
+		 <%= image_tag @evento.image(:big), class:"card-img-top", alt:"Card image cap" %>
+
+	</figure>
+</div>
+<% end %>
+<ul>
+  <li>De <strong><%= @evento.start_at.strftime('%d-%m-%Y') %>
+  </strong> à <strong><%= @evento.end_at.strftime('%d-%m-%Y') %></strong></li>
+  <li>Cidade: <strong><%= @evento.city %> - <%= @evento.state %></strong></li>
+
+   <%= simple_format @evento.description %>
 
 	<% if @event_available %>
 	  	<li>Número de vagas disponíveis: <span class="badge badge-success"><%= @vacancies %></span></li>
