@@ -1,6 +1,7 @@
 
   <h1>Eventos Bahá'ís</h1>
 
+  <p class="text-muted p-5 m-5 text-center">Não há nenhum evento ainda :/</p>
 
   <table>
     <tbody>
@@ -13,7 +14,7 @@
             <%= link_to 'Editar', edit_eventosbahai_path(eventosbahai) %> |
             <%= link_to 'Destruir', eventosbahai_path(eventosbahai), method: :delete, data:{confirm: 'Deletar um evento irá deletar todos os participantes inscritos também. Deseja deletar mesmo assim?'} %> 
           <%end %>
-
+         
         </td>
         </tr>
       <% end %>
@@ -22,9 +23,12 @@
   <br>
 
   <% if admin? %>
-    <ul class="list-inline">
+    <ul class="list-inline text-center">
      <li class="list-inline-item"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-success' %></li>
-     <li class="list-inline-item"><%= link_to "Ver todos os participantes", participants_path, class:'btn btn-warning' %></li>
+     
+     <% unless @participants.blank? %>
+      <li class="list-inline-item"><%= link_to "Ver todos os participantes", participants_path, class:'btn btn-warning' %></li>
+     <% end %>
     </ul>
   <%end %>
 

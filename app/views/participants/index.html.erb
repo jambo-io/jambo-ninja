@@ -4,15 +4,18 @@
 	<ul class="list-inline mx-auto text-center">
 		<li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-new m-1' %></li>
 		<li class="list-inline-item" style="display: inline-block;"><%= link_to "Ver todos os Eventos", eventosbahais_path, class:'btn btn-new m-1' %></li>
-    	<li class="list-inline-item" style="display: inline-block;"><%= link_to "Crachás", badges_path, class:'btn btn-new m-1', id:'crachas' %></li>
-    	<li class="list-inline-item" style="display: inline-block;"><%= link_to "Lista de presença", listas_path, class:'btn btn-new m-1', id:'listapresenca' %></li>
+		
+		<% unless @participants.blank? %>
+			<li class="list-inline-item" style="display: inline-block;"><%= link_to "Crachás", badges_path, class:'btn btn-new m-1', id:'crachas' %></li>
+    		<li class="list-inline-item" style="display: inline-block;"><%= link_to "Lista de presença", listas_path, class:'btn btn-new m-1', id:'listapresenca' %></li>
+		<% end %>
 	</ul>
 
-
-
-	<%= form_tag partsev_path,  {id:'formcombo', remote:true } do |form| %>
-	<%= collection_select :eventosbahais, :ids , current_user.eventosbahais.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
-	<% end %>	    
+	<% unless (Eventosbahai.last.blank?) %>
+		<%= form_tag partsev_path,  {id:'formcombo', remote:true } do |form| %>
+			<%= collection_select :eventosbahais, :ids , current_user.eventosbahais.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
+		<% end %>
+	<% end %>
 	<script>
 		$(function() {
 		   $("#eventosbahais_ids").change(function() {

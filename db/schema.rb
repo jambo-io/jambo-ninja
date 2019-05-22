@@ -27,11 +27,6 @@ ActiveRecord::Schema.define(version: 20180808150007) do
     t.string   "address"
   end
 
-  create_table "blogs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "clusters", force: :cascade do |t|
     t.string   "name"
     t.string   "city"
@@ -98,15 +93,6 @@ ActiveRecord::Schema.define(version: 20180808150007) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "learnindesk_reports", force: :cascade do |t|
-    t.string   "title"
-    t.text     "report"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_learnindesk_reports_on_user_id", using: :btree
-  end
-
   create_table "learningdesk_contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -139,11 +125,6 @@ ActiveRecord::Schema.define(version: 20180808150007) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "news", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.string   "lastname"
@@ -162,18 +143,6 @@ ActiveRecord::Schema.define(version: 20180808150007) do
     t.boolean  "paid",            default: false
     t.boolean  "phoneconfirmed"
     t.index ["eventosbahai_id"], name: "index_participants_on_eventosbahai_id", using: :btree
-  end
-
-  create_table "phones", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "qualquernomes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "ruhibooks", force: :cascade do |t|
@@ -203,7 +172,6 @@ ActiveRecord::Schema.define(version: 20180808150007) do
 
   add_foreign_key "clusters", "users"
   add_foreign_key "eventosbahais", "users"
-  add_foreign_key "learnindesk_reports", "users"
   add_foreign_key "learningdesk_recipients", "learningdesk_reports"
   add_foreign_key "learningdesk_reports", "users"
   add_foreign_key "participants", "eventosbahais"
