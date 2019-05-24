@@ -1,23 +1,24 @@
 <div id="section1" class="container">
 	<h1>Usuários</h1>
-	<table>
-		<thead>
-			<tr>
-				<th>Nome</th>
-				
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @users.each do |user| %>
-			<tr>
-				<td><%= user.name %></td>
-				
-				<td><%= link_to "Ver", user %></td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+	<% unless @users.count == 0 %>
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+					<% @users.each do |user| %>
+						<tr>
+							<td><%= user.user_profile.name %></td>
+							
+							<td><%= link_to "Ver", user %></td>
+						</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
 </div>
 
 <script>

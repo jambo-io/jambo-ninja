@@ -21,7 +21,7 @@
 
 
 
-        <% if admin? %>
+        <% if current_user.admin? %>
           <li class="nav-item"><%= link_to 'Administrador', participants_path, class: "nav-link" %></li>
         <% end %>
 
@@ -32,7 +32,7 @@
       <ul class="nav navbar-nav ml-auto" style="z-index: 1;">
 
         <li class="nav-item"><%= link_to "⚛", "", class: "nav-link", style:"font-size:200%;" %></li>
-        <% if logged_in? %>
+        <% if user_signed_in?? %>
         <li class="dropdown" style="line-height:50px;">
 
           <%= link_to "#{user_name}<span class='caret'></span>".html_safe, users_path, {:class => "nav-link dropdown-toggle", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'aria-expanded' => "false", 'role' => "button"} %>

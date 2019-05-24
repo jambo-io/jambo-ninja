@@ -1,5 +1,5 @@
 <div id="section1" class="container" style="border:0px;">
-	<h2 class="mb-4 text-center" style="margin-top: 40px;"> Oi <%= current_user.name %>! </h2>
+	<h2 class="mb-4 text-center" style="margin-top: 40px;"> Oi <%= current_user.user_profile.name %>! </h2>
 
 	<ul class="list-inline mx-auto text-center">
 		<li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-new m-1' %></li>

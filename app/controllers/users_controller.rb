@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize, except: [:new, :create]
+  before_action :authenticate_user!, except: [:new, :create]
   before_action :correct_user?, only: [:edit, :update, :destroy]
   before_action :permission, only: [:index]
   layout "eventosbahais"
@@ -32,25 +32,8 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
-    @user_name = @user.name
+    @user_name = @user.user_profile.name
     @user_email = @user.email
-
-    #Ruhibook profile FORM
-    @ruhi = @user.ruhibook
-    if @ruhi.nil?
-      @ruhibook = Ruhibook.new
-    else
-      @ruhibook = Ruhibook.find_by(:user_id => @user.id)
-    end
-
-    #Cluster profile FORM
-    @clus = @user.cluster
-    if @clus.nil?
-      puts "cluster é vazio"
-      @cluster = Cluster.new
-    else
-      @cluster = Cluster.find_by(:user_id => @user.id)
-    end
 
   end
 
@@ -79,7 +62,7 @@ class UsersController < ApplicationController
   		params.require(:user).permit(:name,:email,:password,:password_confirmation, :privileges)  
     end
     def permission
-      unless admin?
+      unless current_user.admin?
         redirect_to root_path
       end
     end

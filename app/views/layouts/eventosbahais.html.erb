@@ -11,9 +11,17 @@
 
      <%= render "layouts/evnav" %>
 
-
      <div class="content" style="min-height: 100vh">
         <div class="container container-main rounded-top mt-5 mx-auto">
+
+          <% if notice %>
+            <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+
+
           <%=yield %>
        </div>
      </div>

@@ -72,7 +72,7 @@
 	<div class="actions text-center">
 		<ul class="list-inline">
 			
-			<% if admin? && correct_user_eventosbahais? %>
+			<% if current_user.admin? && correct_user_eventosbahais? %>
 				<% unless @event_available %>
 					<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
 				<% end %>

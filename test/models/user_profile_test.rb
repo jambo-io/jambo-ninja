@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ClustersControllerTest < ActionDispatch::IntegrationTest
+class UserProfileTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

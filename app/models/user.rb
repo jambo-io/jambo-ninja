@@ -1,18 +1,20 @@
-require 'bcrypt'
 class User < ApplicationRecord
-	include BCrypt
-	has_secure_password
-	has_one :ruhibook, :dependent => :destroy
-	has_one :cluster, :dependent => :destroy
-	has_many :learningdesk_reports, :class_name => 'Learningdesk::Report'
-	has_many :eventosbahais
-	has_many :participants, :through => :eventosbahais
-	validates :name, presence:true, length: {maximum:60}
-	validates :password, presence:true, length: {minimum:6}
-	#VALID_EMAIL_FORMAT=/\w+@\w+\.{1}[a-zA-Z]{2,}/
-	validates :email, presence: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
-	#validates :email, presence: true, length: {maximum:260}, format: {with: VALID_EMAIL_FORMAT}, uniqueness: {case_sensitive: false}
-	#before_save { self.email = :email.downcase }
+  enum role: [:user, :vip, :admin]
+  after_initialize :set_default_role, :if => :new_record?
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  after_create :build_profile
 
+  has_one :user_profile
+  has_many :eventosbahais
+  devise :database_authenticatable, :registerable,
+		 :recoverable, :rememberable, :validatable
+		 
+  def build_profile 
+	self.build_user_profile
+  end
 
+  def set_default_role
+    self.role ||= :user
+  end
 end

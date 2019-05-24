@@ -8,8 +8,11 @@ class ParticipantsController < ApplicationController
 		@participants = Participant.order('name desc').all
 
 		@user = User.find(current_user.id)
-		@eventosbahais = @user.eventosbahais.order('id desc')
-		@size = @user.participants.size
+		unless @user.blank?
+			@eventosbahais = @user.eventosbahais.order('id desc')
+		end
+
+		@size = 1
 	end
 
 	def edit
@@ -144,7 +147,7 @@ class ParticipantsController < ApplicationController
          params.require(:eventosbahais).permit(:ids)
       end
       def permission
-         unless admin?
+         unless current_user.admin?
             redirect_to root_path
          end
       end

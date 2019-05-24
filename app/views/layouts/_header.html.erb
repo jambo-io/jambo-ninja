@@ -21,7 +21,7 @@
            <li><%= link_to 'Principal', root_path, class:"nav-link" %></li>
 
 
-           <% if logged_in? %>
+           <% if user_signed_in? %>
 
             <% unless privileges.nil? || privileges ==0 %>
 
@@ -83,8 +83,13 @@
 
         <ul class="nav navbar-nav navbar-right">
 
+        <%unless current_user.blank? -%>
+signed in
+<%else -%>
+not signed in
+<%end-%>
 
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <li>
             <%= link_to 'Usuários', users_path, class:"nav-link" %>
           </li>

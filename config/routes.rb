@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :user_profiles
+  devise_for :users
   resources :media
   resources :contacts
   resources :jambodoc_categories
@@ -22,8 +24,6 @@ Rails.application.routes.draw do
   post 'participantsev' => 'participants#eventosbahais', :as => :partsev
   resources :eventosbahais
   resources :participants
-  resources :ruhibooks
-  resources :clusters
   resources :drives
 
   get '/initialize' => 'drives#initialize'

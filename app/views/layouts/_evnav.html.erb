@@ -11,8 +11,6 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="animation <%= 'nav-animation' if current_page?(root_path) %>">
 
-
-
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -24,7 +22,7 @@
             <li class="nav-item <%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', partnew_path(Eventosbahai.last.id), class:"nav-link" %></li>
           <% end %>
           
-          <% if admin? %>
+          <% if user_signed_in? && current_user.admin? %>
             <li class="nav-item"><%= link_to 'Administrador', participants_path, class:"nav-link" %></li>
           <% end %>
 
@@ -33,21 +31,21 @@
         <ul class="nav navbar-nav ml-auto" style="z-index: 1;">
           <li> <%= link_to 'Minha Inscrição', pin_path, class:"nav-link" %></li>
 
-          <% if logged_in? %>
-            <% if admin? %>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
             <li>
               <%= link_to 'Usuários',users_path, class:"nav-link" %>
             </li>
             <% end %>
 
             <li class="dropdown">
-              <%= link_to "#{user_name}<span class='caret'></span>".html_safe, users_path, { :class => "nav-link dropdown-toggle", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'aria-expanded'=>"false", 'role'=>"button"} %>
+              <%= link_to "#{current_user.email}<span class='caret'></span>".html_safe, users_path, { :class => "nav-link dropdown-toggle", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'aria-expanded'=>"false", 'role'=>"button"} %>
 
-                <ul class="dropdown-menu account-dropdown" style="z-index: 5;">
+                <ul class="dropdown-menu dropdown-menu-right account-dropdown" style="z-index: 5;">
                   <li class="dropdown-item"><%= link_to "Perfil", user_path(current_user), class:"nav-link" %></li>
                   
                   <li class="dropdown-item">
-                    <%= link_to "Sair", signout_path, method: "delete", class:"nav-link" %>
+                    <%= link_to "Sair", destroy_user_session_path, method: "delete", class:"nav-link" %>
                   </li>
                 </ul>
               </li>
@@ -62,7 +60,7 @@
                 <li class="dropdown-item">
                    <div class="row">
                       <div class="col-md-12">
-                         <%= form_for :session, url: signin_path do |f| %>
+                          <%= form_for(:user, :url => session_path(:user)) do |f| %>
                             <div class="form-group">
                                <div class="field">
                               <%= f.email_field :email, autofocus: true, placeholder:"Email", class:"form-control" %>
@@ -72,7 +70,7 @@
                               <div class="field">
                               <%= f.password_field :password, autocomplete: "off", placeholder:"Senha", class:"form-control" %>
                               </div>
-                              <div class="help-block text-center"><a href="">Esqueceu a senha ?</a></div>
+                              <div class="help-block text-center"><%= link_to "Esqueceu sua senha?", new_password_path(:user) %></div>
                             </div>
                             <div class="form-group">
                                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
@@ -85,7 +83,7 @@
                          <% end %>
                       </div>
                       <div class="bottom text-center">
-                        <span style="color:#bbb;">Novo aqui? </span><%= link_to "Junte-se a nós", new_user_path %>
+                        <span style="color:#bbb;">Novo aqui? </span><%= link_to "Junte-se a nós", new_user_registration_path %>
                       </div>
                    </div>
                 </li>

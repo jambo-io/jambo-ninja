@@ -14,7 +14,7 @@ class BadgesController < ApplicationController
 
   private
   def redirect
-    unless admin?
+    unless current_user.admin?
       redirect_to root_path
     end
   end

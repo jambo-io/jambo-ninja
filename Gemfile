@@ -36,7 +36,9 @@ gem 'bootstrap_form'
 #Enviroment Variables Management
 gem 'dotenv-rails', :groups => [:development, :test]
 
-gem 'bcrypt'
+
+
+gem 'devise'
 
 # Paperclip
 gem "paperclip", "~> 5.0.0"

@@ -62,14 +62,14 @@ class EventosbahaisController < ApplicationController
    end
 
    def permission
-      unless admin?
+      unless current_user.admin?
          redirect_to root_path
       end
    end
 
    def correct_user_eventosbahais?
       eventobahai = Eventosbahai.find(params[:id])
-      unless logged_in? || eventobahai.user_id == current_user.id
+      unless user_signed_in? || eventobahai.user_id == current_user.id
          redirect_to root_path
       end
    end
