@@ -10,7 +10,7 @@ class PresencelistsController < ApplicationController
   end
   private
   def redirect
-    unless admin?
+    unless user_signed_in? && current_user.admin?
       redirect_to root_path
     end
   end

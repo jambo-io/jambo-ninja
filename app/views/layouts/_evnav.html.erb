@@ -22,7 +22,7 @@
             <li class="nav-item <%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', partnew_path(Eventosbahai.last.id), class:"nav-link" %></li>
           <% end %>
           
-          <% if user_signed_in? && current_user.admin? %>
+          <% if user_signed_in? && user_signed_in? && current_user.admin? %>
             <li class="nav-item"><%= link_to 'Administrador', participants_path, class:"nav-link" %></li>
           <% end %>
 
@@ -32,7 +32,7 @@
           <li> <%= link_to 'Minha Inscrição', pin_path, class:"nav-link" %></li>
 
           <% if user_signed_in? %>
-            <% if current_user.admin? %>
+            <% if user_signed_in? && current_user.admin? %>
             <li>
               <%= link_to 'Usuários',users_path, class:"nav-link" %>
             </li>
