@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_one :user_profile, dependent: :destroy
   has_many :eventosbahais
+  has_many :participants
   devise :database_authenticatable, :registerable,
 		 :recoverable, :rememberable, :validatable
 		 

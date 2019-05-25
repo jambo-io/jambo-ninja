@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190525135405) do
+ActiveRecord::Schema.define(version: 20190525224317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20190525135405) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_clusters_on_user_id", using: :btree
+  end
+
+  create_table "conferenciasdeunidades", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.date     "start_at"
+    t.date     "end_at"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -125,14 +135,13 @@ ActiveRecord::Schema.define(version: 20190525135405) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "participants", force: :cascade do |t|
+  create_table "participant_roles", force: :cascade do |t|
     t.string   "name"
-    t.string   "lastname"
-    t.string   "contact"
-    t.date     "birthday"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "participants", force: :cascade do |t|
     t.integer  "eventosbahai_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -142,15 +151,9 @@ ActiveRecord::Schema.define(version: 20190525135405) do
     t.integer  "pin"
     t.boolean  "paid",            default: false
     t.boolean  "phoneconfirmed"
-    t.index ["eventosbahai_id"], name: "index_participants_on_eventosbahai_id", using: :btree
-  end
-
-  create_table "ruhibooks", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.index ["user_id"], name: "index_ruhibooks_on_user_id", using: :btree
+    t.index ["eventosbahai_id"], name: "index_participants_on_eventosbahai_id", using: :btree
+    t.index ["user_id"], name: "index_participants_on_user_id", using: :btree
   end
 
   create_table "socialusers", force: :cascade do |t|
@@ -191,6 +194,9 @@ ActiveRecord::Schema.define(version: 20190525135405) do
 
   add_foreign_key "eventosbahais", "users"
   add_foreign_key "learningdesk_recipients", "learningdesk_reports"
+  add_foreign_key "learningdesk_reports", "users"
   add_foreign_key "participants", "eventosbahais"
+  add_foreign_key "participants", "eventosbahais"
+  add_foreign_key "participants", "users"
   add_foreign_key "user_profiles", "users"
 end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Participant Roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @participant_roles.each do |participant_role| %>
+      <tr>
+        <td><%= participant_role.name %></td>
+        <td><%= link_to 'Show', participant_role %></td>
+        <td><%= link_to 'Edit', edit_participant_role_path(participant_role) %></td>
+        <td><%= link_to 'Destroy', participant_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Participant Role', new_participant_role_path %>
