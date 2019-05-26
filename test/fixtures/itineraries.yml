@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transportation: 
+  company: MyString
+  departure: 2019-05-26 14:54:04
+  arrival: 2019-05-26 14:54:04
+  flight_number: MyString
+  participant: one
+
+two:
+  transportation: 
+  company: MyString
+  departure: 2019-05-26 14:54:04
+  arrival: 2019-05-26 14:54:04
+  flight_number: MyString
+  participant: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190525224317) do
+ActiveRecord::Schema.define(version: 20190526145404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,18 @@ ActiveRecord::Schema.define(version: 20190525224317) do
     t.index ["user_id"], name: "index_eventosbahais_on_user_id", using: :btree
   end
 
+  create_table "itineraries", force: :cascade do |t|
+    t.string   "transportation"
+    t.string   "company"
+    t.datetime "departure"
+    t.datetime "arrival"
+    t.string   "flight_number"
+    t.integer  "participant_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["participant_id"], name: "index_itineraries_on_participant_id", using: :btree
+  end
+
   create_table "jambodoc_categories", force: :cascade do |t|
     t.string   "title"
     t.string   "desc"
@@ -145,7 +157,6 @@ ActiveRecord::Schema.define(version: 20190525224317) do
     t.integer  "eventosbahai_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.boolean  "publist"
     t.boolean  "firstaccess",     default: false
     t.string   "autolyse"
     t.integer  "pin"
@@ -193,6 +204,7 @@ ActiveRecord::Schema.define(version: 20190525224317) do
   end
 
   add_foreign_key "eventosbahais", "users"
+  add_foreign_key "itineraries", "participants"
   add_foreign_key "learningdesk_recipients", "learningdesk_reports"
   add_foreign_key "learningdesk_reports", "users"
   add_foreign_key "participants", "eventosbahais"

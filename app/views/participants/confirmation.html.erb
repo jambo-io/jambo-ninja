@@ -12,32 +12,136 @@
 	<% else %>
 
 		<% if @sendemail == "1" && @emailveracity %>
-
+		<div class="text-center mx-auto">
 			<h1 class="text-center">Obrigado <%= @participant.name %>!</h1>
-			<p style="text-align: center;">Ficamos felizes com sua participação, enviamos um E-mail para <%= @participant.email %> com as principais informações.</p>
+			<p style="text-align: center;">Ficamos felizes com sua participação, enviamos um E-mail para <strong><%= @participant.email %></strong> com as principais informações.</p>
 
+			<p>Por favor, se já tiver um itinerário preencha os campos abaixo:</p>
+			<div class="row mx-auto">
+				<%= form_for :itinerary, html: {class: 'mx-auto'} do |f| %>
+					<div class="form-group">
+					<%= f.label "Transporte" %>
+					<%= f.select :transportation, Itinerary.transportations.keys.to_a, {},{ class: 'form-control', required: true } %>
+					</div>
+
+					<div id="company_group" class="form-group">
+					<%= f.label "Empresa" %>
+					<%= f.text_field :company, class: 'form-control', placeholder:'ex: Latam' %>
+					</div>
+
+					<div id="flight_number_group" class="form-group">
+					<%= f.label "Número do Voô" %>
+					<%= f.text_field :flight_number, class: 'form-control', placeholder:'ex: NSFTDA' %>
+					</div>
+				
+					<div id="departure_group" class="form-group">
+					<%= f.label "Data/Hora de Saída" %><br>
+					<%= f.datetime_select :departure, { :order => [:day, :month, :year]},
+						{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
+					</div>
+
+					<div id="arrival_group" class="form-group">
+					<%= f.label "Data/Hora de Chegada" %><br>
+					<%= f.datetime_select :arrival, { :order => [:day, :month, :year]},
+						{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
+					</div>
+
+					<div class="actions">
+						<%= f.submit "Salvar Itinerário", id:'submit_itinerary', class: 'btn btn-success center-block' %>
+					</div>
+
+				<% end %>
+			</div>
+
+			
+			  
+
+		</div>
 		<% else %>
 
 			<h1>Obrigado <%= @participant.name %>!</h1>
 			<p>Ficamos felizes com sua participação!</p>
 
 		<% end %>
-	        <div style="text-align:center;" class="center-text">
+	        <div style="text-align:center; padding-top: 100px;" class="center-text">
 	        	<p style="margin-bottom: 10px;">Compartilhe com seus amigos</p>
 				<!-- Go to www.addthis.com/dashboard to customize your tools -->
 				<div class="addthis_inline_share_toolbox"></div>
 				<!-- Go to www.addthis.com/dashboard to customize your tools -->
 				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ad31109692e4b43"></script>
-
 			</div>
-		
-
-	<% end %>
+		<% end %>
 
 </div>
 
 <script>
+	$("#company_group").hide();
+	$("#flight_number_group").hide();
+	$("#departure_group").hide();
+	$("#arrival_group").hide();
 
-	slide("#section1");
+	$("#itinerary_transportation").change(function(){
+		var transportation = $(this).val();
+	    itinerary(transportation);
+	});
 
+	$(document).ready(function() {
+		console.log("Testing");
+	});
+
+	function itinerary (transportation) {
+		if(transportation=="") {
+			$("#company_group").hide();
+			$("#flight_number_group").hide();
+			$("#departure_group").hide();
+			$("#arrival_group").hide();
+
+		}
+
+		if(transportation=="carro") {
+			$("#arrival_group").show();
+
+			$("#company_group").hide();
+			$("#flight_number_group").hide();
+			$("#departure_group").hide();
+			
+			$("#itinerary_arrival_3i").focus();
+
+			$("#itinerary_company").prop("required", false);
+			$("#itinerary_flight_number").prop("required", false);
+
+
+		}
+
+		if(transportation=="ônibus") {
+			$("#company_group").show();
+			$("#departure_group").show();
+			$("#arrival_group").show();
+
+			$("#itinerary_company").prop("required", true);
+			$("#itinerary_flight_number").prop("required", false);
+
+			$("#flight_number_group").hide();
+			
+			$("#itinerary_company").focus();
+			$("#itinerary_company").prop("placeholder","ex: Motta");
+
+		}
+
+		if(transportation=="avião") {
+			$("#company_group").show();
+			$("#flight_number_group").show();
+			$("#departure_group").show();
+			$("#arrival_group").show();
+
+			$("#itinerary_company").prop("required", true);
+			$("#itinerary_flight_number").prop("required", true);
+
+
+			$("#itinerary_company").focus();
+			$("#itinerary_company").prop("placeholder","ex: Latam");
+
+
+		}
+	}
 </script>

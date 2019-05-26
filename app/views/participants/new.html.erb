@@ -1,27 +1,22 @@
 
 <div class="content">
-	<div class="row mx-auto">
-		<div class="col-lg-4">
-			<% if @registered.count > 0 %>
 
-				<div class="container-custom amigos-container pt-5 mx-auto mb-2">
-					<h3 style="text-align:center;"><%= "Amigo".pluralize(@registered.count) %>
-						<%= "Inscrito".pluralize(@registered.count) %></h3>
-					<div class="form-row" style="text-align: left;">
-						<ul>
-							<% @registered.each do |r| %>
-
-								<li><%= r.name %></li>
-							<% end %>
-						</ul>
-					</div>
-				</div>
+	<div class="actions text-center">
+		<ul class="list-inline">
+			
+			<% if user_signed_in? && current_user.admin? && correct_user_eventosbahais? %>
+				<% unless @event_available %>
+					<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
+				<% end %>
+					<li class="list-inline-item"><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-new' %></li>
+					<li class="list-inline-item"><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-new' %></li>
 			<% end %>
-		</div>
+		</ul>
+	</div>
 
+	<div class="row mx-auto">
+		<div class="col-lg-8 mx-auto">
 
-		
-		<div class="col-lg-8">
 			<div class="row">
 				<div class="col-12">
 					<div class="container-custom evento-container mx-auto pt-5 mb-2">
@@ -29,6 +24,7 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="row">
 				<div class="col-12">
 				  <% unless @evento.payment.nil? || @evento.payment.blank? %>
@@ -43,11 +39,11 @@
 				  <% end %>
 				</div>
 			</div><!-- row -->
+
 			<div class="row">
 				<div class="col-12">
 
 					<% if @event_available %>
-						<hr>
 						<div id="section3" class="container-custom inscricao-container mx-auto pt-5 mb-2">
 							<h1 style="text-align:center; text-size:100px; margin-bottom: 40px;">Inscrição</h1>
 							<%= render 'form', participant: @participant %>
@@ -55,6 +51,7 @@
 					<% end %>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>

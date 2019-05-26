@@ -29,7 +29,6 @@ class ParticipantsController < ApplicationController
 		@eventosbahai_id = @evento_id
 		@evento = Eventosbahai.find(@evento_id)
 		@vacancies = @evento.vacancies.to_i - Participant.where(eventosbahai_id: @evento_id).count.to_i
-		@registered = @evento.participants.where(:publist => 1)
 		@images = @evento.image.url(:big)
 		#Button name
 		@btname = "Inscrever Agora"
@@ -45,7 +44,7 @@ class ParticipantsController < ApplicationController
 		unless (params[:id].nil?)
 
 			@participant = Participant.find(params[:id])
-			if @participant.firstaccess == false
+			if @participant.firstaccess == true
 				@participant.update(firstaccess: true)
 				@sendemail = @participant.eventosbahai.sendemail
 				if @participant.email =~ /\A[^@]+@[^@]+\Z/
@@ -145,7 +144,7 @@ class ParticipantsController < ApplicationController
 
    private
       def participant_params
-         params.require( :participant ).permit(:eventosbahai_id, :publist, :autolyse)
+         params.require( :participant ).permit(:eventosbahai_id, :autolyse)
       end
       def eventosbahais_params
          params.require(:eventosbahais).permit(:ids)

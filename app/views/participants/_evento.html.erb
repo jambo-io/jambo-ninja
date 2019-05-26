@@ -1,4 +1,4 @@
-<h3 style="text-align:center;"><%= @evento.name %></h3>
+<h1 style="text-align:center;"><%= @evento.name %></h1>
 <p style="text-align:center;"><%= @evento.theme %></p>
 <br>
 <% if @evento.image.exists? %>
@@ -69,15 +69,4 @@
 	        </script>
 	    <% end %>
     <% end %>
-	<div class="actions text-center">
-		<ul class="list-inline">
-			
-			<% if user_signed_in? && current_user.admin? && correct_user_eventosbahais? %>
-				<% unless @event_available %>
-					<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
-				<% end %>
-		    		<li class="list-inline-item"><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-new' %></li>
-		   			<li class="list-inline-item"><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-new' %></li>
-			<% end %>
-		</ul>
-	</div>
+	
