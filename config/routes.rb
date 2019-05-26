@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   get 'participantes/conf' => 'participants#confirmation', :as => :confirm
   post 'participantsev' => 'participants#eventosbahais', :as => :partsev
   resources :eventosbahais
-  resources :participants
+  resources :participants do
+    resources :itineraries
+  end
   resources :drives
 
   get '/initialize' => 'drives#initialize'

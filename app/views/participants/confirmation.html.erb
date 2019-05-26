@@ -18,38 +18,40 @@
 
 			<p>Por favor, se já tiver um itinerário preencha os campos abaixo:</p>
 			<div class="row mx-auto">
-				<%= form_for :itinerary, html: {class: 'mx-auto'} do |f| %>
-					<div class="form-group">
-					<%= f.label "Transporte" %>
-					<%= f.select :transportation, Itinerary.transportations.keys.to_a, {},{ class: 'form-control', required: true } %>
-					</div>
+				<%= form_for @participant,  html: {class: 'mx-auto'} do |form| %>
 
-					<div id="company_group" class="form-group">
-					<%= f.label "Empresa" %>
-					<%= f.text_field :company, class: 'form-control', placeholder:'ex: Latam' %>
-					</div>
+					<%= form.fields_for :itinerary_attributes do |f| %>
+						<div class="form-group">
+						<%= f.label "Transporte" %>
+						<%= f.select :transportation, Itinerary.transportations.keys.to_a, {},{ class: 'form-control', required: true } %>
+						</div>
 
-					<div id="flight_number_group" class="form-group">
-					<%= f.label "Número do Voô" %>
-					<%= f.text_field :flight_number, class: 'form-control', placeholder:'ex: NSFTDA' %>
-					</div>
-				
-					<div id="departure_group" class="form-group">
-					<%= f.label "Data/Hora de Saída" %><br>
-					<%= f.datetime_select :departure, { :order => [:day, :month, :year]},
-						{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
-					</div>
+						<div id="company_group" class="form-group">
+						<%= f.label "Empresa" %>
+						<%= f.text_field :company, class: 'form-control', placeholder:'ex: Latam' %>
+						</div>
 
-					<div id="arrival_group" class="form-group">
-					<%= f.label "Data/Hora de Chegada" %><br>
-					<%= f.datetime_select :arrival, { :order => [:day, :month, :year]},
-						{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
-					</div>
+						<div id="flight_number_group" class="form-group">
+						<%= f.label "Número do Voô" %>
+						<%= f.text_field :flight_number, class: 'form-control', placeholder:'ex: NSFTDA' %>
+						</div>
+					
+						<div id="departure_group" class="form-group">
+						<%= f.label "Data/Hora de Saída" %><br>
+						<%= f.datetime_select :departure, { :order => [:day, :month, :year]},
+							{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
+						</div>
 
-					<div class="actions">
-						<%= f.submit "Salvar Itinerário", id:'submit_itinerary', class: 'btn btn-success center-block' %>
-					</div>
+						<div id="arrival_group" class="form-group">
+						<%= f.label "Data/Hora de Chegada" %><br>
+						<%= f.datetime_select :arrival, { :order => [:day, :month, :year]},
+							{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
+						</div>
 
+						<div class="actions">
+							<%= f.submit "Salvar Itinerário", id:'submit_itinerary', class: 'btn btn-success center-block' %>
+						</div>
+					<% end %>
 				<% end %>
 			</div>
 
@@ -70,7 +72,7 @@
 				<!-- Go to www.addthis.com/dashboard to customize your tools -->
 				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ad31109692e4b43"></script>
 			</div>
-		<% end %>
+	<% end %>
 
 </div>
 
@@ -80,13 +82,13 @@
 	$("#departure_group").hide();
 	$("#arrival_group").hide();
 
-	$("#itinerary_transportation").change(function(){
+	$("#participant_itinerary_attributes_transportation").change(function(){
 		var transportation = $(this).val();
 	    itinerary(transportation);
 	});
 
 	$(document).ready(function() {
-		console.log("Testing");
+
 	});
 
 	function itinerary (transportation) {
@@ -105,10 +107,10 @@
 			$("#flight_number_group").hide();
 			$("#departure_group").hide();
 			
-			$("#itinerary_arrival_3i").focus();
+			$("#participant_itinerary_attributes_arrival_3i").focus();
 
-			$("#itinerary_company").prop("required", false);
-			$("#itinerary_flight_number").prop("required", false);
+			$("#participant_itinerary_attributes_company").prop("required", false);
+			$("#participant_itinerary_attributes_flight_number").prop("required", false);
 
 
 		}
@@ -118,13 +120,15 @@
 			$("#departure_group").show();
 			$("#arrival_group").show();
 
-			$("#itinerary_company").prop("required", true);
-			$("#itinerary_flight_number").prop("required", false);
-
 			$("#flight_number_group").hide();
+
+			$("#participant_itinerary_attributes_company").prop("required", true);
+			$("#participant_itinerary_attributes_flight_number").prop("required", false);
+
 			
-			$("#itinerary_company").focus();
-			$("#itinerary_company").prop("placeholder","ex: Motta");
+			
+			$("#participant_itinerary_attributes_company").focus();
+			$("#participant_itinerary_attributes_company").prop("placeholder","ex: Motta");
 
 		}
 
@@ -134,12 +138,12 @@
 			$("#departure_group").show();
 			$("#arrival_group").show();
 
-			$("#itinerary_company").prop("required", true);
-			$("#itinerary_flight_number").prop("required", true);
+			$("#participant_itinerary_attributes_company").prop("required", true);
+			$("#participant_itinerary_attributes_flight_number").prop("required", true);
 
 
-			$("#itinerary_company").focus();
-			$("#itinerary_company").prop("placeholder","ex: Latam");
+			$("#participant_itinerary_attributes_company").focus();
+			$("#participant_itinerary_attributes_company").prop("placeholder","ex: Latam");
 
 
 		}

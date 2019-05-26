@@ -5,7 +5,7 @@ class ParticipantsController < ApplicationController
 	layout "eventosbahais"
 
 	def index
-		@participants = Participant.order('name desc').all
+		@participants = Participant.order('id desc').all
 
 		@user = User.find(current_user.id)
 		unless @user.blank?
@@ -41,13 +41,17 @@ class ParticipantsController < ApplicationController
 	end
 	def confirmation
 
+
+
 		unless (params[:id].nil?)
 
-			@participant = Participant.find(params[:id])
+			@participant = Participant.where(user_id: params[:id]).last
+			@itinerary = @participant.itinerary
+			
 			if @participant.firstaccess == true
 				@participant.update(firstaccess: true)
 				@sendemail = @participant.eventosbahai.sendemail
-				if @participant.email =~ /\A[^@]+@[^@]+\Z/
+				if current_user.email =~ /\A[^@]+@[^@]+\Z/
 					@emailveracity = true
 				else
 					@emailveracity = false
@@ -88,27 +92,32 @@ class ParticipantsController < ApplicationController
 		@participant = @evento.participants.new(participant_params)
 		
 		user_id = current_user.id unless current_user.blank?
-
+		puts "USER ID"
+		puts user_id
 		@participant.user_id = user_id
 		pin = rand(1000..9999)
 		@participant.pin = pin
 
       	if @participant.save!
-
-      		if @evento.sendemail == "1"
-      			if @participant.email =~ /\A[^@]+@[^@]+\Z/
+				puts "1.0 - Salvo"
+				if @evento.sendemail == "1"
+					puts "2.0 - SendEmail"
+					if @participant.email =~ /\A[^@]+@[^@]+\Z/
+								puts "2.0 - Email"
 								EventoMailer.confirmation_email(@participant).deliver_later
 						else
+								puts "2.2 - SMS"
 								sms(@participant) ##fire sms method
 
 						end
 					end
 
-
-					redirect_to :action => "confirmation", :id => @participant.id
-      	else
-        	redirect_to :action => "confirmation", :evid => participant_params[:eventosbahai_id], :error => true
-      	end
+					puts "3.0 - Redirect"
+					redirect_to :action => "confirmation", :id => user_id
+			else
+				puts "3.3 - Redirect"
+        		redirect_to :action => "confirmation", :evid => participant_params[:eventosbahai_id], :error => true
+     	 	end
     
 	end
 
@@ -118,7 +127,7 @@ class ParticipantsController < ApplicationController
 		@participant = Participant.find(params[:id])
 		@participant.update(participant_params)
 
-		redirect_to participants_path
+		redirect_to root_path
 
 	end
 	def destroy
@@ -144,7 +153,7 @@ class ParticipantsController < ApplicationController
 
    private
       def participant_params
-         params.require( :participant ).permit(:eventosbahai_id, :autolyse)
+         params.require( :participant ).permit(:eventosbahai_id, :autolyse, :itinerary_attributes => [:transportation, :company, :departure, :arrival, :flight_number])
       end
       def eventosbahais_params
          params.require(:eventosbahais).permit(:ids)

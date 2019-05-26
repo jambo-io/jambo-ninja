@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190526145404) do
+ActiveRecord::Schema.define(version: 20190526162815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 20190526145404) do
     t.integer  "eventosbahai_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.boolean  "firstaccess",     default: false
+    t.boolean  "firstaccess",     default: true
     t.string   "autolyse"
     t.integer  "pin"
     t.boolean  "paid",            default: false
