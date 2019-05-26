@@ -17,7 +17,7 @@ class Participant < ApplicationRecord
   end
 
   def email
-    self.user.user_profile.email unless self.user.blank?
+    self.user.email unless self.user.blank?
   end
 
   def phone

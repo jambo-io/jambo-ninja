@@ -14,7 +14,7 @@
 		<% if @sendemail == "1" && @emailveracity %>
 
 			<h1 class="text-center">Obrigado <%= @participant.name %>!</h1>
-			<p style="text-align: center;">Ficamos felizes com sua participação, enviamos um E-mail para <%= @participant.contact %> com as principais informações.</p>
+			<p style="text-align: center;">Ficamos felizes com sua participação, enviamos um E-mail para <%= @participant.email %> com as principais informações.</p>
 
 		<% else %>
 

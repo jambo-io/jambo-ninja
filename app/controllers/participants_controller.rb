@@ -32,7 +32,7 @@ class ParticipantsController < ApplicationController
 		@registered = @evento.participants.where(:publist => 1)
 		@images = @evento.image.url(:big)
 		#Button name
-		@btname = "Inscrever"
+		@btname = "Inscrever Agora"
 		
 		#Check if the Event is still available based on vacancies and Date
 		@event_available = true
@@ -48,7 +48,7 @@ class ParticipantsController < ApplicationController
 			if @participant.firstaccess == false
 				@participant.update(firstaccess: true)
 				@sendemail = @participant.eventosbahai.sendemail
-				if @participant.contact =~ /\A[^@]+@[^@]+\Z/
+				if @participant.email =~ /\A[^@]+@[^@]+\Z/
 					@emailveracity = true
 				else
 					@emailveracity = false
@@ -87,13 +87,17 @@ class ParticipantsController < ApplicationController
 
 		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
 		@participant = @evento.participants.new(participant_params)
+		
+		user_id = current_user.id unless current_user.blank?
+
+		@participant.user_id = user_id
 		pin = rand(1000..9999)
 		@participant.pin = pin
 
-      	if @participant.save
+      	if @participant.save!
 
       		if @evento.sendemail == "1"
-      			if @participant.contact =~ /\A[^@]+@[^@]+\Z/
+      			if @participant.email =~ /\A[^@]+@[^@]+\Z/
 								EventoMailer.confirmation_email(@participant).deliver_later
 						else
 								sms(@participant) ##fire sms method
@@ -141,7 +145,7 @@ class ParticipantsController < ApplicationController
 
    private
       def participant_params
-         params.require( :participant ).permit(:name, :lastname, :contact, :birthday, :address, :city, :state, :eventosbahai_id, :publist, :autolyse)
+         params.require( :participant ).permit(:eventosbahai_id, :publist, :autolyse)
       end
       def eventosbahais_params
          params.require(:eventosbahais).permit(:ids)
