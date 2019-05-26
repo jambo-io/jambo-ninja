@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   resources :participant_roles
-  resources :user_profiles
-  devise_for :users
+  
+  devise_for :users do
+    resources :user_profiles
+  end
   resources :media
   resources :contacts
   resources :jambodoc_categories

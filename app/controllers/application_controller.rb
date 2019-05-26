@@ -1,4 +1,11 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [{ user_profile_attributes: [:name, :lastname,
+    :phone, :birthday, :address, :city, :state] }])
+  end
+
   def default_url_options
     { locale: I18n.locale }
   end

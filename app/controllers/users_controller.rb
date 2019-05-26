@@ -59,7 +59,8 @@ class UsersController < ApplicationController
 
   private
   	def user_params
-  		params.require(:user).permit(:name,:email,:password,:password_confirmation, :privileges)  
+      params.require(:user).permit(:name,:email,:password,:password_confirmation, :privileges,
+      user_profile_attributes: [:name, :lastname, :birthday, :phone, :address, :city, :state, :number, :zipcode])  
     end
     def permission
       unless user_signed_in? && current_user.admin?

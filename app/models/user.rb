@@ -7,17 +7,20 @@ class User < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record?
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  after_create :build_profile
+  
 
   has_one :user_profile, dependent: :destroy
+
+  after_initialize do
+    build_user_profile if new_record? && user_profile.blank?
+  end
+  
   has_many :eventosbahais
   has_many :participants
   devise :database_authenticatable, :registerable,
-		 :recoverable, :rememberable, :validatable
-		 
-  def build_profile 
-	self.build_user_profile
-  end
+     :recoverable, :rememberable, :validatable
+     
+  accepts_nested_attributes_for :user_profile, allow_destroy: true
 
   def set_default_role
     self.role ||= :user
