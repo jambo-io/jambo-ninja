@@ -1,0 +1,22 @@
+<%= form_for(administrative_function) do |f| %>
+  <% if administrative_function.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(administrative_function.errors.count, "error") %> impediu de ser salvo:</h2>
+
+      <ul>
+      <% administrative_function.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label "Nome da Função" %>
+    <%= f.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="actions text-center">
+    <%= f.submit "Salvar", class:"btn btn-success" %>
+  </div>
+<% end %>

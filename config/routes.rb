@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :administrative_functions
   resources :participant_roles
   
   devise_for :users do
