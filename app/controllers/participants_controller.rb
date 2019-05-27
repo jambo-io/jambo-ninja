@@ -91,6 +91,10 @@ class ParticipantsController < ApplicationController
 
 		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
 		@participant = @evento.participants.new(participant_params)
+
+		fullname = params[:fullname]
+
+		current_user.user_profile.update(fullname: fullname)
 		
 		user_id = current_user.id unless current_user.blank?
 		puts "USER ID"
@@ -153,7 +157,7 @@ class ParticipantsController < ApplicationController
 
    private
       def participant_params
-         params.require( :participant ).permit(:eventosbahai_id, :autolyse, :itinerary_attributes => [:transportation, :company, :departure, :arrival, :flight_number])
+         params.require( :participant ).permit(:eventosbahai_id, :autolyse, :administrative_function_id, :itinerary_attributes => [:transportation, :company, :departure, :arrival, :flight_number])
       end
       def eventosbahais_params
          params.require(:eventosbahais).permit(:ids)

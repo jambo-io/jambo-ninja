@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190527203242) do
+ActiveRecord::Schema.define(version: 20190527221145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,14 +164,16 @@ ActiveRecord::Schema.define(version: 20190527203242) do
 
   create_table "participants", force: :cascade do |t|
     t.integer  "eventosbahai_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "firstaccess",     default: true
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.boolean  "firstaccess",                default: true
     t.string   "autolyse"
     t.integer  "pin"
-    t.boolean  "paid",            default: false
+    t.boolean  "paid",                       default: false
     t.boolean  "phoneconfirmed"
     t.integer  "user_id"
+    t.integer  "administrative_function_id"
+    t.index ["administrative_function_id"], name: "index_participants_on_administrative_function_id", using: :btree
     t.index ["eventosbahai_id"], name: "index_participants_on_eventosbahai_id", using: :btree
     t.index ["user_id"], name: "index_participants_on_user_id", using: :btree
   end
@@ -198,6 +200,7 @@ ActiveRecord::Schema.define(version: 20190527203242) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "fullname"
     t.index ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
   end
 
@@ -216,6 +219,7 @@ ActiveRecord::Schema.define(version: 20190527203242) do
   add_foreign_key "itineraries", "participants"
   add_foreign_key "learningdesk_recipients", "learningdesk_reports"
   add_foreign_key "learningdesk_reports", "users"
+  add_foreign_key "participants", "administrative_functions"
   add_foreign_key "participants", "eventosbahais"
   add_foreign_key "participants", "eventosbahais"
   add_foreign_key "participants", "users"

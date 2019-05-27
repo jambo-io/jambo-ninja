@@ -9,13 +9,13 @@
 
   <div class="form-group">
     <%= label_tag "Nome Completo" %>
-    <%= text_field_tag :full_name, nil, class:'form-control', required: true %>
+    <%= text_field_tag :fullname, nil, class:'form-control', required: true %>
   </div>
 
   <% if @event.administrative_function %>
     <div class="form-group">
       <%= label_tag "Função Administrativa" %>
-      <%= text_field_tag :full_name, nil, class:'form-control' %>
+      <%= f.select(:administrative_function_id, AdministrativeFunction.all.collect {|function| [function.name, function.id]},{prompt:'Selecione uma Função'}, {class: 'form-control'}) %>
     </div>
   <% end %>
 
