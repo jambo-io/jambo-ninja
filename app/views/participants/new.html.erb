@@ -66,11 +66,14 @@
 									Você não está inscrito.
 								<% end %>
 							<% else %>
-								<div id="section3" class="container-custom mx-auto mb-2 vertical-align text-center">
-									<p>
-									Para realizar a inscrição você precisa estar logado.</br>
-									<%= link_to "Clique aqui", user_session_path %> para logar.
-									</p>
+								
+	
+									<div class="row">
+										<div class="col-lg-6 mx-auto">
+										<p>Para realizar a inscrição você precisa estar logado.</p>
+											<%= render "devise/sessions/form" %>
+											<%= render "devise/shared/links" %>
+										</div>
 								</div>
 							<% end %>
 						<% end %>
