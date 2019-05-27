@@ -1,24 +1,24 @@
-<h1 style="text-align:center;"><%= @evento.name %></h1>
-<p style="text-align:center;"><%= @evento.theme %></p>
+<h1 style="text-align:center;"><%= @event.name %></h1>
+<p style="text-align:center;"><%= @event.theme %></p>
 <br>
-<% if @evento.image.exists? %>
+<% if @event.image.exists? %>
 <div class="text-center p-2">
 	<figure class="figure">
-		 <%= image_tag @evento.image(:big), class:"card-img-top", alt:"Card image cap" %>
+		 <%= image_tag @event.image(:big), class:"card-img-top", alt:"Card image cap" %>
 
 	</figure>
 </div>
 <% end %>
-<ul>
-  <li>De <strong><%= @evento.start_at.strftime('%d-%m-%Y') %>
-  </strong> à <strong><%= @evento.end_at.strftime('%d-%m-%Y') %></strong></li>
-  <li>Cidade: <strong><%= @evento.city %> - <%= @evento.state %></strong></li>
+<ul class="list-info">
+  <li>De <strong><%= @event.start_at.strftime('%d-%m-%Y') %>
+  </strong> à <strong><%= @event.end_at.strftime('%d-%m-%Y') %></strong></li>
+  <li>Cidade: <strong><%= @event.city %> - <%= @event.state %></strong></li>
 
-   <%= simple_format @evento.description %>
+   <%= simple_format @event.description %>
 
 	<% if @event_available %>
 	  	<li>Número de vagas disponíveis: <span class="badge badge-success"><%= @vacancies %></span></li>
-		<li>Taxa de Inscrição: <span class="badge badge-success"><%= number_to_currency(@evento.price, unit: "R$", separator: ",", delimiter: "", format:"%u %n") %></span></li>
+		<li>Taxa de Inscrição: <span class="badge badge-success"><%= number_to_currency(@event.price, unit: "R$", separator: ",", delimiter: "", format:"%u %n") %></span></li>
 		</ul>
 	<% else %>
 	  	<div class="text-center">
@@ -27,7 +27,7 @@
 	<% end %>
 
 	<% if @event_available %>
-	    <% unless @evento.longitude.nil? || @evento.latitude.nil? %>
+	    <% unless @event.longitude.nil? || @event.latitude.nil? %>
 	      <div id="cardmap'" class="card text-center">
 	          <div class="card-title">
 	            <h2 style="margin-top: 40px; margin-bottom: -20px;">Onde fica?</h2>
@@ -35,7 +35,7 @@
 	          <div class="card-body">
 	            <div class="popin" style=" box-shadow: 0 0 5px #999; border-radius:2px; border-ratio:9;">
 	              <div id="map"> </div>
-	              <%= @evento.location %>, <%= @evento.city %> - <%= @evento.state %>
+	              <%= @event.location %>, <%= @event.city %> - <%= @event.state %>
 	            </div>
 	          </div>
 
@@ -44,17 +44,17 @@
 	            $(document).ready(function(){
 	                var map = new GMaps({
 	                    el: '#map',
-	                    center: {lat: <%= @evento.latitude %>, lng:<%= @evento.longitude %>},
+	                    center: {lat: <%= @event.latitude %>, lng:<%= @event.longitude %>},
 	                    width: '100%',
 	                    height: '300px',
 	                    zoomControl: true,
 	                });
 	                map.addMarker({
-	                    lat:<%= @evento.latitude %>,
-	                    lng:<%= @evento.longitude %>,
-	                    title: "<%= @evento.location %>",
+	                    lat:<%= @event.latitude %>,
+	                    lng:<%= @event.longitude %>,
+	                    title: "<%= @event.location %>",
 	                    infoWindow: {
-	                        content: "<h4><%= @evento.name %></h4><%= @evento.location %><br>"
+	                        content: "<h4><%= @event.name %></h4><%= @event.location %><br>"
 	                    },
 	                    click: function (e) {
 	                        map.map.panTo(e.position);

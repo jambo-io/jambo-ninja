@@ -15,6 +15,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
 
   background-color: #edeff0 !important;
@@ -80,7 +85,7 @@ ul {
 
 
 .container {
-  background-color: #fff;
+  
   width:800px;
 
   z-index: 1;
@@ -108,11 +113,32 @@ ul {
   }
 }
 
+h1 {
+  padding-bottom: 1.5em;
+  padding-top: .5em;
+}
 
+.frame {
+    border-top: 4px solid;
+    border-top-color: #3079AB;
+    background-color: #fff;
+    width: 100%;
+    padding: 2em;
+    margin-bottom: 2em;
+  }
+
+  .list-info li {
+    padding-top: 1em;
+  }
+
+  .vertical-align {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
 
 .container-main {
-   border-top: 4px solid;
-   border-top-color: #3079AB;
    min-width: 90%;
    min-height: 70vh;
 

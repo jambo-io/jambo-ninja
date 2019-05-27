@@ -14,47 +14,71 @@
 		</ul>
 	</div>
 
-	<div class="row mx-auto">
-		<div class="col-lg-8 mx-auto">
-
 			<div class="row">
-				<div class="col-12">
-					<div class="container-custom evento-container mx-auto pt-5 mb-2">
-						<%= render partial: 'participants/evento' %>
+				<div class="col-lg-6 col-sm-12  vertical-align">
+		
+					
+
+					<%= image_tag "il_running.png", class:"text-center", height: 300, width: "auto" %>
+
+					
+
+				</div>
+				<div class="col-lg-6 col-sm-12">
+					<div class="frame">
+						<div class="container-custom evento-container mx-auto pt-5 mb-2">
+							<%= render partial: 'participants/evento' %>
+						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-12">
-				  <% unless @evento.payment.nil? || @evento.payment.blank? %>
-					  <div id="section2" class="container-custom amigos-container pt-5 mx-auto mb-2">
-					  <h1 style="text-align:center; margin-bottom:40px;">Pagamento</h1>
-					  <div class="form-row">
-				      <ul>
-				        <%= simple_format @evento.payment %>
-				      </ul>
-					  </div>
-					  </div><!-- section2 -->
-				  <% end %>
+					<div class="frame">
+						<% unless @event.payment.nil? || @event.payment.blank? %>
+							<div id="section2" class="container-custom amigos-container pt-5 mx-auto mb-2">
+							<h1 style="text-align:center; margin-bottom:40px;">Pagamento</h1>
+							<div class="form-row">
+							<ul>
+								<%= simple_format @event.payment %>
+							</ul>
+							</div>
+							</div><!-- section2 -->
+						<% end %>
+					</div>
 				</div>
 			</div><!-- row -->
 
 			<div class="row">
 				<div class="col-12">
+					<div class="frame">
+						<% if @event_available %>
+							<h1 style="text-align:center; margin-bottom:40px;">Inscrição</h1>
 
-					<% if @event_available %>
-						<div id="section3" class="container-custom inscricao-container mx-auto pt-5 mb-2">
-							<h1 style="text-align:center; text-size:100px; margin-bottom: 40px;">Inscrição</h1>
-							<%= render 'form', participant: @participant %>
-						</div>
-					<% end %>
+							<% if user_signed_in? %>
+								<div id="section3" class="container-custom inscricao-container mx-auto mb-2">
+									<%= render 'form', participant: @participant %>
+								</div>
+								<% if current_user.participants.where(eventosbahai_id: @event.id).first.present? %>
+									Você está inscrito.
+								<% else %>
+									Você não está inscrito.
+								<% end %>
+							<% else %>
+								<div id="section3" class="container-custom mx-auto mb-2 vertical-align text-center">
+									<p>
+									Para realizar a inscrição você precisa estar logado.</br>
+									<%= link_to "Clique aqui", user_session_path %> para logar.
+									</p>
+								</div>
+							<% end %>
+						<% end %>
+					</div>
 				</div>
 			</div>
 
 		</div>
-	</div>
-</div>
 
 
 

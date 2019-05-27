@@ -25,17 +25,17 @@ class ParticipantsController < ApplicationController
 	def new
 
 		@participant = Participant.new
-		@evento_id = params[:id]
-		@eventosbahai_id = @evento_id
-		@evento = Eventosbahai.find(@evento_id)
-		@vacancies = @evento.vacancies.to_i - Participant.where(eventosbahai_id: @evento_id).count.to_i
-		@images = @evento.image.url(:big)
+		@event_id = params[:id]
+		@eventosbahai_id = @event_id
+		@event = Eventosbahai.find(@event_id)
+		@vacancies = @event.vacancies.to_i - Participant.where(eventosbahai_id: @event_id).count.to_i
+		@images = @event.image.url(:big)
 		#Button name
-		@btname = "Inscrever Agora"
+		@btname = "Inscrever-se"
 		
 		#Check if the Event is still available based on vacancies and Date
 		@event_available = true
-		 if @evento.start_at - Date.today  < 0 || @vacancies <= 0 
+		 if @event.start_at - Date.today  < 0 || @vacancies <= 0 
 		 	@event_available = false
 		 end
 	end
@@ -47,6 +47,7 @@ class ParticipantsController < ApplicationController
 
 			@participant = Participant.where(user_id: params[:id]).last
 			@itinerary = @participant.itinerary
+			@event = @participant.eventosbahai
 			
 			if @participant.firstaccess == true
 				@participant.update(firstaccess: true)

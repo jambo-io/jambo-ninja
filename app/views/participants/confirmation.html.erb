@@ -13,49 +13,33 @@
 
 		<% if @sendemail == "1" && @emailveracity %>
 		<div class="text-center mx-auto">
-			<h1 class="text-center">Obrigado <%= @participant.name %>!</h1>
-			<p style="text-align: center;">Ficamos felizes com sua participação, enviamos um E-mail para <strong><%= @participant.email %></strong> com as principais informações.</p>
+			<div class="frame">
+		
 
-			<p>Por favor, se já tiver um itinerário preencha os campos abaixo:</p>
-			<div class="row mx-auto">
-				<%= form_for @participant,  html: {class: 'mx-auto'} do |form| %>
+				<h1 class="text-center">Obrigado <%= @participant.name %>!</h1>
 
-					<%= form.fields_for :itinerary_attributes do |f| %>
-						<div class="form-group">
-						<%= f.label "Transporte" %>
-						<%= f.select :transportation, Itinerary.transportations.keys.to_a, {},{ class: 'form-control', required: true } %>
-						</div>
-
-						<div id="company_group" class="form-group">
-						<%= f.label "Empresa" %>
-						<%= f.text_field :company, class: 'form-control', placeholder:'ex: Latam' %>
-						</div>
-
-						<div id="flight_number_group" class="form-group">
-						<%= f.label "Número do Voô" %>
-						<%= f.text_field :flight_number, class: 'form-control', placeholder:'ex: NSFTDA' %>
-						</div>
-					
-						<div id="departure_group" class="form-group">
-						<%= f.label "Data/Hora de Saída" %><br>
-						<%= f.datetime_select :departure, { :order => [:day, :month, :year]},
-							{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
-						</div>
-
-						<div id="arrival_group" class="form-group">
-						<%= f.label "Data/Hora de Chegada" %><br>
-						<%= f.datetime_select :arrival, { :order => [:day, :month, :year]},
-							{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
-						</div>
-
-						<div class="actions">
-							<%= f.submit "Salvar Itinerário", id:'submit_itinerary', class: 'btn btn-success center-block' %>
-						</div>
-					<% end %>
-				<% end %>
+				<div class="row">
+					<div class="col-12 text-center vertical-align">
+						<p>Ficamos felizes com sua participação, enviamos um E-mail para <strong><%= @participant.email %></strong> com as principais informações.</p>
+						
+					</div>
+				</div>
 			</div>
+			<div class="frame">
+				<div class="row">
+					<div class="col-12 vertical-align">
+						<%= image_tag "il_readyToGo.png", class:"text-center", height: 250, width: "auto" %>
+					</div>
+				</div>
+				<div class="row mx-auto">
+					<div class="col-12">
 
-			
+						<p>Se já tiver um itinerário, por favor preencha os campos abaixo:</p>
+						<%= render partial: "itineraries/form", locals: {participant: @participant} %>
+					</div>
+				</div>
+
+			</div>
 			  
 
 		</div>
@@ -65,13 +49,15 @@
 			<p>Ficamos felizes com sua participação!</p>
 
 		<% end %>
-	        <div style="text-align:center; padding-top: 100px;" class="center-text">
-	        	<p style="margin-bottom: 10px;">Compartilhe com seus amigos</p>
-				<!-- Go to www.addthis.com/dashboard to customize your tools -->
-				<div class="addthis_inline_share_toolbox"></div>
-				<!-- Go to www.addthis.com/dashboard to customize your tools -->
-				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ad31109692e4b43"></script>
-			</div>
+			<% if @event.share %>
+				<div style="text-align:center; padding-top: 100px;" class="center-text">
+					<p style="margin-bottom: 10px;">Compartilhe com seus amigos</p>
+					<!-- Go to www.addthis.com/dashboard to customize your tools -->
+					<div class="addthis_inline_share_toolbox"></div>
+					<!-- Go to www.addthis.com/dashboard to customize your tools -->
+					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ad31109692e4b43"></script>
+				</div>
+			<% end %>
 	<% end %>
 
 </div>

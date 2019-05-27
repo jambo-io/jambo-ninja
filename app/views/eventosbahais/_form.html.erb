@@ -103,14 +103,33 @@
    </div>
 
   
+  <hr>
+
+  <div class="form-group">
+  <p><%= f.check_box :share, :checked=>false %> Adicionar opção de compartilhamento nas redes sociais para os participantes inscritos?
+  </p>
+</div>
+
   <div class="form-group">
     <p><%= f.check_box :sendemail, :checked=>true %> Ativar E-mail automático com todas as informações para os participantes inscritos? 
     </p>
   </div>
 
+  <div class="form-group">
+    <p><%= f.check_box :administrative_function, :checked=>true %> Perguntar as funções administrativas dos membros participantes?
+    </p>
+  </div>
+
+  <div class="form-group">
+    <p><%= f.check_box :itinerary, :checked=>true %> Perguntar o itinerário para os participantes inscritos?
+    </p>
+  </div>
+
+ 
 
 
-  <div class="actions">
-    <%= f.submit "Salvar", class: 'btn btn-info center-block' %>
+
+  <div class="actions text-center">
+    <%= f.submit "Salvar", class: 'btn btn-success center-block' %>
   </div>
 <% end %>

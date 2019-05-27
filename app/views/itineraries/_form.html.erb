@@ -1,0 +1,35 @@
+<%= form_for @participant,  html: {class: 'mx-auto w-100'} do |form| %>
+
+    <%= form.fields_for :itinerary_attributes do |f| %>
+        <div class="form-group" style="display: block; width: 100%;">
+            <%= f.label "Transporte" %>
+            <%= f.select :transportation, Itinerary.transportations.keys.to_a, { :prompt => "Transporte..."},{ class: 'form-control', required: true } %>
+        </div>
+
+        <div id="company_group" class="form-group">
+            <%= f.label "Empresa" %>
+            <%= f.text_field :company, class: 'form-control', placeholder:'ex: Latam' %>
+        </div>
+
+        <div id="flight_number_group" class="form-group">
+            <%= f.label "Número do Voô" %>
+            <%= f.text_field :flight_number, class: 'form-control', placeholder:'ex: NSFTDA' %>
+        </div>
+    
+        <div id="departure_group" class="form-group">
+            <%= f.label "Data/Hora de Saída" %><br>
+            <%= f.datetime_select :departure, { :order => [:day, :month, :year]},
+                {:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
+        </div>
+
+        <div id="arrival_group" class="form-group">
+            <%= f.label "Data/Hora de Chegada" %><br>
+            <%= f.datetime_select :arrival, { :order => [:day, :month, :year]},
+                {:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Salvar Itinerário", id:'submit_itinerary', class: 'btn btn-success center-block' %>
+        </div>
+    <% end %>
+<% end %>

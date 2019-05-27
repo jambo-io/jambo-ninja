@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190526162815) do
+ActiveRecord::Schema.define(version: 20190527033413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20190526162815) do
     t.string   "description"
     t.float    "price"
     t.integer  "vacancies"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.text     "sendemail"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -86,6 +86,9 @@ ActiveRecord::Schema.define(version: 20190526162815) do
     t.float    "latitude"
     t.float    "longitude"
     t.text     "payment"
+    t.boolean  "itinerary"
+    t.boolean  "share"
+    t.boolean  "administrative_function"
     t.index ["user_id"], name: "index_eventosbahais_on_user_id", using: :btree
   end
 

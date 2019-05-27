@@ -58,7 +58,7 @@ class EventosbahaisController < ApplicationController
    end
 
    def eventosbahai_params
-    params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies, :sendemail, :image, :payment)
+    params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies, :sendemail, :image, :payment, :itinerary, :share, :administrative_function)
    end
 
    def permission
