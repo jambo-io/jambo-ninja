@@ -18,32 +18,31 @@
 		<div class="row">
 			<div class="col-lg-12 col-sm-12">
 				<div class="frame">
-					
 					<div class="container-custom evento-container mx-auto pt-5 mb-2">
 						<%= render partial: 'participants/evento' %>
 					</div>
-
-					
 				</div>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-12">
-				<div class="frame">
-					<% unless @event.payment.nil? || @event.payment.blank? %>
-						<div id="section2" class="container-custom amigos-container pt-5 mx-auto mb-2">
-						<h1 style="text-align:center; margin-bottom:40px;">Pagamento</h1>
-						<div class="form-row">
-						<ul>
-							<%= simple_format @event.payment %>
-						</ul>
-						</div>
-						</div><!-- section2 -->
-					<% end %>
+		<% unless @event.payment.nil? || @event.payment.blank? %>
+			<div class="row">
+				<div class="col-12">
+					<div class="frame">
+						
+							<div id="section2" class="container-custom amigos-container pt-5 mx-auto mb-2">
+							<h1 style="text-align:center; margin-bottom:40px;">Pagamento</h1>
+							<div class="form-row">
+							<ul>
+								<%= simple_format @event.payment %>
+							</ul>
+							</div>
+							</div><!-- section2 -->
+						
+					</div>
 				</div>
-			</div>
-		</div><!-- row -->
+			</div><!-- row -->
+		<% end %>
 
 		<div class="row">
 			<div class="col-12">
