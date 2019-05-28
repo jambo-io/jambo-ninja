@@ -30,7 +30,9 @@
 
         <ul class="nav navbar-nav ml-auto" style="z-index: 1;">
           <% if user_signed_in? %>
-            <li> <%= link_to 'Minha Inscrição', participant_path(current_user.participants.last), class:"nav-link" %></li>
+            <% if current_user.participants.last.present? %>
+              <li> <%= link_to 'Minha Inscrição', participant_path(current_user.participants.last), class:"nav-link" %></li>
+            <% end %>
             <% if user_signed_in? && current_user.admin? %>
             <li>
               <%= link_to 'Usuários',users_path, class:"nav-link" %>

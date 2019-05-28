@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190527221145) do
+ActiveRecord::Schema.define(version: 20190528202206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20190527221145) do
   end
 
   create_table "itineraries", force: :cascade do |t|
-    t.string   "transportation"
+    t.integer  "transportation"
     t.string   "company"
     t.datetime "departure"
     t.datetime "arrival"

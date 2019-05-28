@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-	before_action :permission, only: [:index, :destroy, :edit]
+	before_action :authenticate_user!, except: [:new]
 
 	def index
 		@participants = Participant.order('id desc').all
@@ -37,9 +37,6 @@ class ParticipantsController < ApplicationController
 		 end
 	end
 	def confirmation
-
-
-
 		unless (params[:id].nil?)
 
 			@participant = Participant.where(user_id: params[:id]).last
@@ -57,15 +54,10 @@ class ParticipantsController < ApplicationController
 			else
 				redirect_to root_path
 			end
-
-
-
 		end
-
 	end
 
 	def sms (participant)
-
 		mail_text = EventoMailer.confirmation_email(participant).text_part.body
 		endpoint = 'https://api.totalvoice.com.br/sms'
 		require "uri"
@@ -74,24 +66,19 @@ class ParticipantsController < ApplicationController
 		x = Net::HTTP.post_form(URI.parse("#{endpoint}"), params)
 		puts x.body
 		#puts JSON.parse(request_body)
-
 	end
 
 	def show
-
 		@participant = Participant.find(params[:id])
+		@itinerary = @participant.itinerary
 		@event = @participant.eventosbahai
-
 	end
-	def create
 
+	def create
 		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
 		@participant = @evento.participants.new(participant_params)
-
 		fullname = params[:fullname]
-
 		current_user.user_profile.update(fullname: fullname)
-		
 		user_id = current_user.id unless current_user.blank?
 		puts "USER ID"
 		puts user_id
@@ -119,7 +106,6 @@ class ParticipantsController < ApplicationController
 				puts "3.3 - Redirect"
         		redirect_to :action => "confirmation", :evid => participant_params[:eventosbahai_id], :error => true
      	 	end
-    
 	end
 
 
@@ -132,7 +118,6 @@ class ParticipantsController < ApplicationController
 
 	end
 	def destroy
-
 		@participant = Participant.find(params[:id])
 		@participant.destroy
 
@@ -157,11 +142,6 @@ class ParticipantsController < ApplicationController
       end
       def eventosbahais_params
          params.require(:eventosbahais).permit(:ids)
-      end
-      def permission
-         unless user_signed_in? && current_user.admin?
-            redirect_to root_path
-         end
       end
       def pin
          @participant = Participant.find(params[:id])

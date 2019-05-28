@@ -1,6 +1,6 @@
 class QualquernomesController < ApplicationController
   before_action :set_qualquernome, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /qualquernomes
   # GET /qualquernomes.json
   def index

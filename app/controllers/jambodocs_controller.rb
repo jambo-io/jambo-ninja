@@ -1,4 +1,5 @@
 class JambodocsController < ApplicationController
+  before_action :authenticate_user!
   layout 'workspace'
   def index
     @jambodocs = Jambodoc.order('id desc').all

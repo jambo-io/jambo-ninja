@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   before_action :correct_user?, only: [:edit, :update, :destroy]
-  before_action :permission, only: [:index]
   layout "eventosbahais"
 
   def index
@@ -13,9 +12,6 @@ class UsersController < ApplicationController
   end
   def create
   	@user = User.new(user_params)
-
-
-
     respond_to do |format|
       if @user.save
         #Envia email ao usuário ao confirmar formulário

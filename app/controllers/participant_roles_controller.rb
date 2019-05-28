@@ -1,6 +1,6 @@
 class ParticipantRolesController < ApplicationController
   before_action :set_participant_role, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /participant_roles
   # GET /participant_roles.json
   def index

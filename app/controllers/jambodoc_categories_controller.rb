@@ -1,6 +1,6 @@
 class JambodocCategoriesController < ApplicationController
   before_action :set_jambodoc_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /jambodoc_categories
   # GET /jambodoc_categories.json
   def index

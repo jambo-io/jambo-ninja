@@ -118,6 +118,17 @@ h1 {
   padding-top: .5em;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Share&display=swap');
+.frame-subscription {
+    font-family: 'Share', cursive;
+    border: 4px solid;
+    border-color: #3079AB;
+    background-color: #fff;
+    width: 100%;
+    padding: 2em;
+    margin-bottom: 2em;
+}
+
 .frame {
     border-top: 4px solid;
     border-top-color: #3079AB;

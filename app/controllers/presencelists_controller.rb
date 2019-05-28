@@ -1,4 +1,5 @@
 class PresencelistsController < ApplicationController
+  before_action :authenticate_user!
   include SessionsHelper
   layout 'participant'
   before_action :redirect, only: [:index]

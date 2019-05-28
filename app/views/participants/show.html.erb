@@ -1,10 +1,11 @@
 
 <div class="row">
   <div class="col-6 mx-auto">
-    <div class="frame">
+    <div class="frame-subscription">
       <h1 class="text-center">Minha Inscrição</h1>
+      
         <div class="row">
-          <div class="col-6">
+          <div class="col-9">
             <h3><%= @event.name %></h3>
             <ul>
               <% if @event.theme.present? %>
@@ -24,10 +25,16 @@
               <% end %>
             </ul>
 
-            <h3>Meus Dados</h3>
+            <div class="d-flex flex-row">
+
+              <div class="p-2"><h3>Meus Dados</h3></div>
+              
+              <div class="p-2 vertical-align"><small class="small">[Editar]</small></div>
+
+            </div>
               <ul>
                 <% if @participant.fullname.present? %>
-                  <li>Nome completo: <%= @participant.fullname %></li>
+                  <li><strong><%= @participant.fullname %></strong></li>
                 <% end %>
                 <% if @participant.city.present? %>
                   <li>Cidade: <%= @participant.city %> - <%= @participant.state %></li>
@@ -40,28 +47,45 @@
                 <% end %>
               </ul>
 
-            <h3>Itinerário</h3>
-              <%= @itinerary.inspect %>
-              <ul>
-                <% if @participant.fullname.present? %>
-                  <li>Nome completo: <%= @participant.fullname %></li>
-                <% end %>
-                <% if @participant.city.present? %>
-                  <li>Cidade: <%= @participant.city %> - <%= @participant.state %></li>
-                <% end %>
-                <% if @participant.phone.present? %>
-                  <li>Celular: <%= @participant.phone %></li>
-                <% end %>
-                <% if @participant.email.present? %>
-                  <li>E-mail: <%= @participant.email %></li>
-                <% end %>
-              </ul>
+            <div class="d-flex flex-row">
+
+              <div class="p-2"><h3>Itinerário</h3></div>
+              
+              <div class="p-2 vertical-align"><small class="small"><%= link_to "[Editar]", edit_participant_itinerary_path(@participant, @participant.itinerary) %></small></div>
+
+            </div>
+
+              <% if @itinerary.transportation.present? %>  
+                
+                <ul>
+                  <% if @itinerary.transportation.present? %>
+                    <li>Transporte: <%= @itinerary.transportation %></li>
+                  <% end %>
+                  <% if @itinerary.company.present? %>
+                    <li>Empresa: <%= @itinerary.company %></li>
+                  <% end %>
+                  <% if @itinerary.flight_number.present? %>
+                    <li>Número do Vôo: <%= @itinerary.flight_number %></li>
+                  <% end %>
+                  <% if @itinerary.departure.present? %>
+                    <li>Saída: <%= @itinerary.departure %></li>
+                  <% end %>
+                  <% if @itinerary.arrival.present? %>
+                    <li>Chegada: <%= @itinerary.arrival %></li>
+                  <% end %>
+                </ul>
+              <% end %>
+              <% if @itinerary.transportation.blank? %> 
+                 <p class="text-danger">Parece que você ainda não adicionou seu Itinerário. <%= link_to "Adicione aqui", edit_participant_itinerary_path(@participant, @participant.itinerary) %> para completar sua inscrição.</p>
+              <% end %>
 
           </div>
-          <div class="col-6">
+
+          <div class="col-3">
             <div class="vertical-align">
              <%= image_tag "il_niceguy.png", height:250, widht:"auto" %>
             </div>
+            <h3 class="text-center"><%= @participant.pin %></h3>
           </div>
         </div>
 

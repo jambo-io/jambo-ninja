@@ -1,7 +1,7 @@
 class PinsController < ApplicationController
   layout "eventosbahais"
+  before_action :authenticate_user!
   def new
-
     if session[:pin]
       @participant = Participant.find_by(:pin => session[:pin])
       if(@participant)
@@ -10,25 +10,18 @@ class PinsController < ApplicationController
         session.delete(:pin)
       end
     end
-
   end
   def create
-
    # Verifica se o E-mail e o PIN fornecido estão de acordo
    @participant = Participant.where(:contact => pin_params[:contact], :pin => pin_params[:pin]).first
-
     if @participant
       @participant.update(:phoneconfirmed => true)
       session[:pin] = @participant.pin
       redirect_to participant_path(@participant)
-
     else
-
       render :new
       flash[:notice] = "E-mail e/ou Código não encontrados."
-
     end
-
   end
 
   def destroy

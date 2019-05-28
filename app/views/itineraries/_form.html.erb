@@ -1,6 +1,5 @@
-<%= form_for @participant,  html: {class: 'mx-auto w-100'} do |form| %>
+<%= form_for [participant, itinerary],  html: {class: 'mx-auto w-100'} do |f| %>
 
-    <%= form.fields_for :itinerary_attributes do |f| %>
         <div class="form-group" style="display: block; width: 100%;">
             <%= f.label "Transporte" %>
             <%= f.select :transportation, Itinerary.transportations.keys.to_a, { :prompt => "Transporte..."},{ class: 'form-control', required: true } %>
@@ -31,5 +30,4 @@
         <div class="actions">
             <%= f.submit "Salvar Itinerário", id:'submit_itinerary', class: 'btn btn-success center-block' %>
         </div>
-    <% end %>
 <% end %>
