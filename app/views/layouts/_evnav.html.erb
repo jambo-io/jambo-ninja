@@ -29,9 +29,8 @@
         </ul>
 
         <ul class="nav navbar-nav ml-auto" style="z-index: 1;">
-          <li> <%= link_to 'Minha Inscrição', pin_path, class:"nav-link" %></li>
-
           <% if user_signed_in? %>
+            <li> <%= link_to 'Minha Inscrição', participant_path(current_user.participants.last), class:"nav-link" %></li>
             <% if user_signed_in? && current_user.admin? %>
             <li>
               <%= link_to 'Usuários',users_path, class:"nav-link" %>

@@ -1,118 +1,72 @@
-<div class="container-fluid" style="margin-right: 30px;">
 
-</div>
-
-
-
-<div id="section1" class="container" style="font-family: helvetica, verdana, arial, sans-serif; font-size: small;">
-  <div class="row">
-
-    <div class="col-sm-12" style="text-align: right;">
-      <h3><%= @participant.pin %>/<%= @participant.id %></h3>
-    </div>
-
-  <div class="body">
-    <h3 style="text-align: center;"><%= @participant.eventosbahai.name %></h3>
-  </div>
-
-  <div class="body" style="margin-top: 50px;">
-    <h4>Participante</h4>
-    <div class="row">
-
-      <div class="col-12 col-sm-5 col-lg-8">
-       <b> <%= @participant.name %> <%= @participant.lastname %></b>
-      </div>
-      <div class="col-6 col-lg-4">Data da inscrição: <%= @participant.created_at.strftime("%d/%m/%Y") %></div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-sm-4">Aniversário: <%= @participant.birthday.strftime("%d/%m/%Y") %></div>
-      <div class="col-6 col-sm-4"></div>
-      <div class="col-6 col-sm-4"></div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-sm-4">Endereço: <%= @participant.address %></div>
-      <div class="col-6 col-sm-4">Cidade: <%= @participant.city %> - <%= @participant.state %></div>
-      <div class="col-6 col-sm-4">Contato: <%= @participant.contact %></div>
-    </div>
-
-    </div>
-
-  <hr>
-  <div class="body" style="margin-top:20px;">
-    <h4>Evento</h4>
-    <div class="row">
-
-      <div class="col-12 col-sm-6 col-lg-8">
-        <%= @event.name %>
-      </div>
-      <div class="col-6 col-lg-4">
-        Tema: <%= @event.theme %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-sm-4"><b>Início: <%= @event.start_at.strftime("%d/%m/%Y") %></b></div>
-      <div class="col-6 col-sm-4"><b>Término:<%= @event.end_at.strftime("%d/%m/%Y") %></b></div>
-      <div class="col-6 col-sm-4"></div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-sm-4">Local: <%= @event.location %></div>
-      <div class="col-6 col-sm-4">Cidade: <%= @event.city %> - <%= @event.state %></div>
-      <div class="col-6 col-sm-4"></div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-sm-4">Taxa de Inscrição: R$<%= @event.price %></div>
-      <div class="col-6 col-sm-4"></div>
-      <div class="col-6 col-sm-4"></div>
-    </div>
-
-  </div>
-
-  <hr>
-
-
-    <div class="body" style="margin-top:20px;">
-        <h4>Taxa de Inscrição</h4>
+<div class="row">
+  <div class="col-6 mx-auto">
+    <div class="frame">
+      <h1 class="text-center">Minha Inscrição</h1>
         <div class="row">
+          <div class="col-6">
+            <h3><%= @event.name %></h3>
+            <ul>
+              <% if @event.theme.present? %>
+                <li>Tema: <%= @event.theme %></li>
+              <% end %>
+              <% if @event.location.present? %>
+                <li>Endereço: <%= @event.location %></li>
+              <% end %>
+              <% if @event.city.present? %>
+                <li>Cidade: <%= @event.city %> - <%= @event.state %></li>
+              <% end %>
+              <% if @event.description.present? %>
+                <li>Descrição: <%= @event.description %></li>
+              <% end %>
+              <% if @event.price.present? %>
+                <li>Valor: <%= @event.price %></li>
+              <% end %>
+            </ul>
 
-          <div class="col-6 col-sm-4">
+            <h3>Meus Dados</h3>
+              <ul>
+                <% if @participant.fullname.present? %>
+                  <li>Nome completo: <%= @participant.fullname %></li>
+                <% end %>
+                <% if @participant.city.present? %>
+                  <li>Cidade: <%= @participant.city %> - <%= @participant.state %></li>
+                <% end %>
+                <% if @participant.phone.present? %>
+                  <li>Celular: <%= @participant.phone %></li>
+                <% end %>
+                <% if @participant.email.present? %>
+                  <li>E-mail: <%= @participant.email %></li>
+                <% end %>
+              </ul>
 
-
-            Forma de pagamento:
-
-            <% if @participant.autolyse == "1" %>
-              Parcelado
-            <% elsif @participant.autolyse == "2" %>
-              À Vista
-            <% end %>
-
+            <h3>Itinerário</h3>
+              <%= @itinerary.inspect %>
+              <ul>
+                <% if @participant.fullname.present? %>
+                  <li>Nome completo: <%= @participant.fullname %></li>
+                <% end %>
+                <% if @participant.city.present? %>
+                  <li>Cidade: <%= @participant.city %> - <%= @participant.state %></li>
+                <% end %>
+                <% if @participant.phone.present? %>
+                  <li>Celular: <%= @participant.phone %></li>
+                <% end %>
+                <% if @participant.email.present? %>
+                  <li>E-mail: <%= @participant.email %></li>
+                <% end %>
+              </ul>
 
           </div>
-          <div class="col-6 col-sm-4">
-          <% @participant.paid.inspect %>
-            Estado: <% if @participant.paid == false %>
-              <span class="text-warning">Pendente</span>
-            <% elsif @participant.paid == true %>
-              <span class="text-success">Pago</span>
-            <% end %>
-
+          <div class="col-6">
+            <div class="vertical-align">
+             <%= image_tag "il_niceguy.png", height:250, widht:"auto" %>
+            </div>
           </div>
-          <div class="col-6 col-sm-4"></div>
         </div>
 
-        <div class="row">
-          <div class="col-12 col-sm-6 col-lg-8">
-            <p><%= @event.payment %></p>
-          </div>
-          <div class="col-6 col-lg-4">
-
-          </div>
-        </div>
+        <h3></h3>
     </div>
-
-    <%= link_to 'Sair', sair_path, method: "delete", class:"btn btn-success pull-right" %>
-
-
   </div>
-
 </div>
 

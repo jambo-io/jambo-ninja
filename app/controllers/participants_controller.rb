@@ -1,8 +1,5 @@
 class ParticipantsController < ApplicationController
 	before_action :permission, only: [:index, :destroy, :edit]
-	before_action :pin, only: [:show]
-
-	layout "eventosbahais"
 
 	def index
 		@participants = Participant.order('id desc').all
@@ -84,7 +81,6 @@ class ParticipantsController < ApplicationController
 
 		@participant = Participant.find(params[:id])
 		@event = @participant.eventosbahai
-    	render layout: 'participant'
 
 	end
 	def create

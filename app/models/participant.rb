@@ -19,6 +19,10 @@ class Participant < ApplicationRecord
     self.user.user_profile.lastname unless self.user.blank?
   end
 
+  def fullname
+    self.user.user_profile.fullname unless self.user.blank?
+  end
+
   def birthday
     self.user.user_profile.birthday unless self.user.blank?
   end
