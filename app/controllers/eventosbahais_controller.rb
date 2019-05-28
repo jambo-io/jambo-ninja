@@ -20,7 +20,7 @@ class EventosbahaisController < ApplicationController
    def create
       user = current_user
       @eventosbahai = user.eventosbahais.new(eventosbahai_params)
-      if @eventosbahai.save
+      if @eventosbahai.save!
          redirect_to @eventosbahai
       end
    end
