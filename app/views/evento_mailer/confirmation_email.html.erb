@@ -4,40 +4,41 @@
 		<meta control = 'text/html; charset=UTF-8' http-equiv='Content-Type'/>
 	</head>
 	<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:14px;font-weight:normal;line-height:1.5;margin:0;margin-bottom:15px;">
-		
-	
-		
-		
-		<p >
-			Olá <%= @participant.name %> <%= @participant.lastname %>,<br><br>
-			Ficamos felizes com sua participação. Abaixo estão as informações sobre a data e o local da <%= @eventosbahai.name %> que ocorrerá em <%= @eventosbahai.city %> - <%= @eventosbahai.state %><br><br>
-			<ul style="list-style:none">
+		<div style="border-radius:9px; padding:2em; margin: 2em; margin-top:2em; background-color: white;">
+			<p >
+
+				<table>
+					<tr>
+						<td><%= image_tag attachments['emailforyou.png'].url, width:100, height:"auto" %></td>
+						<td><h2>Olá <%= @participant.name %> <%= @participant.lastname %>,</h2></td>
+					</tr>
+				</table>
 				
-				<li><b>Início:</b> <%= @eventosbahai.start_at %></li>
-				<li><b>Término:</b> <%= @eventosbahai.end_at %></li>
-				<% unless @eventosbahai.location.nil? %>
-					<li><b>Endereço:</b> <%= @eventosbahai.location %></i>
+
+				<br><br>
+				Abaixo estão as informações sobre a data e o local da <%= @eventosbahai.name %> que ocorrerá em <%= @eventosbahai.city %> - <%= @eventosbahai.state %><br><br>
+				<ul style="list-style:none">
+					
+					<li><b>Início:</b> <%= @eventosbahai.start_at %></li>
+					<li><b>Término:</b> <%= @eventosbahai.end_at %></li>
+					<% unless @eventosbahai.location.nil? %>
+						<li><b>Endereço:</b> <%= @eventosbahai.location %></i>
+					<% end %>
+					
+				</ul><br>
+				<% unless @eventosbahai.description.nil? %>
+					<p><b> <%= @eventosbahai.description %></p> <br>
 				<% end %>
-				
-			</ul><br>
-			<% unless @eventosbahai.description.nil? %>
-				<p><b> <%= @eventosbahai.description %></p> <br>
-			<% end %>
 
-      <hr>
-      <h2><%= @participant.pin %></h2>
-
-      Utilize esse código para acessar seu  <%= link_to "comprovante de inscrição", :controller =>"pins", :action =>"new", :only_path => false %>.
+				<br><br>
 
 
-      <br><br>
+				<br><br>Qualquer dúvidas responda a este E-mail<br><br>
 
-
-			<br><br>Qualquer dúvidas envie um email para conselhoco@bahai.org.br<br><br>
-
-      Atenciosamente,<br>
-			Equipe <%= @eventosbahai.name %>
-		</p>
+				Atenciosamente,<br>
+						Equipe <%= @eventosbahai.name %>
+			</p>
+		</div>
 	</body>
 </html>
 

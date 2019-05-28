@@ -4,7 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 /* line 1, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/bundler/gems/bootstrap-rubygem-05041b5103de/assets/stylesheets/bootstrap/_root.scss */
 :root {
   --blue: #007bff;
@@ -11715,443 +11715,615 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-@font-face {
-  font-family: "Gotham Bold";
-  src: url(http://localhost:10549/assets/fonts/GothamRoundedBook_21018-18964c80b28cca8aa17f5195778f968e933f0599b32850ac51642ed3c197d5f3.ttf) format("ttf");
-}
-/* line 12, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-* {
-  box-sizing: border-box;
+/* line 1, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
 }
 
-/* line 18, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 10, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-twitter {
+  background-image: url(http://localhost:10549/assets/social-share-button/twitter-7b64ce0117a85c5d52ed45c27707af61d9b0e0d590284baa287cfe87867b9ae1.svg);
+}
+
+/* line 14, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-facebook {
+  background-image: url(http://localhost:10549/assets/social-share-button/facebook-03210e1663ee772e93ed5d344cdb36657b68342821aaebe982f2f984915990b3.svg);
+}
+
+/* line 18, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-google_bookmark {
+  background-image: url(http://localhost:10549/assets/social-share-button/google_bookmark-bb4c960c0421cb7dce602d10e744692bcc1c54f323410f4965d508f96e2255ce.svg);
+}
+
+/* line 22, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-google_plus {
+  background-image: url(http://localhost:10549/assets/social-share-button/google_plus-50c049fbb29cd3346f1bf9349017b644bcd00a53b56bd156728850f57bd85c0a.svg);
+}
+
+/* line 26, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-weibo {
+  background-image: url(http://localhost:10549/assets/social-share-button/weibo-a345a6ca554e6f388da9eb35746bb0425cb018c16408ba82852c66d375245d6f.svg);
+}
+
+/* line 30, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-qq {
+  background-image: url(http://localhost:10549/assets/social-share-button/qq-4dbae8223fc7823f6d73bc7fbe113eb894f4c174ec3ae93103ca382c78a2bf67.svg);
+}
+
+/* line 34, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-delicious {
+  background-image: url(http://localhost:10549/assets/social-share-button/delicious-0c55f72f821aae5352691f13eb64bf3435573e2169d0720477ed367b2f1ed28e.svg);
+}
+
+/* line 38, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-linkedin {
+  background-image: url(http://localhost:10549/assets/social-share-button/linkedin-b7fd42895b291003c444a9c2acf867ea813671e0b725a5d7c05dbb13f5c0fdd3.svg);
+}
+
+/* line 42, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-tumblr {
+  background-image: url(http://localhost:10549/assets/social-share-button/tumblr-330a37f93cce7c27a750188d0bfdbed3a22f566b807e64d21131dcdc94e08ec3.svg);
+}
+
+/* line 46, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-pinterest {
+  background-image: url(http://localhost:10549/assets/social-share-button/pinterest-86203d156197cce4087fee058b920d275c535df5fd59d8caa83da0ef41d1ec7f.svg);
+}
+
+/* line 50, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-douban {
+  background-image: url(http://localhost:10549/assets/social-share-button/douban-46298c27e3bc6d59951c0bbc464339a5ba1b44e3b25b571874f1baacd7af2495.svg);
+}
+
+/* line 54, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-wechat {
+  background-image: url(http://localhost:10549/assets/social-share-button/wechat-d8852cc3396a7a53eba39595d2e9f638c93a34ab1a0f41bae4ff391b63815f56.svg);
+}
+
+/* line 58, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-vkontakte {
+  background-image: url(http://localhost:10549/assets/social-share-button/vkontakte-0c2b68277fade991d74efcbdb6f7b359a35e65156cbada9625a3fe8f73151c14.svg);
+}
+
+/* line 62, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-odnoklassniki {
+  background-image: url(http://localhost:10549/assets/social-share-button/odnoklassniki-579bf782bd70fe94748254cac2c8c3dc150cceb0d2a143399e3062246b5ecb39.svg);
+}
+
+/* line 66, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-xing {
+  background-image: url(http://localhost:10549/assets/social-share-button/xing-0ebccb4042c8c7220e471c4f569df2bf27da227db425525819b6848c86a1603e.svg);
+}
+
+/* line 70, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-email {
+  background-image: url(http://localhost:10549/assets/social-share-button/email-7067143cbe69d9d8cf25e67fda1a315d133c2b79074a09088bd712cc5c81135d.svg);
+}
+
+/* line 74, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-reddit {
+  background-image: url(http://localhost:10549/assets/social-share-button/reddit-730429c239b6990b67d0d4aaaeb6e9fe48c62267f889a412e81f5f1066ec625f.svg);
+}
+
+/* line 78, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-hacker_news {
+  background-image: url(http://localhost:10549/assets/social-share-button/hacker_news-d89b13fec49355a787389a776f2e03a0a38314abf93777b8865f8c5f146eaf8d.svg);
+}
+
+/* line 82, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-telegram {
+  background-image: url(http://localhost:10549/assets/social-share-button/telegram-a6b5607917f3e3efbcf35c3ed43356b05622fcfc533d2fbf5066621b78c1dbe4.svg);
+}
+
+/* line 86, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.social-share-button .ssb-whatsapp_app,
+.social-share-button .ssb-whatsapp_web {
+  background-image: url(http://localhost:10549/assets/social-share-button/whatsapp-766099d1a3ea095e9c8a8628e0505159b7f336b8036a8f70ad5fe60c29233959.svg);
+}
+
+/* line 91, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.ss-wechat-dialog {
+  width: 300px;
+  position: fixed;
+  background: #fff;
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  z-index: 11001;
+  font-size: 14px;
+  line-height: 1.2em;
+}
+
+/* line 103, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.ss-wechat-dialog .wechat-popup-header {
+  font-weight: bold;
+}
+
+/* line 107, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.ss-wechat-dialog .wechat-dialog-qr {
+  text-align: center;
+  margin: 25px 0;
+}
+
+/* line 112, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.ss-wechat-dialog .wechat-popup-close {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #999;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* line 123, /home/guilhermenunes09/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/social-share-button-1.2.0/app/assets/stylesheets/social-share-button.css.erb */
+.ss-wechat-dialog .wechat-popup-footer {
+  text-align: left;
+  line-height: 22px;
+  color: #666;
+}
+
+/* line 14, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 body {
-  background-color: #edeff0 !important;
-  text-rendering: optimizeLegibility;
-  font-family: 'Comfortaa', helvetica;
+  width: 100%;
+  min-height: 100%;
+  padding: 0px;
+  background: #f2f2f2;
+  height: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 100%;
+  overflow-x: hidden;
+  padding-top: 0px;
 }
 
-/* line 25, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-td {
-  padding: 10px !important;
+/* line 28, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.card {
+  border: 0;
 }
 
-/* line 30, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-a {
-  transition: color 300ms 0s ease;
-  text-decoration: none !important;
+/* line 31, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.card-body {
+  padding: 9px;
 }
 
-/* line 34, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-a:hover {
-  text-decoration: none !important;
+/* line 34, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.page-bg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
 }
 
-/* line 37, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-ul {
+/* line 44, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.page-bg.main-page {
+  background-color: #000;
+}
+
+/* line 51, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.blockquote {
+  color: #fff !important;
+  font-style: italic;
+  margin: 0 0 30px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  width: 45%;
+}
+
+@media only screen and (max-width: 768px) {
+  /* line 65, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  .blockquote {
+    width: 95%;
+  }
+}
+/* line 70, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.blockquote-footer {
+  color: #fff !important;
+}
+
+/* line 76, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.parallax-window {
+  min-height: 400px;
+}
+
+/* line 80, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.parallax-mirror {
+  z-index: 0 !important;
+  background-size: cover !important;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* line 88, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  .front-background {
+    background-attachment: scroll;
+  }
+}
+/* line 93, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+li {
   list-style-type: none;
 }
 
-/* line 42, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.navbar {
-  font-weight: bold;
-  background-color: #3e474f;
-  height: 71px;
-  margin-bottom: -20px;
+/* line 97, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.insc {
+  background: white;
+  background: rgba(255, 255, 255, 0.8) !important;
+  float: right;
+  margin-right: 150px !important;
+  max-width: 500px !important;
+  border: 0 !important;
+  z-index: 0;
+}
+/* line 109, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.insc .help-block {
+  color: #ccc;
 }
 
-/* line 48, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.navbar-nav .dropdown-menu {
-  background-color: #3e474f;
-  color: #b2bbbd;
+/* line 115, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+input {
+  font-size: 10px;
 }
 
-/* line 52, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.navbar-collapse {
-  background-color: #3e474f;
+/* line 121, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+table {
+  padding: 15px;
 }
 
-/* line 56, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 125, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+#video-background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 978px) {
+  /* line 139, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  .insc {
+    background: white !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    float: none !important;
+    margin-right: auto !important;
+    margin: auto !important;
+    margin-top: 100px !important;
+    background-color: #fff !important;
+    width: 800px !important;
+    max-width: 95% !important;
+    padding: 3px 15px 30px 15px !important;
+    border: 1px #eaeaea solid !important;
+    border-radius: 5px !important;
+  }
+}
+/* line 161, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+p {
+  margin-top: 3em;
+  color: #000;
+  margin-bottom: 3em;
+  color: #584747 !important;
+}
+
+/* line 169, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.btn:hover {
+  -webkit-animation: bounceIn .3s;
+          animation: bounceIn .3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bounceIn {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1.08);
+            transform: scale(1.08);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1.08);
+            transform: scale(1.08);
+  }
+}
+/* line 186, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.nav-animation {
+  -webkit-animation: hop .5s ease-out;
+          animation: hop .5s ease-out;
+}
+@-webkit-keyframes hop {
+  0% {
+    -webkit-transform: translateX(-10%);
+            transform: translateX(-10%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    opacity: 1;
+  }
+}
+@keyframes hop {
+  0% {
+    -webkit-transform: translateX(-10%);
+            transform: translateX(-10%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    opacity: 1;
+  }
+}
+/* line 200, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.navbar-light .navbar-nav .nav-link {
+  color: #3a8616;
+}
+
+/* line 203, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+  color: rgba(4, 29, 6, 0.74);
+}
+
+/* line 206, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+h1 {
+  color: #584747 !important;
+  -webkit-animation: content .5s ease-out;
+          animation: content .5s ease-out;
+}
+@-webkit-keyframes content {
+  0% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    opacity: 1;
+  }
+}
+@keyframes content {
+  0% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    opacity: 1;
+  }
+}
+/* line 222, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.icon-bar {
+  background-color: #888;
+}
+
+/* line 225, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.brand {
+  position: relative;
+  height: 50px;
+  width: auto;
+  z-index: 4 !important;
+}
+
+/* line 232, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* line 242, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.content {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  height: 100%;
+  min-height: 100%;
+}
+
+/* line 250, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.navindex {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: -1px;
+  margin-bottom: 100px;
+  background-color: #fff !important;
+  box-shadow: 0 5px 6px -6px #000;
+  pointer-events: none;
+}
+
+/* line 270, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+ul .dropdown-menu {
+  -webkit-animation: dropdown .1s ease-out;
+          animation: dropdown .1s ease-out;
+}
+@-webkit-keyframes dropdown {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+@keyframes dropdown {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+/* line 285, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+hr {
+  margin-top: 2em !important;
+  margin-bottom: 2em !important;
+}
+
+/* line 290, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #fff;
+  color: #16181b;
   text-decoration: none;
-  background-color: #3e474f;
+  background-color: #fff !important;
 }
 
-/* line 61, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.dropdown a {
-  color: white;
-}
-
-/* line 64, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.nav-link {
-  margin-left: 10px;
-  margin-right: 10px;
-  display: block;
-  color: #b2bbbd;
-  transition: opacity 600ms 0s ease;
-}
-
-/* line 72, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.nav-link:hover {
-  color: #fff !important;
-}
-
-/* line 76, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.nav-link:focus {
-  color: #fff !important;
-}
-
-/* line 82, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 299, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .container {
   background-color: #fff;
   width: 800px;
+  min-height: 100px;
   z-index: 1;
   margin-top: 10px;
   width: 800px;
   max-width: 99%;
-  padding: 20px 50px 30px 50px;
+  padding: 30px 50px 30px 50px;
+  padding-top: 30px !important;
   border: 1px #eaeaea solid;
   border-radius: 3px;
   margin-bottom: 30px !important;
 }
 
-@media only screen and (max-width: 768px) {
-  /* line 99, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 316, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.container-custom {
+  background-color: #fff;
+  width: 800px;
+  z-index: 1;
+  max-width: 100% !important;
+  padding: 30px 50px 30px 50px;
+  padding-top: 30px !important;
+  padding-bottom: 40px !important;
+  border: 1px #eaeaea solid;
+  border-radius: 3px;
+}
+
+@media (min-width: 300px) {
+  /* line 332, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  .container-custom {
+    margin: 0 auto;
+    padding: 9px 9px 9px 9px;
+    width: 100% !important;
+  }
+}
+/* line 338, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.amigos-container {
+  border-left: 3px solid green;
+}
+
+/* line 342, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.evento-container {
+  border-left: 3px solid red;
+}
+
+/* line 345, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.inscricao-container {
+  border-left: 3px solid blue;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* line 350, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
   .container {
-    margin-left: 0px;
-    margin-right: 0px;
     padding: 5px;
   }
-  /* line 100, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-  .container .title-box {
-    margin: -5px !important;
-    margin-bottom: 30px !important;
-    padding-left: 3px !important;
-  }
 }
-/* line 113, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-main {
-  border-top: 4px solid;
-  border-top-color: #3079AB;
-  min-width: 90%;
-  min-height: 70vh;
-}
-/* line 119, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-main a {
-  color: #6c757d;
-}
-/* line 123, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-main a:hover {
-  color: #3079AB !important;
-  text-decoration: none;
-}
-/* line 129, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-main .title-box {
-  color: #3079AB;
-  background-color: #f9fafa;
-  margin: -20px -50px 30px -50px;
-  padding: 10px 50px 10px 50px;
-  border-bottom: .5px solid #efefef !important;
-}
-/* line 138, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-main .list-group-item {
-  border: 0px;
-}
-/* line 143, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-main .list-group-item-action:hover, .container-main .list-group-item-action:focus {
-  background-color: inherit;
-  color: #4d76d3;
-}
-/* line 148, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-main .btn-new {
-  display: inline-block;
-  border: 2px solid rgba(48, 73, 97, 0.1);
-  border-radius: 10px;
-  text-align: center;
-  color: #3079AB;
-  font-weight: 500;
-  background: transparent;
-  padding: 0 12px;
-  white-space: nowrap;
-  line-height: 32px;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
-}
-/* line 162, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-main .btn-new:hover {
-  color: #3079AB !important;
-  border-color: #3079AB;
+/* line 357, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+kbd {
+  padding: 2px 25px 2px 25px;
 }
 
-/* line 168, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-show {
-  border-top: 4px solid;
-  border-top-color: #7ceb31;
-  min-width: 70%;
-  min-height: 400px;
-}
-/* line 176, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-show a {
-  color: #6c757d;
-}
-/* line 180, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-show a:hover {
-  color: #3079AB !important;
-  text-decoration: none;
-}
-/* line 186, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-show .title-box {
-  color: #7ceb31;
-  background-color: #f9fafa;
-  margin: -20px -50px 30px -50px;
-  padding: 10px 50px 10px 50px;
-  border-bottom: .5px solid #efefef !important;
-}
-/* line 193, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-show .list-group-item {
-  border: 0px;
-}
-/* line 197, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-show .list-group-item-action:hover, .container-show .list-group-item-action:focus {
-  background-color: inherit;
-  color: #4d76d3;
-}
-/* line 202, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-show .btn-new {
-  display: inline-block;
-  border: 2px solid rgba(48, 73, 97, 0.1);
-  border-radius: 10px;
-  text-align: center;
-  color: #7ceb31;
-  font-weight: 500;
-  background: transparent;
-  padding: 0 12px;
-  white-space: nowrap;
-  line-height: 32px;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
-}
-/* line 216, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-show .btn-new:hover {
-  color: #7ceb31 !important;
-  border-color: #7ceb31;
+/* line 361, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.btn-fb {
+  color: #fff;
+  background-color: #3b5998;
 }
 
-/* line 222, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-new {
-  border-top: 4px solid;
-  border-top-color: #00eb7f;
-  min-width: 70%;
-  min-height: 100px;
-}
-/* line 230, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-new a {
-  color: #6c757d;
-}
-/* line 234, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-new a:hover {
-  color: #3079AB !important;
-  text-decoration: none;
-}
-/* line 240, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-new .title-box {
-  color: #7ceb31;
-  background-color: #f9fafa;
-  margin: -20px -50px 30px -50px;
-  padding: 10px 50px 10px 50px;
-  border-bottom: .5px solid #efefef !important;
-}
-/* line 247, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-new .list-group-item {
-  border: 0px;
-}
-/* line 251, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-new .list-group-item-action:hover, .container-new .list-group-item-action:focus {
-  background-color: inherit;
-  color: #4d76d3;
-}
-/* line 256, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-new .btn-new {
-  display: inline-block;
-  border: 2px solid rgba(48, 73, 97, 0.1);
-  border-radius: 10px;
-  text-align: center;
-  color: #00eb7f;
-  font-weight: 500;
-  background: transparent;
-  padding: 0 12px;
-  white-space: nowrap;
-  line-height: 32px;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
-}
-/* line 270, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-new .btn-new:hover {
-  color: #00eb7f !important;
-  border-color: #00eb7f;
+/* line 365, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.btn-fb:hover {
+  color: #fff;
+  background-color: #496ebc;
 }
 
-/* line 277, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-edit {
-  border-top: 4px solid;
-  border-top-color: #ebba26;
-  min-width: 70%;
-  min-height: 400px;
-}
-/* line 285, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-edit a {
-  color: #6c757d;
-}
-/* line 289, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-edit a:hover {
-  color: #3079AB !important;
-  text-decoration: none;
-}
-/* line 295, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-edit .title-box {
-  color: #EBBA26;
-  background-color: #f9fafa;
-  margin: -20px -50px 30px -50px;
-  padding: 10px 50px 10px 50px;
-  border-bottom: .5px solid #efefef !important;
-}
-/* line 302, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-edit .list-group-item {
-  border: 0px;
-}
-/* line 306, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-edit .list-group-item-action:hover, .container-edit .list-group-item-action:focus {
-  background-color: inherit;
-  color: #4d76d3;
-}
-/* line 311, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-edit .btn-new {
-  display: inline-block;
-  border: 2px solid rgba(48, 73, 97, 0.1);
-  border-radius: 10px;
-  text-align: center;
-  color: #EBBA26;
-  font-weight: 500;
-  background: transparent;
-  padding: 0 12px;
-  white-space: nowrap;
-  line-height: 32px;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
-}
-/* line 325, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-edit .btn-new:hover {
-  color: #EBBA26 !important;
-  border-color: #EBBA26;
+/* line 369, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.btn-tw {
+  color: #fff;
+  background-color: #55acee;
 }
 
-/* line 331, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.doc-footer {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  margin: 20px -50px -30px -50px;
-  background-color: #f9fafa;
-  padding: 10px;
+/* line 373, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.btn-tw:hover {
+  color: #fff;
+  background-color: #59b5fa;
 }
 
 @media only screen and (max-width: 768px) {
-  /* line 341, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-  .doc-footer {
-    margin: 20px -50px -30px -5px;
+  /* line 378, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  #login-dp {
+    background-color: inherit;
+    color: #fff;
+  }
+
+  /* line 382, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  #login-dp .bottom {
+    background-color: inherit;
+    border-top: 0 none;
   }
 }
-/* line 346, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.btn-send {
+/* line 388, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+.social-share-button-facebook {
   display: inline-block;
-  border: 2px solid rgba(48, 73, 97, 0.1);
-  border-radius: 10px;
-  text-align: center;
-  color: #23558e;
-  font-weight: 500;
-  background: transparent;
-  padding: 0 12px;
-  white-space: nowrap;
-  line-height: 32px;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  width: 64px;
+  height: 64px;
+  background: url("fb-icon.svg") no-repeat;
+  background-size: 64px 64px;
 }
 
-/* line 360, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.btn-send:hover {
-  color: #23558e !important;
-  border-color: #23558e;
+/* line 398, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+p.details {
+  color: #708090;
 }
 
-/* line 365, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.bottom-nav {
-  background-color: #f9fafa;
-  border-top: .05rem #e4e4e4 solid;
-  border-bottom: .05rem #e4e4e4 solid;
-  font-size: 90%;
-  margin-bottom: 20px;
-  margin-top: -30px;
-  margin-left: -50px;
-  margin-right: -50px;
-  padding: 3px;
+/* line 402, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+p.highlight {
+  color: #565341;
 }
 
-/* line 379, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.tool-dropdown {
-  background-color: #f9fafa !important;
-  left: -50px !important;
-  padding: inherit;
-  min-width: 30px;
-  font-size: 90%;
-}
-
-/* line 387, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.tool-dropdown-item {
-  margin-left: -10px;
-}
-
-/* line 390, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.tool-dropdown-item:hover {
-  background-color: transparent !important;
-  color: #000;
-}
-
-/* line 395, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.jambodoc-input-new {
-  min-height: 300px;
-  margin-top: 5px;
-}
-
-/* line 402, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.form-control {
-  border-radius: 0.15rem;
-}
-
-/* line 406, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.form-control:focus {
-  color: #495057;
-  background-color: #fff;
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.05rem rgba(0, 123, 255, 0.25);
-}
-
-/* line 415, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.card {
-  background-color: #576366 !important;
-  min-width: 90%;
-  min-height: 500px;
-}
-
-/* line 421, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-footer {
-  font-weight: bold;
-  background-color: #3e474f;
-  height: 71px;
-  margin-bottom: -20px;
-  color: #b2bbbd;
-}
-/* line 429, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-footer a {
-  color: white;
-}
-/* line 432, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-footer a:hover {
-  color: white;
+/* line 406, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+#hlightmsg {
+  background-color: #91a2a5 !important;
 }

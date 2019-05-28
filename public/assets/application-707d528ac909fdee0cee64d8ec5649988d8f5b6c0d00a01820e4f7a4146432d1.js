@@ -22098,6 +22098,10 @@ return GMaps;
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
 
 (function() {
 
@@ -22759,6 +22763,10 @@ window.fbAsyncInit = function() {
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
 
 
 
@@ -22768,6 +22776,10 @@ $(document).ready(function(){
     console.log ("Olá mundo");
 
 });
+(function() {
+
+
+}).call(this);
 (function() {
 
 

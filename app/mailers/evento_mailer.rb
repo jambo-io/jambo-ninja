@@ -1,11 +1,14 @@
 class EventoMailer < ApplicationMailer
-	default from: 'jamboninja@example.com'
 
 	def confirmation_email(participant)
-		
+		puts "Enviar Email.. a qualquer momento..."
 		@participant = participant
 		@eventosbahai = Eventosbahai.find(@participant.eventosbahai_id)
 		puts @participant.inspect
-		mail(to: @participant.contact, subject: 'Obrigado por se inscrever!')
+		attachments.inline['emailforyou.png'] = File.read("#{Rails.root}/app/assets/images/emailforyou.png")
+		email = @participant.user.email unless @participant.user.blank?
+		name = @participant.name
+		mail(to: email, subject: "Obrigado por se inscrever #{name}!")
+
 	end
 end

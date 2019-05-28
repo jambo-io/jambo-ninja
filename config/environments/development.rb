@@ -29,22 +29,23 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'jamboninja1736@gmail.com'}
 
   config.action_mailer.delivery_method = :smtp
-  #SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :user_name            => "jamboninja1736@gmail.com",
-    :password             => "ogherrtbqtpulmte",
-    :authentication       => "plain",
-    :enable_starttls_auto => true
-  }
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'localhost',
+  user_name:            'jamboninja1736@gmail.com',
+  password:             '537iUv%d*!',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
 
+  config.action_mailer.default_url_options = {:host => "http://localhost:10549"}
   
   config.paperclip_defaults = {
       storage: :s3,
@@ -59,10 +60,9 @@ Rails.application.configure do
 
   }
 
-  config.action_mailer.default_url_options = {:host => "http://localhost:10549"}
 
-  config.action_mailer.asset_host = "http://localhost:10549"
-  config.action_controller.asset_host = "http://localhost:10549"
+  config.action_mailer.asset_host = "http://localhost:10549/"
+  config.action_controller.asset_host = "http://localhost:10549/"
   config.assets.precompile += %w(eventosbahais.js)
 
   # Print deprecation notices to the Rails logger.
