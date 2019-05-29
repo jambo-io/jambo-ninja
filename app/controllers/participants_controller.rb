@@ -1,5 +1,6 @@
 class ParticipantsController < ApplicationController
 	before_action :authenticate_user!, except: [:new]
+	before_action :subscribed_redirect, only: [:new]
 
 	def index
 		@participants = Participant.order('id desc').all
@@ -20,7 +21,6 @@ class ParticipantsController < ApplicationController
 	end
 
 	def new
-
 		@participant = Participant.new
 		@event_id = params[:id]
 		@eventosbahai_id = @event_id
@@ -149,5 +149,13 @@ class ParticipantsController < ApplicationController
          else
             redirect_to pin_path
          end
-      end
+	  end
+	  def subscribed_redirect
+		if user_signed_in?
+			participant = current_user.participants.where(eventosbahai_id: params[:id]).first
+			if participant.present?
+				redirect_to participant_path(participant)
+			end
+		end
+	  end
  end
