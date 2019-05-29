@@ -10,18 +10,17 @@
 
         <table>
           <tbody>
-            <% if @eventosbahais.present? && @eventosbahais.each do |eventosbahai| %>
-              <tr>
-                <td><%= link_to eventosbahai.name, partnew_path(eventosbahai), anchor: "section1" %>
-                
-
-                <% if user_signed_in? && user_signed_in? && current_user.admin? && eventosbahai.user_id == current_user.id %>  -  
-                  <%= link_to 'Editar', edit_eventosbahai_path(eventosbahai) %> |
-                  <%= link_to 'Destruir', eventosbahai_path(eventosbahai), method: :delete, data:{confirm: 'Deletar um evento irá deletar todos os participantes inscritos também. Deseja deletar mesmo assim?'} %> 
-                <%end %>
-              
-              </td>
-              </tr>
+            <% if @ventosbahais.present? %>
+              <% @eventosbahais.each do |eventosbahai| %>
+                <tr>
+                  <td><%= link_to eventosbahai.name, partnew_path(eventosbahai), anchor: "section1" %>
+                    <% if user_signed_in? && user_signed_in? && current_user.admin? && eventosbahai.user_id == current_user.id %>  -  
+                      <%= link_to 'Editar', edit_eventosbahai_path(eventosbahai) %> |
+                      <%= link_to 'Destruir', eventosbahai_path(eventosbahai), method: :delete, data:{confirm: 'Deletar um evento irá deletar todos os participantes inscritos também. Deseja deletar mesmo assim?'} %> 
+                    <%end %>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>
