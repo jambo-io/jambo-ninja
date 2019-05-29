@@ -37,6 +37,7 @@ gem 'bootstrap_form'
 gem 'dotenv-rails', :groups => [:development, :test]
 
 
+gem 'pry'
 
 gem 'devise'
 
