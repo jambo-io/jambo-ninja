@@ -1,51 +1,59 @@
-<div id="section1" class="container" style="border:0px;">
-	<h2 class="mb-4 text-center" style="margin-top: 40px;"> Oi <%= current_user.user_profile.name %>! </h2>
 
-	<ul class="list-inline mx-auto text-center">
-		<li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-new m-1' %></li>
-		<li class="list-inline-item" style="display: inline-block;"><%= link_to "Ver todos os Eventos", eventosbahais_path, class:'btn btn-new m-1' %></li>
-		
-		<% unless @participants.blank? %>
-			<li class="list-inline-item" style="display: inline-block;"><%= link_to "Crachás", badges_path, class:'btn btn-new m-1', id:'crachas' %></li>
-    		<li class="list-inline-item" style="display: inline-block;"><%= link_to "Lista de presença", listas_path, class:'btn btn-new m-1', id:'listapresenca' %></li>
-		<% end %>
-	</ul>
+<div class="row">
+	<div class="col-lg-8 mx-auto">
+		<div class="frame">
+			<h1 class="mb-4 text-center">Participantes</h1>
 
-	<% unless (Eventosbahai.last.blank?) %>
-		<%= form_tag partsev_path,  {id:'formcombo', remote:true } do |form| %>
-			<%= collection_select :eventosbahais, :ids , current_user.eventosbahais.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
-		<% end %>
-	<% end %>
-	<script>
-		$(function() {
-		   $("#eventosbahais_ids").change(function() {
-		     $("#formcombo").submit();
-		    	val = $('#eventosbahais_ids').val();
-		   		$("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
-		   		$("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
-		   });
-		   $(document).ready(function() {
-		   	 	$("#formcombo").submit();
-		   	 	val = $('#eventosbahais_ids').val();
-		   		$("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
-		   		$("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
-		   });
-		 });
-	</script>
+			<ul class="list-inline mx-auto text-center">
+				<li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-new m-1' %></li>
+				<li class="list-inline-item" style="display: inline-block;"><%= link_to "Ver todos os Eventos", eventosbahais_path, class:'btn btn-new m-1' %></li>
+				
+				<% unless @participants.blank? %>
+					<li class="list-inline-item" style="display: inline-block;"><%= link_to "Crachás", badges_path, class:'btn btn-new m-1', id:'crachas' %></li>
+					<li class="list-inline-item" style="display: inline-block;"><%= link_to "Lista de presença", listas_path, class:'btn btn-new m-1', id:'listapresenca' %></li>
+				<% end %>
+			</ul>
+
+			<% unless (Eventosbahai.last.blank?) %>
+				<%= form_tag partsev_path,  {id:'formcombo', remote:true } do |form| %>
+					<%= collection_select :eventosbahais, :ids , current_user.eventosbahais.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
+				<% end %>
+			<% end %>
+			<script>
+				$(function() {
+				$("#eventosbahais_ids").change(function() {
+					$("#formcombo").submit();
+						val = $('#eventosbahais_ids').val();
+						$("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
+						$("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
+				});
+				$(document).ready(function() {
+						$("#formcombo").submit();
+						val = $('#eventosbahais_ids').val();
+						$("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
+						$("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
+				});
+				});
+			</script>
+		</div>
+	</div>
 </div>
 
-<div id="section2" class="container table-responsive" style="width:99%; border:0px;">
-		<h2 id="eventosbahaijs"></h2>		
-		<h3 id="eventoecerradojs" class="text-danger">
-		</h3>
-		<table class="table" style="text-align: center;">
-			<thead id="participantsheadjs">
-				
-			</thead>
-			<tbody id="participantsjs">
-				
-			</tbody>
-		</table>
-</div> <!-- section 2 -->
+<div class="row">
+	<div class="col-12 mx-auto">
+		<div class="frame mx-auto text-center">
+			<h1 class="text-center" id="eventosbahaijs"></h1>		
+			<h4 class="text-center text-danger" id="eventoecerradojs"></h4>
 
+				<table class="table-responsive" style="text-align: center; margin:0 auto;">
+					<thead id="participantsheadjs">
+					
+					</thead>
+					<tbody id="participantsjs">
+					
+					</tbody>
+				</table>
 
+		</div>
+	</div>
+</div>

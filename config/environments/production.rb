@@ -59,12 +59,15 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
 
-
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'jamboninja1736@gmail.com'}
   config.action_mailer.delivery_method = :smtp
   #SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
+    :domain:               'www.jambo.ninja',
     :user_name            => ENV["gmail_username"],
     :password             => ENV["gmail_password"],
     :authentication       => "plain",
@@ -78,7 +81,7 @@ Rails.application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
-
+  config.action_mailer.default_url_options = {:host => "http://www.jambo.ninja/"}
   config.action_mailer.asset_host = "http://www.jambo.ninja/"
   config.action_controller.asset_host = "http://www.jambo.ninja/"
   config.assets.precompile += %w(eventosbahais.js)

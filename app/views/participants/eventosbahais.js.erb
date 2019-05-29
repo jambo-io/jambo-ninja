@@ -14,9 +14,14 @@ participantshead = `<tr>
 <th scope="col">Nome</th>
 <th scope="col">Contato</th>
 <th scope="col">Idade</th>
-<th scope="col">Endereço</th>
 <th scope="col">Cidade</th>
-<th scope="col">Pagamento</th>
+
+<th scope="col">Transporte</th>
+<th scope="col">Empresa</th>
+<th scope="col">Nº do Vôo</th>
+<th scope="col">Saída</th>
+<th scope="col">Chegada</th>
+
 <th scope="col">Reg. em</th>
 <th scope="col">#</th>
 </tr>`;
@@ -35,9 +40,9 @@ participants_number = `<%= @eventosbahai.participants.size %> <%= "participante"
 	$('#participantsheadjs').text('Nenhum partipante inscrito.');
 <% end %>
 
-
 if (number_participants > 0) {
-	<% @eventosbahai.participants.order(:name).each do |f| %>
+	<% @eventosbahai.participants.order(:id).each do |f| %>
+		<% @itinerary = f.itinerary if f.itinerary.present? %>
 		html=`<tr id="participant_<%= f.id %>">
 				<th></th>
 				<td>
@@ -47,11 +52,28 @@ if (number_participants > 0) {
 				<% end %>
 				</td>
 				<td><%= link_to "#{f.name} #{f.lastname}", edit_participant_path(f) %></td>
-				<td><%= contact(f.contact,f.phoneconfirmed) %></td>
+				
+				<% if f.phone.present? %>
+					<td><%= contact(f.phone,f.phoneconfirmed) %></td>
+				<% end %>
+				<% if f.phone.blank? %>
+					<td></td>
+				<% end %>
+				
 				<td><%= birthday(f.birthday) %></td>
-				<td><%= f.address %></td>
 				<td><%= f.city %> - <%= f.state %></td>
-				<td><%= autolyse(f.autolyse) %></td>
+				
+				<% if f.itinerary.present? %>
+					<td><%= @itinerary.transportation %></td>
+					<td><%= @itinerary.company %></td>
+					<td><%= @itinerary.flight_number %></td>
+					<td><%= @itinerary.departure.strftime("%d/%m/%Y %H:%M") unless @itinerary.departure.blank? %></td>
+					<td><%= @itinerary.arrival.strftime("%d/%m/%Y %H:%M") unless @itinerary.departure.blank? %></td>
+				<% end %>
+				<% if f.itinerary.blank? %>
+					<td></td><td></td><td></td><td></td><td></td>
+				<% end %>
+
 				<td><%= f.created_at.strftime("%d/%m/%Y") %></td>
 				<td><%= link_to "X", participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}" %></td>`;
 

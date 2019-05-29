@@ -1,7 +1,6 @@
 
 <div class="row">
 	<div class="col-lg-6 mx-auto">
-
 		<div class="actions text-center">
 			<ul class="list-inline">
 				
@@ -9,8 +8,6 @@
 					<% unless @event_available %>
 						<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
 					<% end %>
-						<li class="list-inline-item"><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-new' %></li>
-						<li class="list-inline-item"><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-new' %></li>
 				<% end %>
 			</ul>
 		</div>
@@ -43,11 +40,11 @@
 				</div>
 			</div><!-- row -->
 		<% end %>
-
-		<div class="row">
-			<div class="col-12">
-				<div class="frame">
-					<% if @event_available %>
+		<% if @event_available %>
+			<div class="row">
+				<div class="col-12">
+					<div class="frame">
+						
 						<div class="vertical-align">
 							<%= image_tag "il_running.png", class:"text-center", height: 200, width: "auto" %>
 						</div>
@@ -63,20 +60,18 @@
 								Você não está inscrito.
 							<% end %>
 						<% else %>
-							
-
-								<div class="row">
-									<div class="col-lg-6 mx-auto">
-									<p>Para realizar a inscrição você precisa estar logado.</p>
-										<%= render "devise/sessions/form" %>
-										<%= render "devise/shared/links" %>
-									</div>
+							<div class="row">
+								<div class="col-lg-6 mx-auto">
+								<p>Para realizar a inscrição você precisa estar logado.</p>
+									<%= render "devise/sessions/form" %>
+									<%= render "devise/shared/links" %>
+								</div>
 							</div>
 						<% end %>
-					<% end %>
+					</div>
 				</div>
 			</div>
-		</div>
+		<% end %>
 	</div>
 </div>
 

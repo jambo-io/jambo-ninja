@@ -147,7 +147,7 @@
       </tr>
       </thead>
       <tbody>
-        <% @eventosbahai.participants.order("name").each_with_index do |f, index| %>
+        <% @eventosbahai.participants.order("id").each_with_index do |f, index| %>
           <tr>
             <td style="text-align: center;">
 
@@ -161,9 +161,9 @@
             <td style="text-align:left;"><%= truncate @fullname, length:22, separator: /\w+/ %></td>
             <td style="max-width: 72px;">
 
-              <% unless f.contact =~ /\A[^@]+@[^@]+\Z/ %>
+              <% unless f.phone =~ /\A[^@]+@[^@]+\Z/ %>
 
-                <%= f.contact.delete("^0-9") %>
+                <%= f.phone.delete("^0-9") unless f.phone.blank? %>
 
               <% end %>
 
@@ -183,7 +183,13 @@
               <% end %>
             </td>
 
-            <td style="text-align: center;"><%= truncate f.city.humanize, length: 10 %> - <%= f.state %></td>
+            <% if f.city.present? %>
+              <td style="text-align: center;"><%= truncate f.city.humanize, length: 10 %> - <%= f.state %></td>
+            <% end %>
+
+            <% if f.city.blank? %>
+              <td></td>
+            <% end %>
 
             <td style="max-width: 20px !important;">
               <% if f.autolyse == "1" %>

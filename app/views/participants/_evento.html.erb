@@ -2,29 +2,28 @@
 <p style="text-align:center;"><%= @event.theme %></p>
 <br>
 <% if @event.image.exists? %>
-<div class="text-center p-2">
-	<figure class="figure">
-		 <%= image_tag @event.image(:big), class:"card-img-top", alt:"Card image cap" %>
-
-	</figure>
+	<div class="text-center p-2">
+		<figure class="figure">
+			<%= image_tag @event.image(:big), class:"card-img-top", alt:"Card image cap" %>
+		</figure>
 </div>
 <% end %>
 <ul class="list-info">
-  <li>De <strong><%= @event.start_at.strftime('%d-%m-%Y') %>
-  </strong> à <strong><%= @event.end_at.strftime('%d-%m-%Y') %></strong></li>
+  <li>De <strong><%= @event.start_at.strftime('%d-%m-%Y') %> </strong> à <strong><%= @event.end_at.strftime('%d-%m-%Y') %></strong></li>
   <li>Cidade: <strong><%= @event.city %> - <%= @event.state %></strong></li>
-
-   <%= simple_format @event.description %>
+  <li><%= simple_format @event.description %></li>
 
 	<% if @event_available %>
-	  	<li>Número de vagas disponíveis: <span class="badge badge-success"><%= @vacancies %></span></li>
+	  <li>Número de vagas disponíveis: <span class="badge badge-success"><%= @vacancies %></span></li>
 		<li>Taxa de Inscrição: <span class="badge badge-success"><%= number_to_currency(@event.price, unit: "R$", separator: ",", delimiter: "", format:"%u %n") %></span></li>
-		</ul>
-	<% else %>
+	<% end %>
+</ul>
+	<% if !@event_available %>
 	  	<div class="text-center">
-	  		<h2><span class="text-danger">Inscrições Encerradas</span><h2>
+	  		<h3><span class="text-danger">Inscrições Encerradas</span><h3>
 	  	</div>
 	<% end %>
+
 
 	<% if @event_available %>
 	    <% unless @event.longitude.nil? || @event.latitude.nil? %>

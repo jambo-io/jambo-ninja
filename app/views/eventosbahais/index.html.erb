@@ -1,15 +1,4 @@
 
-  <% if user_signed_in? && user_signed_in? && current_user.admin? %>
-    <ul class="list-inline text-center">
-    <li class="list-inline-item"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-success' %></li>
-    
-    <% unless @participants.blank? %>
-      <li class="list-inline-item"><%= link_to "Ver todos os participantes", participants_path, class:'btn btn-warning' %></li>
-    <% end %>
-    </ul>
-  <%end %>
-
-
   <div class="row">
     <div class="col-lg-8 mx-auto">
       <div class="frame">
