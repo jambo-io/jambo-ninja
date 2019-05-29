@@ -26,7 +26,6 @@ class ParticipantsController < ApplicationController
 		@eventosbahai_id = @event_id
 		@event = Eventosbahai.find(@event_id)
 		@vacancies = @event.vacancies.to_i - Participant.where(eventosbahai_id: @event_id).count.to_i
-		@images = @event.image.url(:big)
 		#Button name
 		@btname = "Inscrever-se"
 		

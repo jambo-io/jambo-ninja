@@ -36,15 +36,7 @@ gem 'bootstrap_form'
 #Enviroment Variables Management
 gem 'dotenv-rails', :groups => [:development, :test]
 
-
-gem 'pry'
-
 gem 'devise'
-
-# Paperclip
-gem "paperclip", '~> 6.1.0'
-# Store files on Amazon
-gem 'aws-sdk', '~> 2.3'
 
 gem 'geocoder'
 

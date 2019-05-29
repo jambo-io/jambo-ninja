@@ -1,13 +1,7 @@
 <h1 style="text-align:center;"><%= @event.name %></h1>
 <p style="text-align:center;"><%= @event.theme %></p>
 <br>
-<% if @event.image.exists? %>
-	<div class="text-center p-2">
-		<figure class="figure">
-			<%= image_tag @event.image(:big), class:"card-img-top", alt:"Card image cap" %>
-		</figure>
-</div>
-<% end %>
+
 <ul class="list-info">
   <li>De <strong><%= @event.start_at.strftime('%d-%m-%Y') %> </strong> à <strong><%= @event.end_at.strftime('%d-%m-%Y') %></strong></li>
   <li>Cidade: <strong><%= @event.city %> - <%= @event.state %></strong></li>
