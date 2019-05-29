@@ -4,13 +4,13 @@
       <div class="frame">
         <h1 class="text-center">Eventos Bahá'ís</h1>
 
-        <% if @eventosbahais.count == 0 %>
+        <% if @eventosbahais.blank? %>
           <p class="text-muted p-5 m-5 text-center">Não há nenhum evento ainda.</p>
         <% end %>
 
         <table>
           <tbody>
-            <% @eventosbahais.each do |eventosbahai| %>
+            <% if @eventosbahais.present? && @eventosbahais.each do |eventosbahai| %>
               <tr>
                 <td><%= link_to eventosbahai.name, partnew_path(eventosbahai), anchor: "section1" %>
                 
