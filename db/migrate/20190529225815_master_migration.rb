@@ -202,7 +202,6 @@ class MasterMigration < ActiveRecord::Migration[5.0]
     add_foreign_key "learningdesk_reports", "users"
     add_foreign_key "participants", "administrative_functions"
     add_foreign_key "participants", "eventosbahais"
-    add_foreign_key "participants", "eventosbahais"
     add_foreign_key "participants", "users"
     add_foreign_key "user_profiles", "users"
   end
