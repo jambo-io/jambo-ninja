@@ -41,7 +41,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'devise'
 
 # Paperclip
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", '~> 6.1.0'
 # Store files on Amazon
 gem 'aws-sdk', '~> 2.3'
 
