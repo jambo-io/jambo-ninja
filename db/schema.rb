@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190529182543) do
+ActiveRecord::Schema.define(version: 20190529225815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -216,7 +216,6 @@ ActiveRecord::Schema.define(version: 20190529182543) do
   add_foreign_key "learningdesk_recipients", "learningdesk_reports"
   add_foreign_key "learningdesk_reports", "users"
   add_foreign_key "participants", "administrative_functions"
-  add_foreign_key "participants", "eventosbahais"
   add_foreign_key "participants", "eventosbahais"
   add_foreign_key "participants", "users"
   add_foreign_key "user_profiles", "users"

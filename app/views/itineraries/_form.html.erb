@@ -2,7 +2,7 @@
 
         <div class="form-group" style="display: block; width: 100%;">
             <%= f.label "Transporte" %>
-            <%= f.select :transportation, Itinerary.transportations.keys.to_a, { :prompt => "Transporte..."},{ class: 'form-control', required: true } %>
+            <%= f.select :transportation, Itinerary.transportations.keys.to_a, {  :include_blank => "Transporte..." },{class: 'form-control', required: true } %>
         </div>
 
         <div id="company_group" class="form-group">
@@ -31,3 +31,73 @@
             <%= f.submit "Salvar Itinerário", id:'submit_itinerary', class: 'btn btn-success center-block' %>
         </div>
 <% end %>
+
+<script>
+	$("#company_group").hide();
+	$("#flight_number_group").hide();
+	$("#departure_group").hide();
+	$("#arrival_group").hide();
+
+	$("#itinerary_transportation").change(function(){
+		var transportation = $(this).val();
+	    itinerary(transportation);
+	});
+
+	$(document).ready(function() {
+        itinerary($("#itinerary_transportation").val());
+	});
+
+	function itinerary (transportation) {
+		if(transportation=="") {
+			$("#company_group").hide();
+			$("#flight_number_group").hide();
+			$("#departure_group").hide();
+			$("#arrival_group").hide();
+
+		}
+
+		if(transportation=="carro") {
+			$("#arrival_group").show();
+			$("#company_group").hide();
+			$("#flight_number_group").hide();
+			$("#departure_group").hide();
+			
+			$("#itinerary_departure_3i").focus();
+
+			$("#itinerary_company").prop("required", false);
+			$("#itinerary_flight_number").prop("required", false);
+
+
+		}
+
+		if(transportation=="ônibus") {
+			$("#company_group").show();
+			$("#departure_group").show();
+			$("#arrival_group").show();
+
+			$("#flight_number_group").hide();
+
+			$("#itinerary_company").prop("required", true);
+			$("#itinerary_flight_number").prop("required", false);
+
+			
+			
+			$("#itinerary_company").focus();
+			$("#itinerary_company").prop("placeholder","ex: Motta");
+
+		}
+
+		if(transportation=="avião") {
+			$("#company_group").show();
+			$("#flight_number_group").show();
+			$("#departure_group").show();
+			$("#arrival_group").show();
+
+			$("#itinerary_company").prop("required", true);
+			$("#itinerary_flight_number").prop("required", true);
+
+			$("#itinerary_company").focus();
+			$("#itinerary_company").prop("placeholder","ex: Latam");
+		}
+	}
+</script>
