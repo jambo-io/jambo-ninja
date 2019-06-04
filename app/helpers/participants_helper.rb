@@ -33,6 +33,7 @@ module ParticipantsHelper
          end 
       end
    end
+   
    def birthday(birthday)
       unless birthday.nil?
          age =  Date.today.year - birthday.year 

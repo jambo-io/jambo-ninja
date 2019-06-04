@@ -31,7 +31,7 @@ class ParticipantsController < ApplicationController
 		
 		#Check if the Event is still available based on vacancies and Date
 		@event_available = true
-		 if @event.start_at - Date.today  < 0 || @vacancies <= 0 
+		 if @event.start_at - Date.today  < 0 || (!@event.vacancies.nil? && @vacancies <= 0 )
 		 	@event_available = false
 		 end
 	end
