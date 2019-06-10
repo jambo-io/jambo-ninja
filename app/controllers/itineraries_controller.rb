@@ -30,6 +30,6 @@ class ItinerariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def itinerary_params
-        params.require(:itinerary).permit(:transportation, :company, :flight_number, :departure, :arrival)
+        params.require(:itinerary).permit(:transportation, :company, :flight_number, :departure, :arrival, :airport_arrival, :airport_departure)
       end
 end

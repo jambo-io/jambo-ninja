@@ -67,12 +67,19 @@
                   <% if @itinerary.flight_number.present? %>
                     <li>Número do Vôo: <%= @itinerary.flight_number %></li>
                   <% end %>
-                  <% if @itinerary.departure.present? %>
-                    <li>Saída: <%= @itinerary.departure %></li>
-                  <% end %>
                   <% if @itinerary.arrival.present? %>
-                    <li>Chegada: <%= @itinerary.arrival %></li>
+                    <li>Chegada ao evento: <%= @itinerary.arrival.strftime("%d-%M %H:%M") %></li>
                   <% end %>
+                  <% if @itinerary.airport_arrival.present? %>
+                    <li>Aeroporto de chegada: <%= @itinerary.airport_arrival  %></li>
+                  <% end %>
+                  <% if @itinerary.departure.present? %>
+                    <li>Saída do evento: <%= @itinerary.departure.strftime("%d-%M %H:%M")  %></li>
+                  <% end %>
+                  <% if @itinerary.airport_departure.present? %>
+                    <li>Aeroporto de saída: <%= @itinerary.airport_departure  %></li>
+                  <% end %>
+                  
                 </ul>
               <% end %>
               <% if @itinerary.transportation.blank? %> 

@@ -21,8 +21,11 @@ participantshead = `<tr>
 <th scope="col">Transporte</th>
 <th scope="col">Empresa</th>
 <th scope="col">Nº do Vôo</th>
-<th scope="col">Saída</th>
 <th scope="col">Chegada</th>
+<th scope="col">Aeroporto Chegada</th>
+<th scope="col">Saída</th>
+<th scope="col">Aeroporto Saída</th>
+
 
 <th scope="col">Reg. em</th>
 <th scope="col">#</th>
@@ -70,8 +73,11 @@ if (number_participants > 0) {
 				<td><%= @itinerary.transportation %></td>
 				<td><%= @itinerary.company %></td>
 				<td><%= @itinerary.flight_number %></td>
-				<td><%= @itinerary.departure.strftime("%d/%m/%Y %H:%M") unless @itinerary.departure.blank? %></td>
+
 				<td><%= @itinerary.arrival.strftime("%d/%m/%Y %H:%M") unless @itinerary.departure.blank? %></td>
+				<td><%= @itinerary.airport_arrival %></td>
+				<td><%= @itinerary.departure.strftime("%d/%m/%Y %H:%M") unless @itinerary.departure.blank? %></td>
+				<td><%= @itinerary.airport_departure %></td>
 		
 				<% if f.itinerary.blank? %>
 					<td></td><td></td><td></td><td></td><td></td>

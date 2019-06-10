@@ -13,19 +13,33 @@
         <div id="flight_number_group" class="form-group">
             <%= f.label "Número do Voô" %>
             <%= f.text_field :flight_number, class: 'form-control', placeholder:'ex: NSFTDA' %>
+		</div>
+		
+		<div id="arrival_group">
+			<div class="form-group">
+				<%= f.label "Data/Hora de Chegada para o Evento" %><br>
+				<%= f.datetime_select :arrival, { :order => [:day, :month, :year]},
+					{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
+			</div>
+			<div class="form-group">
+				<%= f.label "Aeroporto de Chegada" %><br>
+				<%= f.text_field :airport_arrival, class: 'form-control', placeholder:'ex: Viracopus' %>
+			</div>
         </div>
     
-        <div id="departure_group" class="form-group">
-            <%= f.label "Data/Hora de Saída" %><br>
-            <%= f.datetime_select :departure, { :order => [:day, :month, :year]},
-                {:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
-        </div>
+		<div id="departure_group">
+			<div class="form-group">            
+				<%= f.label "Data/Hora de Saída do Evento" %><br>
+				<%= f.datetime_select :departure, { :order => [:day, :month, :year]},
+					{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
+			</div>
+			<div class="form-group">
+				<%= f.label "Aeroporto de Saída" %><br>
+				<%= f.text_field :airport_departure, class: 'form-control', placeholder:'ex: Guarulhos' %>
+			</div>
+		</div>
 
-        <div id="arrival_group" class="form-group">
-            <%= f.label "Data/Hora de Chegada" %><br>
-            <%= f.datetime_select :arrival, { :order => [:day, :month, :year]},
-                {:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
-        </div>
+		
 
         <div class="actions">
             <%= f.submit "Salvar Itinerário", id:'submit_itinerary', class: 'btn btn-success center-block' %>

@@ -185,12 +185,20 @@
             <td style="max-width: 20px !important;">
              <%= f.administrative_function %>
             </td>
+
+
             <td style="text-align: center;">
-              <%= f.itinerary.arrival %>
+              <% if f.itinerary.arrival.present? %>
+                <%= f.itinerary.arrival.strftime("%d-%M %H:%M") %>
+              <% end %>
             </td>
+
             <td style="text-align: center;">
-            <%= f.itinerary.departure %>
+              <% if f.itinerary.departure.present? %>
+                <%= f.itinerary.departure.strftime("%d-%M %H:%M") %>
+              <% end %>
             </td>
+
             <td style="text-align: center;">
               <%= %>
             </td>
