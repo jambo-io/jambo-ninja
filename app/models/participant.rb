@@ -60,4 +60,10 @@ class Participant < ApplicationRecord
       AdministrativeFunction.find(self.administrative_function_id).name unless AdministrativeFunction.find(self.administrative_function_id).blank?
     end
   end
+
+  def administrative_region
+    if self.user.user_profile.administrative_region_id.present?
+      AdministrativeRegion.find(self.user.user_profile.administrative_region_id).name unless AdministrativeRegion.find(self.user.user_profile.administrative_region_id).blank?
+    end
+  end
 end

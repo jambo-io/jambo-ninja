@@ -3,7 +3,6 @@
   <div class="col-lg-8 mx-auto">
     <div class="frame">
       <h1 class="text-center">Cadastro</h1>
-
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <span class="text-danger text-center">
           <%= render "devise/shared/error_messages", resource: resource %>
@@ -86,6 +85,13 @@
             ['Sergipe','SE'],
             ['Tocantins','TO']],
             { prompt: "Selecione um Estado" }, class: 'form-control', required: true %>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= profile.label 'Região Administrative' %>
+            <%= profile.select(:administrative_region_id, AdministrativeRegion.all.collect {|function| [function.name, function.id]},{prompt:'Selecione uma Região'}, {class: 'form-control'}) %>
+        
             </div>
           </div>
         <% end %>

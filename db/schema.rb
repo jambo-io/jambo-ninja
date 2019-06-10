@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190529225815) do
+ActiveRecord::Schema.define(version: 20190610002044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "administrative_functions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "administrative_regions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -193,10 +199,11 @@ ActiveRecord::Schema.define(version: 20190529225815) do
     t.string   "address"
     t.integer  "number"
     t.string   "zipcode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "user_id"
     t.string   "fullname"
+    t.integer  "administrative_region_id"
     t.index ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
   end
 
@@ -218,5 +225,6 @@ ActiveRecord::Schema.define(version: 20190529225815) do
   add_foreign_key "participants", "administrative_functions"
   add_foreign_key "participants", "eventosbahais"
   add_foreign_key "participants", "users"
+  add_foreign_key "user_profiles", "administrative_regions"
   add_foreign_key "user_profiles", "users"
 end

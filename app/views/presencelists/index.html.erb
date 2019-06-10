@@ -137,10 +137,12 @@
           <th scope="col">#</th>
           <th scope="col">Nome</th>
           <th scope="col">Celular</th>
-          <th scope="col">Idade</th>
+          <th scope="col">Região Administrativa</th>
           <th scope="col">Cidade</th>
-          <th scope="col">Pagamento</th>
-          <th scope="col">Pago</th>
+          <th scope="col">Ag/Instituição</th>
+          <th scope="col">Chegada</th>
+          <th scope="col">Saída</th>
+          <th scope="col">Aeroporto</th>
         <% else %>
           Nenhum participante inscrito.
         <% end %>
@@ -169,18 +171,7 @@
 
             </td>
             <td style="text-align: center;">
-              <% unless f.birthday.nil? %>
-                <% age = Date.today.year - f.birthday.year %>
-                <% if age < 12 %>
-                  <%= "Criança" %>
-                <% elsif age >= 12 && age <=15 %>
-                  <%= "Pré-Jovem" %>
-                <% elsif age > 15 && age <=21 %>
-                  <%= "Jovem" %>
-                <% elsif age > 21 %>
-                  <%= "Adulto" %>
-                <% end %>
-              <% end %>
+              <%= f.administrative_region %>
             </td>
 
             <% if f.city.present? %>
@@ -192,26 +183,16 @@
             <% end %>
 
             <td style="max-width: 20px !important;">
-              <% if f.autolyse == "1" %>
-                <%= "Parc." %>
-              <% end %>
-              <% if f.autolyse == "2" %>
-                <%= "À vista" %>
-              <% end %>
-              <% if f.autolyse == "3" %>
-                <%= " - " %>
-              <% end %>
+             <%= f.administrative_function %>
             </td>
             <td style="text-align: center;">
-              <% if f.paid == false %>
-                <% if f.autolyse == "3" %>
-                  <%= "X" %>
-                <% else %>
-                  <%= "" %>
-                <% end %>
-              <% else %>
-                <%= "X" %>
-              <% end %>
+              <%= f.itinerary.arrival %>
+            </td>
+            <td style="text-align: center;">
+            <%= f.itinerary.departure %>
+            </td>
+            <td style="text-align: center;">
+              <%= %>
             </td>
           </tr>
         <% end %>
