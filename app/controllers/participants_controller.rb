@@ -133,6 +133,11 @@ class ParticipantsController < ApplicationController
 	     format.js
 	  end
 	end
+
+	def confirm_registration
+		@event = Eventosbahai.find(params[:id])
+		@participant = Participant.new
+	end
 	
 
    private

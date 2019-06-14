@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url("https://fonts.googleapis.com/css?family=Comfortaa");
 @font-face {
   font-family: "Gotham Bold";
-  src: asset-url('fonts/GothamRoundedBook_21018.ttf') format("ttf");
+  src: asset-url("fonts/GothamRoundedBook_21018.ttf") format("ttf");
 }
 
 * {
@@ -15,22 +15,27 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
 body {
-
   background-color: #edeff0 !important;
   text-rendering: optimizeLegibility;
-  font-family: 'Comfortaa', helvetica;
+  font-family: "Comfortaa", helvetica;
+}
+
+.alert-primary {
+  color: #004085;
+  background-color: #92e6ab17;
+  border-color: #6eab3070;
 }
 
 td {
   padding: 10px !important;
 }
-
 
 a {
   transition: color 300ms 0s ease;
@@ -40,9 +45,7 @@ a:hover {
   text-decoration: none !important;
 }
 ul {
-
   list-style-type: none;
-
 }
 .navbar {
   font-weight: bold;
@@ -55,16 +58,17 @@ ul {
   color: #b2bbbd;
 }
 .navbar-collapse {
-  background-color:  #3e474f; 
+  background-color: #3e474f;
 }
 
-.dropdown-item:hover, .dropdown-item:focus {
+.dropdown-item:hover,
+.dropdown-item:focus {
   color: #fff;
   text-decoration: none;
   background-color: #3e474f;
 }
 .dropdown a {
-  color:white;
+  color: white;
 }
 .nav-link {
   margin-left: 10px;
@@ -82,16 +86,13 @@ ul {
   color: #fff !important;
 }
 
-
-
 .container {
-  
-  width:800px;
+  width: 800px;
 
   z-index: 1;
-  margin-top:10px;
+  margin-top: 10px;
 
-  width:800px;
+  width: 800px;
   max-width: 99%;
   padding: 20px 50px 30px 50px;
 
@@ -105,9 +106,9 @@ ul {
     .title-box {
       margin: -5px !important;
       margin-bottom: 30px !important;
-      padding-left:3px !important;
+      padding-left: 3px !important;
     }
-    margin-left:0px;
+    margin-left: 0px;
     margin-right: 0px;
     padding: 5px;
   }
@@ -115,95 +116,93 @@ ul {
 
 h1 {
   padding-bottom: 1.5em;
-  padding-top: .5em;
+  padding-top: 0.5em;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Share&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Share&display=swap");
 .frame-subscription {
-    font-family: 'Share', cursive;
-    border: 4px solid;
-    border-color: #3079AB;
-    background-color: #fff;
-    width: 100%;
-    padding: 2em;
-    margin-bottom: 2em;
+  font-family: "Share", cursive;
+  border: 4px solid;
+  border-color: #3079ab;
+  background-color: #fff;
+  width: 100%;
+  padding: 2em;
+  margin-bottom: 2em;
 }
 
 .frame {
-    border-top: 4px solid;
-    border-top-color: #3079AB;
-    background-color: #fff;
-    width: 100%;
-    padding: 2em;
-    margin-bottom: 2em;
-  }
+  border-top: 4px solid;
+  border-top-color: #3079ab;
+  background-color: #fff;
+  width: 100%;
+  padding: 2em;
+  margin-bottom: 2em;
+}
 
-  .list-info li {
-    padding-top: 1em;
-  }
+.list-info li {
+  padding-top: 1em;
+}
 
-  .vertical-align {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-  }
+.vertical-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 .container-main {
-   min-width: 90%;
-   min-height: 70vh;
+  min-width: 90%;
+  min-height: 70vh;
 
-    a {
-      color: #6c757d;
-    }
+  a {
+    color: #6c757d;
+  }
 
-    a:hover {
-      color: #3079AB !important;
-      text-decoration: none;
-    }
-
+  a:hover {
+    color: #3079ab !important;
+    text-decoration: none;
+  }
 
   .title-box {
-    color: #3079AB;
+    color: #3079ab;
     background-color: #f9fafa;
     margin: -20px -50px 30px -50px;
     padding: 10px 50px 10px 50px;
-    border-bottom: .5px solid #efefef !important;
+    border-bottom: 0.5px solid #efefef !important;
   }
-
 
   .list-group-item {
     border: 0px;
-
   }
 
-  .list-group-item-action:hover, .list-group-item-action:focus {
-    background-color:inherit;
+  .list-group-item-action:hover,
+  .list-group-item-action:focus {
+    background-color: inherit;
     color: #4d76d3;
   }
 
   .btn-new {
     display: inline-block;
-    border: 2px solid rgba(48,73,97,0.1);
+    border: 2px solid rgba(48, 73, 97, 0.1);
     border-radius: 10px;
     text-align: center;
 
-    color: #3079AB;
+    color: #3079ab;
     font-weight: 500;
     background: transparent;
     padding: 0 12px;
     white-space: nowrap;
     line-height: 32px;
-    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+    transition: border-color 0.15s ease, background-color 0.15s ease,
+      color 0.15s ease;
   }
   .btn-new:hover {
-    color: #3079AB !important;
-    border-color: #3079AB;
+    color: #3079ab !important;
+    border-color: #3079ab;
   }
 }
 
 .container-show {
-
   border-top: 4px solid;
   border-top-color: #7ceb31;
 
@@ -215,30 +214,29 @@ h1 {
   }
 
   a:hover {
-    color: #3079AB !important;
+    color: #3079ab !important;
     text-decoration: none;
   }
-
 
   .title-box {
     color: #7ceb31;
     background-color: #f9fafa;
     margin: -20px -50px 30px -50px;
     padding: 10px 50px 10px 50px;
-    border-bottom: .5px solid #efefef !important;
+    border-bottom: 0.5px solid #efefef !important;
   }
   .list-group-item {
     border: 0px;
-
   }
-  .list-group-item-action:hover, .list-group-item-action:focus {
-    background-color:inherit;
+  .list-group-item-action:hover,
+  .list-group-item-action:focus {
+    background-color: inherit;
     color: #4d76d3;
   }
 
   .btn-new {
     display: inline-block;
-    border: 2px solid rgba(48,73,97,0.1);
+    border: 2px solid rgba(48, 73, 97, 0.1);
     border-radius: 10px;
     text-align: center;
 
@@ -248,7 +246,8 @@ h1 {
     padding: 0 12px;
     white-space: nowrap;
     line-height: 32px;
-    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+    transition: border-color 0.15s ease, background-color 0.15s ease,
+      color 0.15s ease;
   }
   .btn-new:hover {
     color: #7ceb31 !important;
@@ -257,7 +256,6 @@ h1 {
 }
 
 .container-new {
-
   border-top: 4px solid;
   border-top-color: #00eb7f;
 
@@ -269,30 +267,29 @@ h1 {
   }
 
   a:hover {
-    color: #3079AB !important;
+    color: #3079ab !important;
     text-decoration: none;
   }
-
 
   .title-box {
     color: #7ceb31;
     background-color: #f9fafa;
     margin: -20px -50px 30px -50px;
     padding: 10px 50px 10px 50px;
-    border-bottom: .5px solid #efefef !important;
+    border-bottom: 0.5px solid #efefef !important;
   }
   .list-group-item {
     border: 0px;
-
   }
-  .list-group-item-action:hover, .list-group-item-action:focus {
-    background-color:inherit;
+  .list-group-item-action:hover,
+  .list-group-item-action:focus {
+    background-color: inherit;
     color: #4d76d3;
   }
 
   .btn-new {
     display: inline-block;
-    border: 2px solid rgba(48,73,97,0.1);
+    border: 2px solid rgba(48, 73, 97, 0.1);
     border-radius: 10px;
     text-align: center;
 
@@ -302,17 +299,16 @@ h1 {
     padding: 0 12px;
     white-space: nowrap;
     line-height: 32px;
-    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+    transition: border-color 0.15s ease, background-color 0.15s ease,
+      color 0.15s ease;
   }
   .btn-new:hover {
     color: #00eb7f !important;
     border-color: #00eb7f;
   }
-
 }
 
 .container-edit {
-
   border-top: 4px solid;
   border-top-color: #ebba26;
 
@@ -324,44 +320,44 @@ h1 {
   }
 
   a:hover {
-    color: #3079AB !important;
+    color: #3079ab !important;
     text-decoration: none;
   }
 
-
   .title-box {
-    color: #EBBA26;
+    color: #ebba26;
     background-color: #f9fafa;
     margin: -20px -50px 30px -50px;
     padding: 10px 50px 10px 50px;
-    border-bottom: .5px solid #efefef !important;
+    border-bottom: 0.5px solid #efefef !important;
   }
   .list-group-item {
     border: 0px;
-
   }
-  .list-group-item-action:hover, .list-group-item-action:focus {
-    background-color:inherit;
+  .list-group-item-action:hover,
+  .list-group-item-action:focus {
+    background-color: inherit;
     color: #4d76d3;
   }
 
   .btn-new {
     display: inline-block;
-    border: 2px solid rgba(48,73,97,0.1);
+    border: 2px solid rgba(48, 73, 97, 0.1);
     border-radius: 10px;
     text-align: center;
 
-    color: #EBBA26;
+    color: #ebba26;
     font-weight: 500;
     background: transparent;
     padding: 0 12px;
     white-space: nowrap;
     line-height: 32px;
-    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+    transition: border-color 0.15s ease, background-color 0.15s ease,
+      color 0.15s ease;
   }
   .btn-new:hover {
-    color: #EBBA26 !important;
-    border-color: #EBBA26;
+    color: #ebba26 !important;
+    border-color: #ebba26;
   }
 }
 
@@ -382,7 +378,7 @@ h1 {
 
 .btn-send {
   display: inline-block;
-  border: 2px solid rgba(48,73,97,0.1);
+  border: 2px solid rgba(48, 73, 97, 0.1);
   border-radius: 10px;
   text-align: center;
 
@@ -392,49 +388,45 @@ h1 {
   padding: 0 12px;
   white-space: nowrap;
   line-height: 32px;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease,
+    color 0.15s ease;
 }
 .btn-send:hover {
-  color: #23558e!important;
+  color: #23558e !important;
   border-color: #23558e;
 }
 
 .bottom-nav {
-
   background-color: #f9fafa;
-  border-top: .05rem #e4e4e4 solid;
-  border-bottom: .05rem #e4e4e4 solid;
+  border-top: 0.05rem #e4e4e4 solid;
+  border-bottom: 0.05rem #e4e4e4 solid;
   font-size: 90%;
-  margin-bottom:20px;
+  margin-bottom: 20px;
   margin-top: -30px;
   margin-left: -50px;
   margin-right: -50px;
   padding: 3px;
-
 }
 
 .tool-dropdown {
-    background-color: #f9fafa !important;
-    left: -50px !important;
-    padding: inherit;
-    min-width: 30px;
+  background-color: #f9fafa !important;
+  left: -50px !important;
+  padding: inherit;
+  min-width: 30px;
   font-size: 90%;
-
 }
 .tool-dropdown-item {
-  margin-left:-10px;
+  margin-left: -10px;
 }
 .tool-dropdown-item:hover {
   background-color: transparent !important;
-  color:#000;
+  color: #000;
 }
 
 .jambodoc-input-new {
   min-height: 300px;
   margin-top: 5px;
 }
-
-
 
 .form-control {
   border-radius: 0.15rem;
@@ -448,7 +440,6 @@ h1 {
   box-shadow: 0 0 0 0.05rem rgba(0, 123, 255, 0.25);
 }
 
-
 .card {
   background-color: #576366 !important;
   min-width: 90%;
@@ -456,7 +447,6 @@ h1 {
 }
 
 footer {
-
   font-weight: bold;
   background-color: #3e474f;
   height: 71px;
@@ -469,6 +459,4 @@ footer {
   a:hover {
     color: white;
   }
-
 }
-

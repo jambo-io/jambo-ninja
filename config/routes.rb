@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   resources :administrative_functions
   resources :participant_roles
   
-  devise_for :users do
+  devise_for :users, controllers: {registrations: "registrations"} do
     resources :user_profiles
   end
+
   resources :media
   resources :contacts
   resources :jambodoc_categories
@@ -26,11 +27,13 @@ Rails.application.routes.draw do
   get 'eventosbahais/email' => 'eventosbahais#sendemail'
   get 'eventosbahais/atemail' => 'eventosbahais#updateemail'
   get 'participantes/conf' => 'participants#confirmation', :as => :confirm
+  get 'confirm/:id' => 'participants#confirm_registration', :as => :confirm_registration
   post 'participantsev' => 'participants#eventosbahais', :as => :partsev
   resources :eventosbahais
   resources :participants do
     resources :itineraries
   end
+  
   resources :drives
 
   get '/initialize' => 'drives#initialize'
@@ -78,7 +81,6 @@ Rails.application.routes.draw do
   delete 'signout' => 'sessions#destroy'
 
   #Cadastro Conferências
-  
   get '/conf/:id' => 'bemvindos#show', :as => :bemvindo
   get 'bemvindos' => 'bemvindos#index'
   post 'bemvindos' => 'bemvindos#create'

@@ -1,0 +1,123 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <span class="text-danger text-center">
+      <%= render "devise/shared/error_messages", resource: resource %>
+    </span>
+
+    <div class="alert alert-primary">
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(No mínimo <%= @minimum_password_length %> caracteres)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= f.fields_for :user_profile_attributes do |profile| %>
+      <div class="row">
+        <div class="form-group col-6 mr-0 pr-0" style="width: 100%;">
+          <%= profile.label 'Nome' %>
+          <%= profile.text_field :name, :class=>'form-control m-0', required: true %>
+        </div>
+        <div class="form-group col-6 ml-0" style="width: 100%;">
+          <%= profile.label 'Sobrenome' %>
+          <%= profile.text_field :lastname, :class=>'form-control m-0', required: true %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <%= profile.label 'Celular' %>
+            <%= profile.text_field :phone, :class=>'form-control', :placeholder => "Ex: 61 99998 8888", required: true %>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+          <%= profile.label 'Aniversário' %><br>
+            <%= profile.date_select :birthday, 
+            {:order => 
+            [:day, :month, :year], 
+            :prompt => {:day => "Dia", 
+            :month => "Mês", 
+            :year => "Ano"}, 
+            :start_year => Time.now.year - 90, 
+            :end_year => Time.now.year - 1}, 
+            {:class=>'form-control', :style=>'display:inline-block; width:30%'}%>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= profile.label 'Endereço' %>
+        <%= profile.text_field :address, :class=>'form-control' %>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6">
+        <%= profile.label 'Cidade' %>
+        <%= profile.text_field :city, :class=>'form-control', required: true %>
+      </div>
+
+      <div class="form-group col-md-6">
+        <%= profile.label 'Estado' %>
+        <%= profile.select :state, 
+        [['Acre','AC'],
+        ['Alagoas','AL'],
+        ['Amapá','AP'],
+        ['Amazonas','AM'],
+        ['Bahia','BA'],
+        ['Ceará','CE'],
+        ['Distrito Federal','DF'],
+        ['Espírito Santo','ES'],
+        ['Goiás','GO'],
+        ['Maranhão','MA'],
+        ['Mato Grosso','MT'],
+        ['Mato Grosso do Sul','MS'],
+        ['Minas Gerais','MG'],
+        ['Pará','PA'],
+        ['Paraíba','PB'],
+        ['Paraná','PR'],
+        ['Pernambuco','PE'],
+        ['Piauí','PI'],
+        ['Rio de Janeiro','RJ'],
+        ['Rio Grande do Norte','RN'],
+        ['Rio Grande do Sul','RS'],
+        ['Rondônia','RO'],
+        ['Roraima','RR'],
+        ['Santa Catarina','SC'],
+        ['São Paulo','SP'],
+        ['Sergipe','SE'],
+        ['Tocantins','TO']],
+        { prompt: "Selecione um Estado" }, class: 'form-control', required: true %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <%= profile.label 'Região Administrativa' %>
+          <%= profile.select(:administrative_region_id, AdministrativeRegion.all.collect {|function| [function.name, function.id]},{prompt:'Selecione uma Região'}, {class: 'form-control'}) %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= hidden_field_tag :eventosbahai_id, @eventosbahai_id %>
+    
+    <div class="actions text-center">
+      <%= f.submit "Cadastrar", class: "btn btn-success" %>
+    </div>
+  <% end %>

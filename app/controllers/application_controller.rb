@@ -58,6 +58,10 @@ class ApplicationController < ActionController::Base
         @image2 = "bg" + random_number_image2.to_s + ".jpg"
   end
 
+  def after_sign_up_path_for(resource)
+    puts "redirect >>>>>>>>>>>>>>>>>>>>>>>>>>"
+    stored_location_for(resource) || root_path
+  end
 
 
 end

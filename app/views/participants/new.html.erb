@@ -1,6 +1,6 @@
 
 <div class="row">
-	<div class="col-lg-6 mx-auto">
+	<div class="col-lg-8 mx-auto">
 		<div class="actions text-center">
 			<ul class="list-inline">
 				
@@ -48,26 +48,23 @@
 						<div class="vertical-align">
 							<%= image_tag "il_running.png", class:"text-center", height: 200, width: "auto" %>
 						</div>
-						<h1 style="text-align:center; margin-bottom:40px;">Inscrição</h1>
+						<h1 style="text-align:center;">Inscrição</h1>
 						
 						<% if user_signed_in? %>
 							<div id="section3" class="container-custom inscricao-container mx-auto mb-2">
 								<%= render 'form', participant: @participant %>
 							</div>
 						<% else %>
-							<div class="row">
-								<div class="col-lg-6 mx-auto">
-								<p>Para realizar a inscrição você precisa estar logado.</p>
-									<%= render "devise/sessions/form" %>
-									<%= render "devise/shared/links" %>
-								</div>
-							</div>
+
+							<%= render partial: 'devise/registrations/form' %>
+
 						<% end %>
 					</div>
 				</div>
 			</div>
 		<% end %>
 	</div>
+	
 </div>
 
 
