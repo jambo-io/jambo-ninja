@@ -21,7 +21,7 @@
 				<%= f.datetime_select :arrival, { :order => [:day, :month, :year]},
 					{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
 			</div>
-			<div class="form-group">
+			<div id="airport1_group" class="form-group">
 				<%= f.label "Aeroporto de Chegada" %><br>
 				<%= f.text_field :airport_arrival, class: 'form-control', placeholder:'ex: Viracopus' %>
 			</div>
@@ -33,7 +33,7 @@
 				<%= f.datetime_select :departure, { :order => [:day, :month, :year]},
 					{:class=>'form-control', :style=>'display:inline-block; width:auto'} %>
 			</div>
-			<div class="form-group">
+			<div id="airport2_group" class="form-group">
 				<%= f.label "Aeroporto de Saída" %><br>
 				<%= f.text_field :airport_departure, class: 'form-control', placeholder:'ex: Guarulhos' %>
 			</div>
@@ -67,7 +67,8 @@
 			$("#flight_number_group").hide();
 			$("#departure_group").hide();
 			$("#arrival_group").hide();
-
+			$("#airport1_group").hide();
+			$("#airport2_group").hide();
 		}
 
 		if(transportation=="carro") {
@@ -75,13 +76,13 @@
 			$("#company_group").hide();
 			$("#flight_number_group").hide();
 			$("#departure_group").hide();
+			$("#airport1_group").hide();
+			$("#airport2_group").hide();
 			
 			$("#itinerary_departure_3i").focus();
 
 			$("#itinerary_company").prop("required", false);
 			$("#itinerary_flight_number").prop("required", false);
-
-
 		}
 
 		if(transportation=="ônibus") {
@@ -90,12 +91,12 @@
 			$("#arrival_group").show();
 
 			$("#flight_number_group").hide();
+			$("#airport1_group").hide();
+			$("#airport2_group").hide();
 
 			$("#itinerary_company").prop("required", true);
 			$("#itinerary_flight_number").prop("required", false);
 
-			
-			
 			$("#itinerary_company").focus();
 			$("#itinerary_company").prop("placeholder","ex: Motta");
 
@@ -106,6 +107,8 @@
 			$("#flight_number_group").show();
 			$("#departure_group").show();
 			$("#arrival_group").show();
+			$("#airport1_group").show();
+			$("#airport2_group").show();
 
 			$("#itinerary_company").prop("required", true);
 			$("#itinerary_flight_number").prop("required", true);
