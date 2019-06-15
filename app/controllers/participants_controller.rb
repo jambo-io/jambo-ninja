@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-	before_action :authenticate_user!, except: [:new]
+	before_action :authenticate_user!, except: [:new, :check_email]
 	before_action :subscribed_redirect, only: [:new]
 
 	def index
@@ -137,6 +137,31 @@ class ParticipantsController < ApplicationController
 	def confirm_registration
 		@event = Eventosbahai.find(params[:id])
 		@participant = Participant.new
+	end
+
+	def check_email
+		require 'uri'
+		puts "Requested Reached Here"
+		email = params[:email]
+		puts "Email analyses"
+		puts email.inspect
+		if email.match(URI::MailTo::EMAIL_REGEXP).present?
+			user = User.where(email:email)
+			if(user.present?)
+				puts "User existent"
+				render json: { 
+					status: "200",
+					message: "Success"	
+				}.to_json
+			else
+				puts "User non existent"
+				render json: { 
+					status: "403",
+					message: "Failed"	
+				}.to_json
+			end
+		end
+		
 	end
 	
 

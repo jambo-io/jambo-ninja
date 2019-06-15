@@ -1,3 +1,6 @@
+
+
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <span class="text-danger text-center">
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -6,7 +9,7 @@
     <div class="alert alert-primary">
       <div class="form-group">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control user_email" %>
       </div>
 
       <div class="row">
@@ -121,3 +124,52 @@
       <%= f.submit "Cadastrar", class: "btn btn-success" %>
     </div>
   <% end %>
+
+
+  <script>
+    $(document).ready(function (){
+      $("#click_login_message").hide();
+    })
+    
+
+    $('#loginModal').on('shown.bs.modal', function () {
+      $('#user_password').focus()
+    })
+
+    function makeRequest () {
+      let value = $(".user_email").val();
+      $.ajax({
+          type: "POST",// GET in place of POST
+          contentType: "application/json; charset=utf-8",
+          url: "/check_email",
+          data : JSON.stringify({email: value}),
+          dataType: "json",
+          success: function (result) {
+            console.log(result.status)
+            if(result.status === "200") {
+              console.log(result);
+              $('#loginModal').modal('show');
+              $("#click_login_message").show();
+              $('.devise_email').val(value);
+              $('#loginModal').find('.devise_email').focus();
+            } else {
+              $("#click_login_message").hide();
+              $('#loginModal').modal({ show: false});
+            }
+          },
+          error: function (){
+            $('#loginModal').modal({ show: false});
+            $("#click_login_message").hide();
+          }
+       });
+    }
+
+    $("#click_login").on('click', function (){
+      makeRequest();
+    })
+
+    $(".user_email").on('keyup', function(e) {
+      e.preventDefault();
+      makeRequest();
+    });
+</script>

@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get 'participantes/conf' => 'participants#confirmation', :as => :confirm
   get 'confirm/:id' => 'participants#confirm_registration', :as => :confirm_registration
   post 'participantsev' => 'participants#eventosbahais', :as => :partsev
+  post 'check_email' => 'participants#check_email'
+
   resources :eventosbahais
   resources :participants do
     resources :itineraries
