@@ -63,5 +63,21 @@ class ApplicationController < ActionController::Base
     stored_location_for(resource) || root_path
   end
 
+  def after_sign_in_path_for(resource)
+    puts "passow aqui"
+    @evento_id = params[:eventosbahai_id]
+    if(@evento_id.present?)
+        if(current_user.participants.where(eventosbahai_id: @evento_id).present?)
+          participant_path(current_user.participants.where(eventosbahai_id: @evento_id).first)
+        else
+          confirm_registration_path(Eventosbahai.find(@evento_id))
+        end
+
+    else
+        root_path
+    end
+  end
+  
+
 
 end
