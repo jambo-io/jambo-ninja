@@ -4,8 +4,8 @@ class EventoMailer < ApplicationMailer
 		puts "Enviar Email.. a qualquer momento..."
 		@participant = participant
 		@eventosbahai = Eventosbahai.find(@participant.eventosbahai_id)
-		@start_at = @eventosbahai.start_at.strftime("%d-%M-%Y")
-		@end_at = @eventosbahai.end_at.strftime("%d-%M-%Y")
+		@start_at = @eventosbahai.start_at.strftime("%d-%m-%Y")
+		@end_at = @eventosbahai.end_at.strftime("%d-%m-%Y")
 		@itinerary = @participant.itinerary
 		puts @participant.inspect
 		attachments.inline['emailforyou.png'] = File.read("#{Rails.root}/app/assets/images/emailforyou.png")

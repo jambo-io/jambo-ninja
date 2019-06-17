@@ -138,11 +138,11 @@
           <th scope="col">Nome</th>
           <th scope="col">Celular</th>
           <th scope="col">Região</th>
-          <th scope="col">Cidade</th>
           <th scope="col">Ag/Instituição</th>
           <th scope="col">Chegada</th>
           <th scope="col">Saída</th>
-          <th scope="col">Aeroporto</th>
+          <th scope="col">Aeroporto Chegada</th>
+          <th scope="col">Aeroporto Saída</th>
         <% else %>
           Nenhum participante inscrito.
         <% end %>
@@ -152,11 +152,7 @@
         <% @eventosbahai.participants.order("id").each_with_index do |f, index| %>
           <tr>
             <td style="text-align: center;">
-
-
               <%= index+1 %>
-
-
             </td>
 
             <% @fullname = "#{f.name.humanize} #{f.lastname}" %>
@@ -174,28 +170,31 @@
               <%= f.administrative_region %>
             </td>
 
-            <% if f.city.present? %>
-              <td style="text-align: center;"><%= truncate f.city.humanize, length: 10 %> - <%= f.state %></td>
-            <% end %>
-
-            <% if f.city.blank? %>
-              <td></td>
-            <% end %>
-
             <td style="max-width: 20px !important;">
              <%= f.administrative_function %>
             </td>
 
-
             <td style="text-align: center;">
               <% if f.itinerary.arrival.present? %>
-                <%= f.itinerary.arrival.strftime("%d-%M %H:%M") %>
+                <%= f.itinerary.arrival.strftime("%d-%m %H:%M") %>
               <% end %>
             </td>
 
             <td style="text-align: center;">
               <% if f.itinerary.departure.present? %>
-                <%= f.itinerary.departure.strftime("%d-%M %H:%M") %>
+                <%= f.itinerary.departure.strftime("%d-%m %H:%M") %>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if f.itinerary.airport_arrival.present? %>
+                <%= f.itinerary.departure.strftime("%d-%m %H:%M") %>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if f.itinerary.airport_departure.present? %>
+                <%= f.itinerary.departure.strftime("%d-%m %H:%M") %>
               <% end %>
             </td>
 
