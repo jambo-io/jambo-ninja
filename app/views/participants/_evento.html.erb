@@ -8,9 +8,11 @@
   <li><%= simple_format @event.description %></li>
 
 	<% if @event_available %>
-		<% if @vacancies.present? %>
+
+		<% if @event.vacancies.present? && @vacancies.present? && @vacancies > 0 %>
 			<li>Número de vagas disponíveis: <span class="badge badge-success"><%= @vacancies %></span></li>
 		<% end %>
+
 		<% if @event.price.present? %>
 			<li>Taxa de Inscrição: <span class="badge badge-success"><%= number_to_currency(@event.price, unit: "R$", separator: ",", delimiter: "", format:"%u %n") %></span></li>
 		<% end %>
