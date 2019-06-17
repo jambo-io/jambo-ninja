@@ -70,17 +70,17 @@ if (number_participants > 0) {
 				<td><%= f.administrative_function %></td>
 				<td><%= f.city %> - <%= f.state %></td>
 				
-				<td><%= @itinerary.transportation %></td>
-				<td><%= @itinerary.company %></td>
-				<td><%= @itinerary.flight_number %></td>
-
-				<td><%= @itinerary.arrival.strftime("%d/%m/%Y %H:%M") unless @itinerary.departure.blank? %></td>
-				<td><%= @itinerary.airport_arrival %></td>
-				<td><%= @itinerary.departure.strftime("%d/%m/%Y %H:%M") unless @itinerary.departure.blank? %></td>
-				<td><%= @itinerary.airport_departure %></td>
-		
+				<% if @itinerary.present? %>
+					<td><%= @itinerary.transportation if @itinerary.transportation.present? %></td>
+					<td><%= @itinerary.company if @itinerary.company.present? %></td>
+					<td><%= @itinerary.flight_number if @itinerary.flight_number.present? %></td>
+					<td><%= @itinerary.arrival.strftime("%d/%m/%Y %H:%M")  if @itinerary.arrival.present? %></td>
+					<td><%= @itinerary.airport_arrival if @itinerary.airport_arrival.present? %></td>
+					<td><%= @itinerary.departure.strftime("%d/%m/%Y %H:%M")  if @itinerary.departure.present? %></td>
+					<td><%= @itinerary.airport_departure if @itinerary.airport_departure.present? %></td>
+			    <% end %>
 				<% if f.itinerary.blank? %>
-					<td></td><td></td><td></td><td></td><td></td>
+					<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 				<% end %>
 
 				<td><%= f.created_at.strftime("%d/%m/%Y") %></td>

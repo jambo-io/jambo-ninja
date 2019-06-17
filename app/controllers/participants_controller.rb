@@ -68,6 +68,7 @@ class ParticipantsController < ApplicationController
 	end
 
 	def show
+		
 		@participant = Participant.find(params[:id])
 		@itinerary = @participant.itinerary
 		@event = @participant.eventosbahai
