@@ -3,8 +3,6 @@ class BadgesController < ApplicationController
   layout 'participant'
   before_action :redirect, only: [:index]
 
-
-
   def index
     @eventosbahai = Eventosbahai.find(params[:id])
     @participants = @eventosbahai.participants

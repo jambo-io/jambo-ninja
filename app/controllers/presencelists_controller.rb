@@ -1,7 +1,7 @@
 class PresencelistsController < ApplicationController
   before_action :authenticate_user!
   include SessionsHelper
-  layout 'participant'
+  layout 'eventosbahais'
   before_action :redirect, only: [:index]
   def index
     @eventosbahai = Eventosbahai.find(params[:id])

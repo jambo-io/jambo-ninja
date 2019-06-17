@@ -1,14 +1,15 @@
 <style>
+
   @import url('https://fonts.googleapis.com/css?family=Crafty+Girls');
   body {
     background: rgb(214, 222, 234);
     page-break-before: avoid;
-
-
   }
+
   h5 {
     color:#0d3109;
   }
+
   p{
     color:#000 !important;
   }
@@ -41,12 +42,11 @@
     width: 29.7cm;
     height: 21cm;
   }
+
   .card-deck {
     margin-left: -.15cm;
     margin-top: .2cm;
     font-family: 'Crafty Girls', cursive;
-
-
   }
 
   .clearfix:before,
@@ -67,7 +67,6 @@
     zoom: 1;
   }
 
-
   .card{
     color: #0d3109 !important;
   }
@@ -79,9 +78,11 @@
       content: "foo";
       color: blue;
     }
+
     @top-right {
       content: "bar";
     }
+    
   }
 
   @page {
@@ -101,43 +102,47 @@
         box-shadow: 0;
         overflow-y: hidden;
       }
-
   }
 </style>
+<div class="row">
+  <div class="col-lg-12 col-sm-12">
+    <div class="frame">
+      <div class="container clearfix">
+        <h2 class="text-center m-4"><%= @eventosbahai.name %></h2>
+        <p>Os crachás estão configurados para folhas A4. Cada impressora tem margens padrões específicas, ao imprimir você poderá
+          visualizar se as margens estão corretas (Google Chrome), e existem algumas opções
+          para ajustá-las, se necessário.</p>
 
-<div class="container clearfix">
-  <h2 class="text-center m-4"><%= @eventosbahai.name %></h2>
-  <p>Os crachás estão configurados para folhas A4. Cada impressora tem margens padrões específicas, ao imprimir você poderá
-    visualizar se as margens estão corretas (Google Chrome), e existem algumas opções
-    para ajustá-las, se necessário.</p>
+        <p>Aperte Ctrl+P para imprimir, ou <a href="#" id="print">clique aqui</a>. </p>
+      </div>
 
-  <p>Aperte Ctrl+P para imprimir, ou <a href="#" id="print">clique aqui</a>. </p>
-
-  <ul class="list-inline">
-    <li class="list-inline-item">
-      <%= label_tag "Largura" %>
-      <% if params[:w]
-          wvalue = params[:w]
-        else
-          wvalue = 9.7
-        end
-        if params[:h]
-          hvalue = params[:h]
-        else
-          hvalue = 5
-        end
-      %>
-      <%= number_field_tag :name, wvalue , max: 29, min:3, id:'width' %> cm
-    </li>
-    <li class="list-inline-item">
-      <%= label_tag "Altura" %>
-      <%= number_field_tag :name, hvalue, max: 29, min:3, id:'height' %> cm
-    </li>
-      <a id = "btn" class="btn btn-info" style="color: #fff;">Visualizar</a>
-    <li class="list-inline-item">
-    </li>
-  </ul>
-</div>
+    <ul class="list-inline text-center">
+      <li class="list-inline-item">
+        <%= label_tag "Largura" %>
+        <% if params[:w]
+            wvalue = params[:w]
+          else
+            wvalue = 9.7
+          end
+          if params[:h]
+            hvalue = params[:h]
+          else
+            hvalue = 5
+          end
+        %>
+        <%= number_field_tag :name, wvalue , max: 29, min:3, id:'width' %> cm
+      </li>
+      <li class="list-inline-item">
+        <%= label_tag "Altura" %>
+        <%= number_field_tag :name, hvalue, max: 29, min:3, id:'height' %> cm
+      </li>
+        <a id = "btn" class="btn btn-info" style="color: #fff;">Visualizar</a>
+      <li class="list-inline-item">
+      </li>
+    </ul>
+    </div>
+  </div>
+</div>  
 
 <script>
   $(document).ready(function(){
@@ -152,13 +157,11 @@
           $(".card").css({ 'width': widthe + "cm" });
           console.log(heighte);
           console.log(widthe);
-          window.location.href = "http://www.jambo.ninja/badges?locale=pt-BR" + "?sz=1&h=" + parseFloat(heighte) + "&w=" + parseFloat(widthe);
+          window.location.href = "http://www.jambo.ninja/cards?locale=pt-BR" + "?sz=1&h=" + parseFloat(heighte) + "&w=" + parseFloat(widthe);
       })
-
       $("#print").on('click', function () {
           window.print();
       })
-
   });
   math = 0;
   contentheight = 0;
@@ -167,12 +170,23 @@
 
 </script>
 
+<style>
+  .card-custom {
+    padding: auto !important;
+    margin: auto !important;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+  }
+</style>
+
 <page size="A4">
   <table>
     <tr>
         <% @participants.order("created_at desc").each do |f| %>
           <td>
-            <div id="card" class="card text-white" style="background-color: transparent !important;  flex: none !important; width: <%= params[:w] %>cm; height: <%= params[:h] %>cm; margin-bottom: 0px;  border: 2px solid #000; margin-right: 0px; border-radius: 0; -webkit-print-color-adjust: exact; text-align:center; background-image: url('<%= asset_path "badgebg1.png" %>'); background-repeat: no-repeat; background-size:50px; background-position: left center;">
+            <div id="card" class="card text-white" style="background-color: transparent !important;  flex: none !important; width: <%= params[:w] %>cm; height: <%= params[:h] %>cm; margin-bottom: 0px;  border: 2px solid #000; margin-right: 0px; border-radius: 0; -webkit-print-color-adjust: exact; text-align:center; background-image: url('<%= asset_path "cardbg1.png" %>'); background-repeat: no-repeat; background-size:50px; background-position: left center;">
               <div class="card-img-overlay">
                 <h5 class="card-title" style="margin-bottom: -.3cm;"><%= @eventosbahai.name %></h5>
                 <div style="position: absolute; width: 100%;  bottom:43.5%; text-align: center; left: 0px;">
@@ -199,6 +213,7 @@
                   document.write("</tr><tr>");
                   console.log("disparou!");
               }
+
               count += 1;
             </script>
         <% end %>
