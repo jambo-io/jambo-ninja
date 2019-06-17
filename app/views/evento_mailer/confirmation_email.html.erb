@@ -19,8 +19,8 @@
 				Abaixo estão as informações sobre a data e o local da <%= @eventosbahai.name %> que ocorrerá em <%= @eventosbahai.city %> - <%= @eventosbahai.state %><br><br>
 				<ul style="list-style:none">
 					
-					<li><b>Início:</b> <%= @eventosbahai.start_at %></li>
-					<li><b>Término:</b> <%= @eventosbahai.end_at %></li>
+					<li><b>Início:</b> <%= @start_at %></li>
+					<li><b>Término:</b> <%= @end_at %></li>
 					<% unless @eventosbahai.location.nil? %>
 						<li><b>Endereço:</b> <%= @eventosbahai.location %></i>
 					<% end %>
@@ -33,7 +33,7 @@
 				<br><br>
 
 
-				<br><br>Qualquer dúvida responda a este E-mail<br><br>
+				<br><br>Qualquer dúvida responda a este E-mail,<br><br>
 
 				Atenciosamente,<br>
 						Secretaria Nacional
