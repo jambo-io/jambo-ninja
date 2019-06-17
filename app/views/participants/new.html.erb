@@ -3,12 +3,13 @@
 	<div class="col-lg-8 mx-auto">
 		<div class="actions text-center">
 			<ul class="list-inline">
-				
-				<% if user_signed_in? && current_user.admin? && correct_user_eventosbahais? %>
-					<% unless @event_available %>
-						<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
+				<% if user_signed_in? %>
+					<% if (current_user.admin? && correct_user_eventosbahais?) || current_user.superuser? %>
+						<% unless @event_available %>
+							<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
+						<% end %>
 					<% end %>
-				<% end %>
+			    <% end %>
 			</ul>
 		</div>
 

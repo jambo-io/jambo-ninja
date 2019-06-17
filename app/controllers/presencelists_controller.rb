@@ -11,7 +11,7 @@ class PresencelistsController < ApplicationController
   end
   private
   def redirect
-    unless user_signed_in? && current_user.admin?
+    unless (user_signed_in? && current_user.admin?) || current_user.superuser?
       redirect_to root_path
     end
   end

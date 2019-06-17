@@ -13,8 +13,8 @@
 
      <div class="content" style="min-height: 100vh">
         <div class="container container-main rounded-top mt-5 mx-auto">
-
-          <% if user_signed_in? && current_user.admin? %>
+          <% if user_signed_in? %>
+          <% if current_user.admin? || current_user.superuser? %>
             <div class="text-center"">
             <ul class="list-inline">
               <li class="list-inline-item"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-new' %></li>
@@ -25,7 +25,7 @@
             </ul>
             </div>
           <% end %>
-
+          <% end %>
           <% if notice %>
             <p class="alert alert-success"><%= notice %></p>
           <% end %>

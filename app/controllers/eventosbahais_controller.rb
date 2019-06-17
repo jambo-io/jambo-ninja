@@ -62,7 +62,7 @@ class EventosbahaisController < ApplicationController
    end
 
    def permission
-      unless user_signed_in? && current_user.admin?
+      unless (user_signed_in? && current_user.admin?) || current_user.superuser?
          redirect_to root_path
       end
    end

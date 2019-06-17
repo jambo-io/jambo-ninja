@@ -17,7 +17,11 @@
 
 			<% unless (Eventosbahai.last.blank?) %>
 				<%= form_tag partsev_path,  {id:'formcombo', remote:true } do |form| %>
-					<%= collection_select :eventosbahais, :ids , current_user.eventosbahais.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
+					<% if current_user.superuser? %>
+						<%= collection_select :eventosbahais, :ids , Eventosbahai.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
+					<% else %>
+						<%= collection_select :eventosbahais, :ids , current_user.eventosbahais.order('id desc').all, :id, :name, {include_blank: false, :selected => Eventosbahai.last.id},{class:'form-control btn btn-info'} %>
+					<% end %>
 				<% end %>
 			<% end %>
 			<script>
