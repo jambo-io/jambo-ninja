@@ -192,13 +192,13 @@
 
             <td style="text-align: center;">
               <% if f.itinerary.present? && f.itinerary.airport_arrival.present? %>
-                <%= f.itinerary.departure.strftime("%d-%m %H:%M") %>
+                <%= f.itinerary.airport_arrival %>
               <% end %>
             </td>
 
             <td style="text-align: center;">
               <% if f.itinerary.present? && f.itinerary.airport_departure.present? %>
-                <%= f.itinerary.departure.strftime("%d-%m %H:%M") %>
+                <%= f.itinerary.airport_departure %>
               <% end %>
             </td>
 
