@@ -67,7 +67,7 @@ class Participant < ApplicationRecord
 
     if self.user.user_profile.administrative_region_id.present?
       adm_id = AdministrativeRegion.find(self.user.user_profile.administrative_region_id).id unless AdministrativeRegion.find(self.user.user_profile.administrative_region_id).blank?
-      regions_min[adm_id+1]
+      regions_min[adm_id-1]
     end
   end
 end
