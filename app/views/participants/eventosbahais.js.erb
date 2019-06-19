@@ -46,7 +46,7 @@ participants_number = `<%= @eventosbahai.participants.size %> <%= "participante"
 <% end %>
 
 if (number_participants > 0) {
-	<% @eventosbahai.participants.order(:id).each do |f| %>
+	<% @eventosbahai.participants.order("#{:id} desc").each do |f| %>
 		<% @itinerary = f.itinerary if f.itinerary.present? %>
 		html=`<tr id="participant_<%= f.id %>">
 				<th></th>
