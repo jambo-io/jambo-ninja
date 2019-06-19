@@ -1,7 +1,18 @@
-<div id="section1" class="container">
-	<h1 style="margin-top: 40px;"> Editando <%= @participant.name %>! </h1>
-
-	<%= render 'form', participant: @participant %>
-
-
+<div class="row">
+	<div class="col-lg-8 mx-auto">
+		<div class="frame">
+			<h1 style="text-align:center;"> Editando <%= @participant.name %>! </h1>
+				<% resource = @participant.user %>
+				
+				<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+					<%= resource.inspect %>
+					<%= f.fields_for :user_profile_attributes do |profile| %>
+						<%= render 'devise/registrations/form_profile', profile: profile %>
+					<% end %>
+					<div class="actions text-center">
+						<%= f.submit "Atualizar", class: "btn btn-success" %>
+					</div>
+				<% end %>
+		</div>
+	</div>
 </div>

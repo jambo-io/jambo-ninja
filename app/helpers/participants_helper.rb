@@ -52,6 +52,6 @@ module ParticipantsHelper
   		elsif string=="3"
   			return "Menor de 12"
   		end
-  	end
+   end
 
 end

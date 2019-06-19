@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   resources :administrative_functions
   resources :participant_roles
   
-  devise_for :users, controllers: {registrations: "registrations"} do
-    resources :user_profiles
-  end
+  devise_for :users, controllers: {registrations: "registrations"}
+  resources :user_profile
 
   resources :media
   resources :contacts
@@ -20,8 +19,6 @@ Rails.application.routes.draw do
 
   # Documentos Baháiś - - Jambodocs
   resources :jambodocs
-
-
 
   # Eventos Bahá'ís
   get 'eventosbahais/email' => 'eventosbahais#sendemail'

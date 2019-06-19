@@ -158,8 +158,11 @@
             <td style="text-align: center;">
               <%= index+1 %>
             </td>
-
-            <% @fullname = "#{f.name.humanize} #{f.lastname}" %>
+            <%= @fullname = "" %>
+            <% unless f.name.blank? || f.lastname.blank? %>
+              <% @fullname = "#{f.name.humanize} #{f.lastname.humanize}" %>
+            <% end %>
+   
             <td style="text-align:left;"><%= truncate @fullname, length:22, separator: /\w+/ %></td>
             <td style="max-width: 72px;">
 

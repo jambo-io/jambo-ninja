@@ -58,8 +58,10 @@ if (number_participants > 0) {
 					<% end %>
 					</td>
 				<% end %>
-				<td><%= link_to "#{f.name} #{f.lastname}", edit_participant_path(f) %></td>
-				
+                <% unless f.user.user_profile.nil? %>
+				<td><%= link_to "#{f.name} #{f.lastname}", edit_user_profile_path(f.user.user_profile) %></td>
+				<% end %>
+
 				<% if f.phone.present? %>
 					<td><%= f.email %></td>
 				<% end %>

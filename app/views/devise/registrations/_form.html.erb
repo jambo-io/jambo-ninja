@@ -33,68 +33,68 @@
     <%= f.fields_for :user_profile_attributes do |profile| %>
       <div class="row">
         <div class="form-group col-6 mr-0 pr-0" style="width: 100%;">
-          <%= profile.label 'Nome' %>
-          <%= profile.text_field :name, :class=>'form-control m-0', required: true %>
+            <%= profile.label 'Nome' %>
+            <%= profile.text_field :name, :class=>'form-control m-0', required: true %>
         </div>
         <div class="form-group col-6 ml-0" style="width: 100%;">
-          <%= profile.label 'Sobrenome' %>
-          <%= profile.text_field :lastname, :class=>'form-control m-0', required: true %>
+            <%= profile.label 'Sobrenome' %>
+            <%= profile.text_field :lastname, :class=>'form-control m-0', required: true %>
         </div>
-      </div>
-
-      <div class="row">
+    </div>
+    <div class="row">
         <div class="col-lg-6">
-          <div class="form-group">
-            <%= profile.label 'Celular' %>
-            <%= profile.text_field :phone, :class=>'form-control', :placeholder => "Ex: 61 99998 8888", required: true %>
-          </div>
+            <div class="form-group">
+                <%= profile.label 'Celular' %>
+                <%= profile.text_field :phone, :class=>'form-control', :placeholder => "Ex: 61 99998 8888", required: true %>
+            </div>
         </div>
         <div class="form-group col-md-6">
-          <%= profile.label 'Cidade' %>
-          <%= profile.text_field :city, :class=>'form-control', required: true %>
+            <%= profile.label 'Cidade' %>
+            <%= profile.text_field :city, :class=>'form-control', required: true %>
         </div>
-      </div>
-      <div class="row">
+    </div>
+    <div class="row">
         <div class="form-group col-md-12">
-          <%= profile.label 'Estado' %>
-          <%= profile.select :state, 
-          [['Acre','AC'],
-          ['Alagoas','AL'],
-          ['Amapá','AP'],
-          ['Amazonas','AM'],
-          ['Bahia','BA'],
-          ['Ceará','CE'],
-          ['Distrito Federal','DF'],
-          ['Espírito Santo','ES'],
-          ['Goiás','GO'],
-          ['Maranhão','MA'],
-          ['Mato Grosso','MT'],
-          ['Mato Grosso do Sul','MS'],
-          ['Minas Gerais','MG'],
-          ['Pará','PA'],
-          ['Paraíba','PB'],
-          ['Paraná','PR'],
-          ['Pernambuco','PE'],
-          ['Piauí','PI'],
-          ['Rio de Janeiro','RJ'],
-          ['Rio Grande do Norte','RN'],
-          ['Rio Grande do Sul','RS'],
-          ['Rondônia','RO'],
-          ['Roraima','RR'],
-          ['Santa Catarina','SC'],
-          ['São Paulo','SP'],
-          ['Sergipe','SE'],
-          ['Tocantins','TO']],
-          { prompt: "Selecione um Estado" }, class: 'form-control', required: true %>
-          </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-md-12">
-          <%= profile.label 'Região' %>
-          <%= profile.select(:administrative_region_id, AdministrativeRegion.all.collect {|function| [function.name, function.id]},{prompt:'Selecione uma Região'}, {class: 'form-control'}) %>
+            <%= profile.label 'Estado' %>
+                <%= profile.select :state, 
+                [['Acre','AC'],
+                ['Alagoas','AL'],
+                ['Amapá','AP'],
+                ['Amazonas','AM'],
+                ['Bahia','BA'],
+                ['Ceará','CE'],
+                ['Distrito Federal','DF'],
+                ['Espírito Santo','ES'],
+                ['Goiás','GO'],
+                ['Maranhão','MA'],
+                ['Mato Grosso','MT'],
+                ['Mato Grosso do Sul','MS'],
+                ['Minas Gerais','MG'],
+                ['Pará','PA'],
+                ['Paraíba','PB'],
+                ['Paraná','PR'],
+                ['Pernambuco','PE'],
+                ['Piauí','PI'],
+                ['Rio de Janeiro','RJ'],
+                ['Rio Grande do Norte','RN'],
+                ['Rio Grande do Sul','RS'],
+                ['Rondônia','RO'],
+                ['Roraima','RR'],
+                ['Santa Catarina','SC'],
+                ['São Paulo','SP'],
+                ['Sergipe','SE'],
+                ['Tocantins','TO']],
+                { prompt: "Selecione um Estado" }, class: 'form-control', required: true %>
         </div>
-      </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-12">
+        <%= profile.label 'Região' %>
+        <%= profile.select(:administrative_region_id, AdministrativeRegion.all.collect {|function| [function.name, function.id]},{prompt:'Selecione uma Região'}, {class: 'form-control'}) %>
+    </div>
     <% end %>
+    </div>
 
     <%= hidden_field_tag :eventosbahai_id, @eventosbahai_id %>
     
