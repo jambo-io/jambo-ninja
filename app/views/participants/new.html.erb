@@ -4,7 +4,7 @@
 		<div class="actions text-center">
 			<ul class="list-inline">
 				<% if user_signed_in? %>
-					<% if (current_user.admin? && correct_user_eventosbahais?) || current_user.superuser? %>
+					<% if (user_signed_in? && current_user.admin? && correct_user_eventosbahais?) ||  (user_signed_in? && current_user.superuser?) %>
 						<% unless @event_available %>
 							<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
 						<% end %>
@@ -18,7 +18,7 @@
 				<div class="frame">
 					<div class="container-custom evento-container mx-auto pt-5 mb-2">
 						<%= render partial: 'participants/evento' %>
-						<% if (user_signed_in? && current_user.admin?) || current_user.superuser? %>
+						<% if (user_signed_in? && current_user.admin?) || (user_signed_in? && current_user.superuser?) %>
 							<p class="text-center">
 								<%= link_to "Editar", edit_eventosbahai_path(@event)  %>
 							</p>
