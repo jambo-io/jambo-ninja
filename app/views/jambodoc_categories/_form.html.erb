@@ -1,7 +1,7 @@
 <%= form_for(jambodoc_category) do |f| %>
   <% if jambodoc_category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(jambodoc_category.errors.count, "error") %> prohibited this jambodoc_category from being saved:</h2>
+      <h1><%= pluralize(jambodoc_category.errors.count, "error") %> prohibited this jambodoc_category from being saved:</h1>
 
       <ul>
       <% jambodoc_category.errors.full_messages.each do |message| %>

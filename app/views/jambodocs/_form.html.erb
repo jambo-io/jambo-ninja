@@ -3,7 +3,7 @@
 <%= form_for @jambodoc do |form| %>
   <% if @jambodoc.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h1><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h1>
 
       <ul>
         <% @jambodoc.errors.full_messages.each do |message| %>

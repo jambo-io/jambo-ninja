@@ -15,8 +15,7 @@
                   <td><%= link_to eventosbahai.name, partnew_path(eventosbahai), anchor: "section1" %>
                     <% if user_signed_in? %>
                     <% if (current_user.admin? || current_user.superuser?) && (eventosbahai.user_id == current_user.id || current_user.superuser?) %>  -  
-                      <%= link_to 'Editar', edit_eventosbahai_path(eventosbahai) %> |
-                      <%= link_to 'Destruir', eventosbahai_path(eventosbahai), method: :delete, data:{confirm: 'Deletar um evento irá deletar todos os participantes inscritos também. Deseja deletar mesmo assim?'} %> 
+                      <%= link_to 'Editar', edit_eventosbahai_path(eventosbahai) %>
                     <%end %>
                     <% end %>
                   </td>

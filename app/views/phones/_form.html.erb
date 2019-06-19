@@ -1,7 +1,7 @@
 <%= form_for(phone) do |f| %>
   <% if phone.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(phone.errors.count, "error") %> prohibited this phone from being saved:</h2>
+      <h1><%= pluralize(phone.errors.count, "error") %> prohibited this phone from being saved:</h1>
 
       <ul>
       <% phone.errors.full_messages.each do |message| %>

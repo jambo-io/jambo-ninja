@@ -110,7 +110,7 @@ at the end of this manual.
 
 
 
-<h2>2.1 - <a name="2.1">Lexical Conventions</a></h2>
+<h1>2.1 - <a name="2.1">Lexical Conventions</a></h1>
 
 <p>
 <em>Names</em>
@@ -245,7 +245,7 @@ Long comments are frequently used to disable code temporarily.
 
 
 
-<h2>2.2 - <a name="2.2">Values and Types</a></h2>
+<h1>2.2 - <a name="2.2">Values and Types</a></h1>
 
 <p>
 Lua is a <em>dynamically typed language</em>.
@@ -371,7 +371,7 @@ use the <code>format</code> function from the string library
 
 
 
-<h2>2.3 - <a name="2.3">Variables</a></h2>
+<h1>2.3 - <a name="2.3">Variables</a></h1>
 
 <p>
 Variables are places that store values.
@@ -463,7 +463,7 @@ We use them here only for explanatory purposes.)
 
 
 
-<h2>2.4 - <a name="2.4">Statements</a></h2>
+<h1>2.4 - <a name="2.4">Statements</a></h1>
 
 <p>
 Lua supports an almost conventional set of statements,
@@ -866,7 +866,7 @@ The visibility rules for local variables are explained in <a href="#2.6">&sect;2
 
 
 
-<h2>2.5 - <a name="2.5">Expressions</a></h2>
+<h1>2.5 - <a name="2.5">Expressions</a></h1>
 
 <p>
 The basic expressions in Lua are the following:
@@ -1433,7 +1433,7 @@ is syntactic sugar for
 
 
 
-<h2>2.6 - <a name="2.6">Visibility Rules</a></h2>
+<h1>2.6 - <a name="2.6">Visibility Rules</a></h1>
 
 <p>
 
@@ -1495,7 +1495,7 @@ while all of them share the same <code>x</code>.
 
 
 
-<h2>2.7 - <a name="2.7">Error Handling</a></h2>
+<h1>2.7 - <a name="2.7">Error Handling</a></h1>
 
 <p>
 Because Lua is an embedded extension language,
@@ -1517,7 +1517,7 @@ you can use the <a href="#pdf-pcall"><code>pcall</code></a> function.
 
 
 
-<h2>2.8 - <a name="2.8">Metatables</a></h2>
+<h1>2.8 - <a name="2.8">Metatables</a></h1>
 
 <p>
 Every value in Lua can have a <em>metatable</em>.
@@ -1922,7 +1922,7 @@ called when Lua calls a value.
 
 
 
-<h2>2.9 - <a name="2.9">Environments</a></h2>
+<h1>2.9 - <a name="2.9">Environments</a></h1>
 
 <p>
 Besides metatables,
@@ -1985,7 +1985,7 @@ use the C&nbsp;API.
 
 
 
-<h2>2.10 - <a name="2.10">Garbage Collection</a></h2>
+<h1>2.10 - <a name="2.10">Garbage Collection</a></h1>
 
 <p>
 Lua performs automatic memory management.
@@ -2120,7 +2120,7 @@ metatable is undefined.
 
 
 
-<h2>2.11 - <a name="2.11">Coroutines</a></h2>
+<h1>2.11 - <a name="2.11">Coroutines</a></h1>
 
 <p>
 Lua supports coroutines,
@@ -2261,7 +2261,7 @@ in file <code>luaconf.h</code>.
 
 
 
-<h2>3.1 - <a name="3.1">The Stack</a></h2>
+<h1>3.1 - <a name="3.1">The Stack</a></h1>
 
 <p>
 Lua uses a <em>virtual stack</em> to pass values to and from C.
@@ -2303,7 +2303,7 @@ if it lies between&nbsp;1 and the stack top
 
 
 
-<h2>3.2 - <a name="3.2">Stack Size</a></h2>
+<h1>3.2 - <a name="3.2">Stack Size</a></h1>
 
 <p>
 When you interact with Lua API,
@@ -2340,7 +2340,7 @@ Note that 0 is never an acceptable index.
 
 
 
-<h2>3.3 - <a name="3.3">Pseudo-Indices</a></h2>
+<h1>3.3 - <a name="3.3">Pseudo-Indices</a></h1>
 
 <p>
 Unless otherwise noted,
@@ -2373,7 +2373,7 @@ For instance, to access the value of a global variable, do
 
 
 
-<h2>3.4 - <a name="3.4">C Closures</a></h2>
+<h1>3.4 - <a name="3.4">C Closures</a></h1>
 
 <p>
 When a C&nbsp;function is created,
@@ -2400,7 +2400,7 @@ produces an acceptable (but invalid) index.
 
 
 
-<h2>3.5 - <a name="3.5">Registry</a></h2>
+<h1>3.5 - <a name="3.5">Registry</a></h1>
 
 <p>
 Lua provides a <em>registry</em>,
@@ -2424,7 +2424,7 @@ and therefore should not be used for other purposes.
 
 
 
-<h2>3.6 - <a name="3.6">Error Handling in C</a></h2>
+<h1>3.6 - <a name="3.6">Error Handling in C</a></h1>
 
 <p>
 Internally, Lua uses the C <code>longjmp</code> facility to handle errors.
@@ -2454,7 +2454,7 @@ Inside a C&nbsp;function you can throw an error by calling <a href="#lua_error">
 
 
 
-<h2>3.7 - <a name="3.7">Functions and Types</a></h2>
+<h1>3.7 - <a name="3.7">Functions and Types</a></h1>
 
 <p>
 Here we list all functions and types from the C&nbsp;API in
@@ -4285,7 +4285,7 @@ that are passed as results to <a href="#lua_resume"><code>lua_resume</code></a>.
 
 
 
-<h2>3.8 - <a name="3.8">The Debug Interface</a></h2>
+<h1>3.8 - <a name="3.8">The Debug Interface</a></h1>
 
 <p>
 Lua has no built-in debugging facilities.
@@ -4744,7 +4744,7 @@ you should not use these functions for other stack values.
 
 
 
-<h2>4.1 - <a name="4.1">Functions and Types</a></h2>
+<h1>4.1 - <a name="4.1">Functions and Types</a></h1>
 
 <p>
 Here we list all functions and types from the auxiliary library
@@ -5690,7 +5690,7 @@ e.g., by using <a href="#lua_call"><code>lua_call</code></a>.
 
 
 
-<h2>5.1 - <a name="5.1">Basic Functions</a></h2>
+<h1>5.1 - <a name="5.1">Basic Functions</a></h1>
 
 <p>
 The basic library provides some core functions to Lua.
@@ -6200,7 +6200,7 @@ In case of any error,
 
 
 
-<h2>5.2 - <a name="5.2">Coroutine Manipulation</a></h2>
+<h1>5.2 - <a name="5.2">Coroutine Manipulation</a></h1>
 
 <p>
 The operations related to coroutines comprise a sub-library of
@@ -6310,7 +6310,7 @@ Any arguments to <code>yield</code> are passed as extra results to <code>resume<
 
 
 
-<h2>5.3 - <a name="5.3">Modules</a></h2>
+<h1>5.3 - <a name="5.3">Modules</a></h1>
 
 <p>
 The package library provides basic
@@ -6613,7 +6613,7 @@ To be used as an option to function <a href="#pdf-module"><code>module</code></a
 
 
 
-<h2>5.4 - <a name="5.4">String Manipulation</a></h2>
+<h1>5.4 - <a name="5.4">String Manipulation</a></h1>
 
 <p>
 This library provides generic functions for string manipulation,
@@ -7124,7 +7124,7 @@ A pattern cannot contain embedded zeros.  Use <code>%z</code> instead.
 
 
 
-<h2>5.5 - <a name="5.5">Table Manipulation</a></h2><p>
+<h1>5.5 - <a name="5.5">Table Manipulation</a></h1><p>
 This library provides generic functions for table manipulation.
 It provides all its functions inside the table <a name="pdf-table"><code>table</code></a>.
 
@@ -7217,7 +7217,7 @@ may have their relative positions changed by the sort.
 
 
 
-<h2>5.6 - <a name="5.6">Mathematical Functions</a></h2>
+<h1>5.6 - <a name="5.6">Mathematical Functions</a></h1>
 
 <p>
 This library is an interface to the standard C&nbsp;math library.
@@ -7554,7 +7554,7 @@ Returns the hyperbolic tangent of <code>x</code>.
 
 
 
-<h2>5.7 - <a name="5.7">Input and Output Facilities</a></h2>
+<h1>5.7 - <a name="5.7">Input and Output Facilities</a></h1>
 
 <p>
 The I/O library provides two different styles for file manipulation.
@@ -7938,7 +7938,7 @@ use <a href="#pdf-tostring"><code>tostring</code></a> or <a href="#pdf-string.fo
 
 
 
-<h2>5.8 - <a name="5.8">Operating System Facilities</a></h2>
+<h1>5.8 - <a name="5.8">Operating System Facilities</a></h1>
 
 <p>
 This library is implemented through table <a name="pdf-os"><code>os</code></a>.
@@ -8159,7 +8159,7 @@ which automatically removes the file when the program ends.
 
 
 
-<h2>5.9 - <a name="5.9">The Debug Library</a></h2>
+<h1>5.9 - <a name="5.9">The Debug Library</a></h1>
 
 <p>
 This library provides
@@ -8588,7 +8588,7 @@ all these compatibility options will be removed in the next version of Lua.
 
 
 
-<h2>7.1 - <a name="7.1">Changes in the Language</a></h2>
+<h1>7.1 - <a name="7.1">Changes in the Language</a></h1>
 <ul>
 
 <li>
@@ -8614,7 +8614,7 @@ You can use the new syntax (<code>[=[<em>string</em>]=]</code>) in these cases.
 
 
 
-<h2>7.2 - <a name="7.2">Changes in the Libraries</a></h2>
+<h1>7.2 - <a name="7.2">Changes in the Libraries</a></h1>
 <ul>
 
 <li>
@@ -8672,7 +8672,7 @@ use <code>collectgarbage("count")</code> instead.
 
 
 
-<h2>7.3 - <a name="7.3">Changes in the API</a></h2>
+<h1>7.3 - <a name="7.3">Changes in the API</a></h1>
 <ul>
 
 <li>

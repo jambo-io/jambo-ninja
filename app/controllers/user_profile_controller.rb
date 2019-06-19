@@ -8,6 +8,7 @@ class UserProfileController < ApplicationController
 
     def show
         @user_profile = user_profile
+        @user = @user_profile.user
     end
 
     def update
@@ -35,7 +36,12 @@ class UserProfileController < ApplicationController
     private
 
     def user_profile
-        @user_profile = UserProfile.find(params[:id])
+        begin
+            @user_profile = UserProfile.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
+            puts "[ Não encontrado User Profile com ID #{params[:id]} ]"
+            @user_profile = nil
+        end
     end
    
     def user_profile_params
@@ -43,13 +49,8 @@ class UserProfileController < ApplicationController
     end
     
     def owner_check
-        puts "current user"
-        @user_profile = UserProfile.find(params[:id])
-        puts current_user.user_profile.inspect
-        puts @user_profile.inspect
         if user_signed_in? && current_user.user_profile.present?
-            if current_user.user_profile == @user_profile || current_user.superuser?
-                puts "here"
+            if current_user.user_profile == user_profile || current_user.superuser?
                 return true
             end
         end

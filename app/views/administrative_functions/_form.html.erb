@@ -1,7 +1,7 @@
 <%= form_for(administrative_function) do |f| %>
   <% if administrative_function.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(administrative_function.errors.count, "error") %> impediu de ser salvo:</h2>
+      <h1><%= pluralize(administrative_function.errors.count, "error") %> impediu de ser salvo:</h1>
 
       <ul>
       <% administrative_function.errors.full_messages.each do |message| %>

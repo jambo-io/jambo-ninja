@@ -33,7 +33,7 @@
             <% if current_user.participants.last.present? %>
               <li> <%= link_to 'Minha Inscrição', participant_path(current_user.participants.last), class:"nav-link" %></li>
             <% end %>
-            <% if user_signed_in? && current_user.admin? %>
+            <% if user_signed_in? && current_user.superuser? %>
             <li>
               <%= link_to 'Usuários',users_path, class:"nav-link" %>
             </li>
@@ -43,8 +43,9 @@
               <%= link_to "#{current_user.email}<span class='caret'></span>".html_safe, users_path, { :class => "nav-link dropdown-toggle", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'aria-expanded'=>"false", 'role'=>"button"} %>
 
                 <ul class="dropdown-menu dropdown-menu-right account-dropdown" style="z-index: 5;">
-                  <li class="dropdown-item"><%= link_to "Perfil", user_path(current_user), class:"nav-link" %></li>
-                  
+                  <% if current_user.user_profile.present? %>
+                    <li class="dropdown-item"><%= link_to "Perfil", user_profile_path(current_user.user_profile), class:"nav-link" %></li>
+                  <% end %>
                   <li class="dropdown-item">
                     <%= link_to "Sair", destroy_user_session_path, method: "delete", class:"nav-link" %>
                   </li>

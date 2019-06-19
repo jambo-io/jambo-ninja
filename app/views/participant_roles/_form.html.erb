@@ -1,7 +1,7 @@
 <%= form_for(participant_role) do |f| %>
   <% if participant_role.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(participant_role.errors.count, "error") %> prohibited this participant_role from being saved:</h2>
+      <h1><%= pluralize(participant_role.errors.count, "error") %> prohibited this participant_role from being saved:</h1>
 
       <ul>
       <% participant_role.errors.full_messages.each do |message| %>

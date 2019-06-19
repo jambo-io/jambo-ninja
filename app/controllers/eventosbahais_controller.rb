@@ -61,15 +61,8 @@ class EventosbahaisController < ApplicationController
     params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies, :sendemail, :image, :payment, :itinerary, :share, :administrative_function)
    end
 
-   def permission
-      unless (user_signed_in? && current_user.admin?) || current_user.superuser?
-         redirect_to root_path
-      end
-   end
-
    def correct_user_eventosbahais?
-      eventobahai = Eventosbahai.find(params[:id])
-      unless user_signed_in? || eventobahai.user_id == current_user.id
+      unless (user_signed_in? && current_user.admin?) || current_user.superuser?
          redirect_to root_path
       end
    end

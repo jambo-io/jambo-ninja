@@ -1,28 +1,31 @@
-<div id="section1" class="container">
-	<h1>Usuários</h1>
-	<% unless @users.count == 0 %>
-		<table>
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-					<% @users.each do |user| %>
+<div class="row">
+	<div class="col-lg-8 mx-auto">
+		<div class="frame">
+
+			<h1 class="text-center">Usuários</h1>
+			<% unless @users.count == 0 %>
+				<table>
+					<thead>
 						<tr>
-							<td><%= user.user_profile.name %></td>
-							
-							<td><%= link_to "Ver", user %></td>
+							<th>Nome</th>
+							<th></th>
 						</tr>
-				<% end %>
-			</tbody>
-		</table>
-	<% end %>
+					</thead>
+					<tbody>
+							<% @users.each do |user| %>
+								<tr>
+									<% if user.user_profile.present? %>
+										<td><%= user.user_profile.name %></td>
+									<% end %>
+									<% if current_user.superuser? %>
+										<td><%= link_to "Ver", user_profile_path(user) %></td>
+									<% end %>
+								</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% end %>
+
+		</div>
+	</div>
 </div>
-
-<script>
-
-	slide("#section1");
-
-</script>

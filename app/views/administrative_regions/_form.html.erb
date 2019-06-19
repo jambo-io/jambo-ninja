@@ -1,7 +1,7 @@
 <%= form_for(administrative_region) do |f| %>
   <% if administrative_region.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(administrative_region.errors.count, "error") %> prohibited this administrative_region from being saved:</h2>
+      <h1><%= pluralize(administrative_region.errors.count, "error") %> prohibited this administrative_region from being saved:</h1>
 
       <ul>
       <% administrative_region.errors.full_messages.each do |message| %>

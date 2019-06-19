@@ -1,51 +1,99 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-lg-8 mx-auto">
+		<div class="frame">
+      <h1 style="text-align:center;">Minha Conta</h1>
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p><br>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user_profile.name %>
-</p>
+      <p class="text-center">
+        <%= link_to "Alterar Senha", edit_user_registration_path(@user)  %>
+      </p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @user_profile.lastname %>
-</p>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @user_profile.birthday %>
-</p>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user_profile.email %>
-</p>
+<div class="row">
+	<div class="col-lg-8 mx-auto">
+		<div class="frame">
+      <h1 style="text-align:center;">Meus Dados</h1>
+      
+      <% if @user_profile.birthday.present? %>
+        <p>
+          <strong>Aniversário:</strong>
+          <%= @user_profile.birthday %>
+        </p>
+      <% end %>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user_profile.phone %>
-</p>
+      <% if @user_profile.email.present? %>
+        <p>
+          <strong>Email:</strong>
+          <%= @user_profile.email %>
+        </p>
+      <% end %>
 
-<p>
-  <strong>State:</strong>
-  <%= @user_profile.state %>
-</p>
+      <% if @user_profile.phone.present? %>
+        <p>
+          <strong>Celular:</strong>
+          <%= @user_profile.phone %>
+        </p>
+      <% end %>
 
-<p>
-  <strong>City:</strong>
-  <%= @user_profile.city %>
-</p>
+      <% if @user_profile.city.present? %>
+      <p>
+        <strong>Cidade:</strong>
+        <%= @user_profile.city %>
+      </p>
+      <% end %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @user_profile.address %>
-</p>
+      <% if @user_profile.state.present? %>
+        <p>
+          <strong>Estado:</strong>
+          <%= @user_profile.state %>
+        </p>
+      <% end %>
 
-<p>
-  <strong>Number:</strong>
-  <%= @user_profile.number %>
-</p>
+      <% if @user_profile.administrative_region_id.present? %>
+        <p>
+          <strong>Região:</strong>
+          <%= AdministrativeRegion.find(@user_profile.administrative_region_id).name %>
+        </p>
+      <% end %>
 
-<p>
-  <strong>Zipcode:</strong>
-  <%= @user_profile.zipcode %>
+      <% if @user_profile.address.present? %>
+        <p>
+          <strong>Endereço:</strong>
+          <%= @user_profile.address %>
+        </p>
+      <% end %>
+
+      <% if @user_profile.number.present? %>
+        <p>
+          <strong>Número:</strong>
+          <%= @user_profile.number %>
+        </p>
+      <% end %>
+
+      <% if @user_profile.zipcode.present? %>
+        <p>
+          <strong>CEP:</strong>
+          <%= @user_profile.zipcode %>
+        </p>
+      <% end %>
+      <br>
+
+      <p class="text-center">
+        <%= link_to "Editar", edit_user_profile_path(@user_profile, redirect_to: request.path) %>
+      </p>
+
+    </div>
+  </div>
+</div>
+
+
+<p class="text-danger text-center">Não está contente?<br>
+  <%= link_to "Deletar Minha Conta", registration_path(resource_name), data: { confirm: "Tem certeza que deseja deletar sua conta? Todas as suas informações e inscrições serão apagadas." }, method: :delete %>
 </p>

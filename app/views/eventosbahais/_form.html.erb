@@ -1,7 +1,7 @@
 <%= form_for(eventosbahai) do |f| %>
   <% if eventosbahai.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(eventosbahai.errors.count, "error") %> prohibited this eventosbahai from being saved:</h2>
+      <h1><%= pluralize(eventosbahai.errors.count, "error") %> prohibited this eventosbahai from being saved:</h1>
 
       <ul>
       <% eventosbahai.errors.full_messages.each do |message| %>

@@ -1,6 +1,6 @@
 class ParticipantsController < ApplicationController
 	before_action :authenticate_user!, except: [:new, :check_email]
-	before_action :subscribed_redirect, only: [:new]
+	before_action :subscribed_redirect, only: [:new, :show]
 
 	def index
 		@participants = Participant.order('id desc').all
@@ -14,9 +14,14 @@ class ParticipantsController < ApplicationController
 	end
 
 	def edit
-		@participant = Participant.find(params[:id])
+		begin
+			@participant = Participant.find(params[:id])
+		rescue ActiveRecord::NotFound
+			puts "Participante com ID #{params[:id]} não encontrado."
+			redirect_to root_path
+			return false
+		end
 		@eventosbahai_id = @participant.eventosbahai_id
-		#Button Name
 		@btname = "Salvar"
 	end
 
@@ -68,10 +73,22 @@ class ParticipantsController < ApplicationController
 	end
 
 	def show
-		
-		@participant = Participant.find(params[:id])
+		begin
+			@participant = Participant.find(params[:id])
+		rescue ActiveRecord::NotFound
+			puts "Participante com ID #{params[:id]} não encontrado."
+			redirect_to root_path
+			return false
+		end
 		@itinerary = @participant.itinerary
-		@event = @participant.eventosbahai
+		if @itinerary.present?  
+			@event = @participant.eventosbahai 
+			if @event.nil?
+				redirect_to root_path
+			end
+		else
+			redirect_to root_path
+		end
 	end
 
 	def create
@@ -183,9 +200,11 @@ class ParticipantsController < ApplicationController
 	  end
 	  def subscribed_redirect
 		if user_signed_in?
-			participant = current_user.participants.where(eventosbahai_id: params[:id]).first
-			if participant.present?
-				redirect_to participant_path(participant)
+			if current_user.participants.where(eventosbahai_id: params[:id]).first.present?
+				participant = current_user.participants.where(eventosbahai_id: params[:id]).first
+				if participant.present?
+					redirect_to participant_path(participant)
+				end
 			end
 		end
 	  end
