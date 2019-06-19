@@ -5,42 +5,36 @@
 	</head>
 	<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:14px;font-weight:normal;line-height:1.5;margin:0;margin-bottom:15px;">
 		<div style="border-radius:9px; padding:2em; margin: 2em; margin-top:2em; background-color: white;">
-			<p >
-
-				<table>
-					<tr>
-						<td><%= image_tag attachments['emailforyou.png'].url, width:100, height:"auto" %></td>
-						<td><h1>Olá <%= @participant.name %> <%= @participant.lastname %>,</h1></td>
-					</tr>
-				</table>
+				Olá <%= @participant.name %> <%= @participant.lastname %>,
 				
-
 				<br><br>
-				Abaixo estão as informações sobre a data e o local da <%= @eventosbahai.name %> que ocorrerá em <%= @eventosbahai.city %> - <%= @eventosbahai.state %><br><br>
-				<ul style="list-style:none">
-					
-					<li><b>Início:</b> <%= @start_at %></li>
-					<li><b>Término:</b> <%= @end_at %></li>
-					<% unless @eventosbahai.location.nil? %>
-						<li><b>Endereço:</b> <%= @eventosbahai.location %></i>
-					<% end %>
-					
-				</ul><br>
+				Obrigado por se registrar.<br>
+				Abaixo estão as informações sobre a data e o local da <%= @eventosbahai.name %> que ocorrerá em <%= @eventosbahai.city %> - <%= @eventosbahai.state %>.<br><br>
+
+
+				Data de Início: <b><%= @start_at %></b><br>
+				Data de Término: <b><%= @end_at %></b><br>
+				Cidade: <b><%= "#{@eventosbahai.city} - #{@eventosbahai.state}" %></b><br>
+				<% unless @eventosbahai.location.blank? %>
+					Local: <b><%= @eventosbahai.location %></b><br><br>
+				<% end %>	
+				Para acessar sua conta, clique no link abaixo, entre com seu E-mail e senha, e clique em "Minha Inscrição":<br>
+				<a href="http://www.jambo.ninja/">http://www.jambo.ninja/</a>
+
+
+
+						
+				<br>
+
 				<% unless @eventosbahai.description.nil? %>
-					<p><b> <%= @eventosbahai.description %></p> <br>
+					<p><%= @eventosbahai.description %></p> <br>
 				<% end %>
 
-				<br><br>
-
-
 				<br><br>Qualquer dúvida responda a este E-mail,<br><br>
+					Atenciosamente,<br>
+					Secretaria Nacional
 
-				Atenciosamente,<br>
-						Secretaria Nacional
-			</p>
 		</div>
 	</body>
 </html>
-
-
 			
