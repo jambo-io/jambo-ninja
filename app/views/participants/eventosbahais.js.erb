@@ -85,7 +85,7 @@ if (number_participants > 0) {
 					<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 				<% end %>
 
-				<td><%= f.created_at.strftime("%d/%m/%Y") %></td>
+				<td><%= time_ago_in_words(f.created_at) %></td>
 				<td><%= link_to "X", participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}" %></td>`;
 
 		$('#participantsjs').append(html);
