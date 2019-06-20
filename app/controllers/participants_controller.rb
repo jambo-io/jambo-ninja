@@ -30,13 +30,15 @@ class ParticipantsController < ApplicationController
 		@event_id = params[:id]
 		@eventosbahai_id = @event_id
 		@event = Eventosbahai.find(@event_id)
-		@vacancies = @event.vacancies.to_i - Participant.where(eventosbahai_id: @event_id).count.to_i
+		vacancies = @event.vacancies.to_i - Participant.where(eventosbahai_id: @event_id).count.to_i
+		@vacancies = vacancies > 0 ? vacancies : nil
+
 		#Button name
 		@btname = "Inscrever-se"
 		
 		#Check if the Event is still available based on vacancies and Date
 		@event_available = true
-		 if @event.start_at - Date.today  < 0 || (!@event.vacancies.nil? && @vacancies <= 0 )
+		 if @event.start_at - Date.today  < 0 || (@vacancies==0)
 		 	@event_available = false
 		 end
 	end

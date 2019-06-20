@@ -8,85 +8,81 @@
           <div class="col-9">
             <h3><%= @event.name %></h3>
             <ul>
-              <% if @event.theme.present? %>
+              <% if @event.theme %>
                 <li>Tema: <%= @event.theme %></li>
               <% end %>
-              <% if @event.location.present? %>
+              <% if @event.location %>
                 <li>Endereço: <%= @event.location %></li>
               <% end %>
-              <% if @event.city.present? %>
+              <% if @event.city %>
                 <li>Cidade: <%= @event.city %> - <%= @event.state %></li>
               <% end %>
-              <% if @event.description.present? %>
+              <% if @event.description %>
                 <li>Descrição: <%= @event.description %></li>
               <% end %>
-              <% if @event.price.present? %>
+              <% if @event.price %>
                 <li>Valor: <%= @event.price %></li>
               <% end %>
             </ul>
 
             <div class="d-flex flex-row">
-
               <div class="p-2"><h3>Meus Dados</h3></div>
-              
-              <div class="p-2 vertical-align"><small class="small"><%= link_to "[Editar]", edit_user_profile_path(@participant.user.user_profile, redirect_to: request.path) %></small></div>
-
+              <div class="p-2 vertical-align"><small class="small"><%= link_to "[Editar]", edit_user_profile_path(current_user.user_profile, redirect_to: request.path) %></small></div>
             </div>
-              <ul>
-                <% if @participant.fullname.present? %>
-                  <li><strong><%= @participant.fullname %></strong></li>
-                <% end %>
-                <% if @participant.city.present? %>
-                  <li>Cidade: <%= @participant.city %> - <%= @participant.state %></li>
-                <% end %>
-                <% if @participant.phone.present? %>
-                  <li>Celular: <%= @participant.phone %></li>
-                <% end %>
-                <% if @participant.email.present? %>
-                  <li>E-mail: <%= @participant.email %></li>
-                <% end %>
-              </ul>
+
+            <ul>
+              <% if @participant.fullname %>
+                <li><strong><%= @participant.fullname %></strong></li>
+              <% end %>
+              <% if @participant.city %>
+                <li>Cidade: <%= @participant.city %> - <%= @participant.state %></li>
+              <% end %>
+              <% if @participant.phone %>
+                <li>Celular: <%= @participant.phone %></li>
+              <% end %>
+              <% if @participant.email %>
+                <li>E-mail: <%= @participant.email %></li>
+              <% end %>
+            </ul>
 
             <div class="d-flex flex-row">
-
-              <div class="p-2"><h3>Itinerário</h3></div>
-              
+              <div class="p-2"><h3>Itinerário</h3></div>              
               <div class="p-2 vertical-align"><small class="small"><%= link_to "[Editar]", edit_participant_itinerary_path(@participant, @participant.itinerary) %></small></div>
-
             </div>
 
-              <% if @itinerary.transportation.present? %>  
-                
+              <% if @itinerary.transportation %>  
                 <ul>
-                  <% if @itinerary.transportation.present? %>
                     <li>Transporte: <%= @itinerary.transportation %></li>
-                    <% if (@itinerary.transportation == "avião" || @itinerary.transportation == "ônibus") && @itinerary.company.present? %>
+
+                    <% if @itinerary.has_company? %>
                       <li>Empresa: <%= @itinerary.company %></li>
                     <% end %>
-                    <% if @itinerary.transportation == "avião" && @itinerary.flight_number.present? %>
+
+                    <% if @itinerary.has_flight_number? %>
                       <li>Número do Vôo: <%= @itinerary.flight_number %></li>
                     <% end %>
-                    <% if @itinerary.arrival.present? %>
+
+                    <% if @itinerary.arrival %>
                       <li>Chegada ao evento: <%= @itinerary.arrival.strftime("%d-%m %H:%M") %></li>
                     <% end %>
-                    <% if @itinerary.transportation == "avião" && @itinerary.airport_arrival.present? %>
+                    
+                    <% if @itinerary.has_arrival_airport? %>
                       <li>Aeroporto de chegada: <%= @itinerary.airport_arrival  %></li>
                     <% end %>
-                    <% if (@itinerary.transportation == "avião" || @itinerary.transportation == "ônibus") && @itinerary.departure.present? %>
+
+                    <% if @itinerary.has_departure? %>
                       <li>Saída do evento: <%= @itinerary.departure.strftime("%d-%m %H:%M")  %></li>
                     <% end %>
-                    <% if @itinerary.transportation == "avião" && @itinerary.airport_departure.present? %>
+
+                    <% if @itinerary.has_departure_airport? %>
                       <li>Aeroporto de saída: <%= @itinerary.airport_departure  %></li>
                     <% end %>
-                  <% end %>
-                 
-                  
+
                 </ul>
               <% end %>
-              <% if @itinerary.transportation.blank? %> 
+              <% unless @itinerary.transportation? %> 
                  <p class="text-danger">Parece que você ainda não adicionou seu Itinerário. <%= link_to "Adicione aqui", edit_participant_itinerary_path(@participant, @participant.itinerary) %> para completar sua inscrição.</p>
               <% end %>
-
           </div>
 
           <div class="col-3">
@@ -96,8 +92,6 @@
             <h3 class="text-center"><%= @participant.pin %></h3>
           </div>
         </div>
-
-        <h3></h3>
     </div>
   </div>
 </div>

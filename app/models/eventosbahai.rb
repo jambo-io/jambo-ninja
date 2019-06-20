@@ -13,4 +13,17 @@ class Eventosbahai < ApplicationRecord
 		location_changed? || city_changed? || state_changed?
 	end
 
+	## Avoid Nil Err Data ##
+	def price
+		super.present? && super > 0 ? super : nil
+	end
+
+	def payment
+		super.present? ? super : nil
+	end
+
+	def description
+		super.present? ? super : nil
+	end
+
 end

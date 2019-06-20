@@ -70,4 +70,6 @@ class Participant < ApplicationRecord
       regions_min[adm_id-1]
     end
   end
+
+  
 end

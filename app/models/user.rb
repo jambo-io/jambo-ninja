@@ -13,7 +13,6 @@ class User < ApplicationRecord
   enum role: [:user, :vip, :admin, :superuser]
 
   private
-
   def set_default_role
     self.role ||= :user
   end

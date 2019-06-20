@@ -3,15 +3,13 @@
 	<div class="col-lg-8 mx-auto">
 		<div class="actions text-center">
 			<ul class="list-inline">
-					<% if allow_content_by_user_role(@event) %>
-						<% unless @event_available %>
-							<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
-					<% end %>
+					<% if allow_content_by_user_role(@event) && !@event_available %>
+						<p class="text-danger">Administrador, você pode permitir mais inscrições alterando o número de vagas, ou mudando a data de Início do evento<p>
 			    <% end %>
 			</ul>
 		</div>
 
-		<div class="row">
+		<div class="row"> <!-- Event Presentation -->
 			<div class="col-lg-12 col-sm-12">
 				<div class="frame">
 					<div class="container-custom evento-container mx-auto pt-5 mb-2">
@@ -26,34 +24,29 @@
 			</div>
 		</div>
 
-		<% unless @event.payment.nil? || @event.payment.blank? %>
+        <% if @event.payment %> <!-- Payment Informations -->
 			<div class="row">
 				<div class="col-12">
 					<div class="frame">
-						
-							<div id="section2" class="container-custom amigos-container pt-5 mx-auto mb-2">
-							<h1 style="text-align:center; margin-bottom:40px;">Pagamento</h1>
-							<div class="form-row">
+						<h1 style="text-align:center;">Pagamento</h1>
+						<div class="form-row">
 							<ul>
 								<%= simple_format @event.payment %>
 							</ul>
-							</div>
-							</div><!-- section2 -->
-						
+						</div>
 					</div>
 				</div>
-			</div><!-- row -->
+			</div>
 		<% end %>
-		<% if @event_available %>
+
+		<% if @event_available %> <!-- Subscription Form -->
 			<div class="row">
 				<div class="col-12">
 					<div class="frame">
-						
 						<div class="vertical-align">
 							<%= image_tag "il_running.png", class:"text-center", height: 200, width: "auto" %>
 						</div>
 						<h1 style="text-align:center;">Inscrição</h1>
-						
 						<% if user_signed_in? %>
 							<div id="section3" class="container-custom inscricao-container mx-auto mb-2">
 								<%= render 'form', participant: @participant %>
@@ -66,7 +59,6 @@
 			</div>
 		<% end %>
 	</div>
-	
 </div>
 
 
