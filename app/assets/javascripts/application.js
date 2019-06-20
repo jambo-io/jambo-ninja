@@ -13,16 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require popper
-//= require parallax
 //= require bootstrap-sprockets
 //= require social-share-button
 //= require gmaps
 //= require_tree .
 
-
-$(function () {
-    $('[data-toggle="popover"]').popover()
-})
-
-
-
+$(function() {
+  $('[data-toggle="popover"]').popover();
+});

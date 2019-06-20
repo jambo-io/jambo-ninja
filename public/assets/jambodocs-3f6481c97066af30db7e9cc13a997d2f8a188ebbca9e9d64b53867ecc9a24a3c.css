@@ -11726,71 +11726,80 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 /* line 18, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
-/* line 23, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 24, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 body {
   background-color: #edeff0 !important;
+  background: linear-gradient(0deg, #dde0e2 0%, #edeff0 100%);
   text-rendering: optimizeLegibility;
-  font-family: 'Comfortaa', helvetica;
+  font-family: "Comfortaa", helvetica;
 }
 
-/* line 30, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 35, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+.alert-primary {
+  color: #004085;
+  background-color: #92e6ab17;
+  border-color: #6eab3070;
+}
+
+/* line 41, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 td {
   padding: 10px !important;
 }
 
-/* line 35, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 45, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 a {
   transition: color 300ms 0s ease;
   text-decoration: none !important;
 }
 
-/* line 39, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 49, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 a:hover {
   text-decoration: none !important;
 }
 
-/* line 42, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 52, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 ul {
   list-style-type: none;
 }
 
-/* line 47, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 55, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .navbar {
-  font-weight: bold;
   background-color: #3e474f;
   height: 71px;
   margin-bottom: -20px;
 }
 
-/* line 53, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 60, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .navbar-nav .dropdown-menu {
   background-color: #3e474f;
   color: #b2bbbd;
 }
 
-/* line 57, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 64, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .navbar-collapse {
   background-color: #3e474f;
 }
 
-/* line 61, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.dropdown-item:hover, .dropdown-item:focus {
+/* line 68, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+.dropdown-item:hover,
+.dropdown-item:focus {
   color: #fff;
   text-decoration: none;
   background-color: #3e474f;
 }
 
-/* line 66, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 74, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .dropdown a {
   color: white;
 }
 
-/* line 69, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 77, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .nav-link {
   margin-left: 10px;
   margin-right: 10px;
@@ -11799,17 +11808,17 @@ ul {
   transition: opacity 600ms 0s ease;
 }
 
-/* line 77, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 85, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .nav-link:hover {
   color: #fff !important;
 }
 
-/* line 81, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 89, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .nav-link:focus {
   color: #fff !important;
 }
 
-/* line 87, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 93, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container {
   width: 800px;
   z-index: 1;
@@ -11823,52 +11832,55 @@ ul {
 }
 
 @media only screen and (max-width: 768px) {
-  /* line 104, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+  /* line 109, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
   .container {
     margin-left: 0px;
     margin-right: 0px;
     padding: 5px;
   }
-  /* line 105, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+  /* line 110, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
   .container .title-box {
     margin: -5px !important;
     margin-bottom: 30px !important;
     padding-left: 3px !important;
   }
 }
-/* line 116, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 121, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 h1 {
   padding-bottom: 1.5em;
-  padding-top: .5em;
+  padding-top: 0.5em;
+  font-size: xx-large;
 }
 
-/* line 122, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 128, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .frame-subscription {
-  font-family: 'Share', cursive;
+  font-family: "Share", cursive;
   border: 4px solid;
-  border-color: #3079AB;
+  border-color: #3079ab;
   background-color: #fff;
   width: 100%;
   padding: 2em;
   margin-bottom: 2em;
 }
 
-/* line 132, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 138, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .frame {
   border-top: 4px solid;
-  border-top-color: #3079AB;
+  border-top-color: #3079ab;
   background-color: #fff;
+  border-radius: 2.2px;
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.25);
   width: 100%;
-  padding: 2em;
-  margin-bottom: 2em;
+  padding: 3em;
+  margin-bottom: 3em;
 }
 
-/* line 141, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 150, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .list-info li {
   padding-top: 1em;
 }
 
-/* line 145, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 154, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .vertical-align {
   display: flex;
   align-items: center;
@@ -11876,44 +11888,45 @@ h1 {
   flex-wrap: wrap;
 }
 
-/* line 152, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 161, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-main {
   min-width: 90%;
   min-height: 70vh;
 }
-/* line 156, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 165, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-main a {
   color: #6c757d;
 }
-/* line 160, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 169, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-main a:hover {
-  color: #3079AB !important;
+  color: #3079ab !important;
   text-decoration: none;
 }
-/* line 166, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 174, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-main .title-box {
-  color: #3079AB;
+  color: #3079ab;
   background-color: #f9fafa;
   margin: -20px -50px 30px -50px;
   padding: 10px 50px 10px 50px;
-  border-bottom: .5px solid #efefef !important;
+  border-bottom: 0.5px solid #efefef !important;
 }
-/* line 175, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 182, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-main .list-group-item {
   border: 0px;
 }
-/* line 180, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-main .list-group-item-action:hover, .container-main .list-group-item-action:focus {
+/* line 186, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+.container-main .list-group-item-action:hover,
+.container-main .list-group-item-action:focus {
   background-color: inherit;
   color: #4d76d3;
 }
-/* line 185, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 192, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-main .btn-new {
   display: inline-block;
   border: 2px solid rgba(48, 73, 97, 0.1);
   border-radius: 10px;
   text-align: center;
-  color: #3079AB;
+  color: #3079ab;
   font-weight: 500;
   background: transparent;
   padding: 0 12px;
@@ -11921,46 +11934,47 @@ h1 {
   line-height: 32px;
   transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
-/* line 199, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 207, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-main .btn-new:hover {
-  color: #3079AB !important;
-  border-color: #3079AB;
+  color: #3079ab !important;
+  border-color: #3079ab;
 }
 
-/* line 205, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 213, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-show {
   border-top: 4px solid;
   border-top-color: #7ceb31;
   min-width: 70%;
   min-height: 400px;
 }
-/* line 213, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 220, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-show a {
   color: #6c757d;
 }
-/* line 217, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 224, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-show a:hover {
-  color: #3079AB !important;
+  color: #3079ab !important;
   text-decoration: none;
 }
-/* line 223, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 229, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-show .title-box {
   color: #7ceb31;
   background-color: #f9fafa;
   margin: -20px -50px 30px -50px;
   padding: 10px 50px 10px 50px;
-  border-bottom: .5px solid #efefef !important;
+  border-bottom: 0.5px solid #efefef !important;
 }
-/* line 230, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 236, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-show .list-group-item {
   border: 0px;
 }
-/* line 234, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-show .list-group-item-action:hover, .container-show .list-group-item-action:focus {
+/* line 239, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+.container-show .list-group-item-action:hover,
+.container-show .list-group-item-action:focus {
   background-color: inherit;
   color: #4d76d3;
 }
-/* line 239, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 245, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-show .btn-new {
   display: inline-block;
   border: 2px solid rgba(48, 73, 97, 0.1);
@@ -11974,46 +11988,47 @@ h1 {
   line-height: 32px;
   transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
-/* line 253, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 260, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-show .btn-new:hover {
   color: #7ceb31 !important;
   border-color: #7ceb31;
 }
 
-/* line 259, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 266, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-new {
   border-top: 4px solid;
   border-top-color: #00eb7f;
   min-width: 70%;
   min-height: 100px;
 }
-/* line 267, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 273, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-new a {
   color: #6c757d;
 }
-/* line 271, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 277, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-new a:hover {
-  color: #3079AB !important;
+  color: #3079ab !important;
   text-decoration: none;
 }
-/* line 277, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 282, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-new .title-box {
   color: #7ceb31;
   background-color: #f9fafa;
   margin: -20px -50px 30px -50px;
   padding: 10px 50px 10px 50px;
-  border-bottom: .5px solid #efefef !important;
+  border-bottom: 0.5px solid #efefef !important;
 }
-/* line 284, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 289, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-new .list-group-item {
   border: 0px;
 }
-/* line 288, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-new .list-group-item-action:hover, .container-new .list-group-item-action:focus {
+/* line 292, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+.container-new .list-group-item-action:hover,
+.container-new .list-group-item-action:focus {
   background-color: inherit;
   color: #4d76d3;
 }
-/* line 293, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 298, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-new .btn-new {
   display: inline-block;
   border: 2px solid rgba(48, 73, 97, 0.1);
@@ -12027,52 +12042,53 @@ h1 {
   line-height: 32px;
   transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
-/* line 307, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 313, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-new .btn-new:hover {
   color: #00eb7f !important;
   border-color: #00eb7f;
 }
 
-/* line 314, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 319, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-edit {
   border-top: 4px solid;
   border-top-color: #ebba26;
   min-width: 70%;
   min-height: 400px;
 }
-/* line 322, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 326, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-edit a {
   color: #6c757d;
 }
-/* line 326, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 330, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-edit a:hover {
-  color: #3079AB !important;
+  color: #3079ab !important;
   text-decoration: none;
 }
-/* line 332, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 335, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-edit .title-box {
-  color: #EBBA26;
+  color: #ebba26;
   background-color: #f9fafa;
   margin: -20px -50px 30px -50px;
   padding: 10px 50px 10px 50px;
-  border-bottom: .5px solid #efefef !important;
+  border-bottom: 0.5px solid #efefef !important;
 }
-/* line 339, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 342, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-edit .list-group-item {
   border: 0px;
 }
-/* line 343, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
-.container-edit .list-group-item-action:hover, .container-edit .list-group-item-action:focus {
+/* line 345, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+.container-edit .list-group-item-action:hover,
+.container-edit .list-group-item-action:focus {
   background-color: inherit;
   color: #4d76d3;
 }
-/* line 348, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 351, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-edit .btn-new {
   display: inline-block;
   border: 2px solid rgba(48, 73, 97, 0.1);
   border-radius: 10px;
   text-align: center;
-  color: #EBBA26;
+  color: #ebba26;
   font-weight: 500;
   background: transparent;
   padding: 0 12px;
@@ -12080,13 +12096,13 @@ h1 {
   line-height: 32px;
   transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
-/* line 362, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 366, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .container-edit .btn-new:hover {
-  color: #EBBA26 !important;
-  border-color: #EBBA26;
+  color: #ebba26 !important;
+  border-color: #ebba26;
 }
 
-/* line 368, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 372, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .doc-footer {
   position: absolute;
   bottom: 0px;
@@ -12097,12 +12113,12 @@ h1 {
 }
 
 @media only screen and (max-width: 768px) {
-  /* line 378, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+  /* line 382, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
   .doc-footer {
     margin: 20px -50px -30px -5px;
   }
 }
-/* line 383, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 387, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .btn-send {
   display: inline-block;
   border: 2px solid rgba(48, 73, 97, 0.1);
@@ -12117,17 +12133,17 @@ h1 {
   transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
-/* line 397, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 402, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .btn-send:hover {
   color: #23558e !important;
   border-color: #23558e;
 }
 
-/* line 402, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 407, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .bottom-nav {
   background-color: #f9fafa;
-  border-top: .05rem #e4e4e4 solid;
-  border-bottom: .05rem #e4e4e4 solid;
+  border-top: 0.05rem #e4e4e4 solid;
+  border-bottom: 0.05rem #e4e4e4 solid;
   font-size: 90%;
   margin-bottom: 20px;
   margin-top: -30px;
@@ -12136,7 +12152,7 @@ h1 {
   padding: 3px;
 }
 
-/* line 416, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 419, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .tool-dropdown {
   background-color: #f9fafa !important;
   left: -50px !important;
@@ -12145,18 +12161,18 @@ h1 {
   font-size: 90%;
 }
 
-/* line 424, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 426, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .tool-dropdown-item {
   margin-left: -10px;
 }
 
-/* line 427, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 429, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .tool-dropdown-item:hover {
   background-color: transparent !important;
   color: #000;
 }
 
-/* line 432, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 434, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .jambodoc-input-new {
   min-height: 300px;
   margin-top: 5px;
@@ -12176,14 +12192,14 @@ h1 {
   box-shadow: 0 0 0 0.05rem rgba(0, 123, 255, 0.25);
 }
 
-/* line 452, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 451, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 .card {
   background-color: #576366 !important;
   min-width: 90%;
   min-height: 500px;
 }
 
-/* line 458, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 457, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 footer {
   font-weight: bold;
   background-color: #3e474f;
@@ -12191,11 +12207,11 @@ footer {
   margin-bottom: -20px;
   color: #b2bbbd;
 }
-/* line 466, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 464, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 footer a {
   color: white;
 }
-/* line 469, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
+/* line 467, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/jambodocs.scss */
 footer a:hover {
   color: white;
 }

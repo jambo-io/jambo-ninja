@@ -12051,81 +12051,22 @@ p {
             transform: scale(1.08);
   }
 }
-/* line 186, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
-.nav-animation {
-  -webkit-animation: hop .5s ease-out;
-          animation: hop .5s ease-out;
-}
-@-webkit-keyframes hop {
-  0% {
-    -webkit-transform: translateX(-10%);
-            transform: translateX(-10%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-    opacity: 1;
-  }
-}
-@keyframes hop {
-  0% {
-    -webkit-transform: translateX(-10%);
-            transform: translateX(-10%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-    opacity: 1;
-  }
-}
-/* line 200, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 187, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .navbar-light .navbar-nav .nav-link {
   color: #3a8616;
 }
 
-/* line 203, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 190, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
   color: rgba(4, 29, 6, 0.74);
 }
 
-/* line 206, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
-h1 {
-  color: #584747 !important;
-  -webkit-animation: content .5s ease-out;
-          animation: content .5s ease-out;
-}
-@-webkit-keyframes content {
-  0% {
-    -webkit-transform: translateX(-5%);
-            transform: translateX(-5%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-    opacity: 1;
-  }
-}
-@keyframes content {
-  0% {
-    -webkit-transform: translateX(-5%);
-            transform: translateX(-5%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-    opacity: 1;
-  }
-}
-/* line 222, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 194, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .icon-bar {
   background-color: #888;
 }
 
-/* line 225, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 197, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .brand {
   position: relative;
   height: 50px;
@@ -12133,7 +12074,7 @@ h1 {
   z-index: 4 !important;
 }
 
-/* line 232, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 204, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .shadow {
   position: absolute;
   width: 100%;
@@ -12144,7 +12085,7 @@ h1 {
   bottom: 0;
 }
 
-/* line 242, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 214, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .content {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -12152,7 +12093,7 @@ h1 {
   min-height: 100%;
 }
 
-/* line 250, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 222, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .navindex {
   position: absolute;
   top: 0;
@@ -12166,45 +12107,20 @@ h1 {
   pointer-events: none;
 }
 
-/* line 270, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
-ul .dropdown-menu {
-  -webkit-animation: dropdown .1s ease-out;
-          animation: dropdown .1s ease-out;
-}
-@-webkit-keyframes dropdown {
-  0% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-}
-@keyframes dropdown {
-  0% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-}
-/* line 285, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 242, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 hr {
   margin-top: 2em !important;
   margin-bottom: 2em !important;
 }
 
-/* line 290, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 247, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .dropdown-item:hover, .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
   background-color: #fff !important;
 }
 
-/* line 299, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 256, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .container {
   background-color: #fff;
   width: 800px;
@@ -12220,7 +12136,7 @@ hr {
   margin-bottom: 30px !important;
 }
 
-/* line 316, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 273, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .container-custom {
   background-color: #fff;
   width: 800px;
@@ -12234,77 +12150,77 @@ hr {
 }
 
 @media (min-width: 300px) {
-  /* line 332, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  /* line 289, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
   .container-custom {
     margin: 0 auto;
     padding: 9px 9px 9px 9px;
     width: 100% !important;
   }
 }
-/* line 338, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 295, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .amigos-container {
   border-left: 3px solid green;
 }
 
-/* line 342, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 299, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .evento-container {
   border-left: 3px solid red;
 }
 
-/* line 345, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 302, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .inscricao-container {
   border-left: 3px solid blue;
 }
 
 @media only screen and (max-device-width: 768px) {
-  /* line 350, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  /* line 307, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
   .container {
     padding: 5px;
   }
 }
-/* line 357, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 314, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 kbd {
   padding: 2px 25px 2px 25px;
 }
 
-/* line 361, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 318, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .btn-fb {
   color: #fff;
   background-color: #3b5998;
 }
 
-/* line 365, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 322, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .btn-fb:hover {
   color: #fff;
   background-color: #496ebc;
 }
 
-/* line 369, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 326, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .btn-tw {
   color: #fff;
   background-color: #55acee;
 }
 
-/* line 373, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 330, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .btn-tw:hover {
   color: #fff;
   background-color: #59b5fa;
 }
 
 @media only screen and (max-width: 768px) {
-  /* line 378, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  /* line 335, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
   #login-dp {
     background-color: inherit;
     color: #fff;
   }
 
-  /* line 382, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+  /* line 339, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
   #login-dp .bottom {
     background-color: inherit;
     border-top: 0 none;
   }
 }
-/* line 388, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 345, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 .social-share-button-facebook {
   display: inline-block;
   width: 64px;
@@ -12313,17 +12229,17 @@ kbd {
   background-size: 64px 64px;
 }
 
-/* line 398, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 355, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 p.details {
   color: #708090;
 }
 
-/* line 402, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 359, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 p.highlight {
   color: #565341;
 }
 
-/* line 406, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
+/* line 363, /mnt/c/codes/jambo-ninja/app/assets/stylesheets/application.scss.erb */
 #hlightmsg {
   background-color: #91a2a5 !important;
 }
