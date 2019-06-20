@@ -8,16 +8,13 @@
     <div class="alert alert-primary">
       <div class="form-group">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control user_email" %>
+        <%= f.email_field :email, autocomplete: "email", class:"form-control user_email" %>
       </div>
 
       <div class="row">
         <div class="col-lg-6">
           <div class="form-group">
             <%= f.label :password %>
-            <% if @minimum_password_length %>
-            <em>(No mínimo <%= @minimum_password_length %> caracteres)</em>
-            <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
           </div>
         </div>

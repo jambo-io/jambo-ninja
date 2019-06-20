@@ -1,5 +1,4 @@
 class PinsController < ApplicationController
-  layout "eventosbahais"
   before_action :authenticate_user!
   def new
     if session[:pin]
