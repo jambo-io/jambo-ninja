@@ -1,94 +1,85 @@
-<div id="section1" class="container">
-
-<p><%= current_user.user_profile.name %>, parabéns! O Evento que você criou já está disponível. Verifique se os dados estão corretos. Para entrar na seção de inscrições <%= link_to "clique aqui", partnew_path(params[:id]) %> (<%= request.host %><%= partnew_path %>) 
-  <h1>
-    <%= @eventosbahai.name %>
-  </h1>
-  <ul>
-      <li>
-        <strong>Tema:</strong>
-        <%= @eventosbahai.theme %>
-      </li>
-      <li>
-        <strong>Início:</strong>
-        <%= @eventosbahai.start_at %>
-      </li>
-      <li>
-        <strong>Término:</strong>
-        <%= @eventosbahai.end_at %>
-      </li>
-      <li>
-        <strong>Cidade:</strong>
-        <%= @eventosbahai.city %> <%= @eventosbahai.state %>
-      </li>
-      <li>
-        <strong>Endereço:</strong>
-        <%= @eventosbahai.location %>
-      </li>
-      <li>
-        <strong>Detalhes:</strong>
-        <%= @eventosbahai.description %>
-      </li>
-    <li>
-      <strong>Detalhes de pagamento:</strong>
-      <%= @eventosbahai.payment %>
-    </li>
-      <li>
-        <strong>Taxa de Inscrição:</strong>
-        <%= @eventosbahai.price %>
-      </li>
-      <li>
-        <strong>Total de vagas:</strong>
-        <%= @eventosbahai.vacancies %>
-     </li>
-
-
-
-  </ul> 
-    <% unless @eventosbahai.latitude.nil? || @eventosbahai.longitude.nil? %>
-         <div class="card text-center">
-            <div class="card-header">
-              <h1>Onde fica?</h1>
-            </div>
-            <div class="card-body">
-              <div class="popin" style="padding:5px; box-shadow: 0 0 5px #999; border-radius:2px; border-ratio:9;">
-                <div id="map"></div>
+<div class="row">
+  <div class="col-lg-8 mx-auto">
+    <div class="frame">
+      <p><%= current_user.user_profile.name %>, parabéns! O Evento que você criou já está disponível. Verifique se os dados estão corretos. Para entrar na seção de inscrições <%= link_to "clique aqui", partnew_path(params[:id]) %> (<%= request.host %><%= partnew_path %>) 
+        <h1>
+          <%= @eventosbahai.name %>
+        </h1>
+        <ul>
+            <li>
+              <strong>Tema:</strong>
+              <%= @eventosbahai.theme %>
+            </li>
+            <li>
+              <strong>Início:</strong>
+              <%= @eventosbahai.start_at %>
+            </li>
+            <li>
+              <strong>Término:</strong>
+              <%= @eventosbahai.end_at %>
+            </li>
+            <li>
+              <strong>Cidade:</strong>
+              <%= @eventosbahai.city %> <%= @eventosbahai.state %>
+            </li>
+            <li>
+              <strong>Endereço:</strong>
+              <%= @eventosbahai.location %>
+            </li>
+            <li>
+              <strong>Detalhes:</strong>
+              <%= @eventosbahai.description %>
+            </li>
+          <li>
+            <strong>Detalhes de pagamento:</strong>
+            <%= @eventosbahai.payment %>
+          </li>
+            <li>
+              <strong>Taxa de Inscrição:</strong>
+              <%= @eventosbahai.price %>
+            </li>
+            <li>
+              <strong>Total de vagas:</strong>
+              <%= @eventosbahai.vacancies %>
+          </li>
+        </ul> 
+          <% unless @eventosbahai.latitude.nil? || @eventosbahai.longitude.nil? %>
+              <div class="card text-center">
+                  <div class="card-header">
+                    <h1>Onde fica?</h1>
+                  </div>
+                  <div class="card-body">
+                    <div class="popin" style="padding:5px; box-shadow: 0 0 5px #999; border-radius:2px; border-ratio:9;">
+                      <div id="map"></div>
+                    </div>
+                  </div>
+                  <div class="card-footer" style="font-family: arial; font-size:15px; padding:10px;">
+                    <%= @eventosbahai.location %>, <%= @eventosbahai.city %> - <%= @eventosbahai.state %>
+                  </div>
               </div>
-            </div>
-            <div class="card-footer" style="font-family: arial; font-size:15px; padding:10px;">
-              <%= @eventosbahai.location %>, <%= @eventosbahai.city %> - <%= @eventosbahai.state %>
-            </div>
+          <% end %>
+
+            <div class="actions text-center">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><%= link_to 'Inscrição',  partnew_path(params[:id]), class: 'btn btn-new' %></li>
+                  <li class="list-inline-item"><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-new' %></li>
+              </ul>
           </div>
-
-
-      
-    <% end %>
-
-      <div class="actions text-center">
-        <ul class="list-inline">
-            <li class="list-inline-item"><%= link_to 'Inscrição',  partnew_path(params[:id]), class: 'btn btn-new' %></li>
-            <li class="list-inline-item"><%= link_to 'Editar',  edit_eventosbahai_path(params[:id]), class: 'btn btn-new' %></li>
-            <li class="list-inline-item"><%= link_to 'Todos os eventos', eventosbahais_path, class: 'btn btn-new' %></li>
-        </ul>
-        
     </div>
+  </div>
 </div>
 
 <script>
 
   slide("#section1");
   $(document).ready(function(){
-
-      
      <% unless @eventosbahai.latitude.nil? || @eventosbahai.longitude.nil? %>
      var map = new GMaps({
         el: '#map',
-       
         center: {lat: <%= @eventosbahai.latitude %>, lng:<%= @eventosbahai.longitude %> },
         width:'100%',
         height: '300px',
         zoomControl: true,
-        
       });
 
      map.addMarker({
@@ -101,16 +92,7 @@
       click: function(e) {
         map.map.panTo(e.position);
       }
-
      });
-
      <% end %>
-
-    
-
-
   });
- 
-
-  
 </script>

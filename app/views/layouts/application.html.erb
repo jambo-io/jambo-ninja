@@ -1,48 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Jovens Amigos</title>
-    <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-
-    <%= javascript_include_tag 'application' %>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-D_cXYmmH0D2DTELXbkloBnNieR6HeSo&callback" async defer></script>
-
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="fb:app_id" content="311791599293108">
-    <meta property="og:url" content="http://www.jambo.ninja/">
-    <meta property="og:title" content="Conferências de Juventude">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="http://2.bp.blogspot.com/-V7wuYSu6HOw/Ue0o22Rn0dI/AAAAAAAAE_I/gOfXSsyGmz8/s1600/74677_10153042944850543_281548918_n.jpg">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
-    <meta property="og:description" content='Independente de sua condição social, a juventude aspira ao crescimento espiritual e intelectual e "fazer uma contribuição ao destino da humanidade". No serviço abnegado está a possibilidade tanto de crescimento pessoal como do aumento da capacidade de contribuir para o progresso social.'>
+    <title>Jambo Network</title>
+      <%= render partial: 'layouts/metatags' %>
   </head>
   <body>
+     <%= render partial: "layouts/evnav" %>
+     <div class="content" style="min-height: 100vh">
+        <div class="container container-main rounded-top mt-5 mx-auto">
 
-     <%= render "layouts/header" %>   
+          <%= render partial: 'layouts/menu_admin' %>
 
-<div id="fb-root"></div>
+          <% if notice %>
+            <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+          <%=yield %>
+       </div>
+     </div>
 
-
-
-  <div class="page-bg">
-    <div class="container-fluid" style="margin-top:70px;">
-      
-
-        <%=yield %>
-    </div>
- 
-
-  </div><!--Background -->
+     <%= render "layouts/footer" %>
 
   </body>
 </html>
-
 

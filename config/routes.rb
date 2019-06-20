@@ -84,7 +84,6 @@ Rails.application.routes.draw do
   get 'bemvindos' => 'bemvindos#index'
   post 'bemvindos' => 'bemvindos#create'
   delete 'conf/:id' => 'bemvindos#destroy', :as => :del_insc
-  get 'conferencias/inscricao', :to => 'bemvindos#new', :as => :new_bemvindo
 
 
   default_url_options :host => "jambo.ninja"

@@ -1,6 +1,4 @@
 module ApplicationHelper
-
-
   def flash_message
     messages = ""
     [:notice, :info, :warning, :error].each {|type|
@@ -8,30 +6,28 @@ module ApplicationHelper
         messages += "#{flash[type]}"
       end
     }
-
     messages
   end
 
   def resource_name
     :user
-    end
-  
-    def resource
+  end
+
+  def resource
     @resource ||= User.new
-    end
-  
-    def devise_mapping
+  end
+
+  def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
-    end
+  end
 
-    # Get Individual Record and Check if it belongs to User, also allow Admin and Superusers to View
-    def allow_content_by_user_role (record)
-      if user_signed_in?
-        if (current_user.admin? || current_user.superuser?) && (record.user_id == current_user.id || current_user.superuser?)
-          return true
-        end
-      return false 
+  # Get Individual Record and Check if it belongs to User, also allow Admin and Superusers to View
+  def allow_content_by_user_role (record)
+    if user_signed_in?
+      if (current_user.admin? || current_user.superuser?) && (record.user_id == current_user.id || current_user.superuser?)
+        return true
+      end
     end
-
+    return false 
   end
 end

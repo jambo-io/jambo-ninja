@@ -19,10 +19,10 @@
           <li class="nav-item"><%= link_to 'Principal', root_path, class:"nav-link" %></li>
 
           <% unless (Eventosbahai.last.blank?) %>
-            <li class="nav-item <%= 'active' if current_page?(new_bemvindo_path) %>"><%= link_to 'Inscrição', partnew_path(Eventosbahai.last.id), class:"nav-link" %></li>
+            <li class="nav-item"><%= link_to 'Inscrição', partnew_path(Eventosbahai.last.id), class:"nav-link" %></li>
           <% end %>
           
-          <% if user_signed_in? && user_signed_in? && current_user.admin? %>
+          <% if is_admin? %>
             <li class="nav-item"><%= link_to 'Administrador', participants_path, class:"nav-link" %></li>
           <% end %>
 
@@ -33,7 +33,7 @@
             <% if current_user.participants.last.present? %>
               <li> <%= link_to 'Minha Inscrição', participant_path(current_user.participants.last), class:"nav-link" %></li>
             <% end %>
-            <% if user_signed_in? && current_user.superuser? %>
+            <% if is_superuser? %>
             <li>
               <%= link_to 'Usuários',users_path, class:"nav-link" %>
             </li>
@@ -51,11 +51,7 @@
                   </li>
                 </ul>
               </li>
-
           <% else %>
-
-
-
             <li class="dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button"><b>Login</b> <span class="caret"></span></a>
               <ul  class="dropdown-menu dropdown-menu-right" style="min-width: 300px; max-width: 98%;">
