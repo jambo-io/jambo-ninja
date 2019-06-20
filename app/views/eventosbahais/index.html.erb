@@ -11,12 +11,11 @@
         <table>
           <tbody>
               <% @eventosbahais.each do |eventosbahai| %>
+                <%= eventosbahai.inspect %>
                 <tr>
                   <td><%= link_to eventosbahai.name, partnew_path(eventosbahai), anchor: "section1" %>
-                    <% if user_signed_in? %>
-                    <% if (current_user.admin? || current_user.superuser?) && (eventosbahai.user_id == current_user.id || current_user.superuser?) %>  -  
+                    <% if allow_content_by_user_role(eventosbahai) %>
                       <%= link_to 'Editar', edit_eventosbahai_path(eventosbahai) %>
-                    <%end %>
                     <% end %>
                   </td>
                 </tr>

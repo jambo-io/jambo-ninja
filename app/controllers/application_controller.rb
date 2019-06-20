@@ -73,11 +73,9 @@ class ApplicationController < ActionController::Base
         else
           confirm_registration_path(Eventosbahai.find(@evento_id))
         end
-
     else
         root_path
     end
   end
-
 
 end
