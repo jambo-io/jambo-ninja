@@ -1,6 +1,16 @@
-<h1>Editing Administrative Region</h1>
+<div class="row">
+	<div class="col-lg-8 mx-auto">
+		<div class="frame">
 
-<%= render 'form', administrative_region: @administrative_region %>
+            <h1 style="text-align:center;">Editando Região Administrativa</h1>
 
-<%= link_to 'Show', @administrative_region %> |
-<%= link_to 'Back', administrative_regions_path %>
+            <%= render 'form', administrative_region: @administrative_region %>
+
+            <div class="text-center p-3">
+                <%= link_to 'Ver', @administrative_region %> |
+                <%= link_to 'Voltar', administrative_regions_path %>
+            </div>
+
+        </div>
+    </div>
+</div>

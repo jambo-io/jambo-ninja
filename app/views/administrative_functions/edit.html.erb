@@ -5,8 +5,10 @@
 
         <%= render 'form', administrative_function: @administrative_function %>
 
-        <%= link_to 'Show', @administrative_function %> |
-        <%= link_to 'Back', administrative_functions_path %>
+        <div class="text-center p-3">
+          <%= link_to 'Ver', @administrative_function %> |
+          <%= link_to 'Voltar', administrative_functions_path %>
         </div>
+      </div>
     </div>
 </div>

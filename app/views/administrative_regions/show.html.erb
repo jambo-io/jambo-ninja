@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-lg-8 mx-auto">
+        <div class="frame">
 
-<p>
-  <strong>Name:</strong>
-  <%= @administrative_region.name %>
-</p>
+        <p>
+        <strong>Nome da Região:</strong>
+        <%= @administrative_region.name %>
+        </p>
+        
+        <div class="text-center p-3">
+            <%= link_to 'Editar', edit_administrative_region_path(@administrative_region) %> |
+            <%= link_to 'Voltar', administrative_regions_path %>
+        </div>
 
-<%= link_to 'Edit', edit_administrative_region_path(@administrative_region) %> |
-<%= link_to 'Back', administrative_regions_path %>
+        </div>
+    </div>
+</div>

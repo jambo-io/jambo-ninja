@@ -1,6 +1,6 @@
-class AdministrativeRegionsController < Admin::AdminController
+class AdministrativeRegionsController < ApplicationController
   before_action :set_administrative_region, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_only
   # GET /administrative_regions
   # GET /administrative_regions.json
   def index
@@ -28,7 +28,7 @@ class AdministrativeRegionsController < Admin::AdminController
 
     respond_to do |format|
       if @administrative_region.save
-        format.html { redirect_to @administrative_region, notice: 'Administrative region was successfully created.' }
+        format.html { redirect_to @administrative_region, notice: 'Região Administrativa criada com sucesso.' }
         format.json { render :show, status: :created, location: @administrative_region }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AdministrativeRegionsController < Admin::AdminController
   def update
     respond_to do |format|
       if @administrative_region.update(administrative_region_params)
-        format.html { redirect_to @administrative_region, notice: 'Administrative region was successfully updated.' }
+        format.html { redirect_to @administrative_region, notice: 'Região Administrativa atualizada.' }
         format.json { render :show, status: :ok, location: @administrative_region }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AdministrativeRegionsController < Admin::AdminController
   def destroy
     @administrative_region.destroy
     respond_to do |format|
-      format.html { redirect_to administrative_regions_url, notice: 'Administrative region was successfully destroyed.' }
+      format.html { redirect_to administrative_regions_url, notice: 'Região Administrativa deletada.' }
       format.json { head :no_content }
     end
   end
@@ -71,4 +71,10 @@ class AdministrativeRegionsController < Admin::AdminController
     def administrative_region_params
       params.require(:administrative_region).permit(:name)
     end
+
+    def admin_only
+      unless is_admin?
+         redirect_to root_path
+      end
+   end
 end

@@ -5,6 +5,8 @@
             <% if controller.class.parents.include?(Admin) %>
                 <li class="list-inline-item"><%= link_to "Novo Evento", new_eventosbahai_path, class:'btn btn-new' %></li>
                 <li class="list-inline-item"><%= link_to "Eventos", eventosbahais_path, class:'btn btn-new' %></li>
+                <li class="list-inline-item"><%= link_to "Regiões Administrativas", administrative_regions_path, class:'btn btn-new' %></li>
+                <li class="list-inline-item"><%= link_to "Funções Administrativas", administrative_functions_path, class:'btn btn-new' %></li>
             <% else %>
                 <li class="list-inline-item"><%= link_to "Painel de Controle", admin_path, class:'btn btn-new' %></li>
             <% end %>

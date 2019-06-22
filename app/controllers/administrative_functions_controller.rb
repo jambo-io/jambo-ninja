@@ -1,9 +1,11 @@
-class AdministrativeFunctionsController < Admin::AdminController
+class AdministrativeFunctionsController < ApplicationController
   before_action :set_administrative_function, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_only
+  
   # GET /administrative_functions
   # GET /administrative_functions.json
   def index
+    puts "inspect"
     @administrative_functions = AdministrativeFunction.all
   end
 
@@ -70,5 +72,11 @@ class AdministrativeFunctionsController < Admin::AdminController
     # Never trust parameters from the scary internet, only allow the white list through.
     def administrative_function_params
       params.require(:administrative_function).permit(:name)
+    end
+
+    def admin_only
+      unless is_admin?
+         redirect_to root_path
+      end
     end
 end

@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    end
   #Admin
   namespace :admin do
     get '' => 'dashboards#index'
     get 'mailer_manager' => 'dashboards#new_mailer_manager'
     post 'mailer_manager' => 'dashboards#create_mailer_manager', :as => :create_mailer_manager
-    resources :administrative_regions
-    resources :administrative_functions
+      
   end
   
   #Login
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
   post 'signin' => 'sessions#create'
   delete 'signout' => 'sessions#destroy'
   resources :user_profile
+  resources :administrative_regions
+  resources :administrative_functions
 
   # Eventos Bahá'ís
   resources :eventosbahais

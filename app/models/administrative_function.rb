@@ -1,2 +1,3 @@
 class AdministrativeFunction < ApplicationRecord
+    
 end

@@ -17,7 +17,7 @@ class AdministrativeRegionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create administrative_region" do
     assert_difference('AdministrativeRegion.count') do
-      post administrative_regions_url, params: { administrative_region: { name: @administrative_region.name } }
+      post administrative_regions_url, params: { administrative_region: {  } }
     end
 
     assert_redirected_to administrative_region_url(AdministrativeRegion.last)
@@ -34,7 +34,7 @@ class AdministrativeRegionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update administrative_region" do
-    patch administrative_region_url(@administrative_region), params: { administrative_region: { name: @administrative_region.name } }
+    patch administrative_region_url(@administrative_region), params: { administrative_region: {  } }
     assert_redirected_to administrative_region_url(@administrative_region)
   end
 
