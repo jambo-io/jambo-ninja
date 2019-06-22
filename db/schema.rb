@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190622042516) do
+ActiveRecord::Schema.define(version: 20190622050417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,16 +35,6 @@ ActiveRecord::Schema.define(version: 20190622042516) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_clusters_on_user_id", using: :btree
-  end
-
-  create_table "conferenciasdeunidades", force: :cascade do |t|
-    t.string   "name"
-    t.string   "location"
-    t.date     "start_at"
-    t.date     "end_at"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "eventosbahais", force: :cascade do |t|
@@ -85,38 +75,6 @@ ActiveRecord::Schema.define(version: 20190622042516) do
     t.index ["participant_id"], name: "index_itineraries_on_participant_id", using: :btree
   end
 
-  create_table "jambodoc_categories", force: :cascade do |t|
-    t.string   "title"
-    t.string   "desc"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "learningdesk_contacts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "learningdesk_recipients", force: :cascade do |t|
-    t.integer  "learningdesk_report_id"
-    t.string   "mode"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "contact_id"
-    t.index ["learningdesk_report_id"], name: "index_learningdesk_recipients_on_learningdesk_report_id", using: :btree
-  end
-
-  create_table "learningdesk_reports", force: :cascade do |t|
-    t.string   "title"
-    t.text     "report"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_learningdesk_reports_on_user_id", using: :btree
-  end
-
   create_table "mailer_managers", force: :cascade do |t|
     t.string   "to",                           array: true
     t.string   "subject"
@@ -143,14 +101,6 @@ ActiveRecord::Schema.define(version: 20190622042516) do
     t.index ["administrative_function_id"], name: "index_participants_on_administrative_function_id", using: :btree
     t.index ["eventosbahai_id"], name: "index_participants_on_eventosbahai_id", using: :btree
     t.index ["user_id"], name: "index_participants_on_user_id", using: :btree
-  end
-
-  create_table "socialusers", force: :cascade do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "user_profiles", force: :cascade do |t|
@@ -185,8 +135,6 @@ ActiveRecord::Schema.define(version: 20190622042516) do
 
   add_foreign_key "eventosbahais", "users"
   add_foreign_key "itineraries", "participants"
-  add_foreign_key "learningdesk_recipients", "learningdesk_reports"
-  add_foreign_key "learningdesk_reports", "users"
   add_foreign_key "mailer_managers", "eventosbahais"
   add_foreign_key "mailer_managers", "users"
   add_foreign_key "participants", "administrative_functions"
