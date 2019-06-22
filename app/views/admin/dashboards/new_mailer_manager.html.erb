@@ -13,9 +13,9 @@
 
                 <div class="form-group">
                     <%= label_tag "Para:" %><br>
-                    <%= radio_button_tag :to_whom, :all %>
+                    <%= radio_button_tag :to_whom, :all, :checked => true  %>
                     <%= label_tag "yes", "Todos os Participantes", :value => "true"  %><br>
-                    <%= radio_button_tag :to_whom, :no_itinerary, :checked => true %>
+                    <%= radio_button_tag :to_whom, :no_itinerary%>
                     <%= label_tag "teste", "Participantes sem data de Chegada", :value => "false" %>
                 </div>
 
@@ -29,16 +29,16 @@
 
                 <div class="form-group">
                   <%= label_tag "Assunto:" %>
-                  <%= form.text_field :subject, class:'form-control', required: true %>
+                  <%= form.text_field :subject, value:"#{@event.name}", class:'form-control', required: true %>
                 </div>
 
                 <div class="form-group">
                   <%= label_tag "Mensagem:" %>
                   <%= form.text_area :body, class:'form-control', required: true %>
                 </div>
-            
+                
                 <div style="text-align: center;">
-                    <%= form.submit "Enviar E-mail", class:'btn btn-success' %>  
+                    <%= form.submit "Enviar E-mail".html_safe, class:'btn btn-success', :data => { confirm: 'Enviar E-mail para os Participantes?', disable_with: "Enviando E-mails..."} %>  
                 </div>
               <% end %>
               

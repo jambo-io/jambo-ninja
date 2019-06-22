@@ -15,7 +15,10 @@ module JamboIO
 
     config.i18n.default_locale = :'pt-BR'
 
+    # config/application.rb
+    Bundler.require(*Rails.groups)
 
+    Dotenv::Railtie.load
 
 
     config.middleware.use Rack::Cors do

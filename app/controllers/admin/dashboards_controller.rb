@@ -55,12 +55,10 @@ class Admin::DashboardsController < Admin::AdminController
         mailer.body = mailer_manager_params[:body]
         mailer.eventosbahai_id = mailer_manager_params[:eventosbahai_id]
         if mailer.save!
-            mailer.to.each do |participant_email|
+            email_to.each do |participant_email|
                 Admin::DashboardMailer.custom_mail(mailer,participant_email).deliver_now
             end
-            render json: {
-                status: "OK"
-            }
+            redirect_to admin_path, notice: 'E-mail enviado!'
         end
     end
 

@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190622050417) do
+ActiveRecord::Schema.define(version: 20190622090125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_mailer_managers", force: :cascade do |t|
+    t.string   "to",                           array: true
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "eventosbahai_id"
+    t.integer  "user_id"
+    t.index ["eventosbahai_id"], name: "index_admin_mailer_managers_on_eventosbahai_id", using: :btree
+    t.index ["user_id"], name: "index_admin_mailer_managers_on_user_id", using: :btree
+  end
 
   create_table "administrative_functions", force: :cascade do |t|
     t.string   "name"
@@ -75,18 +87,6 @@ ActiveRecord::Schema.define(version: 20190622050417) do
     t.index ["participant_id"], name: "index_itineraries_on_participant_id", using: :btree
   end
 
-  create_table "mailer_managers", force: :cascade do |t|
-    t.string   "to",                           array: true
-    t.string   "subject"
-    t.text     "body"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "eventosbahai_id"
-    t.integer  "user_id"
-    t.index ["eventosbahai_id"], name: "index_mailer_managers_on_eventosbahai_id", using: :btree
-    t.index ["user_id"], name: "index_mailer_managers_on_user_id", using: :btree
-  end
-
   create_table "participants", force: :cascade do |t|
     t.integer  "eventosbahai_id"
     t.datetime "created_at",                                 null: false
@@ -133,10 +133,10 @@ ActiveRecord::Schema.define(version: 20190622050417) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "admin_mailer_managers", "eventosbahais"
+  add_foreign_key "admin_mailer_managers", "users"
   add_foreign_key "eventosbahais", "users"
   add_foreign_key "itineraries", "participants"
-  add_foreign_key "mailer_managers", "eventosbahais"
-  add_foreign_key "mailer_managers", "users"
   add_foreign_key "participants", "administrative_functions"
   add_foreign_key "participants", "eventosbahais"
   add_foreign_key "participants", "users"
