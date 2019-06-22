@@ -17,8 +17,9 @@ module JamboIO
 
     # config/application.rb
     Bundler.require(*Rails.groups)
-
-    Dotenv::Railtie.load
+    if ['development', 'test'].include? ENV['RAILS_ENV']
+      Dotenv::Railtie.load
+    end
 
 
     config.middleware.use Rack::Cors do
