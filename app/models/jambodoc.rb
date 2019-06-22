@@ -1,2 +1,0 @@
-class Jambodoc < ApplicationRecord
-end

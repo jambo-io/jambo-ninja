@@ -2,17 +2,6 @@ class ParticipantsController < ApplicationController
 	before_action :authenticate_user!, except: [:new, :check_email]
 	before_action :subscribed_redirect, only: [:new, :show]
 
-	def index
-		@participants = Participant.order('id desc').all
-
-		@user = User.find(current_user.id)
-		unless @user.blank?
-			@eventosbahais = @user.eventosbahais.order('id desc')
-		end
-
-		@size = 1
-	end
-
 	def edit
 		begin
 			@participant = Participant.find(params[:id])

@@ -2,23 +2,14 @@ Rails.application.routes.draw do
 
   resources :administrative_regions
   resources :administrative_functions
-  resources :participant_roles
   
   devise_for :users, controllers: {registrations: "registrations"}
   resources :user_profile
 
-  resources :media
-  resources :contacts
-  resources :jambodoc_categories
-  resources :phones
-  resources :news
-  resources :blogs
-  resources :qualquernomes
   #M Mapa Agrupamentos - Jambomapa
   get 'jambomapa' => 'jambomaps#index'
 
   # Documentos Baháiś - - Jambodocs
-  resources :jambodocs
 
   # Eventos Bahá'ís
   get 'eventosbahais/email' => 'eventosbahais#sendemail'
@@ -32,8 +23,12 @@ Rails.application.routes.draw do
   resources :participants do
     resources :itineraries
   end
-  
-  resources :drives
+
+  namespace :admin do
+    get '' => 'dashboards#index'
+    get 'mailer_manager' => 'dashboards#new_mailer_manager'
+    post 'mailer_manager' => 'dashboards#create_mailer_manager', :as => :create_mailer_manager
+  end
 
   get '/initialize' => 'drives#initialize'
 

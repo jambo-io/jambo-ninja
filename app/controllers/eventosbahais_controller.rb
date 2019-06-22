@@ -32,9 +32,6 @@ class EventosbahaisController < ApplicationController
       @htmlcontent = html.html_safe
    end
 
-   def updateemail
-   end
-
    def update
       respond_to do |format|
          if @eventosbahai.update(eventosbahai_params)

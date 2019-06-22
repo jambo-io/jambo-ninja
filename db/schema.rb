@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190610035740) do
+ActiveRecord::Schema.define(version: 20190622042516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,18 +25,6 @@ ActiveRecord::Schema.define(version: 20190610035740) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "bemvindos", force: :cascade do |t|
-    t.string   "name"
-    t.string   "lastname"
-    t.string   "email",      null: false
-    t.text     "comments"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "city"
-    t.date     "birth"
-    t.string   "address"
   end
 
   create_table "clusters", force: :cascade do |t|
@@ -57,23 +45,6 @@ ActiveRecord::Schema.define(version: 20190610035740) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "contacts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "lastname"
-    t.date     "birthday"
-    t.string   "email"
-    t.string   "phone"
-    t.string   "state"
-    t.string   "city"
-    t.string   "address"
-    t.string   "number"
-    t.string   "pc"
-    t.string   "activities"
-    t.boolean  "video"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "eventosbahais", force: :cascade do |t|
@@ -121,13 +92,6 @@ ActiveRecord::Schema.define(version: 20190610035740) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "jambodocs", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "learningdesk_contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -153,17 +117,16 @@ ActiveRecord::Schema.define(version: 20190610035740) do
     t.index ["user_id"], name: "index_learningdesk_reports_on_user_id", using: :btree
   end
 
-  create_table "media", force: :cascade do |t|
-    t.string   "title"
-    t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "participant_roles", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "mailer_managers", force: :cascade do |t|
+    t.string   "to",                           array: true
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "eventosbahai_id"
+    t.integer  "user_id"
+    t.index ["eventosbahai_id"], name: "index_mailer_managers_on_eventosbahai_id", using: :btree
+    t.index ["user_id"], name: "index_mailer_managers_on_user_id", using: :btree
   end
 
   create_table "participants", force: :cascade do |t|
@@ -224,6 +187,8 @@ ActiveRecord::Schema.define(version: 20190610035740) do
   add_foreign_key "itineraries", "participants"
   add_foreign_key "learningdesk_recipients", "learningdesk_reports"
   add_foreign_key "learningdesk_reports", "users"
+  add_foreign_key "mailer_managers", "eventosbahais"
+  add_foreign_key "mailer_managers", "users"
   add_foreign_key "participants", "administrative_functions"
   add_foreign_key "participants", "eventosbahais"
   add_foreign_key "participants", "users"

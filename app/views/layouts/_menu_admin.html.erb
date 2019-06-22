@@ -1,10 +1,12 @@
 <% if is_admin? %>
     <div class="text-center"">
         <ul class="list-inline">
-            <li class="list-inline-item"><%= link_to "Criar Evento", new_eventosbahai_path, class:'btn btn-new' %></li>
-            <li class="list-inline-item"><%= link_to 'Eventos', eventosbahais_path, class: 'btn btn-new' %></li>
-            <% unless Participant.all.blank? %>
-                <li class="list-inline-item"><%= link_to "Participantes", participants_path, class:'btn btn-new' %></li>
+           
+            <% if controller.class.parents.include?(Admin) %>
+                <li class="list-inline-item"><%= link_to "Novo Evento", new_eventosbahai_path, class:'btn btn-new' %></li>
+                <li class="list-inline-item"><%= link_to "Eventos", eventosbahais_path, class:'btn btn-new' %></li>
+            <% else %>
+                <li class="list-inline-item"><%= link_to "Painel de Controle", admin_path, class:'btn btn-new' %></li>
             <% end %>
         </ul>
     </div>
