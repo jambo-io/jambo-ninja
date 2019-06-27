@@ -57,10 +57,6 @@ input {
   border-radius: 2px !important;
 }
 
-td {
-  padding: 10px !important;
-}
-
 a {
   transition: color 300ms 0s ease;
   text-decoration: none !important;
@@ -241,10 +237,38 @@ h1 {
     transition: border-color 0.15s ease, background-color 0.15s ease,
       color 0.15s ease;
   }
+
   .btn-new:hover {
     color: #3079ab !important;
     border-color: #3079ab;
   }
+
+  .btn-success { 
+    color: white !important;
+  }
+
+  .btn-danger {
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+
+    color: #9c797c;
+    font-weight: 500;
+    background: transparent;
+    padding: 3px;
+    white-space: nowrap;
+    line-height: 32px;
+    transition: border-color 0.15s ease, background-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .btn-danger:hover {
+    color: red !important;
+    border-color: red;
+  }
+
+  
 }
 
 .container-show {
@@ -504,4 +528,31 @@ footer {
   a:hover {
     color: white;
   }
+}
+
+.table-custom {
+  font-size: 70%;
+  border: 2px solid #98b3c5;
+}
+
+.table-custom th {
+  border: 1px solid #e2ebf1;
+  border-bottom: 2px solid #98b3c5;
+  background-color: #06292f08;
+}
+
+.table-responsive-custom {
+  margin: -50px;
+}
+ 
+.table-custom td {
+  border: 1px solid #e2ebf1;
+  white-space: nowrap;
+  vertical-align: middle;
+  height: 30px;
+  padding: 2px;
+}
+
+.material-icons {
+  vertical-align: middle;
 }

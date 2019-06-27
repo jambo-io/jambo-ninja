@@ -9,7 +9,6 @@ $('#participants_numberjs').text('');
 $('#eventosbahaijs').text("<%= @eventosbahai.name %>");
 
 participantshead = `<tr>
-<th scope="col"></th>
 <% if @eventosbahai.payment.present? %>
 	<th scope="col">Pago</th>
 <% end %>
@@ -28,7 +27,7 @@ participantshead = `<tr>
 
 
 <th scope="col">Reg. em</th>
-<th scope="col">#</th>
+<th scope="col"></th>
 </tr>`;
 
 <% if @eventosbahai.end_at - Date.today < 0 %>
@@ -49,7 +48,6 @@ if (number_participants > 0) {
 	<% @eventosbahai.participants.order("#{:id} desc").each do |f| %>
 		<% @itinerary = f.itinerary if f.itinerary.present? %>
 		html=`<tr id="participant_<%= f.id %>">
-				<th></th>
 				<% if @eventosbahai.payment.present? %>
 				<td>
 					<%= form_tag pay_path, {method: :post, remote:true} do  %>
@@ -86,7 +84,13 @@ if (number_participants > 0) {
 				<% end %>
 
 				<td><%= time_ago_in_words(f.created_at) %></td>
-				<td><%= link_to "X", participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}" %></td>`;
+				<td>
+					<%= link_to participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}", class:"btn btn-danger" do %>
+						<i class="material-icons">
+							delete_forever
+						</i>
+					<% end %>
+				</td>`;
 
 		$('#participantsjs').append(html);
 	<% end %>
