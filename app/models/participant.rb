@@ -63,7 +63,7 @@ class Participant < ApplicationRecord
 
   def administrative_region
     regions_extense = ["Amazônia", "Centro-Oeste", "Nordeste", "Norte", "Sudeste", "Sul"]
-    regions_min = ["AM", "CO", "NO", "NE", "SE", "S"]
+    regions_min = ["AM", "CO", "NE", "NO", "SE", "S"]
 
     if self.user.user_profile.administrative_region_id.present?
       adm_id = AdministrativeRegion.find(self.user.user_profile.administrative_region_id).id unless AdministrativeRegion.find(self.user.user_profile.administrative_region_id).blank?

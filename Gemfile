@@ -35,6 +35,10 @@ gem 'bootstrap_form'
 
 gem 'devise'
 
+gem 'devise-token_authenticatable'
+
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+
 gem 'geocoder'
 
 gem 'rails_12factor', group: :production
@@ -44,6 +48,8 @@ gem 'twilio-ruby'
 gem 'popper_js', '~> 1.9', '>= 1.9.9'
 
 gem 'turbolinks', '~> 5.2.0'
+
+gem 'active_model_serializers', '~> 0.10.0'
 
 #JamboDrive
 gem 'google-api-client', '~> 0.9'

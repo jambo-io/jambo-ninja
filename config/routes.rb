@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
+  #API
+  namespace :api do
+    namespace :v1 do
+      resources :eventosbahais
     end
+  end
+
   #Admin
   namespace :admin do
     get '' => 'dashboards#index'
     get 'mailer_manager' => 'dashboards#new_mailer_manager'
     post 'mailer_manager' => 'dashboards#create_mailer_manager', :as => :create_mailer_manager
-      
   end
   
   #Login
   devise_for :users, controllers: {registrations: "registrations"}
+  
+
   resources :users
   get 'login' => 'sessions#new'
   post 'signin' => 'sessions#create'
@@ -23,7 +29,7 @@ Rails.application.routes.draw do
   # Eventos Bahá'ís
   resources :eventosbahais
   get 'eventosbahais/email' => 'eventosbahais#sendemail'
-  get 'eventosbahais/atemail' => 'eventosbahais#updateemail'
+  get 'eventosbahais/updatemail' => 'eventosbahais#updateemail'
   get 'participantes/conf' => 'participants#confirmation', :as => :confirm
   get 'confirm/:id' => 'participants#confirm_registration', :as => :confirm_registration
   post 'participantsev' => 'participants#eventosbahais', :as => :partsev
