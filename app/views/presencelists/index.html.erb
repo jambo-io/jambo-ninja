@@ -5,6 +5,7 @@
   body {
     background: rgb(214, 222, 234);
     page-break-before: avoid;
+    font-size: 90%;
 
   }
 
@@ -19,7 +20,7 @@
   table, th, td {
     border: 0px;
     border-collapse: collapse;
-    padding: 2px;
+    padding: 2px !important;
   }
 
   page {
@@ -128,25 +129,25 @@
 
 <page size="A4">
 
-      <div class="text-center" style="font-size:70%;"><%= @eventosbahai.name %> - <%= @eventosbahai.city %> <%= @eventosbahai.state %> - De <%= @eventosbahai.start_at.strftime('%d-%m-%Y') %> até <%= @eventosbahai.end_at.strftime('%d-%m-%Y') %> </div>
+      <div class="text-center" style="font-size:65%;"><%= @eventosbahai.name %> - <%= @eventosbahai.city %> <%= @eventosbahai.state %> - De <%= @eventosbahai.start_at.strftime('%d-%m-%Y') %> até <%= @eventosbahai.end_at.strftime('%d-%m-%Y') %> </div>
       <h3 class="text-danger">
         <% if @eventosbahai.end_at - Date.today < 0 %>
           Evento encerrado
         <% end %>
       </h3>
-      <table class="table text-center" style="font-size: 80%;">
+      <table class="table text-center" style="font-size: 75%;">
       <thead>
       <tr>
         <% if @eventosbahai.participants.size > 0 %>
-          <th scope="col">#</th>
+          <th scope="col"></th>
           <th scope="col">Nome</th>
           <th scope="col">Celular</th>
           <th scope="col">Região</th>
-          <th scope="col">Ag/Instituição</th>
+          <th scope="col">Ag/Inst.</th>
           <th scope="col">Chegada</th>
           <th scope="col">Saída</th>
-          <th scope="col">Aeroporto Chegada</th>
-          <th scope="col">Aeroporto Saída</th>
+          <th scope="col">Aer. Chegada</th>
+          <th scope="col">Aer. Saída</th>
         <% else %>
           Nenhum participante inscrito.
         <% end %>
@@ -156,7 +157,7 @@
         <% @eventosbahai.participants.order("id").each_with_index do |f, index| %>
           <tr>
             <td style="text-align: center;">
-              <%= index+1 %>
+              <%= "#{index+1}." %>
             </td>
             <%= @fullname = "" %>
             <% unless f.name.blank? || f.lastname.blank? %>
