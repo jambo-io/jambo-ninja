@@ -143,7 +143,7 @@
       makeRequest();
     })
 
-    $(".user_email").on('keyup', function(e) {
+    $(".user_email").focusout(function(e) {
       e.preventDefault();
       makeRequest();
     });
