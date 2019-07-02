@@ -62,19 +62,19 @@ class Admin::DashboardsController < Admin::AdminController
     end
 
     def create_mailer_manager
-        # puts "Inspect 1"
-        # puts mailer_manager_params
-        # event = Eventosbahai.find(mailer_manager_params[:eventosbahai_id])
-        # to_whom = params[:to_whom]
-        # participants = event.participants
-        # subject = mailer_manager_params[:subject]
-        # body = mailer_manager_params[:body]
-        # mass_mailer(participants, to_whom, subject, body)
+        puts "Inspect 1"
+        puts mailer_manager_params
+        event = Eventosbahai.find(mailer_manager_params[:eventosbahai_id])
+        to_whom = params[:to_whom]
+        participants = event.participants
+        subject = mailer_manager_params[:subject]
+        body = mailer_manager_params[:body]
+        mass_mailer(participants, to_whom, subject, body)
     end
 
     def test_mailer_production
         puts 'Test Mailer production'
-        participants = Participant.where(user_id: User.where(email: 'soraya9@gmail.com').first.id)
+        participants = Participant.where(user_id: User.where(email: 'guilhermenunes09@protonmail.com').first.id)
         to_whom = participants
         subject = "mass mailing test"
         participant = participants.first

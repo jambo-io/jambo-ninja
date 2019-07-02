@@ -4,6 +4,11 @@ class Admin::DashboardMailer < ApplicationMailer
         @event = @mail.eventosbahai
         subject = @mail.subject
         #mail(to: participant_email, subject: subject)
-        mail(to: "guilhermewnunes@gmail.com", subject: subject)
+        puts "Sending Email to"
+        puts participant_email
+        puts "<===========>"
+        puts "Body check:"
+        puts @mail.body
+        #mail(to: "guilhermewnunes@gmail.com", subject: subject)
     end
 end
