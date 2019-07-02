@@ -16,7 +16,10 @@ class Admin::DashboardsController < Admin::AdminController
         participants = @event.participants
 
         @participant = current_user.participants.where(eventosbahai_id: params[:id]).first
-        @itinerary = @participant.itinerary unless @participant.blank?
+        if @participant.blank?
+            @participant = Participant.last
+        end
+        @itinerary = @participant.itinerary
 
         participant_emails = []
         participants.each do |participant|
@@ -71,7 +74,7 @@ class Admin::DashboardsController < Admin::AdminController
 
     def test_mailer_production
         puts 'Test Mailer production'
-        participants = Participant.where(user_id: current_user.id)
+        participants = Participant.where(user_id: User.where(email: 'soraya9@gmail.com').first.id)
         to_whom = participants
         subject = "mass mailing test"
         participant = participants.first
