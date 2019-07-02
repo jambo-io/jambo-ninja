@@ -3,6 +3,7 @@ class Admin::DashboardMailer < ApplicationMailer
         @mail = admin_mailer_manager
         @event = @mail.eventosbahai
         subject = @mail.subject
-        mail(to: participant_email, subject: subject)
+        #mail(to: participant_email, subject: subject)
+        mail(to: "guilhermewnunes@gmail.com", subject: subject)
     end
 end
