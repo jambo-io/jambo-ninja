@@ -16,7 +16,7 @@ class Admin::DashboardsController < Admin::AdminController
         participants = @event.participants
 
         @participant = current_user.participants.where(eventosbahai_id: params[:id]).first
-        @itinerary = @participant.itinerary
+        @itinerary = @participant.itinerary unless @participant.blank?
 
         participant_emails = []
         participants.each do |participant|
