@@ -74,7 +74,7 @@ class Admin::DashboardsController < Admin::AdminController
 
     def test_mailer_production
         puts 'Test Mailer production'
-        participants = Participant.where(user_id: User.where(email: 'guilhermenunes09@protonmail.com').first.id)
+        participants = Participant.where(user_id: User.where(email: 'soraya9@gmail.com').first.id)
         to_whom = participants
         subject = "mass mailing test"
         participant = participants.first
