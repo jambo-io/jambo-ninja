@@ -60,7 +60,7 @@ class Admin::DashboardsController < Admin::AdminController
         to_whom = params[:to_whom]
         participants = Participant.find(participant_ids)
         if participants.blank?
-            redirect_to admin_path, error: 'Nenhum E-mail foi enviado. Verifique se os destinatários foram selecionados.'
+            redirect_to admin_path, alert: 'Nenhum E-mail foi enviado. Verifique se os destinatários foram selecionados.'
             return false
         end
         subject = mailer_manager_params[:subject]

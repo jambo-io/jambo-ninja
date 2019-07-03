@@ -2,7 +2,8 @@
     <div class="text-center"">
         <ul class="list-inline">
            
-            <% if controller.class.parents.include?(Admin) %>
+            <% if current_page? (admin_path) %>
+         
                 <li class="list-inline-item"><%= link_to "Novo Evento", new_eventosbahai_path, class:'btn btn-new' %></li>
                 <li class="list-inline-item"><%= link_to "Eventos", eventosbahais_path, class:'btn btn-new' %></li>
                 <li class="list-inline-item"><%= link_to "Regiões Administrativas", administrative_regions_path, class:'btn btn-new' %></li>
