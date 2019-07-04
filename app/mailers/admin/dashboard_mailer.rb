@@ -9,9 +9,8 @@ class Admin::DashboardMailer < ApplicationMailer
         puts "Sending Email to"
         puts participant.email
         puts "<===========>"
-
-        puts "Body check:"
         puts body
-        #mail(to: "guilhermewnunes@gmail.com", subject: subject)
+        @body = body
+        mail(to: participant.email, subject: subject)
     end
 end

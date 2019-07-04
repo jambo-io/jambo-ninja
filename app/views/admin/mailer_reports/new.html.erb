@@ -25,7 +25,7 @@
                     <%= form.hidden_field :eventosbahai_id, :value => params[:id] %>
                     
                     <div class="form-group">
-                      <%= label_tag "Para:" %>
+                      <%= label_tag "Selecione os participantes:" %><br>
                         <%= collection_check_boxes :event, :participant_ids, @event.participants, :id, :name  %>
                     </div>
                     <!--
@@ -47,16 +47,18 @@
                       <div id="admin_mailer_manager_body_div" contenteditable="true" class="form-control admin_mailer_manager_body_div expandable-input" name="admin_mailer_manager[body]"></div>
                       <%= form.hidden_field :body %>
                     </div>
+
+                    <p class="text-muted">
+                      Símbolos:<br>
+                      <b>|% participante %|</b> (nome do participante, ex: João Paulo)<br>
+                      <b>|% link_itinerario %|</b> (link para o itinerário deste usuário)<br>
+                      Utilize o "Visualizar" para ver se os símbolos estão funcionado.
+                    </p>
                     
                     <div style="text-align: center;">
                         <div id="preview_email_button" class="btn btn-info preview_email_button" >Visualizar</div>
                     </div>
 
-                    <% if is_superuser? %>
-                      <%= link_to "Test Email Production", { :controller => "dashboards", :action => "test_mailer_production" }, remote: true %>
-                    <% end %>
-                  
-                        
             </div>
         </div>
     </div>
@@ -97,6 +99,7 @@
     let check = "";
     <% @participants.each do |participant| %>
       check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
+      console.log(check.checked = true);
     <% end %>
   });
 
@@ -116,7 +119,7 @@
     
 const body_text = 
 `Olá |% participante %|, como vai? <br><br>
-Parece que você ainda não adicionou o seu itinerário no Site, para adicionar basta entrar neste link: <br><br>
+Parece que você ainda não adicionou o seu itinerário no site, para adicionar basta entrar neste link: <br><br>
 
 |% link_itinerario %| <br><br>
 
