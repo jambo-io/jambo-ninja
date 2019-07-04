@@ -36,8 +36,6 @@ class Admin::MailerReportsController < Admin::AdminController
         end
         subject = admin_mailer_report_params[:subject]
         body = admin_mailer_report_params[:body]
-        puts "Inspect Body"
-        puts body.inspect 
         mass_mailer(event, participants, to_whom, subject, body)
     end
 
@@ -47,21 +45,22 @@ class Admin::MailerReportsController < Admin::AdminController
         @participants = @mailer_report.participants
         
         @sent_emails = @event.mailer_reports
-        puts "Sent emails"
-        puts @sent_emails.inspect
+    end
+
+    def true?(obj)
+        obj.to_s.downcase == "true"
     end
 
     def send_email
+        # params
         participant = Participant.find(params[:participant_id])
-        
+        last_participant = params[:last_participant] # => Last from the frontend
         mailer_report_id = params[:mailer_report_id]
-        puts "verify Mailer Report ID"
-        puts mailer_report_id
         mailer = Admin::MailerReport.find(params[:mailer_report_id])
-        
+
         mailer_participant = MailerParticipant.where(participant_id: participant.id, mailer_report_id: mailer_report_id).first
-        puts "Verify participant mailer"
-        puts mailer_participant.inspect
+
+        # No participant were selected
         if(participant.blank?)
             render json: {
                 message: "No Participant Found"
@@ -69,12 +68,27 @@ class Admin::MailerReportsController < Admin::AdminController
             return false
         end
 
+        # Verify if it's the second time it's executing
         body = body_process(mailer.body, participant)
+        if(mailer.proccessed == true)
+            render json: {
+                message: "Sent Before"
+            }
+            return nil
+        end
+
+        # Verify if it's the last participant from the frontend
+        if true?(last_participant)
+            mailer.proccessed = true
+            mailer.save!
+        end
        
+        # Double check to see if it's already been sent before sending the E-mail
         if(mailer_participant.sent == false || mailer_participant.sent.blank?)
             puts "Mailer Participant New"
             send = Admin::DashboardMailer.custom_mail(mailer,participant, body).deliver_now
             mailer_participant.update(sent: true)
+
             render json: {
                 message: "Ok"
             }
@@ -92,12 +106,9 @@ class Admin::MailerReportsController < Admin::AdminController
     end
 
     def mailer_participant_preview
-        puts "Mailer participant Preview"
         body = params[:body]
         @participant = Participant.find(params[:participant_id])
         body = body_process body, @participant
-        puts "Body"
-        puts body
         render json: {
                 email: @participant.email, 
                 body: body
@@ -105,10 +116,8 @@ class Admin::MailerReportsController < Admin::AdminController
     end
 
     def test_mailer_production
-        puts 'Test Mailer production'
         participants = Participant.where(user_id: User.where(email: 'soraya9@gmail.com').first.id)
         to_whom = participants
-        subject = "mass mailing test"
         participant = participants.first
         body =  "#{ view_context.link_to edit_participant_itinerary_url(participant, participant.itinerary), request.base_url + edit_participant_itinerary_path(participant, participant.itinerary)}"
         event = Eventosbahai.last
@@ -117,19 +126,13 @@ class Admin::MailerReportsController < Admin::AdminController
 
     def mass_mailer(event, participants, to_whom, subject, body)
         mailer = current_user.mailer_reports.new
-        puts "INpsect 4"
-        puts mailer.inspect
-
         mailer.subject = subject
-        puts "================= check body =========="
-        puts body.inspect
         mailer.body = body
         mailer.eventosbahai_id = event.id
                
         if mailer.save!
             participants.each do |participant|
                 # Config Body
-                puts "Inspect 5"
                 puts participant.inspect
                 body = body_process admin_mailer_report_params[:body], participant
                 mailer.body = body
@@ -137,12 +140,10 @@ class Admin::MailerReportsController < Admin::AdminController
                 mailer_participant = MailerParticipant.new
                 mailer_participant.mailer_report_id = mailer.id
                 mailer_participant.participant_id = participant.id
-                puts "Inspect 6"
                 puts mailer_participant.inspect
                 mailer_participant.save!
                    
             end
-            puts "Inspect 7"
             puts mailer.inspect
             redirect_to admin_mailer_report_path(mailer), notice: 'Configurações de E-mail salvas.'
         end

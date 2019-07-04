@@ -33,34 +33,46 @@
 </div>
 
 <script>
-    $(document).ready(function(){
+    
+    $(document).ready(function() {
         $("#success").hide();
-        <% @participants.each_with_index do |participant, index| %>
-            $("<%= "#pstatus_#{participant.id}" %>").html("<span>Aguardando</span>");
-            $.ajax({
-                url: '<%= "#{@mailer_report.id}/send_email" %>',
-                post: 'GET',
-                data: {
-                        participant_id: <%= participant.id %>
-                        }
-                }).done(function(result) {
-                    console.log(result);
-                if(typeof result !== "undefined") {
-                    if(result.message === "Ok") {
-                        $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-success'><i class='material-icons'>check</i></span>");
-                    }
-                    if(result.message === "Sent Before") {
-                        $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-success'> </span>");
-                    }
-                    if(result.message === "No Participant Found") {
-                        $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-danger'>Não encontrado</span>");
-                    }
-                    console.log(result);
-                }
-                <% if index == @participants.length - 1 %>
-                    $("<%= "#success" %>").show();
+        let last_participant = false;
+        <% if @mailer_report.proccessed == false %>    
+            console.log("Processando...")
+            <% @participants.each_with_index do |participant, index| %>
+                <% if @participants.count - 1 == index  %>
+                    last_participant = true;
                 <% end %>
-            });
+
+                $("<%= "#pstatus_#{participant.id}" %>").html("<span>Aguardando</span>");
+                $.ajax({
+                    url: '<%= "#{@mailer_report.id}/send_email" %>',
+                    post: 'GET',
+                    data: {
+                            participant_id: <%= participant.id %>,
+                            last_participant: last_participant
+                            }
+                    }).done(function(result) {
+                        console.log(result);
+                    if(typeof result !== "undefined") {
+                        if(result.message === "Ok") {
+                            $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-success'><i class='material-icons'>check</i></span>");
+                        }
+                        if(result.message === "Sent Before") {
+                            $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-success'><i class='material-icons'>check</i></span>");
+                        }
+                        if(result.message === "No Participant Found") {
+                            $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-danger'>Não encontrado</span>");
+                        }
+                        console.log(result);
+                    }
+                    <% if index == @participants.length - 1 %>
+                        $("<%= "#success" %>").show();
+                    <% end %>
+                });
+                <% end %>
+        <% else %>
+            console.log("Esta operação já foi realizada, nenhuma ação será tomada.");
         <% end %>
     });
 
