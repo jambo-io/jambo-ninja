@@ -10,21 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190627113602) do
+ActiveRecord::Schema.define(version: 20190703175244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admin_mailer_managers", force: :cascade do |t|
-    t.string   "to",                           array: true
+  create_table "admin_mailer_reports", force: :cascade do |t|
+    t.integer  "eventosbahai_id"
+    t.integer  "participant_id"
+    t.integer  "mailer_manager_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "to"
     t.string   "subject"
     t.text     "body"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "eventosbahai_id"
     t.integer  "user_id"
-    t.index ["eventosbahai_id"], name: "index_admin_mailer_managers_on_eventosbahai_id", using: :btree
-    t.index ["user_id"], name: "index_admin_mailer_managers_on_user_id", using: :btree
+    t.index ["eventosbahai_id"], name: "index_admin_mailer_reports_on_eventosbahai_id", using: :btree
+    t.index ["mailer_manager_id"], name: "index_admin_mailer_reports_on_mailer_manager_id", using: :btree
+    t.index ["participant_id"], name: "index_admin_mailer_reports_on_participant_id", using: :btree
+    t.index ["user_id"], name: "index_admin_mailer_reports_on_user_id", using: :btree
   end
 
   create_table "administrative_functions", force: :cascade do |t|
@@ -87,6 +91,16 @@ ActiveRecord::Schema.define(version: 20190627113602) do
     t.index ["participant_id"], name: "index_itineraries_on_participant_id", using: :btree
   end
 
+  create_table "mailer_participants", force: :cascade do |t|
+    t.integer  "mailer_report_id"
+    t.integer  "participant_id"
+    t.boolean  "sent"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["mailer_report_id"], name: "index_mailer_participants_on_mailer_report_id", using: :btree
+    t.index ["participant_id"], name: "index_mailer_participants_on_participant_id", using: :btree
+  end
+
   create_table "participants", force: :cascade do |t|
     t.integer  "eventosbahai_id"
     t.datetime "created_at",                                 null: false
@@ -144,10 +158,12 @@ ActiveRecord::Schema.define(version: 20190627113602) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "admin_mailer_managers", "eventosbahais"
-  add_foreign_key "admin_mailer_managers", "users"
+  add_foreign_key "admin_mailer_reports", "eventosbahais"
+  add_foreign_key "admin_mailer_reports", "participants"
   add_foreign_key "eventosbahais", "users"
   add_foreign_key "itineraries", "participants"
+  add_foreign_key "mailer_participants", "admin_mailer_reports", column: "mailer_report_id"
+  add_foreign_key "mailer_participants", "participants"
   add_foreign_key "participants", "administrative_functions"
   add_foreign_key "participants", "eventosbahais"
   add_foreign_key "participants", "users"

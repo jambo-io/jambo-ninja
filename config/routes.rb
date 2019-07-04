@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   namespace :admin do
     get '' => 'dashboards#index'
     get 'test_mailer_production' => 'dashboards#test_mailer_production'
-    get 'mailer_participant_preview' => 'dashboards#mailer_participant_preview'
-    get 'mailer_manager' => 'dashboards#new_mailer_manager'
-    post 'mailer_manager' => 'dashboards#create_mailer_manager', :as => :create_mailer_manager
+    get 'mailer_reports/mailer_participant_preview' => 'mailer_reports#mailer_participant_preview'
+ 
+    resources :mailer_reports do
+      get 'send_email' => 'mailer_reports#send_email'
+    end
   end
   
   #Login

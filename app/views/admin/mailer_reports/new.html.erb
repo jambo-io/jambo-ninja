@@ -1,13 +1,14 @@
 
-  <%= form_for(@admin_mailer_manager, url: admin_create_mailer_manager_path, html: {method: :post}, remote: true) do |form| %>
+  <%= form_for(@admin_mailer_report, html: {method: :post}, remote: true) do |form| %>
     <div class="row"> <!-- Event Presentation -->
         <div class="col-lg-12 col-sm-12">
             <div class="frame">
-                <div class="text-danger text-center">(Em Manutenção)</div>
-                <h1 class="text-center">E-mail Personalizado</h1>
+                <%= link_to "Voltar", admin_mailer_reports_path %> 
+                <div class="text-center">(<%= @event.name %>)</div>
+                <h1 class="text-center">Novo E-mail</h1>
                 
               
-                    <% if @admin_mailer_manager.errors.any? %>
+                    <% if @admin_mailer_report.errors.any? %>
                       <% @admin_mailer_manager.errors.full_messages.each do |message| %>
                         <li><%= message %></li>
                         <% end %>
@@ -67,7 +68,7 @@
               
               <div class="form-group">
                 <%= label_tag "Ver como:" %>
-                <%= select("eventosbahai", "participant_ids", @event.participants.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}, {class: 'form-control'}) %>
+                <%= select("eventosbahai", "participant_ids", @event.participants.collect {|p| [ p.name, p.id ] }, {class: 'form-control'}) %>
               </div>
 
               <div class="header">
@@ -83,7 +84,7 @@
                 
               </div>
               <div style="text-align: center;">
-                <%= form.submit "Enviar E-mail para Todos os Selecionados".html_safe, class:'btn btn-success', :data => { confirm: 'Enviar E-mail para os Participantes?', disable_with: "Enviando E-mails..."} %>  
+                <%= form.submit "Enviar".html_safe, class:'btn btn-success' %>  
               </div>
             </div>
         </div>
@@ -93,18 +94,13 @@
 <script>
 
   $("#to_whom_all").change(function() {
-    console.log("To All");
     let check = "";
     <% @participants.each do |participant| %>
-      console.log("<%= participant.id %>");
       check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
-      console.log(check.checked = true);
     <% end %>
   });
 
   $('#to_whom_no_itinerary').change(function(){
-  console.log("No Itinerary");
-
   <% @participants.each do |participant| %>
     check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
     console.log(check.checked = false);
@@ -116,7 +112,7 @@
     console.log(check.checked = true);
   <% end %>
 
-                    const text_area = $("#admin_mailer_manager_body_div");
+  const text_area = $("#admin_mailer_manager_body_div");
     
 const body_text = 
 `Olá |% participante %|, como vai? <br><br>
@@ -132,46 +128,32 @@ Secretaria Nacional
 `;
     const html = $.parseHTML(body_text);
     text_area.html(body_text);
-    console.log(html);
   });
 
-  function preview_text() {
-    const preview_div = $("#email_preview_div");
-    console.log("Preview Text");
-    const text_area = $("#admin_mailer_manager_body_div");
-    let str = text_area.html();
-
-    let res = str.replace("|% participante %|", "<%= current_user.user_profile.name %>");
-    //res = res.replace("|% link_itinerario %|", 'link_to edit_participant_itinerary_url(@participant, @itinerary), edit_participant_itinerary_path(@participant, @itinerary) %>');
-    
-    preview_div.html(str);
-    $("#admin_mailer_manager_body").val(str);
-    $("#visible_preview").show();
-  }
 
   $("#preview_email_button").on('click', function(){
-    preview_text();
+    preview();
+    
   });
 
 
   $('#admin_mailer_manager_body_div').on('input', e => {
-    preview_text();
+    preview();
   });
 
-  
+  function preview(participant_id) {
+    if(typeof participant_id === "undefined") {
+      participant_id = <%= @one_participant.id %>
+    }
 
-  $("#eventosbahai_participant_ids").on('change', function(e) {
-    e.preventDefault();
+    const body = $("#admin_mailer_manager_body_div").html();
+    
+    console.log("Val Body");
+    console.log(body);
     const preview_div = $("#email_preview_div");
     const header_to = $("#header_to");
     const subject = $("#admin_mailer_manager_subject");
-    const _participant_id = e.currentTarget.value;
     const header_subject = $("#header_subject");
-    
-    let participant_id = _participant_id;
-    console.log(participant_id);
-    const body = $("#admin_mailer_manager_body").val();
-
     $.ajax({
       url: 'mailer_participant_preview',
       post: 'GET',
@@ -181,12 +163,23 @@ Secretaria Nacional
              }
      }).done(function(result) {
        if(typeof result !== "undefined") {
+         console.log("Defined");
+         $("#visible_preview").show();
+        preview_div.show();
+        console.log(result.body);
         preview_div.html(result.body);
+        $("#admin_mailer_report_body").val(body);
         header_to.html(result.email);
         header_subject.html(subject.val());
        }
      });
+  }
 
+  $("#eventosbahai_participant_ids").on('change', function(e) {
+    e.preventDefault();
+    const _participant_id = e.currentTarget.value;
+    let participant_id = _participant_id;
+    preview(participant_id)
   });
 
 </script>
@@ -202,7 +195,7 @@ Secretaria Nacional
       var contents = $(".expandable-input").html();
       $('input#expandable').val(contents);
 
-      preview_text();
+      preview();
       this.submit();
     });
 

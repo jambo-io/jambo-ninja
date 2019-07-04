@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-lg-12 col-sm-12">
+        <div class="frame">
+            <%= link_to admin_path do %> 
+                <i class="material-icons">
+                arrow_back
+                </i>
+            <% end %>
+            <h1 class="text-center">E-mails Personalizados</h1><br>
+
+            <ul class="list-inline mx-auto text-center">
+                <li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Novo E-mail", new_admin_mailer_report_path(id: current_user.eventosbahais.last.id), class:'btn btn-new m-1', id:'mailermanager' %></li>
+            </ul>
+            
+            <% @mailer_reports.reverse.each do |mailer_report| %>
+
+                <% if mailer_report.body.present? %>
+                    <%= link_to admin_mailer_report_path(mailer_report) do %>
+                        <div class="card-email">
+                            <div class="row">
+                                <div class="col-3 text-center my-auto">
+                                    <%= time_ago_in_words(mailer_report.created_at) %>
+                                    <br><i class="material-icons" style="color: #39c138;">email</i>
+                                
+                                </div>
+                                <div class="col-3 text-center my-auto">
+                                    <%= Admin::MailerReport.find(mailer_report.id).participants.count %>
+                                </div>
+                                <div class="col-6 my-auto">
+                                    <%= mailer_report.body.truncate(50) %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %> 
+        </div>
+    </div>
+</div>

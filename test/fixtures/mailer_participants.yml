@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admin_mailer_report: one
+  participant: one
+  sent: false
+
+two:
+  admin_mailer_report: two
+  participant: two
+  sent: false

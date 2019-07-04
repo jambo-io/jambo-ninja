@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :participants, dependent: :destroy
   has_one :user_profile, dependent: :destroy
   #Admin
-  has_many :mailer_managers, class_name: 'Admin::MailerManager'
+  has_many :mailer_reports, class_name: 'Admin::MailerReport'
   accepts_nested_attributes_for :user_profile
   
   after_initialize :set_default_role, :if => :new_record?

@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-lg-12 col-sm-12">
+        <div class="frame">
+            <%= link_to admin_mailer_reports_path do %>
+                <i class="material-icons">
+                    arrow_back
+                </i>
+            <% end %>
+            <h5 class="text-center">Relatório de Envio</h5><br>
+            <%= @participants.count %> <%= "participante".pluralize(@participants.count) %><br><br>
+            <% @participants.each do |participant| %>
+                <div id="<%= "participant_#{participant.id}" %>">
+                    <%= participant.name  %> <span id="<%= "pstatus_#{participant.id}" %>">Aguardando...</span>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-sm-12">
+        <div class="frame">
+            <h5 class="text-center">Mensagem</h5><br>
+
+            Assunto: <%= @mailer_report.subject %><br>
+            <%= @mailer_report.body.html_safe %><br>
+        </div>
+    </div>
+</div>
+
+<div id="success" class="alert alert-success">
+  Operação Finalizada
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#success").hide();
+        <% @participants.each_with_index do |participant, index| %>
+            $.ajax({
+                url: '<%= "#{@mailer_report.id}/send_email" %>',
+                post: 'GET',
+                data: {
+                        participant_id: <%= participant.id %>
+                        }
+                }).done(function(result) {
+                if(typeof result !== "undefined") {
+                    if(result.message === "Ok") {
+                        $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-success'><i class='material-icons'>check</i></span>");
+                    }
+                    if(result.message === "Sent Before") {
+                        $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-success'> </span>");
+                    }
+                    if(result.message === "No Participant Found") {
+                        $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-danger'>Não encontrado</span>");
+                    }
+                    console.log(result);
+                }
+                <% if index == @participants.length - 1 %>
+                    $("<%= "#success" %>").show();
+                <% end %>
+            });
+        <% end %>
+    });
+
+</script>

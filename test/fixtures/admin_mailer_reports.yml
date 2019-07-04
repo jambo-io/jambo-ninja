@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eventosbahai: one
+  participant: one
+  admin_mailer_manager: one
+
+two:
+  eventosbahai: two
+  participant: two
+  admin_mailer_manager: two

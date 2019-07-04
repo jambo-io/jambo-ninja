@@ -2,6 +2,9 @@ class Participant < ApplicationRecord
   belongs_to :eventosbahai
   belongs_to :user
   has_one :itinerary, dependent: :destroy
+  
+  has_many :mailer_participants, dependent: :destroy
+  has_many :admin_mailer_reports, through: :mailer_participants
   #validates :contact, presence: true, length: { minimum:5 }
   #validates :name, presence: true, length: { minimum:2 }
 
