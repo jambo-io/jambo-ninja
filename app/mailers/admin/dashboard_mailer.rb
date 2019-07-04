@@ -1,14 +1,17 @@
 class Admin::DashboardMailer < ApplicationMailer
-    def custom_mail (admin_mailer_manager, participant_email)
-        @mail = admin_mailer_manager
+    def custom_mail (mailer, participant, body)
+        
+        @mail = mailer
         @event = @mail.eventosbahai
+     
         subject = @mail.subject
         #mail(to: participant_email, subject: subject)
         puts "Sending Email to"
-        puts participant_email
+        puts participant.email
         puts "<===========>"
+
         puts "Body check:"
-        puts @mail.body
+        puts body
         #mail(to: "guilhermewnunes@gmail.com", subject: subject)
     end
 end

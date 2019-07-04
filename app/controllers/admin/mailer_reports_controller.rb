@@ -68,16 +68,18 @@ class Admin::MailerReportsController < Admin::AdminController
             }
             return false
         end
+
+        body = body_process(mailer.body, participant)
        
         if(mailer_participant.sent == false || mailer_participant.sent.blank?)
             puts "Mailer Participant New"
-            send = Admin::DashboardMailer.custom_mail(mailer,participant.email).deliver_now
+            send = Admin::DashboardMailer.custom_mail(mailer,participant, body).deliver_now
             mailer_participant.update(sent: true)
             render json: {
                 message: "Ok"
             }
         else
-            send = Admin::DashboardMailer.custom_mail(mailer,participant.email).deliver_now
+            send = Admin::DashboardMailer.custom_mail(mailer,participant, body).deliver_now
             render json: {
                 message: "Sent Before"
             }

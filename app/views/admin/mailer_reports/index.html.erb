@@ -9,7 +9,9 @@
             <h1 class="text-center">E-mails Personalizados</h1><br>
 
             <ul class="list-inline mx-auto text-center">
-                <li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Novo E-mail", new_admin_mailer_report_path(id: current_user.eventosbahais.last.id), class:'btn btn-new m-1', id:'mailermanager' %></li>
+                <% if current_user.eventosbahais.last.present? %>
+                    <li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Novo E-mail", new_admin_mailer_report_path(id: current_user.eventosbahais.last.id), class:'btn btn-new m-1', id:'mailermanager' %></li>
+                <% end %>
             </ul>
             
             <% @mailer_reports.reverse.each do |mailer_report| %>
