@@ -10,7 +10,7 @@
             <%= @participants.count %> <%= "participante".pluralize(@participants.count) %><br><br>
             <% @participants.each do |participant| %>
                 <div id="<%= "participant_#{participant.id}" %>">
-                    <%= participant.name  %> <span id="<%= "pstatus_#{participant.id}" %>">Aguardando...</span>
+                    <%= participant.name  %> <span id="<%= "pstatus_#{participant.id}" %>"></span>
                 </div>
             <% end %>
         </div>
@@ -36,6 +36,7 @@
     $(document).ready(function(){
         $("#success").hide();
         <% @participants.each_with_index do |participant, index| %>
+            $("<%= "#pstatus_#{participant.id}" %>").html("<span>Aguardando</span>");
             $.ajax({
                 url: '<%= "#{@mailer_report.id}/send_email" %>',
                 post: 'GET',
@@ -43,6 +44,7 @@
                         participant_id: <%= participant.id %>
                         }
                 }).done(function(result) {
+                    console.log(result);
                 if(typeof result !== "undefined") {
                     if(result.message === "Ok") {
                         $("<%= "#pstatus_#{participant.id}" %>").html("<span class='text-success'><i class='material-icons'>check</i></span>");

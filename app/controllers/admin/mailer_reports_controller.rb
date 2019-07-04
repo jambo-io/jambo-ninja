@@ -79,7 +79,6 @@ class Admin::MailerReportsController < Admin::AdminController
                 message: "Ok"
             }
         else
-            send = Admin::DashboardMailer.custom_mail(mailer,participant, body).deliver_now
             render json: {
                 message: "Sent Before"
             }
