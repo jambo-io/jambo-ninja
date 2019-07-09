@@ -27,7 +27,7 @@ class Itinerary < ApplicationRecord
 
   def has_departure?
     if (self.transportation == "avião" || 
-      self.transportation == "ônibus") && self.departure.present?
+      self.transportation == "ônibus" || self.transportation == "carro") && self.departure.present?
       return true
     end
     return false
