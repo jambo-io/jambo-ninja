@@ -13,6 +13,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :user_profile
   
   after_initialize :set_default_role, :if => :new_record?
+  after_create :set_user_id
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -21,5 +22,10 @@ class User < ApplicationRecord
   private
   def set_default_role
     self.role ||= :user
+  end
+
+  def set_user_id
+    self.user_id = self.id
+    self.save!
   end
 end

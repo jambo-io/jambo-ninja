@@ -1,4 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
+    before_action except: [:new, :create, :update] do 
+        is_owner? ('User')
+    end
+    
     protected
   
     def after_sign_up_path_for(resource)

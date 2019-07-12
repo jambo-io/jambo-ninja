@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   #For APIs, you may want to use :null_session instead.
   include SessionsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :is_admin?
-  before_action :is_superuser?
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [{ user_profile_attributes: [:name, :lastname,
@@ -42,14 +40,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  private
+
   def is_admin?
     if user_signed_in?
+      puts "logado"
       if current_user.admin? || current_user.superuser?
         return true
       end
     end
-    return false
+    puts "não logado"
+    redirect_to root_path, alert: 'É preciso logar como administrador'
   end
 
   def is_superuser?
@@ -58,8 +58,23 @@ class ApplicationController < ActionController::Base
         return true
       end
     end
-    return false
+    redirect_to root_path
   end
-  helper_method :is_admin?
-  helper_method :is_superuser?
+
+  def is_owner? (obj)
+    #convert devise params
+    my_param = params[:id]
+    if params[:format].present?
+      my_param = params[:format]
+    end
+
+    my_model = class_eval(obj)
+    if user_signed_in?
+      if my_model.find(my_param).user_id == current_user.id || is_superuser?
+        return true
+      end
+    end
+    redirect_to root_path, alert: 'Ops! Você só pode alterar o seu próprio perfil.'
+  end
+
 end

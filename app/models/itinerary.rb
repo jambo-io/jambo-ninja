@@ -1,5 +1,7 @@
 class Itinerary < ApplicationRecord
   belongs_to :participant, optional: true
+  belongs_to :user, optional: true
+  after_create :set_user_id
 
   enum transportation: [:carro, :ônibus, :avião]
 
@@ -38,6 +40,14 @@ class Itinerary < ApplicationRecord
       return true
     end
     return false
+  end
+
+  private
+  def set_user_id
+    participant = Participant.find(self.participant_id)
+    user_id = participant.user_id
+    self.user_id = user_id
+    self.save!
   end
 
 end

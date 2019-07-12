@@ -30,4 +30,23 @@ module ApplicationHelper
     end
     return false 
   end
+
+  def is_admin?
+    if user_signed_in?
+      if current_user.admin? || current_user.superuser?
+        return true
+      end
+    end
+    return false
+  end
+
+  def is_superuser?
+    if user_signed_in?
+      if current_user.superuser?
+        return true
+      end
+    end
+    return false
+  end
+
 end

@@ -1,7 +1,10 @@
 class EventosbahaisController < ApplicationController
    before_action :set_eventosbahai, only: [:show, :edit, :update, :destroy]
    before_action :authenticate_user!, :only => [:new]
-   before_action :correct_user_eventosbahais?, only: [:edit, :update, :destroy]
+   before_action :is_admin?, :except => [:index]
+   before_action :except => [:index, :new, :create] do
+      is_owner? ('Eventosbahai')
+   end
    
    def index
       @eventosbahais = Eventosbahai.order('id DESC').all
@@ -15,6 +18,7 @@ class EventosbahaisController < ApplicationController
    end
 
    def edit
+      puts "editando"
    end
 
    def create
@@ -55,12 +59,7 @@ class EventosbahaisController < ApplicationController
    end
 
    def eventosbahai_params
-    params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies, :sendemail, :image, :payment, :itinerary, :share, :administrative_function)
+      params.require(:eventosbahai).permit(:name, :start_at, :end_at, :city, :state, :location, :theme, :description, :price, :vacancies, :sendemail, :image, :payment, :itinerary, :share, :administrative_function)
    end
-
-   def correct_user_eventosbahais?
-      unless (user_signed_in? && current_user.admin?) || current_user.superuser?
-         redirect_to root_path
-      end
-   end
+   
 end

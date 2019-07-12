@@ -1,6 +1,8 @@
 class UserProfileController < ApplicationController
     before_action :user_profile, only: [:edit, :update]
-    before_action :owner_check
+    before_action do
+        is_owner? ('UserProfile')
+    end
 
     def edit
         @user_profile = user_profile
@@ -48,12 +50,5 @@ class UserProfileController < ApplicationController
         params.require(:user_profile).permit(:name, :lastname, :phone, :city, :state, :administrative_region_id, :redirect_to)
     end
     
-    def owner_check
-        if user_signed_in? && current_user.user_profile.present?
-            if current_user.user_profile == user_profile || current_user.superuser?
-                return true
-            end
-        end
-        redirect_to root_path
-    end
+    
 end

@@ -42,8 +42,10 @@ Rails.application.routes.draw do
 
   # Participants
   resources :participants do
-    resources :itineraries
+    resources :itineraries, except: :index
   end
+  resources :itineraries, only: :index
+  
   get 'pin/' => 'pins#new'
   post 'pin/' => 'pins#create'
   delete 'sair' => 'pins#destroy'

@@ -1,4 +1,8 @@
 class Admin::MailerReportsController < Admin::AdminController
+    before_action :is_admin?
+    before_action only: [:new] do 
+        is_owner? ('Eventosbahai')
+    end
 
     def new
         @event = Eventosbahai.find(params[:id])

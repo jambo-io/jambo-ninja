@@ -146,7 +146,7 @@ Secretaria Nacional
 
   function preview(participant_id) {
     if(typeof participant_id === "undefined") {
-      participant_id = <%= @one_participant.id %>
+      participant_id = <%= @one_participant.id unless @one_participant.blank? %>
     }
 
     const body = $("#admin_mailer_manager_body_div").html();

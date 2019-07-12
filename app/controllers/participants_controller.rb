@@ -1,6 +1,9 @@
 class ParticipantsController < ApplicationController
 	before_action :authenticate_user!, except: [:new, :check_email]
 	before_action :subscribed_redirect, only: [:new, :show]
+	before_action only: [:show, :edit, :update] do
+		is_owner?('Participant')
+	end
 
 	def edit
 		begin

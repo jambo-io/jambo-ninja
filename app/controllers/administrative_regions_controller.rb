@@ -1,6 +1,6 @@
 class AdministrativeRegionsController < ApplicationController
   before_action :set_administrative_region, only: [:show, :edit, :update, :destroy]
-  before_action :admin_only
+  before_action :is_admin?
   # GET /administrative_regions
   # GET /administrative_regions.json
   def index
@@ -71,10 +71,4 @@ class AdministrativeRegionsController < ApplicationController
     def administrative_region_params
       params.require(:administrative_region).permit(:name)
     end
-
-    def admin_only
-      unless is_admin?
-         redirect_to root_path
-      end
-   end
 end
