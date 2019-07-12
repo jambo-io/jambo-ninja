@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-    before_action except: [:new, :create, :update] do 
+    before_action except: [:new, :create, :update, :destroy] do 
         is_owner? ('User')
     end
     
