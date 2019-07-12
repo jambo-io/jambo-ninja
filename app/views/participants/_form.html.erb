@@ -15,7 +15,7 @@
   <% if @event.administrative_function %>
     <div class="form-group">
       <%= label_tag "Função Administrativa" %>
-      <%= f.select(:administrative_function_id, AdministrativeFunction.all.collect {|function| [function.name, function.id]},{prompt:'Selecione uma Função'}, {class: 'form-control'}) %>
+      <%= select_tag :administrative_function_ref, options_from_collection_for_select(AdministrativeFunction.all, "id", "name"), prompt: "Escolha uma função", class:'form-control' %>
     </div>
   <% end %>
 

@@ -59,8 +59,8 @@ class Participant < ApplicationRecord
   end
 
   def administrative_function
-    if self.administrative_function_id.present?
-      AdministrativeFunction.find(self.administrative_function_id).name unless AdministrativeFunction.find(self.administrative_function_id).blank?
+    if self.administrative_function_ref.present?
+      AdministrativeFunction.find(self.administrative_function_ref).name unless AdministrativeFunction.find(self.administrative_function_ref).blank?
     end
   end
 
