@@ -15,10 +15,9 @@
 							<% @users.each do |user| %>
 								<tr>
 									<% if user.user_profile.present? %>
-										<td><%= user.user_profile.name %></td>
-									<% end %>
-									<% if current_user.superuser? %>
-										<td><%= link_to "Ver", user_profile_path(user) %></td>
+										<td><%= link_to user.user_profile.name, user_profile_path(user) %>
+										<span class="badge badge-success"><%= "admin" if user.admin? %></span> 
+										<span class="badge badge-info"><%= "superuser" if user.superuser? %></span></td>
 									<% end %>
 								</tr>
 						<% end %>

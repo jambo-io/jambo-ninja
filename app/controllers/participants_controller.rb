@@ -89,7 +89,7 @@ class ParticipantsController < ApplicationController
 		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
 		@participant = @evento.participants.new(participant_params)
 		fullname = params[:fullname]
-		adm_function_id = params[:administrative_function_ref]
+		adm_function_ref = params[:administrative_function_ref]
 		current_user.user_profile.update(fullname: fullname, administrative_function_ref: adm_function_ref)
 		user_id = current_user.id unless current_user.blank?
 		puts "USER ID"

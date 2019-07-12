@@ -47,7 +47,7 @@ class UserProfileController < ApplicationController
     end
    
     def user_profile_params
-        params.require(:user_profile).permit(:name, :lastname, :phone, :city, :state, :administrative_region_id, :redirect_to)
+        params.require(:user_profile).permit(:name, :lastname, :phone, :city, :state, :administrative_region_ref, :redirect_to)
     end
     
     

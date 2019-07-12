@@ -56,10 +56,10 @@
         </p>
       <% end %>
 
-      <% if @user_profile.administrative_region_id.present? %>
+      <% if @user_profile.administrative_region_ref.present? %>
         <p>
           <strong>Região:</strong>
-          <%= AdministrativeRegion.find(@user_profile.administrative_region_id).name %>
+          <%= AdministrativeRegion.find(@user_profile.administrative_region_ref).name %>
         </p>
       <% end %>
 

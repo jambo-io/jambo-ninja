@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [{ user_profile_attributes: [:name, :lastname,
-    :phone, :birthday, :address, :city, :state, :administrative_region_id] }])
+    :phone, :birthday, :address, :city, :state, :administrative_region_ref] }])
   end
 
   def default_url_options

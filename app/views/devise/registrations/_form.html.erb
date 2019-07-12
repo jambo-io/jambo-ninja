@@ -88,7 +88,7 @@
     <div class="row">
         <div class="form-group col-md-12">
         <%= profile.label 'Região' %>
-        <%= profile.select(:administrative_region_id, AdministrativeRegion.all.collect {|function| [function.name, function.id]},{prompt:'Selecione uma Região'}, {class: 'form-control'}) %>
+        <%= profile.select(:administrative_region_ref, AdministrativeRegion.all.collect {|function| [function.name, function.id]},{prompt:'Selecione uma Região'}, {class: 'form-control'}) %>
     </div>
     <% end %>
     </div>
