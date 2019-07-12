@@ -93,6 +93,9 @@ class ParticipantsController < ApplicationController
 		user_id = current_user.id unless current_user.blank?
 		puts "USER ID"
 		puts user_id
+		puts "Inspect"
+		@participant.inspect
+		@participant.user_id
 		@participant.user_id = user_id
 		pin = rand(1000..9999)
 		@participant.pin = pin
