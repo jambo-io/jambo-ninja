@@ -2,7 +2,7 @@
   "name": "jambo-ninja",
   "version": "1.0.0",
   "engines": {
-    "node": "8.18.0"
+    "npm": "6.4.1"
   },
   "description": "Aplicação para Eventos Bahá'ís",
   "main": "babel.config.js",
