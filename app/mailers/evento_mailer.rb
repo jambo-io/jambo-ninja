@@ -10,6 +10,6 @@ class EventoMailer < ApplicationMailer
 		attachments.inline['emailforyou.png'] = File.read("#{Rails.root}/app/assets/images/emailforyou.png")
 		email = @participant.user.email unless @participant.user.blank?
 		name = @participant.name
-		#mail(to: email, subject: "Obrigado por se inscrever #{name}!")
+		mail(to: "guilhermewnunes@gmail.com", subject: "Obrigado por se inscrever #{name}!")
 	end
 end

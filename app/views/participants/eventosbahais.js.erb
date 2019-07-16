@@ -19,11 +19,11 @@ participantshead = `<tr>
 
 <th scope="col">Transporte</th>
 <th scope="col">Empresa</th>
-<th scope="col">Nº do Vôo</th>
+<th scope="col">Vôo</th>
 <th scope="col">Chegada</th>
-<th scope="col">Aeroporto Chegada</th>
+<th scope="col">Aer. Chegada</th>
 <th scope="col">Saída</th>
-<th scope="col">Aeroporto Saída</th>
+<th scope="col">Aer. Saída</th>
 
 
 <th scope="col">Reg. em</th>
@@ -57,11 +57,18 @@ if (number_participants > 0) {
 					</td>
 				<% end %>
                 <% unless f.user.user_profile.nil? %>
-				<td><%= link_to "#{f.name} #{f.lastname}", edit_user_profile_path(f.user.user_profile) %></td>
+					<td>
+						<% name_show = "#{f.name} #{f.lastname}" %>
+						<% name_show = name_show.truncate(13) %>
+						<%= link_to "#{name_show}", edit_user_profile_path(f.user.user_profile) %>
+					</td>
 				<% end %>
-
+					
 				<% if f.phone.present? %>
-					<td><%= f.email %></td>
+					<td>
+						<% email_show = f.email.truncate(25) %>
+						<%= link_to email_show, new_admin_mailer_report_path(id: @eventosbahai.id) %>
+					</td>
 				<% end %>
 				<% if f.phone.blank? %>
 					<td></td>
@@ -71,12 +78,24 @@ if (number_participants > 0) {
 				<td><%= f.city %> - <%= f.state %></td>
 				
 				<% if @itinerary.present? %>
-					<td><%= @itinerary.transportation if @itinerary.transportation.present? %></td>
+					<td class="text-info">
+						<% if @itinerary.transportation.present? %>
+							<% if (@itinerary.transportation == "avião") %>
+								<i class="material-icons">airplanemode_active</i>
+							<% end %>
+							<% if (@itinerary.transportation == "ônibus") %>
+								<i class="material-icons">directions_bus</i>
+							<% end %>
+							<% if (@itinerary.transportation == "carro") %>
+								<i class="material-icons">directions_car</i>
+							<% end %>
+						<% end %>
+					</td>
 					<td><%= @itinerary.company if @itinerary.company.present? %></td>
 					<td><%= @itinerary.flight_number if @itinerary.flight_number.present? %></td>
-					<td><%= @itinerary.arrival.strftime("%d/%m/%Y %H:%M")  if @itinerary.arrival.present? %></td>
+					<td><%= @itinerary.arrival.strftime("%d/%m %H:%M")  if @itinerary.arrival.present? %></td>
 					<td><%= @itinerary.airport_arrival if @itinerary.airport_arrival.present? %></td>
-					<td><%= @itinerary.departure.strftime("%d/%m/%Y %H:%M")  if @itinerary.departure.present? %></td>
+					<td><%= @itinerary.departure.strftime("%d/%m %H:%M")  if @itinerary.departure.present? %></td>
 					<td><%= @itinerary.airport_departure if @itinerary.airport_departure.present? %></td>
 			    <% end %>
 				<% if f.itinerary.blank? %>

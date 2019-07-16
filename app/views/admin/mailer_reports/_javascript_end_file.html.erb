@@ -1,0 +1,175 @@
+<script>
+  InlineEditor
+    .create( document.querySelector( '#admin_mailer_manager_body_div' ), {
+      extraPlugins: [ MentionCustomization ],
+      toolbar: [ 'bold', 'italic', 'link'],
+      language: 'pt-br',
+      mention: {
+        feeds: [
+          {
+            marker: '@',
+            feed: [ '@participante', '@link_itinerario', '@pergunta_id'],
+            minimumCharacteres: 1
+          },
+          {
+            marker: '?',
+            feed: getFeedItems,
+            minimumCharacteres: 1
+          }
+        ]
+      }
+    })
+    .then( editor => {
+        editor.config
+        console.log( editor );
+    })
+    .catch( error => {
+            console.error( error );
+    });
+
+/* When typing in the message field */
+$("#admin_mailer_manager_body_div").on('input', function (e) {
+  //$("#admin_mailer_manager_body_div").html();
+  //body = body.replace("|% participante %|", '<span id="badge" class="badge badge-success" contenteditable="false">participante</span>');
+  //body = body.replace("|% link_itinerario %|", '<span class="badge badge-info">link_itinerario</span>&nbsp');
+  //preview();
+});
+
+function set_text_box() {
+  let check = "";
+  // 
+  <% @participants.each do |participant| %>
+    check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
+    check.checked = false;
+  <% end %>
+const body_text_question = 
+`Olá |% participante %|, como vai? <br><br>
+Por favor responda a esta pergunta: <br><br>
+
+<span id="symbol_question">|% pergunta %|</span><br><br>
+
+Qualquer dúvida mande-nos um E-mail, <br><br>
+
+Atenciosamente,<br>
+Secretaria Nacional
+
+`;
+  const text_area = $("#admin_mailer_manager_body_div");
+  if(question_id !== "") {
+    const html = $.parseHTML(body_text_question);
+    text_area.html(body_text_question);
+    $("#symbol_question").text("|% pergunta_" + question_id + " %|");
+  } else {
+    text_area.html("");
+  }
+}
+
+$("#to_whom_all").change(function() {
+  console.log("To All");
+  let check = "";
+  <% @participants.each do |participant| %>
+    check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
+    check.checked = true;
+  <% end %>
+  const text_area = $("#admin_mailer_manager_body_div");
+  //</br>text_area.html("");
+});
+
+$('#to_whom_no_itinerary').change(function(){
+  <% @participants.each do |participant| %>
+    check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
+    check.checked = false;
+  <% end %>
+
+  <% @participants_no_itinerary.each do |participant| %>
+    check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
+    check.checked = true;
+  <% end %>
+
+  const text_area = $("#admin_mailer_manager_body_div");
+
+
+  const body_text_itinerary = 
+`Olá |% participante %|, como vai? <br><br>
+Parece que você ainda não adicionou o seu itinerário no site, para adicionar basta entrar neste link: <br><br>
+
+|% link_itinerario %| <br><br>
+
+Qualquer dúvida mande-nos um E-mail, <br><br>
+
+Atenciosamente,<br>
+Secretaria Nacional
+
+`;
+  const html = $.parseHTML(body_text_itinerary);
+  text_area.html(body_text_itinerary);
+});
+
+
+  $("#preview_email_button").on('click', function(){
+    preview();
+  });
+
+  $("#badge").on('click', function(evt) {
+    evt.stopPropagation;
+    evt.preventDefault;
+    return false;
+  });
+
+
+  $("#question_option_link").on('click', function(e){
+    e.preventDefault();
+  });
+
+  function preview(participant_id) {
+    if(typeof participant_id === "undefined") {
+      participant_id = <%= @one_participant.id unless @one_participant.blank? %>
+    }
+
+    const body = $("#admin_mailer_manager_body_div").html();
+    const preview_div = $("#email_preview_div");
+    const header_to = $("#header_to");
+    const subject = $("#admin_mailer_manager_subject");
+    const header_subject = $("#header_subject");
+
+    $.ajax({
+      url: 'mailer_participant_preview',
+      post: 'GET',
+      data: {
+        body: body,
+        participant_id: participant_id
+      }
+    }).done(function(result) {
+      if(typeof result !== "undefined") {
+        $("#visible_preview").show();
+        preview_div.show();
+        console.log(result.body);
+        preview_div.html(result.body);
+        $("#admin_mailer_report_body").val(body);
+        header_to.html(result.email);
+        header_subject.html(subject.val());
+        $("#email_preview_div a").removeAttr('href');
+      }
+    });
+  }
+
+  $("#eventosbahai_participant_ids").on('change', function(e) {
+    e.preventDefault();
+    const _participant_id = e.currentTarget.value;
+    let participant_id = _participant_id;
+    preview(participant_id)
+  });
+
+
+  $(document).ready(function() {
+    $("#visible_preview").hide();
+    $(document).on("submit", "form#new_expandable", function(e) {
+      e.preventDefault();
+      var contents = $(".expandable-input").html();
+      $('input#expandable').val(contents);
+      preview();
+      this.submit();
+    });
+  });
+
+</script>
