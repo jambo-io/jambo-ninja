@@ -25,6 +25,8 @@ class ParticipantsController < ApplicationController
 		vacancies = @event.vacancies.to_i - Participant.where(eventosbahai_id: @event_id).count.to_i
 		@vacancies = vacancies > 0 ? vacancies : nil
 
+		@questions = @event.questions
+
 		#Button name
 		@btname = "Inscrever-se"
 		
@@ -88,39 +90,48 @@ class ParticipantsController < ApplicationController
 	def create
 		@evento = Eventosbahai.find(participant_params[:eventosbahai_id])
 		@participant = @evento.participants.new(participant_params)
+
+
 		fullname = params[:fullname]
 		adm_function_ref = params[:administrative_function_ref]
 		current_user.user_profile.update(fullname: fullname, administrative_function_ref: adm_function_ref)
 		user_id = current_user.id unless current_user.blank?
-		puts "USER ID"
-		puts user_id
-		puts "Inspect"
 		@participant.inspect
 		@participant.user_id
 		@participant.user_id = user_id
 		pin = rand(1000..9999)
 		@participant.pin = pin
 
-      	if @participant.save!
-				puts "1.0 - Salvo"
-				if @evento.sendemail == "1"
-					puts "2.0 - SendEmail"
-					if @participant.email =~ /\A[^@]+@[^@]+\Z/
-								puts "2.0 - Email"
-								EventoMailer.confirmation_email(@participant).deliver_later
-						else
-								puts "2.2 - SMS"
-								sms(@participant) ##fire sms method
-
-						end
+		  if @participant.save!
+			
+			@questions = @evento.questions
+			@questions.each do |question|
+				question_param = params["question_#{question.id}"]
+				if question_param.present?
+					puts "#{question.id} presente"
+					answer = @participant.answers.where(question_id: question.id)
+					if answer.blank?
+						answer = @participant.answers.new
+						answer.question_id = question.id
+						answer.answer = question_param
+						answer.save!
+					else
+						answer.first.update(answer: question_param)
 					end
+				end
+			end
 
-					puts "3.0 - Redirect"
-					redirect_to :action => "confirmation", :id => user_id
-			else
-				puts "3.3 - Redirect"
-        		redirect_to :action => "confirmation", :evid => participant_params[:eventosbahai_id], :error => true
-     	 	end
+			if @evento.sendemail == "1"
+				if @participant.email =~ /\A[^@]+@[^@]+\Z/
+							EventoMailer.confirmation_email(@participant).deliver_later
+					else
+							sms(@participant) ##fire sms method
+					end
+				end
+				redirect_to :action => "confirmation", :id => user_id
+		else
+			redirect_to :action => "confirmation", :evid => participant_params[:eventosbahai_id], :error => true
+		end
 	end
 
 

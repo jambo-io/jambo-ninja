@@ -19,6 +19,19 @@
     </div>
   <% end %>
 
+    <% @questions.each do |question| %>
+      <div class="form-group">
+        <%= label_tag question.question %><br>
+        <%= label_tag "Sim" %>
+        <%= radio_button_tag "question_#{question.id}", "yes" %>
+        <%= label_tag "Não" %>
+        <%= radio_button_tag "question_#{question.id}", "no" %>
+        <%= label_tag "Talvez" %>
+        <%= radio_button_tag "question_#{question.id}", "maybe" %>
+      </div>
+    <% end %>
+  
+
   <div style="text-align: center;">
       <%= f.submit "Confirmar Cadastro", class:'btn btn-success' %>  
   </div>

@@ -9,31 +9,41 @@ default: &default
   port: 5432
   host: localhost
 
+# development:
+#  adapter: postgresql
+#  encoding: utf8
+#  database: mydb
+#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#  username: postgres
+#  password: 123456
+#  port: 5432
+#  host: localhost
+
 development:
- adapter: postgresql
- encoding: utf8
- database: mydb
- pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
- username: postgres
- password: 123456
- port: 5432 
- host: localhost
-
-test: &TEST
- adapter: postgresql
- encoding: utf8
- database: jamboninja_test
- pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
- username: postgres
- password: 123456
- port: 5432 
- host: localhost
-
- production: &TEST
   adapter: postgresql
   encoding: utf8
-  database: jamboninja_production
+  database: recovery_2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: dhkjtcjkpwnxvr
+  password: 123456
+  port: 5432
+  host: localhost
+
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: jamboninja_test
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: 123456
+  port: 5432
+  host: localhost
+
+  production: &TEST
+    adapter: postgresql
+    encoding: utf8
+    database: jamboninja_production
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 # production:
 #  adapter: postgresql
@@ -42,10 +52,8 @@ test: &TEST
 #  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 #  username: guilhermenunes09
 #  password: 123456
-#  port: 5432 
+#  port: 5432
 #  host: localhost
 
-
 cucumber:
- <<: *TEST
-
+  <<: *TEST

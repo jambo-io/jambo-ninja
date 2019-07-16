@@ -5,6 +5,7 @@ class Participant < ApplicationRecord
   
   has_many :mailer_participants, dependent: :destroy
   has_many :admin_mailer_reports, through: :mailer_participants
+  has_many :answers, dependent: :destroy
   #validates :contact, presence: true, length: { minimum:5 }
   #validates :name, presence: true, length: { minimum:2 }
 

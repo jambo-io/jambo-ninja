@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190712042912) do
+ActiveRecord::Schema.define(version: 20190713185055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20190712042912) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "answer"
+    t.integer  "question_id"
+    t.integer  "participant_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["participant_id"], name: "index_answers_on_participant_id", using: :btree
+    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
   create_table "clusters", force: :cascade do |t|
@@ -117,6 +127,14 @@ ActiveRecord::Schema.define(version: 20190712042912) do
     t.index ["user_id"], name: "index_participants_on_user_id", using: :btree
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string   "question"
+    t.integer  "eventosbahai_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["eventosbahai_id"], name: "index_questions_on_eventosbahai_id", using: :btree
+  end
+
   create_table "user_profiles", force: :cascade do |t|
     t.string   "name"
     t.string   "lastname"
@@ -138,8 +156,8 @@ ActiveRecord::Schema.define(version: 20190712042912) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                           default: "", null: false
+    t.string   "encrypted_password",              default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -149,12 +167,14 @@ ActiveRecord::Schema.define(version: 20190712042912) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "user_id"
+    t.datetime "authentication_token_created_at"
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -162,12 +182,15 @@ ActiveRecord::Schema.define(version: 20190712042912) do
 
   add_foreign_key "admin_mailer_reports", "eventosbahais"
   add_foreign_key "admin_mailer_reports", "participants"
+  add_foreign_key "answers", "participants"
+  add_foreign_key "answers", "questions"
   add_foreign_key "eventosbahais", "users"
   add_foreign_key "itineraries", "participants"
   add_foreign_key "mailer_participants", "admin_mailer_reports", column: "mailer_report_id"
   add_foreign_key "mailer_participants", "participants"
   add_foreign_key "participants", "eventosbahais"
   add_foreign_key "participants", "users"
+  add_foreign_key "questions", "eventosbahais"
   add_foreign_key "user_profiles", "administrative_regions", column: "administrative_region_ref"
   add_foreign_key "user_profiles", "users"
 end

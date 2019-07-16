@@ -6,8 +6,8 @@
 
             <% unless @participants.blank? %>
                 <ul class="list-inline mx-auto text-center">
-                    <li class="list-inline-item" style="display: inline-block;"><%= link_to "Crachás", badges_path, class:'btn btn-new m-1', id:'crachas' %></li>
                     <li class="list-inline-item" style="display: inline-block;"><%= link_to "Lista de presença", listas_path, class:'btn btn-new m-1', id:'listapresenca' %></li>
+                    <li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Novas Perguntas", listas_path, id:'newquestion_button', class:'btn btn-new m-1' %></li>
                     <li class="list-inline-item" style="display: inline-block;"><%= link_to "Enviar E-mails personalizados", admin_mailer_reports_path, class:'btn btn-new m-1' %></li>
                 </ul>
             <% end %>
@@ -32,6 +32,7 @@
                         val = $('#eventosbahais_ids').val();
                         $("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
                         $("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
+                        $("#newquestion_button").attr('href','/eventosbahais/' + val +'/questions/new?locale=pt-BR');
                         $("#mailermanager").attr('href', '/admin/mailer_report/new?id='+val);
                 });
                 $(document).ready(function() {
@@ -39,6 +40,7 @@
                         val = $('#eventosbahais_ids').val();
                         $("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
                         $("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
+                        $("#newquestion_button").attr('href','/eventosbahais/' + val +'/questions/new?locale=pt-BR');
                         $("#mailermanager").attr('href', '/admin/mailer_reports/new?id='+val);
                 });
                 });

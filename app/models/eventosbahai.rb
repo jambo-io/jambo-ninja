@@ -1,7 +1,9 @@
 class Eventosbahai < ApplicationRecord
 	has_many :participants, :dependent => :nullify
 	has_many :mailer_reports, class_name:'Admin::MailerReport', :dependent => :nullify
+	has_many :questions, :dependent => :destroy
 	belongs_to :user
+	
 
 	geocoded_by :address # can also be an IP address
 	after_validation :geocode, if: :address_changed? # auto-fetch coordinates

@@ -1,14 +1,12 @@
 {
   "name": "jambo-ninja",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "main": "index.js",
+  "description": "Aplicação para Eventos Bahá'ís",
+  "main": "babel.config.js",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,10 +14,23 @@
     "type": "git",
     "url": "git+https://github.com/jambo-io/jambo-ninja.git"
   },
-  "author": "",
+  "keywords": [
+    "bahai",
+    "fé",
+    "bahá'í",
+    "eventos"
+  ],
+  "author": "Guilherme Nunes",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jambo-io/jambo-ninja/issues"
   },
-  "homepage": "https://github.com/jambo-io/jambo-ninja#readme"
+  "homepage": "https://github.com/jambo-io/jambo-ninja#readme",
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-inline": "git+https://github.com/jambo-io/ckeditor5-build-inline.git",
+    "@rails/webpacker": "^4.0.7"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.7.2"
+  }
 }

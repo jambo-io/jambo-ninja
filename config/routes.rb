@@ -31,7 +31,12 @@ Rails.application.routes.draw do
   resources :administrative_functions
 
   # Eventos Bahá'ís
-  resources :eventosbahais
+  resources :eventosbahais do
+    resources :questions do
+      get 'resp/:answer' => 'answers#create', :as => :create_answer
+      get 'resp' => 'answers#show', :as => :show_answer
+    end
+  end
   get 'eventosbahais/email' => 'eventosbahais#sendemail'
   get 'eventosbahais/updatemail' => 'eventosbahais#updateemail'
   get 'participantes/conf' => 'participants#confirmation', :as => :confirm

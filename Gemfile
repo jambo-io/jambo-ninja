@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap_form'
+
 # Use Redis adapter to run Action Cable in production
 #gem 'redis'
 #gem 'redis-namespace'
@@ -33,11 +34,11 @@ gem 'bootstrap_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise'
-
-gem 'devise-token_authenticatable'
+gem 'devise', '~> 4.6.2'
 
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
+
+gem 'simple_token_authentication', '~> 1.0' # see semver.org
 
 gem 'geocoder'
 
@@ -50,6 +51,10 @@ gem 'popper_js', '~> 1.9', '>= 1.9.9'
 gem 'turbolinks', '~> 5.2.0'
 
 gem 'active_model_serializers', '~> 0.10.0'
+
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 
 
 #JamboDrive

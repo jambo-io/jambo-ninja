@@ -1,7 +1,8 @@
 class UserProfileController < ApplicationController
     before_action :user_profile, only: [:edit, :update]
+    before_action :authenticate_user!
     before_action do
-        is_owner? ('UserProfile')
+         is_owner? ('UserProfile')
     end
 
     def edit

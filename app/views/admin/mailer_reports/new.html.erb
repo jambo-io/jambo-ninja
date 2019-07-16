@@ -1,4 +1,107 @@
 
+<script>
+function MentionCustomization( editor ) {
+    // The upcast converter will convert <a class="mention" href="" data-user-id="">
+    // elements to the model 'mention' attribute.
+    editor.conversion.for( 'upcast' ).elementToAttribute( {
+        view: {
+            name: 'span',
+            key: 'data-mention',
+            classes: 'mention',
+            attributes: {
+                href: false,
+                'data-id': true,
+                'name': true
+            }
+        },
+        model: {
+            key: 'mention',
+            value: viewItem => {
+                // The mention feature expects that the mention attribute value
+                // in the model is a plain object with a set of additional attributes.
+                // In order to create a proper object, use the toMentionAttribute helper method:
+                const mentionAttribute = editor.plugins.get( 'Mention' ).toMentionAttribute( viewItem, {
+                    // Add any other properties that you need.
+                    userId: viewItem.getAttribute( 'data-id' )
+                } );
+
+                return mentionAttribute;
+            }
+        },
+        converterPriority: 'high'
+    } );
+
+    // Downcast the model 'mention' text attribute to a view <a> element.
+    editor.conversion.for( 'downcast' ).attributeToElement( {
+        model: 'mention',
+        view: ( modelAttributeValue, viewWriter ) => {
+            // Do not convert empty attributes (lack of value means no mention).
+            if ( !modelAttributeValue ) {
+                return;
+            }
+
+            return viewWriter.createAttributeElement( 'a', {
+                class: 'mention',
+                'data-mention': modelAttributeValue.id,
+                'data-id': modelAttributeValue.userId,
+                'name' : modelAttributeValue.name,
+                'href': modelAttributeValue.link
+            } );
+        },
+        converterPriority: 'high'
+    } );
+}
+
+function getFeedItems( queryText ) {
+    // As an example of an asynchronous action, return a promise
+    // that resolves after a 100ms timeout.
+    // This can be a server request or any sort of delayed action.
+    return new Promise( resolve => {
+        setTimeout( () => {
+            const itemsToDisplay = items
+                // Filter out the full list of all items to only those matching the query text.
+                .filter( isItemMatching )
+                // Return 10 items max - needed for generic queries when the list may contain hundreds of elements.
+                .slice( 0, 10 );
+
+            resolve( itemsToDisplay );
+        }, 100 );
+    } );
+
+    // Filtering function - it uses `name` and `username` properties of an item to find a match.
+    function isItemMatching( item ) {
+        // Make the search case-insensitive.
+        const searchString = queryText.toLowerCase();
+
+        // Include an item in the search results if name or username includes the current user input.
+        return (
+            item.name.toLowerCase().includes( searchString ) ||
+            item.id.toLowerCase().includes( searchString )
+        );
+    }
+}
+
+function customItemRenderer( item ) {
+    const itemElement = document.createElement( 'span' );
+    itemElement.classList.add( 'custom-item' );
+    itemElement.id = `mention-list-item-id-${ item.userId }`;
+    itemElement.textContent = `${ item.name } `;
+    const usernameElement = document.createElement( 'span' );
+    usernameElement.classList.add( 'custom-item-username' );
+    usernameElement.textContent = item.id;
+    itemElement.appendChild( usernameElement );
+    return itemElement;
+}
+
+const items = [
+    <% @event.questions.each do |question| %>
+       <% question_url = question.question.downcase.gsub(" ", "_") %>
+      {id: "<%= "?#{question_url}" %>", userId: "<%= "#{question.id}" %>", name: "question" },
+    <% end %>
+];
+  </script>
+  
+  
   <%= form_for(@admin_mailer_report, html: {method: :post}, remote: true) do |form| %>
     <div class="row"> <!-- Event Presentation -->
         <div class="col-lg-12 col-sm-12">
@@ -19,13 +122,16 @@
                         <%= radio_button_tag :to_whom, :all, :checked => true  %>
                         <%= label_tag "yes", "Todos os Participantes", :value => "true"  %><br>
                         <%= radio_button_tag :to_whom, :no_itinerary %>
-                        <%= label_tag "teste", "Participantes sem data de Chegada", :value => "false" %>
+                        <%= label_tag "teste", "Participantes sem data de Chegada", :value => "false" %><br>
+                        <%= radio_button_tag :to_whom, :question %>
+                        <%= label_tag "teste", "Fazer Pergunta", :value => "false" %>
+                        <%= collection_select :questions, :questions_ids, @event.questions, :id, :question, {prompt: 'Escolha a pergunta'}, { class:'form-control' }  %>
                     </div>
 
                     <%= form.hidden_field :eventosbahai_id, :value => params[:id] %>
                     
                     <div class="form-group">
-                      <%= label_tag "Selecione os participantes:" %><br>
+                        <%= label_tag "Selecione os participantes:" %><br>
                         <%= collection_check_boxes :event, :participant_ids, @event.participants, :id, :name  %>
                     </div>
                     <!--
@@ -44,7 +150,8 @@
                     <div class="form-group">
                       <%= label_tag "Mensagem:" %>
                       
-                      <div id="admin_mailer_manager_body_div" contenteditable="true" class="form-control admin_mailer_manager_body_div expandable-input" name="admin_mailer_manager[body]"></div>
+                      <!-- <div id="admin_mailer_manager_body_div" contenteditable="true"  class="editable form-control admin_mailer_manager_body_div expandable-input" name="admin_mailer_manager[body]"></div> -->
+                      <div id="admin_mailer_manager_body_div" class="editable form-control expandable-input"></div>
                       <%= form.hidden_field :body %>
                     </div>
 
@@ -52,6 +159,7 @@
                       Símbolos:<br>
                       <b>|% participante %|</b> (nome do participante, ex: João Paulo)<br>
                       <b>|% link_itinerario %|</b> (link para o itinerário deste usuário)<br>
+                      <b>|% pergunta_{ID} %|</b> (Faz uma pergunta e dá opções de resposta ao usuário)<br>
                       Utilize o "Visualizar" para ver se os símbolos estão funcionado.
                     </p>
                     
@@ -93,31 +201,117 @@
     </div>
 <% end %>
 
+
 <script>
 
+  InlineEditor
+            .create( document.querySelector( '#admin_mailer_manager_body_div' ), {
+              extraPlugins: [ MentionCustomization ],
+              toolbar: [ 'bold', 'italic', 'link'],
+              language: 'pt-br',
+              mention: {
+                feeds: [
+                  {
+                    marker: '@',
+                    feed: [ '@participante', '@link_itinerario', '@pergunta_id'],
+                    minimumCharacteres: 1
+                  },
+                  {
+                    marker: '?',
+                    feed: getFeedItems,
+                    minimumCharacteres: 1
+                  }
+                ]
+              }
+            } )
+            .then( editor => {
+                editor.config
+                console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            } );
+
+InlineEditor.builtinPlugins.map( plugin => console.log(plugin.pluginName) );
+
+  $("#admin_mailer_manager_body_div").on('input', function (e) {
+    
+      console.log("working");
+
+      //$("#admin_mailer_manager_body_div").html();
+
+      
+      //body = body.replace("|% participante %|", '<span id="badge" class="badge badge-success" contenteditable="false">participante</span>');
+      //body = body.replace("|% link_itinerario %|", '<span class="badge badge-info">link_itinerario</span>&nbsp');
+      
+      //preview();
+      
+    
+    
+    });
+
+  function set_text_box() {
+    let check = "";
+      <% @participants.each do |participant| %>
+        check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
+      <% end %>
+const body_text_question = 
+`Olá |% participante %|, como vai? <br><br>
+Por favor responda a esta pergunta: <br><br>
+
+<span id="symbol_question">|% pergunta %|</span><br><br>
+
+Qualquer dúvida mande-nos um E-mail, <br><br>
+
+Atenciosamente,<br>
+Secretaria Nacional
+
+`;
+    const text_area = $("#admin_mailer_manager_body_div");
+    const question_id = $("#questions_questions_ids").val();
+    if(question_id !== "") {
+      const html = $.parseHTML(body_text_question);
+      text_area.html(body_text_question);
+      $("#symbol_question").text("|% pergunta_" + question_id + " %|");
+    } else {
+      text_area.html("");
+    }
+  }
+
   $("#to_whom_all").change(function() {
+    $("#questions_questions_ids").hide();
     let check = "";
     <% @participants.each do |participant| %>
       check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
-      console.log(check.checked = true);
     <% end %>
+    const text_area = $("#admin_mailer_manager_body_div");
+    text_area.html("");
+  });
+
+  $("#to_whom_question").change(function(){
+      $("#questions_questions_ids").show();
+      const text_area = $("#admin_mailer_manager_body_div");
+      text_area.html("");
+  });
+
+  $("#questions_questions_ids").change(function(e){
+      set_text_box();
   });
 
   $('#to_whom_no_itinerary').change(function(){
+    $("#questions_questions_ids").hide();
   <% @participants.each do |participant| %>
     check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
-    console.log(check.checked = false);
   <% end %>
 
   <% @participants_no_itinerary.each do |participant| %>
-    console.log("<%= participant.id %>");
     check = $("<%= "input#event_participant_ids_#{participant.id}" %>")[0];
-    console.log(check.checked = true);
   <% end %>
 
   const text_area = $("#admin_mailer_manager_body_div");
+
     
-const body_text = 
+const body_text_itinerary = 
 `Olá |% participante %|, como vai? <br><br>
 Parece que você ainda não adicionou o seu itinerário no site, para adicionar basta entrar neste link: <br><br>
 
@@ -129,19 +323,24 @@ Atenciosamente,<br>
 Secretaria Nacional
 
 `;
-    const html = $.parseHTML(body_text);
-    text_area.html(body_text);
+    const html = $.parseHTML(body_text_itinerary);
+    text_area.html(body_text_itinerary);
   });
 
 
   $("#preview_email_button").on('click', function(){
     preview();
-    
+  });
+
+  $("#badge").on('click', function(evt) {
+    evt.stopPropagation;
+    evt.preventDefault;
+    return false;
   });
 
 
-  $('#admin_mailer_manager_body_div').on('input', e => {
-    preview();
+  $("#question_option_link").on('click', function(e){
+    e.preventDefault();
   });
 
   function preview(participant_id) {
@@ -150,9 +349,6 @@ Secretaria Nacional
     }
 
     const body = $("#admin_mailer_manager_body_div").html();
-    
-    console.log("Val Body");
-    console.log(body);
     const preview_div = $("#email_preview_div");
     const header_to = $("#header_to");
     const subject = $("#admin_mailer_manager_subject");
@@ -166,7 +362,6 @@ Secretaria Nacional
              }
      }).done(function(result) {
        if(typeof result !== "undefined") {
-         console.log("Defined");
          $("#visible_preview").show();
         preview_div.show();
         console.log(result.body);
@@ -174,6 +369,7 @@ Secretaria Nacional
         $("#admin_mailer_report_body").val(body);
         header_to.html(result.email);
         header_subject.html(subject.val());
+        $("#email_preview_div a").removeAttr('href');
        }
      });
   }
@@ -185,24 +381,21 @@ Secretaria Nacional
     preview(participant_id)
   });
 
-</script>
 
-
-
-<script>
   $(document).ready(function() {
+    $("#questions_questions_ids").hide();
     $("#visible_preview").hide();
+    
     $(document).on("submit", "form#new_expandable", function(e) {
       e.preventDefault();
-
       var contents = $(".expandable-input").html();
       $('input#expandable').val(contents);
-
       preview();
       this.submit();
     });
 
   });
+
 </script>
 
 <style>
@@ -224,6 +417,10 @@ Secretaria Nacional
   }
 
   .preview_email_button {
+    cursor: pointer;
+  }
+  a {
+    color: blue !important;
     cursor: pointer;
   }
 </style>
@@ -262,4 +459,8 @@ Secretaria Nacional
     }
 
   </style>
+
+
+
+
 

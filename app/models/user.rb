@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-            # Include default devise modules.
-            devise :database_authenticatable, :registerable,
-                    :recoverable, :rememberable, :trackable, :validatable
+  acts_as_token_authenticatable
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -15,8 +13,11 @@ class User < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record?
   after_create :set_user_id
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+
+  devise :database_authenticatable,
+         :registerable, :recoverable, :rememberable,
+         :trackable,
+         :validatable
   enum role: [:user, :vip, :admin, :superuser]
 
   private

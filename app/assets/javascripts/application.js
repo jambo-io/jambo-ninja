@@ -19,6 +19,6 @@
 //= require gmaps
 //= require_tree .
 
-$(function() {
+$(function () {
   $('[data-toggle="popover"]').popover();
 });

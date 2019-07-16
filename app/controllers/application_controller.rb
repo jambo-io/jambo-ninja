@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-       
+  
   protect_from_forgery with: :exception
   #Prevent CSRF attacks by raising exception.
   #For APIs, you may want to use :null_session instead.
@@ -43,12 +43,10 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     if user_signed_in?
-      puts "logado"
       if current_user.admin? || current_user.superuser?
         return true
       end
     end
-    puts "não logado"
     redirect_to root_path, alert: 'É preciso logar como administrador'
   end
 

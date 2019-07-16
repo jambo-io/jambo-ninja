@@ -7,6 +7,8 @@
 # Ignore bundler config.
 /.bundle
 /config/database.yml
+# npm
+/node_modules
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -23,3 +25,10 @@
 
 # Ignore Environment Variables
 /.env
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

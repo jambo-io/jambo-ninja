@@ -13,4 +13,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( participants.js )
 Rails.application.config.assets.precompile += %w( jambodocs.js )
 Rails.application.config.assets.precompile += %w( jambodocs.scss )
+Rails.application.config.assets.paths << Rails.root.join("lib", "ckeditor5-build-inline", "src")
+
 

@@ -103,9 +103,40 @@ class Admin::MailerReportsController < Admin::AdminController
         end
     end
 
+    def is_number? string
+        true if Float(string) rescue false
+    end
+
     def body_process (body, participant)
-        body = body.gsub "|% participante %|", participant.name
-        body = body.gsub "|% link_itinerario %|", "#{ view_context.link_to edit_participant_itinerary_url(participant, participant.itinerary), request.base_url + edit_participant_itinerary_path(participant, participant.itinerary)}"
+        question_id = body.split("|% pergunta_").last.split("%|").first.strip
+
+        require 'nokogiri'
+        puts 'nokogiri test'
+        nokobody = Nokogiri.HTML(body)
+        nokobody.css('a[name=question]').each do |nokoquestion|
+            puts "nokoquestion"
+            tag = nokoquestion.to_s
+            question_id = nokoquestion.values[2].to_i
+            user = User.find(participant.user_id)
+            event = Eventosbahai.find(participant.eventosbahai_id)
+            if is_number?(question_id)
+                user.authentication_token = nil
+                user.save!
+                question = Question.find(question_id)
+                question_text = "
+                    #{question.question} <br>
+                    #{view_context.link_to "Sim", request.base_url + eventosbahai_question_create_answer_path(event.id, question.id, "sim", {user_token: user.authentication_token, user_email: user.email})} | 
+                    #{view_context.link_to "Não", request.base_url + eventosbahai_question_create_answer_path(event.id, question.id, "nao", {user_token: user.authentication_token, user_email: user.email})} | 
+                    #{view_context.link_to "Talvez", request.base_url + eventosbahai_question_create_answer_path(event.id, question.id, "talvez", {user_token: user.authentication_token, user_email: user.email})} <br><br>
+                "
+                body = body.gsub tag, question_text
+            end
+        end
+
+        body = body.gsub "@participante", participant.name
+        body = body.gsub "@link_itinerario", "#{ view_context.link_to edit_participant_itinerary_url(participant, participant.itinerary), request.base_url + edit_participant_itinerary_path(participant, participant.itinerary)}"
+        
+        puts "|% pergunta_#{question_id} %|"
         return body
     end
 

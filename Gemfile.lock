@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: 2ee77e616fa7fb9fb519ad6f3fa6090570680a9e
+  specs:
+    webpacker (4.0.7)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
+
+GIT
   remote: https://github.com/twbs/bootstrap-rubygem
   revision: 05041b5103debd53dac3ae203b796d13b7a44ce0
   specs:
@@ -87,8 +96,6 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
-    devise-token_authenticatable (1.1.0)
-      devise (>= 4.0.0, < 5.0.0)
     dotenv (2.7.2)
     dotenv-rails (2.7.2)
       dotenv (= 2.7.2)
@@ -166,6 +173,8 @@ GEM
     puma (3.12.1-java)
     rack (2.0.7)
     rack-cors (1.0.3)
+    rack-proxy (0.6.5)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.7.2)
@@ -234,6 +243,10 @@ GEM
       faraday (~> 0.9)
       jwt (>= 1.5, < 3.0)
       multi_json (~> 1.10)
+    simple_token_authentication (1.15.1)
+      actionmailer (>= 3.2.6, < 6)
+      actionpack (>= 3.2.6, < 6)
+      devise (>= 3.2, < 6)
     social-share-button (1.2.0)
       coffee-rails
     sprockets (3.7.2)
@@ -287,14 +300,14 @@ DEPENDENCIES
   bootstrap_form
   byebug
   coffee-rails (~> 4.2)
-  devise
-  devise-token_authenticatable
+  devise (~> 4.6.2)
   dotenv-rails
   geocoder
   google-api-client (~> 0.9)
   googleauth
   jbuilder (~> 2.5)
   jquery-rails
+  nokogiri (~> 1.6, >= 1.6.8)
   omniauth (~> 1.3, >= 1.3.1)
   pg (~> 0.18)
   popper_js (~> 1.9, >= 1.9.9)
@@ -304,12 +317,14 @@ DEPENDENCIES
   rails-assets-tether (>= 1.1.0)!
   rails_12factor
   sass-rails (~> 5.0)
+  simple_token_authentication (~> 1.0)
   social-share-button
   turbolinks (~> 5.2.0)
   twilio-ruby
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
+  webpacker!
 
 BUNDLED WITH
    1.17.3
