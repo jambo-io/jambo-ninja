@@ -11,6 +11,6 @@ class Admin::DashboardMailer < ApplicationMailer
         puts "<===========>"
         puts body
         @body = body
-        mail(to: "guilhermewnunes@gmail.com", subject: subject)
+        mail(to: participant_email, subject: subject)
     end
 end

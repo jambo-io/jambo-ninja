@@ -7,9 +7,9 @@ class EventoMailer < ApplicationMailer
 		@start_at = @eventosbahai.start_at.strftime("%d-%m-%Y")
 		@end_at = @eventosbahai.end_at.strftime("%d-%m-%Y")
 		@itinerary = @participant.itinerary
-		attachments.inline['emailforyou.png'] = File.read("#{Rails.root}/app/assets/images/emailforyou.png")
+		#attachments.inline['emailforyou.png'] = File.read("#{Rails.root}/app/assets/images/emailforyou.png")
 		email = @participant.user.email unless @participant.user.blank?
 		name = @participant.name
-		mail(to: "guilhermewnunes@gmail.com", subject: "Obrigado por se inscrever #{name}!")
+		mail(to: email, subject: "Obrigado por se inscrever #{name}!")
 	end
 end
