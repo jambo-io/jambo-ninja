@@ -8,7 +8,7 @@
         feeds: [
           {
             marker: '@',
-            feed: [ '@participante', '@link_itinerario', '@pergunta_id'],
+            feed: [ '@participante', { id: '@link_itinerario', name: "itinerary" }],
             minimumCharacteres: 1
           },
           {
@@ -24,7 +24,7 @@
         console.log( editor );
     })
     .catch( error => {
-            console.error( error );
+        console.error( error );
     });
 
 /* When typing in the message field */

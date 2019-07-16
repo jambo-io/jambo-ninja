@@ -8,7 +8,6 @@ function MentionCustomization( editor ) {
             key: 'data-mention',
             classes: 'mention',
             attributes: {
-                href: false,
                 'data-id': true,
                 'name': true
             }
@@ -44,8 +43,7 @@ function MentionCustomization( editor ) {
                 'data-mention': modelAttributeValue.id,
                 'data-id': modelAttributeValue.userId,
                 'name' : modelAttributeValue.name,
-                'href': modelAttributeValue.link
-            } );
+            });
         },
         converterPriority: 'high'
     } );

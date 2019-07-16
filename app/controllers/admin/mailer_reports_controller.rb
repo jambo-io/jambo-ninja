@@ -109,12 +109,9 @@ class Admin::MailerReportsController < Admin::AdminController
 
     def body_process (body, participant)
         question_id = body.split("|% pergunta_").last.split("%|").first.strip
-
         require 'nokogiri'
-        puts 'nokogiri test'
         nokobody = Nokogiri.HTML(body)
         nokobody.css('a[name=question]').each do |nokoquestion|
-            puts "nokoquestion"
             tag = nokoquestion.to_s
             question_id = nokoquestion.values[2].to_i
             user = User.find(participant.user_id)
@@ -132,11 +129,14 @@ class Admin::MailerReportsController < Admin::AdminController
                 body = body.gsub tag, question_text
             end
         end
+        
+        tag_itinerary = "|%%%itineario%%%|"
+        nokobody.css('a[name=itinerary]').each do |nokoitinerary|
+            tag_itinerary = nokoitinerary.to_s
+        end
 
         body = body.gsub "@participante", participant.name
-        body = body.gsub "@link_itinerario", "#{ view_context.link_to edit_participant_itinerary_url(participant, participant.itinerary), request.base_url + edit_participant_itinerary_path(participant, participant.itinerary)}"
-        
-        puts "|% pergunta_#{question_id} %|"
+        body = body.gsub tag_itinerary, "#{ view_context.link_to edit_participant_itinerary_url(participant, participant.itinerary), request.base_url + edit_participant_itinerary_path(participant, participant.itinerary)}"
         return body
     end
 
