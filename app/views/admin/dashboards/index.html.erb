@@ -6,8 +6,8 @@
 
             <% unless @participants.blank? %>
                 <ul class="list-inline mx-auto text-center">
+                    <li class="list-inline-item" style="display: inline-block;"><%= link_to "Perguntas", listas_path, id:'newquestion_button', class:'btn btn-new m-1' %></li>
                     <li class="list-inline-item" style="display: inline-block;"><%= link_to "Lista de presença", listas_path, class:'btn btn-new m-1', id:'listapresenca' %></li>
-                    <li class="list-inline-item" style="display: inline-block;"><%= link_to "Criar Novas Perguntas", listas_path, id:'newquestion_button', class:'btn btn-new m-1' %></li>
                     <li class="list-inline-item" style="display: inline-block;"><%= link_to "Enviar E-mails personalizados", admin_mailer_reports_path, class:'btn btn-new m-1' %></li>
                 </ul>
             <% end %>
@@ -26,25 +26,23 @@
                 <% end %>
             <% end %>
             <script>
-                $(function() {
                 $("#eventosbahais_ids").change(function() {
                     $("#formcombo").submit();
-                        val = $('#eventosbahais_ids').val();
-                        $("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
-                        $("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
-                        $("#newquestion_button").attr('href','/eventosbahais/' + val +'/questions/new?locale=pt-BR');
-                        $("#mailermanager").attr('href', '/admin/mailer_report/new?id='+val);
-                        $("#link_email").attr('href', '/admin/mailer_report/new?id='+val);
+                    val = $('#eventosbahais_ids').val();
+                    $("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
+                    $("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
+                    $("#newquestion_button").attr('href','/eventosbahais/' + val + '/questions?id=' + val);
+                    $("#mailermanager").attr('href', '/admin/mailer_report/new?id='+val);
+                    $("#link_email").attr('href', '/admin/mailer_report/new?id='+val);
                 });
                 $(document).ready(function() {
-                        $("#formcombo").submit();
-                        val = $('#eventosbahais_ids').val();
-                        $("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
-                        $("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
-                        $("#newquestion_button").attr('href','/eventosbahais/' + val +'/questions/new?locale=pt-BR');
-                        $("#mailermanager").attr('href', '/admin/mailer_reports/new?id='+val);
-                        $("#link_email").attr('href', '/admin/mailer_report/new?id='+val);
-                });
+                    $("#formcombo").submit();
+                    val = $('#eventosbahais_ids').val();
+                    $("#crachas").attr('href','/badges?locale=pt-BR&id='+val);
+                    $("#listapresenca").attr('href','/listas?locale=pt-BR&id='+val);
+                    $("#newquestion_button").attr('href','/eventosbahais/' + val + '/questions?id=' + val);
+                    $("#mailermanager").attr('href', '/admin/mailer_reports/new?id='+val);
+                    $("#link_email").attr('href', '/admin/mailer_report/new?id='+val);
                 });
             </script>
         </div>
