@@ -52,7 +52,7 @@ gem 'turbolinks', '~> 5.2.0'
 
 gem 'active_model_serializers', '~> 0.10.0'
 
-gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+gem 'webpacker', '~> 4.0'
 
 gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 

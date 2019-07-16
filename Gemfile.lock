@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/rails/webpacker.git
-  revision: 2ee77e616fa7fb9fb519ad6f3fa6090570680a9e
-  specs:
-    webpacker (4.0.7)
-      activesupport (>= 4.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
-
-GIT
   remote: https://github.com/twbs/bootstrap-rubygem
   revision: 05041b5103debd53dac3ae203b796d13b7a44ce0
   specs:
@@ -281,6 +272,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (4.0.7)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-driver (0.6.5-java)
@@ -324,7 +319,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
-  webpacker!
+  webpacker (~> 4.0)
 
 BUNDLED WITH
    1.17.3
