@@ -23,11 +23,11 @@
       <div class="form-group">
         <%= label_tag question.question %><br>
         <%= label_tag "Sim" %>
-        <%= radio_button_tag "question_#{question.id}", "yes" %>
+        <%= radio_button_tag "question_#{question.id}", "sim" %>
         <%= label_tag "Não" %>
-        <%= radio_button_tag "question_#{question.id}", "no" %>
+        <%= radio_button_tag "question_#{question.id}", "nao" %>
         <%= label_tag "Talvez" %>
-        <%= radio_button_tag "question_#{question.id}", "maybe" %>
+        <%= radio_button_tag "question_#{question.id}", "talvez" %>
       </div>
     <% end %>
   
