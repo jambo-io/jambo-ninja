@@ -59,7 +59,7 @@ if (number_participants > 0) {
                 <% unless f.user.user_profile.nil? %>
 					<td>
 						<% name_show = "#{f.name} #{f.lastname}" %>
-						<% name_show = name_show.truncate(13) %>
+						<% name_show = name_show.truncate(40) %>
 						<%= link_to "#{name_show}", edit_user_profile_path(f.user.user_profile) %>
 					</td>
 				<% end %>
