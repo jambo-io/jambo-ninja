@@ -20,17 +20,20 @@
                         <% end %>
                     <% end %>
 
+                    <%= label_tag "Selecionar participantes:" %>
                     <div class="form-group">
-                        <%= radio_button_tag :to_whom, :all, :checked => true  %>
-                        <%= label_tag "yes", "Selecionar todos os Participantes", :value => "true"  %><br>
-                        <%= radio_button_tag :to_whom, :no_itinerary %>
-                        <%= label_tag "teste", "Selecionar participantes sem data de Chegada", :value => "false" %><br>
+                        <select name="to_whom" id="to_whom" class="form-control">
+                          <option value="none">Ninguém</option>
+                          <option value="all">Todos</option>
+                          <option value="no_itinerary">Sem data de chegada</option>
+                          <option value="no_answers">Sem repostas às perguntas</option>
+                        </select>
                     </div>
 
                     <%= form.hidden_field :eventosbahai_id, :value => params[:id] %>
                     
                     <div class="form-group">
-                        <%= collection_check_boxes :event, :participant_ids, @event.participants, :id, :name  %>
+                        <%= collection_check_boxes :event, :participant_ids, @event.participants, :id, :name, :checked => false  %>
                     </div>
 
                     <div class="form-group">

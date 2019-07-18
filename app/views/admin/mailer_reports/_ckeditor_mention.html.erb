@@ -38,7 +38,7 @@ function MentionCustomization( editor ) {
                 return;
             }
 
-            return viewWriter.createAttributeElement( 'a', {
+            return viewWriter.createAttributeElement( 'span', {
                 class: 'mention',
                 'data-mention': modelAttributeValue.id,
                 'data-id': modelAttributeValue.userId,

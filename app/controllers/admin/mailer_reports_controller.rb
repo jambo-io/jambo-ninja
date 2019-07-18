@@ -5,6 +5,7 @@ class Admin::MailerReportsController < Admin::AdminController
     end
 
     def new
+        @admin_mailer_report = Admin::MailerReport.new
         @event = Eventosbahai.find(params[:id])
         @participants = @event.participants
         @one_participant = @participants.first
@@ -17,11 +18,16 @@ class Admin::MailerReportsController < Admin::AdminController
         @participants.each do |participant|
             participant_emails.push(participant.email)
         end
-
         @participant_emails = participant_emails.join(", ")
 
-        puts @event.inspect
-        @admin_mailer_report = Admin::MailerReport.new
+        # Create an array of Objects
+        @participants_no_answers = []
+        @event.participants.each do |participant|
+            if(participant.answers.blank?)
+                @participants_no_answers.push participant
+            end
+        end
+
     end
 
     def index
@@ -108,10 +114,9 @@ class Admin::MailerReportsController < Admin::AdminController
     end
 
     def body_process (body, participant)
-        question_id = body.split("|% pergunta_").last.split("%|").first.strip
         require 'nokogiri'
         nokobody = Nokogiri.HTML(body)
-        nokobody.css('a[name=question]').each do |nokoquestion|
+        nokobody.css('span[name=question]').each do |nokoquestion|
             tag = nokoquestion.to_s
             question_id = nokoquestion.values[2].to_i
             user = User.find(participant.user_id)
@@ -131,7 +136,7 @@ class Admin::MailerReportsController < Admin::AdminController
         end
         
         tag_itinerary = "|%%%itineario%%%|"
-        nokobody.css('a[name=itinerary]').each do |nokoitinerary|
+        nokobody.css('span[name=itinerary]').each do |nokoitinerary|
             tag_itinerary = nokoitinerary.to_s
         end
 
