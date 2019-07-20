@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     get '' => 'dashboards#index'
     get 'test_mailer_production' => 'dashboards#test_mailer_production'
     get 'mailer_reports/mailer_participant_preview' => 'mailer_reports#mailer_participant_preview'
- 
+    get 'data_group/:id' => 'data_groups#show'
+    get 'ajax_region/:eventosbahai_id' => 'data_groups#ajax_region'
+    get 'ajax_function/:eventosbahai_id' => 'data_groups#ajax_function'
+
     resources :mailer_reports do
       get 'send_email' => 'mailer_reports#send_email'
     end

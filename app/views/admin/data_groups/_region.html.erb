@@ -1,0 +1,39 @@
+
+<%= select_tag :region_id, options_for_select(AdministrativeRegion.all.collect { | adm_region | [adm_region.name, adm_region.id] }), { class: 'form-control' } %>
+
+<div id="participants">
+
+</div>
+
+<script>
+
+    function ajax_region(region_id) {
+        const url = '/admin/ajax_region/' + <%= params[:id] %>
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: {
+                region_id: region_id,
+            }
+            }).done(function(result) {
+                if(typeof result !== "undefined") {
+                    $("#participants").text("");
+                    array = []
+                    for (var i in result) {
+                        if(result[i] !== null) {
+                            array.push(result[i].name + " " + result[i].lastname);
+                            $("#participants").append(result[i].name + " " + result[i].lastname + "<br>");
+                        }
+                    }
+                    console.log(array);
+                }
+            })
+    }
+
+    $("#region_id").on('change', function() {
+        const region_id = $(this).val();
+        console.log(region_id);
+        ajax_region(region_id);
+    });
+
+</script>

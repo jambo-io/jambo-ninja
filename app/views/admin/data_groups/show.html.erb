@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-lg-12 col-sm-12 mx-auto">
+        <div class="frame">
+        <%= link_to admin_path do %>
+            <i class="material-icons">
+                arrow_back
+            </i>
+        <% end %>
+            <h1 class="text-center">Grupos</h1>
+            
+            Função:
+            <%= select_tag :function_id, options_for_select(AdministrativeFunction.all.collect { | adm_function | [adm_function.name, adm_function.name] }), { prompt: 'Em branco' , class: 'form-control' } %>
+            <br>
+            Região:
+            <%= select_tag :region_id, options_for_select(AdministrativeRegion.all.collect { | adm_region | [adm_region.name, adm_region.name] }), { prompt: 'Em branco', class: 'form-control' } %>
+            <br>
+            Estado:
+            <select id="state_id" name="state_id" class="form-control">
+                <option value selected>Em branco</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+            <br>
+
+            <div>
+                <h4 id="p_count" class="badge badge-success text-center p-3"></h4>
+                <ul id="participants">
+                </ul>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<script>
+    function select_participants() {
+        const f_function = $("#function_id").val();
+        const f_region = $("#region_id").val();
+        const f_state = $("#state_id").val();
+        const participants = <%= raw @participants %>
+
+        $("#participants").html('');
+        let count=0;
+
+        for(var i=0; i<= participants.length; i++) {
+            if(typeof participants[i] !== "undefined") {
+                const p_name = participants[i].name;
+                const p_lastname = participants[i].lastname;
+                const p_function = participants[i].administrative_function;
+                const p_region = participants[i].administrative_region_ext;
+                const p_state = participants[i].state;
+
+                if (f_region !== "" || f_state !== "" || f_function !== "") {
+                    if ((p_region === f_region || f_region === "") && (p_state === f_state || f_state === "") && (p_function === f_function || f_function === "")) {
+                        count ++;
+                        $("#participants").append('<li>' + p_name + ' ' + p_lastname + '<li>');
+                    }
+                }
+            }
+        }
+        $("#p_count").text(count);
+        if (count === 0) {
+            $("#p_count").text("");
+        }
+    }
+
+    $("#region_id").on('change', function() {
+        select_participants();
+    });
+
+    $("#function_id").on('change', function() {
+        select_participants();
+    });
+
+    $("#state_id").on('change', function() {
+        select_participants();
+    });
+</script>

@@ -1,4 +1,15 @@
 class Participant < ApplicationRecord
+  include ActiveModel::Serialization
+
+  attr_accessor :name
+
+  def attributes
+    { name: nil, lastname: nil, fullname: nil,
+      city: nil, state: nil, administrative_function: nil,
+      administrative_region_ext: nil
+   }
+  end
+
   belongs_to :eventosbahai
   belongs_to :user
   has_one :itinerary, dependent: :destroy
@@ -75,6 +86,12 @@ class Participant < ApplicationRecord
     if self.user.user_profile.administrative_region_ref.present?
       adm_id = AdministrativeRegion.find(self.user.user_profile.administrative_region_ref).id unless AdministrativeRegion.find(self.user.user_profile.administrative_region_ref).blank?
       regions_min[adm_id-1]
+    end
+  end
+
+  def administrative_region_ext
+    if self.user.user_profile.administrative_region_ref.present?
+      AdministrativeRegion.find(self.user.user_profile.administrative_region_ref).name unless AdministrativeRegion.find(self.user.user_profile.administrative_region_ref).blank?
     end
   end
 
