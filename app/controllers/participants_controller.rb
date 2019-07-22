@@ -163,6 +163,7 @@ class ParticipantsController < ApplicationController
 
 	def confirm_registration
 		@event = Eventosbahai.find(params[:id])
+		@questions = @event.questions
 		@participant = Participant.new
 	end
 
