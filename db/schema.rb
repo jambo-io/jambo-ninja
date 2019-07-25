@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190713185055) do
+ActiveRecord::Schema.define(version: 20190724235347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,10 @@ ActiveRecord::Schema.define(version: 20190713185055) do
     t.string   "answer"
     t.integer  "question_id"
     t.integer  "participant_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "eventosbahai_id"
+    t.index ["eventosbahai_id"], name: "index_answers_on_eventosbahai_id", using: :btree
     t.index ["participant_id"], name: "index_answers_on_participant_id", using: :btree
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
@@ -182,6 +184,7 @@ ActiveRecord::Schema.define(version: 20190713185055) do
 
   add_foreign_key "admin_mailer_reports", "eventosbahais"
   add_foreign_key "admin_mailer_reports", "participants"
+  add_foreign_key "answers", "eventosbahais"
   add_foreign_key "answers", "participants"
   add_foreign_key "answers", "questions"
   add_foreign_key "eventosbahais", "users"

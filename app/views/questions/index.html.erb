@@ -9,19 +9,18 @@
             <h1 style="text-align:center;">Perguntas</h1>
             <% @questions.each do |question| %>
                 <div><strong><%= question.question %></strong></div>
-                <% @participants.each do |participant| %>
-                    <% answer = Answer.where(participant_id: participant.id, question_id: question.id).first %>
+
+                <% question.answers.order("answer DESC").each do |answer| %>
                     <% if answer.present? && answer.answer =="sim" %>
                         <span class="badge badge-success">Sim</span>
                     <% end %>
-                    <% if answer.present? && answer.answer =="nao" %>
+                    <% if answer.present? && answer.answer =="não" %>
                         <span class="badge badge-danger">Não</span>
                     <% end %>
                     <% if answer.present? && answer.answer =="talvez" %>
                         <span class="badge badge-info">Talvez</span>
                     <% end %>
-                    <%= participant.name %> <%= participant.lastname %><br>
-                    
+                    <%= answer.participant.name %> <%= answer.participant.lastname %><br>
                 <% end %><br><br>
             <% end %>
 

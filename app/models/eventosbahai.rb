@@ -2,6 +2,7 @@ class Eventosbahai < ApplicationRecord
 	has_many :participants, :dependent => :nullify
 	has_many :mailer_reports, class_name:'Admin::MailerReport', :dependent => :nullify
 	has_many :questions, :dependent => :destroy
+	has_many :answers, :dependent => :destroy
 	belongs_to :user
 	
 

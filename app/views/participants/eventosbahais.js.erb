@@ -12,6 +12,10 @@ participantshead = `<tr>
 <% if @eventosbahai.payment.present? %>
 	<th scope="col">Pago</th>
 <% end %>
+
+<% @eventosbahai.questions.each do |question| %>
+	<th scope="col"><%= question.question %></th>
+<% end %>
 <th scope="col">Nome</th>
 <th scope="col">E-mail</th>
 <th scope="col">Ag/Instituição</th>
@@ -56,6 +60,22 @@ if (number_participants > 0) {
 					<% end %>
 					</td>
 				<% end %>
+					
+				<% @eventosbahai.questions.each do |question| %>
+					<% answer = f.answers.where(question_id: question.id) %>
+					<td>
+						<% if answer.present? && answer.first.answer =="sim" %>
+							<span class="badge badge-success">Sim</span>
+						<% end %>
+						<% if answer.present? && answer.first.answer =="não" %>
+							<span class="badge badge-danger">Não</span>
+						<% end %>
+						<% if answer.present? && answer.first.answer =="talvez" %>
+							<span class="badge badge-info">Talvez</span>
+						<% end %>
+					</td>
+				<% end %>
+
                 <% unless f.user.user_profile.nil? %>
 					<td>
 						<% name_show = "#{f.name} #{f.lastname}" %>
@@ -103,6 +123,7 @@ if (number_participants > 0) {
 				<% end %>
 
 				<td><%= time_ago_in_words(f.created_at) %></td>
+				
 				<td>
 					<%= link_to participant_path(f.id), method: :delete, data:{confirm: 'Tem certeza que deseja deletar esse participante?'}, :remote => true, id: "remove_participant_#{f.id}", class:"btn btn-danger" do %>
 						<i class="material-icons">
