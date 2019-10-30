@@ -34,7 +34,7 @@ gem 'bootstrap_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise', '~> 4.6.2'
+gem 'devise', '~> 4.7.1'
 
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 
