@@ -54,7 +54,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'webpacker', '~> 4.0'
 
-gem 'nokogiri', '~> 1.6', '>= 1.6.8'
+gem 'nokogiri', '~> 1.10'
 
 
 #JamboDrive
