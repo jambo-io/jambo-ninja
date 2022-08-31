@@ -36,7 +36,7 @@ gem 'bootstrap_form'
 
 gem 'devise', '~> 4.6.2'
 
-gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth', '~> 1.9'
 
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
 
